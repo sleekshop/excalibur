@@ -2,26 +2,16 @@
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* Strong framework for building e-commerce solutions with sleekshop based on:
+- bootstrap
+- slim-framework
+- jquery
+* Version 1.0.0
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* Change some configuration - files
+* Set up the needed classes in the backend
+* All described in the file /setup/readme.txt
 
 ### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
