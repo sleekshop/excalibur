@@ -1,0 +1,79 @@
+{%extends "page.html"%}
+
+{% block content %}
+<div class="col-md-12">
+<h1>Ihre Daten</h1>
+<br><br>
+</div>
+<div class="col-md-6">
+{% if error_count>0 %}
+ <div class="alert alert-danger" role="alert">
+   {% trans %}Please fill in all fields marked with *{% endtrans %}
+      </div>
+{% endif %}
+<form method="POST" action="userdata" class="form">
+<div class="form-group {{error.email}}">
+<label>E-Mail*</label>
+<input type="text" name="email" class="form-control" value="{{ userdata.email }}">
+</div>
+<div class="form-group">
+<label>{% trans %}Salutation{% endtrans %}</label>
+<select name="salutation" class="form-control">
+<option value="Mrs" {% if userdata.salutation=='Mrs' %}selected{%endif%}>{%trans%}Mrs{%endtrans%}</option>
+<option value="Mr" {% if userdata.salutation=='Mr' %}selected{%endif%}>{%trans%}Mr{%endtrans%}</option>
+</select>
+</div>
+<div class="form-group {{error.firstname}}">
+<label>{%trans%}Firstname{%endtrans%}*</label>
+<input type="text" name="firstname" class="form-control" value="{{userdata.firstname}}">
+</div>
+<div class="form-group {{error.lastname}}">
+<label>{%trans%}Lastname{%endtrans%}*</label>
+<input type="text" name="lastname" class="form-control" value="{{userdata.lastname}}">
+</div>
+<div class="form-group">
+<label>{%trans%}Company{%endtrans%}</label>
+<input type="text" name="companyname" class="form-control" value="{{userdata.companyname}}">
+</div>
+<div class="form-group">
+<label>{%trans%}Department{%endtrans%}</label>
+<input type="text" name="department" class="form-control" value="{{userdata.department}}">
+</div>
+<div class="form-group {{error.street}}">
+<label>{%trans%}Street{%endtrans%}*</label>
+<input type="text" name="street" class="form-control" value="{{userdata.street}}">
+</div>
+<div class="form-group {{error.number}}">
+<label>{%trans%}Number{%endtrans%}*</label>
+<input type="text" name="number" class="form-control" value="{{userdata.number}}">
+</div>
+<div class="form-group {{error.zip}}">
+<label>{%trans%}Zip{%endtrans%}*</label>
+<input type="text" name="zip" class="form-control" value="{{userdata.zip}}">
+</div>
+<div class="form-group {{error.city}}">
+<label>{%trans%}City{%endtrans%}*</label>
+<input type="text" name="city" class="form-control" value="{{userdata.city}}">
+</div>
+<div class="form-group {{error.state}}">
+<label>{%trans%}State{%endtrans%}*</label>
+<input type="text" name="state" class="form-control" value="{{userdata.state}}">
+</div>
+<div class="form-group {{error.country}}">
+<label>{%trans%}Country{%endtrans%}*</label>
+<select name="country" class="form-control">
+<option value="">{%trans%}Please choose your country{%endtrans%}</option>
+<option value="DE" {% if userdata.country=='DE'%}selected{%endif%}>{%trans%}Germany{%endtrans%}</option>
+</select>
+<!-- <input type="text" name="country" class="form-control" value="{$userdata.country}"> -->
+</div>
+<div class="form-group">
+<label>{%trans%}Notes{%endtrans%}</label>
+<textarea type="text" name="notes" class="form-control">{{userdata.notes}}</textarea>
+</div>
+<p align=""><input type="submit" class="btn  btn-primary" value="{%trans%}Next{%endtrans%}"></p>
+
+</form>
+
+</div>
+{% endblock %}

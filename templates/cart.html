@@ -1,0 +1,59 @@
+{% extends 'page.html' %}
+{% block content %}
+{% if res==0 %}
+<div class="col-md-12">
+<h1>{%trans%}Your cart is empty{%endtrans%}</h1>
+<br><br>
+<a href="index.php" class="btn btn-lg btn-primary">{%trans%}Back{%endtrans%}</a>
+</div>
+{%else%}
+<div class="col-md-12">
+<h1>{%trans%}Your cart{%endtrans%}</h1>
+<br><br>
+<table class="table table-striped">
+            <thead>
+              <tr>
+                <th class="hidden-xs"></th>
+                <th>{% trans %}Product{% endtrans %}</th>
+                <th class="text-right">Preis</th>
+                <th class="text-right">Anzahl</th>
+                <th class="text-right">Gesamtpreis</th>
+                <th class="text-right"></th>
+              </tr>
+            </thead>
+            <tbody>
+            {% set sum_tax=0 %}
+            {%for value in res.contents%}
+             {% set sum_tax=sum_tax+value.sum_price*value.attributes.sys_tax%}
+              <tr>
+                <td class="col-md-2 hidden-xs"><img src="{{value.attributes.pic}}" width="100%"></td>
+                <td class="col-md-4">{{value.name}}<br>{{value.description}}</td>
+                <td class="col-md-2 text-right">{{ value.price|number_format(2)}} EUR</td>
+                <td class="col-md-2 text-right">{{ value.quantity }}</td>
+                <td class="col-md-2 text-right">{{ value.sum_price|number_format(2)}} EUR</td>
+                <td class="col-md-2 text-right"><a href="del_from_cart?id={{value.id}}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+              </tr>
+              {%endfor%}
+              <tr>
+              <td class="hidden-xs"></td><td></td><td><h3>{%trans%}Sum{%endtrans%}:</h3></td><td></td><td class="text-right"><h3>{{ res.sum|number_format(2)}} EUR</h3></td><td></td>
+              </tr>
+              <tr>
+              <td class="hidden-xs"></td><td></td><td><h5>{%trans%}Included tax{%endtrans%}:</h5></td><td></td><td class="text-right"><h5>{{ sum_tax|number_format(2)}} EUR</h5></td><td></td>
+              </tr>
+            </tbody>
+          </table>
+          <p align="right"><a href="your-data" class="btn btn-lg btn-primary">{%trans%}Next{%endtrans%}</a></p>
+      </div>
+<div class="col-md-12">
+<hr>
+<form method="POST" action="cart.php?method=add_coupon" class="form form-inline">
+  {%if coupon_error==1%}
+    <div class="alert alert-danger" role="alert">
+      {%trans%}The entered coupon-code seems to be invalid or you already used this code before{%endtrans%}.
+    </div>
+   {%endif%}
+<h3>{%trans%}I have a coupon-code{%endtrans%}: <input type="text" name="coupon" value="" class="form-control"><input type="submit" class="btn btn-primary" value="{%trans%}Use coupon-code{%endtrans%}"></h3>
+</form>
+</div>
+{%endif%}
+{% endblock %}

@@ -1,0 +1,1291 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: aviationgate\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-07-19 14:03+0100\n"
+"PO-Revision-Date: 2011-07-19 14:40+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: iso-8859-1\n"
+"X-Poedit-SearchPath-0: ../..\n"
+
+#: ../../error_messages.inc.php:3
+msgid "EMAIL_IS_IN_USE"
+msgstr "This email is in use by another user"
+
+#: ../../error_messages.inc.php:4
+msgid "COULD_NOT_SAVE_USER_ATTRIBUTE_ENTRY"
+msgstr "Please fill out all data in the main data section of your profile"
+
+#: ../../error_messages.inc.php:5
+msgid "EMAIL_IS_INVALID"
+msgstr "The chosen email seems to be not valid"
+
+#: ../../error_messages.inc.php:6
+msgid "AN_UPLOAD_ERROR_OCCURED"
+msgstr "An error occured while uploading your file. Please check your file or choose another one."
+
+#: ../../error_messages.inc.php:7
+msgid "INVALID_UPLOAD_TYPE"
+msgstr "The upload type of your file is invalid."
+
+#: ../../error_messages.inc.php:8
+msgid "INVALID_UPLOAD_NAME"
+msgstr "The upload name is not valid"
+
+#: ../../error_messages.inc.php:9
+msgid "UPLOAD_IS_EMPTY"
+msgstr "The uploading file is empty"
+
+#: ../../error_messages.inc.php:10
+msgid "USERPIC_TO_BIG"
+msgstr "Your file is too big.  The max. filesize is 300kb."
+
+#: ../../error_messages.inc.php:11
+msgid "ADPIC_TO_BIG"
+msgstr "The advertisement pic is too big. The max. filesize should be 800kb."
+
+#: ../../error_messages.inc.php:12
+msgid "USERNAME_IS_INVALID"
+msgstr "The username should have at least 4 characters and max. 12 characters without space."
+
+#: ../../error_messages.inc.php:13
+msgid "PASSWORD_IS_INVALID"
+msgstr "The password is invalid. Your password should be between 5 and 12 characters without space."
+
+#: ../../error_messages.inc.php:14
+msgid "PASSWORDS_DOES_NOT_MATCH"
+msgstr "The chosen passwords does not match."
+
+#: ../../error_messages.inc.php:15
+msgid "REQUEST_MSG_TOO_SHORT"
+msgstr "Your request should contain at least 90 characters."
+
+#: ../../error_messages.inc.php:16
+msgid "NO_MAINPIC_FOR_ADVERTISEMENT"
+msgstr "You have to chose at least one picture for your advertisement."
+
+#: ../../error_messages.inc.php:17
+msgid "NO_VALID_PRICE_FOR_ADVERTISEMENT"
+msgstr "Please fill in a price for your advertisement."
+
+#: ../../error_messages.inc.php:18
+msgid "INVALID_QUANTITY_FOR_ADVERTISEMENT"
+msgstr "Please fill in the quantity for your advertisement."
+
+#: ../../error_messages.inc.php:19
+msgid "ADVERTISEMENT_SAVED"
+msgstr "Your advertisement was saved successfully. It can take up to 24 hours until your advertisement is visible."
+
+#: ../../error_messages.inc.php:20
+msgid "USERNAME_IN_USE"
+msgstr "The chosen username is used by another user"
+
+#: ../../error_messages.inc.php:21
+msgid "USER_EMAIL_COMBINATION_IS_WRONG"
+msgstr "Username and email do not match"
+
+#: ../../error_messages.inc.php:22
+msgid "OLD_PASSWORD_IS_WRONG"
+msgstr "The old password is wrong"
+
+#: ../../other_terms.php:3
+msgid "about_us"
+msgstr "About us"
+
+#: ../../other_terms.php:4
+msgid "imprint"
+msgstr "Imprint"
+
+#: ../../other_terms.php:5
+msgid "introduction"
+msgstr "Introduction"
+
+#: ../../other_terms.php:6
+msgid "advertising_opportunities"
+msgstr "Advertising"
+
+#: ../../other_terms.php:7
+msgid "general_terms"
+msgstr "General terms"
+
+#: ../../other_terms.php:8
+msgid "data_privacy_policy"
+msgstr "Privacy"
+
+#: ../../other_terms.php:9
+msgid "partner_programs"
+msgstr "Partner"
+
+#: ../../other_terms.php:10
+msgid "jobs"
+msgstr "Jobs"
+
+#: ../../other_terms.php:11
+msgid "waiting_email_verification"
+msgstr ""
+
+#: ../../terms.inc.php:2
+msgid "Ad-admin"
+msgstr ""
+
+#: ../../terms.inc.php:3
+#: ../../terms.inc.php:12
+#: ../../terms.inc.php:59
+#: ../../terms.inc.php:88
+#: ../../terms.inc.php:100
+#: ../../terms.inc.php:350
+#: ../../terms.inc.php:383
+#: ../../terms.inc.php:429
+#: ../../terms.inc.php:444
+msgid "Username"
+msgstr ""
+
+#: ../../terms.inc.php:4
+#: ../../terms.inc.php:16
+#: ../../terms.inc.php:31
+#: ../../terms.inc.php:64
+#: ../../terms.inc.php:92
+#: ../../terms.inc.php:105
+msgid "Status"
+msgstr ""
+
+#: ../../terms.inc.php:5
+#: ../../terms.inc.php:32
+msgid "ad_active"
+msgstr "Advertisement active"
+
+#: ../../terms.inc.php:6
+#: ../../terms.inc.php:33
+msgid "ad_locked"
+msgstr "Advertisement locked"
+
+#: ../../terms.inc.php:7
+#: ../../terms.inc.php:96
+#: ../../terms.inc.php:107
+#: ../../terms.inc.php:132
+#: ../../terms.inc.php:156
+#: ../../terms.inc.php:172
+#: ../../terms.inc.php:199
+#: ../../terms.inc.php:275
+#: ../../terms.inc.php:283
+#: ../../terms.inc.php:340
+#: ../../terms.inc.php:345
+#: ../../terms.inc.php:369
+#: ../../terms.inc.php:380
+#: ../../terms.inc.php:389
+#: ../../terms.inc.php:393
+#: ../../terms.inc.php:408
+#: ../../terms.inc.php:413
+#: ../../terms.inc.php:420
+#: ../../terms.inc.php:426
+#: ../../terms.inc.php:436
+#: ../../terms.inc.php:441
+#: ../../terms.inc.php:448
+#: ../../terms.inc.php:479
+msgid "Search"
+msgstr ""
+
+#: ../../terms.inc.php:8
+#: ../../terms.inc.php:22
+#: ../../terms.inc.php:97
+msgid "Reset"
+msgstr ""
+
+#: ../../terms.inc.php:9
+#: ../../terms.inc.php:411
+msgid "Advertisements"
+msgstr ""
+
+#: ../../terms.inc.php:10
+#: ../../terms.inc.php:99
+msgid "ID"
+msgstr ""
+
+#: ../../terms.inc.php:11
+#: ../../terms.inc.php:466
+#: ../../terms.inc.php:485
+#: ../../terms.inc.php:555
+#: ../../terms.inc.php:559
+msgid "Product"
+msgstr ""
+
+#: ../../terms.inc.php:13
+#: ../../terms.inc.php:28
+#: ../../terms.inc.php:149
+#: ../../terms.inc.php:217
+#: ../../terms.inc.php:282
+#: ../../terms.inc.php:363
+#: ../../terms.inc.php:419
+#: ../../terms.inc.php:460
+#: ../../terms.inc.php:473
+#: ../../terms.inc.php:493
+#: ../../terms.inc.php:528
+#: ../../terms.inc.php:567
+msgid "Location"
+msgstr ""
+
+#: ../../terms.inc.php:14
+#: ../../terms.inc.php:29
+#: ../../terms.inc.php:120
+#: ../../terms.inc.php:212
+#: ../../terms.inc.php:364
+#: ../../terms.inc.php:422
+#: ../../terms.inc.php:454
+#: ../../terms.inc.php:461
+#: ../../terms.inc.php:474
+#: ../../terms.inc.php:494
+#: ../../terms.inc.php:529
+#: ../../terms.inc.php:568
+msgid "Quantity"
+msgstr ""
+
+#: ../../terms.inc.php:15
+msgid "Creation date"
+msgstr ""
+
+#: ../../terms.inc.php:17
+#: ../../terms.inc.php:357
+msgid "Advertisement"
+msgstr ""
+
+#: ../../terms.inc.php:18
+#: ../../terms.inc.php:412
+msgid "CMS"
+msgstr ""
+
+#: ../../terms.inc.php:19
+msgid "Page"
+msgstr ""
+
+#: ../../terms.inc.php:20
+#: ../../terms.inc.php:433
+msgid "Language"
+msgstr ""
+
+#: ../../terms.inc.php:21
+msgid "Open"
+msgstr ""
+
+#: ../../terms.inc.php:23
+msgid "Choose a field to edit"
+msgstr ""
+
+#: ../../terms.inc.php:24
+#: ../../terms.inc.php:143
+#: ../../terms.inc.php:208
+#: ../../terms.inc.php:489
+#: ../../terms.inc.php:524
+#: ../../terms.inc.php:563
+msgid "Ex airplane"
+msgstr ""
+
+#: ../../terms.inc.php:25
+#: ../../terms.inc.php:128
+#: ../../terms.inc.php:209
+#: ../../terms.inc.php:360
+#: ../../terms.inc.php:457
+#: ../../terms.inc.php:470
+#: ../../terms.inc.php:490
+#: ../../terms.inc.php:525
+#: ../../terms.inc.php:564
+msgid "Compatible airplanes"
+msgstr ""
+
+#: ../../terms.inc.php:26
+#: ../../terms.inc.php:361
+#: ../../terms.inc.php:458
+#: ../../terms.inc.php:471
+#: ../../terms.inc.php:491
+#: ../../terms.inc.php:526
+#: ../../terms.inc.php:565
+msgid "Construction"
+msgstr ""
+
+#: ../../terms.inc.php:27
+#: ../../terms.inc.php:211
+#: ../../terms.inc.php:362
+#: ../../terms.inc.php:459
+#: ../../terms.inc.php:472
+#: ../../terms.inc.php:492
+#: ../../terms.inc.php:527
+#: ../../terms.inc.php:566
+msgid "Condition"
+msgstr ""
+
+#: ../../terms.inc.php:30
+#: ../../terms.inc.php:121
+#: ../../terms.inc.php:213
+#: ../../terms.inc.php:365
+#: ../../terms.inc.php:421
+#: ../../terms.inc.php:452
+#: ../../terms.inc.php:462
+#: ../../terms.inc.php:475
+#: ../../terms.inc.php:495
+#: ../../terms.inc.php:530
+#: ../../terms.inc.php:569
+msgid "Price"
+msgstr ""
+
+#: ../../terms.inc.php:34
+#: ../../terms.inc.php:68
+#: ../../terms.inc.php:115
+#: ../../terms.inc.php:142
+#: ../../terms.inc.php:164
+#: ../../terms.inc.php:180
+#: ../../terms.inc.php:195
+#: ../../terms.inc.php:207
+#: ../../terms.inc.php:241
+#: ../../terms.inc.php:305
+#: ../../terms.inc.php:324
+msgid "Submit"
+msgstr ""
+
+#: ../../terms.inc.php:35
+#: ../../terms.inc.php:111
+#: ../../terms.inc.php:138
+#: ../../terms.inc.php:160
+#: ../../terms.inc.php:176
+#: ../../terms.inc.php:191
+#: ../../terms.inc.php:203
+#: ../../terms.inc.php:242
+#: ../../terms.inc.php:248
+#: ../../terms.inc.php:284
+#: ../../terms.inc.php:290
+#: ../../terms.inc.php:308
+#: ../../terms.inc.php:314
+#: ../../terms.inc.php:327
+#: ../../terms.inc.php:332
+#: ../../terms.inc.php:497
+#: ../../terms.inc.php:531
+msgid "Main data"
+msgstr ""
+
+#: ../../terms.inc.php:36
+#: ../../terms.inc.php:151
+#: ../../terms.inc.php:219
+#: ../../terms.inc.php:498
+#: ../../terms.inc.php:532
+msgid "Manufacturer"
+msgstr ""
+
+#: ../../terms.inc.php:37
+#: ../../terms.inc.php:152
+#: ../../terms.inc.php:220
+#: ../../terms.inc.php:499
+#: ../../terms.inc.php:533
+msgid "Model"
+msgstr ""
+
+#: ../../terms.inc.php:38
+#: ../../terms.inc.php:150
+#: ../../terms.inc.php:218
+#: ../../terms.inc.php:500
+#: ../../terms.inc.php:534
+msgid "Manufacturing date"
+msgstr ""
+
+#: ../../terms.inc.php:39
+#: ../../terms.inc.php:126
+#: ../../terms.inc.php:224
+#: ../../terms.inc.php:501
+#: ../../terms.inc.php:535
+msgid "Product number"
+msgstr ""
+
+#: ../../terms.inc.php:40
+#: ../../terms.inc.php:148
+#: ../../terms.inc.php:216
+#: ../../terms.inc.php:502
+#: ../../terms.inc.php:536
+msgid "LOPA"
+msgstr ""
+
+#: ../../terms.inc.php:41
+#: ../../terms.inc.php:123
+#: ../../terms.inc.php:221
+#: ../../terms.inc.php:503
+#: ../../terms.inc.php:537
+msgid "Electronic"
+msgstr ""
+
+#: ../../terms.inc.php:42
+#: ../../terms.inc.php:124
+#: ../../terms.inc.php:222
+#: ../../terms.inc.php:504
+#: ../../terms.inc.php:538
+msgid "Cover"
+msgstr ""
+
+#: ../../terms.inc.php:43
+#: ../../terms.inc.php:125
+#: ../../terms.inc.php:223
+#: ../../terms.inc.php:505
+#: ../../terms.inc.php:539
+msgid "Color"
+msgstr ""
+
+#: ../../terms.inc.php:44
+#: ../../terms.inc.php:225
+#: ../../terms.inc.php:506
+#: ../../terms.inc.php:540
+msgid "Weight"
+msgstr ""
+
+#: ../../terms.inc.php:45
+#: ../../terms.inc.php:117
+#: ../../terms.inc.php:226
+#: ../../terms.inc.php:507
+#: ../../terms.inc.php:541
+msgid "TSO"
+msgstr ""
+
+#: ../../terms.inc.php:46
+#: ../../terms.inc.php:49
+#: ../../terms.inc.php:52
+#: ../../terms.inc.php:227
+#: ../../terms.inc.php:230
+#: ../../terms.inc.php:233
+#: ../../terms.inc.php:508
+#: ../../terms.inc.php:511
+#: ../../terms.inc.php:514
+#: ../../terms.inc.php:542
+#: ../../terms.inc.php:545
+#: ../../terms.inc.php:548
+msgid "Yes"
+msgstr ""
+
+#: ../../terms.inc.php:47
+#: ../../terms.inc.php:50
+#: ../../terms.inc.php:53
+#: ../../terms.inc.php:228
+#: ../../terms.inc.php:231
+#: ../../terms.inc.php:234
+#: ../../terms.inc.php:509
+#: ../../terms.inc.php:512
+#: ../../terms.inc.php:515
+#: ../../terms.inc.php:543
+#: ../../terms.inc.php:546
+#: ../../terms.inc.php:549
+msgid "No"
+msgstr ""
+
+#: ../../terms.inc.php:48
+#: ../../terms.inc.php:118
+#: ../../terms.inc.php:229
+#: ../../terms.inc.php:510
+#: ../../terms.inc.php:544
+msgid "CMM"
+msgstr ""
+
+#: ../../terms.inc.php:51
+#: ../../terms.inc.php:119
+#: ../../terms.inc.php:232
+#: ../../terms.inc.php:513
+#: ../../terms.inc.php:547
+msgid "Envelop drawings"
+msgstr ""
+
+#: ../../terms.inc.php:54
+#: ../../terms.inc.php:116
+#: ../../terms.inc.php:235
+#: ../../terms.inc.php:516
+#: ../../terms.inc.php:550
+msgid "Description"
+msgstr ""
+
+#: ../../terms.inc.php:55
+#: ../../terms.inc.php:56
+#: ../../terms.inc.php:57
+#: ../../terms.inc.php:58
+#: ../../terms.inc.php:165
+#: ../../terms.inc.php:166
+#: ../../terms.inc.php:167
+#: ../../terms.inc.php:168
+#: ../../terms.inc.php:236
+#: ../../terms.inc.php:237
+#: ../../terms.inc.php:238
+#: ../../terms.inc.php:239
+#: ../../terms.inc.php:517
+#: ../../terms.inc.php:518
+#: ../../terms.inc.php:519
+#: ../../terms.inc.php:520
+#: ../../terms.inc.php:551
+#: ../../terms.inc.php:552
+#: ../../terms.inc.php:553
+#: ../../terms.inc.php:554
+msgid "Attachment"
+msgstr ""
+
+#: ../../terms.inc.php:60
+#: ../../terms.inc.php:91
+msgid "eMail"
+msgstr ""
+
+#: ../../terms.inc.php:61
+msgid "Registration date"
+msgstr ""
+
+#: ../../terms.inc.php:62
+msgid "First login"
+msgstr ""
+
+#: ../../terms.inc.php:63
+msgid "Last login"
+msgstr ""
+
+#: ../../terms.inc.php:65
+#: ../../terms.inc.php:93
+msgid "Waiting email verification"
+msgstr ""
+
+#: ../../terms.inc.php:66
+#: ../../terms.inc.php:94
+msgid "Active"
+msgstr ""
+
+#: ../../terms.inc.php:67
+#: ../../terms.inc.php:95
+msgid "Locked"
+msgstr ""
+
+#: ../../terms.inc.php:69
+#: ../../terms.inc.php:89
+#: ../../terms.inc.php:102
+#: ../../terms.inc.php:293
+msgid "First name"
+msgstr ""
+
+#: ../../terms.inc.php:70
+#: ../../terms.inc.php:90
+#: ../../terms.inc.php:103
+#: ../../terms.inc.php:294
+msgid "Last name"
+msgstr ""
+
+#: ../../terms.inc.php:71
+#: ../../terms.inc.php:295
+msgid "Company name"
+msgstr ""
+
+#: ../../terms.inc.php:72
+#: ../../terms.inc.php:297
+msgid "Position"
+msgstr ""
+
+#: ../../terms.inc.php:73
+#: ../../terms.inc.php:298
+msgid "Country"
+msgstr ""
+
+#: ../../terms.inc.php:74
+#: ../../terms.inc.php:299
+msgid "Street"
+msgstr ""
+
+#: ../../terms.inc.php:75
+#: ../../terms.inc.php:302
+msgid "Postal code"
+msgstr ""
+
+#: ../../terms.inc.php:76
+#: ../../terms.inc.php:301
+msgid "City"
+msgstr ""
+
+#: ../../terms.inc.php:77
+#: ../../terms.inc.php:303
+msgid "Phone"
+msgstr ""
+
+#: ../../terms.inc.php:78
+#: ../../terms.inc.php:317
+msgid "Mobile"
+msgstr ""
+
+#: ../../terms.inc.php:79
+#: ../../terms.inc.php:318
+msgid "Fax"
+msgstr ""
+
+#: ../../terms.inc.php:80
+#: ../../terms.inc.php:81
+msgid "Website"
+msgstr ""
+
+#: ../../terms.inc.php:82
+#: ../../terms.inc.php:323
+msgid "Interests"
+msgstr ""
+
+#: ../../terms.inc.php:83
+msgid "Birthday"
+msgstr ""
+
+#: ../../terms.inc.php:84
+msgid "Send message"
+msgstr ""
+
+#: ../../terms.inc.php:85
+msgid "Send new passwd"
+msgstr ""
+
+#: ../../terms.inc.php:86
+msgid "Administrator"
+msgstr ""
+
+#: ../../terms.inc.php:87
+msgid "Useradmin"
+msgstr ""
+
+#: ../../terms.inc.php:98
+msgid "Last registered users"
+msgstr ""
+
+#: ../../terms.inc.php:101
+msgid "email"
+msgstr ""
+
+#: ../../terms.inc.php:104
+msgid "Reg. date"
+msgstr ""
+
+#: ../../terms.inc.php:106
+msgid "Userprofile"
+msgstr ""
+
+#: ../../terms.inc.php:108
+#: ../../terms.inc.php:133
+#: ../../terms.inc.php:157
+#: ../../terms.inc.php:173
+#: ../../terms.inc.php:200
+#: ../../terms.inc.php:276
+#: ../../terms.inc.php:341
+#: ../../terms.inc.php:346
+#: ../../terms.inc.php:370
+#: ../../terms.inc.php:381
+#: ../../terms.inc.php:390
+#: ../../terms.inc.php:427
+#: ../../terms.inc.php:437
+#: ../../terms.inc.php:442
+#: ../../terms.inc.php:449
+#: ../../terms.inc.php:480
+msgid "Advertise"
+msgstr ""
+
+#: ../../terms.inc.php:109
+#: ../../terms.inc.php:134
+#: ../../terms.inc.php:158
+#: ../../terms.inc.php:174
+#: ../../terms.inc.php:190
+#: ../../terms.inc.php:201
+msgid "Take out an advertisement"
+msgstr ""
+
+#: ../../terms.inc.php:110
+#: ../../terms.inc.php:135
+#: ../../terms.inc.php:175
+msgid "For placing an advertisement on AviationGate, you have to pass only 5 steps"
+msgstr ""
+
+#: ../../terms.inc.php:112
+#: ../../terms.inc.php:139
+#: ../../terms.inc.php:161
+#: ../../terms.inc.php:177
+#: ../../terms.inc.php:192
+#: ../../terms.inc.php:204
+#: ../../terms.inc.php:243
+#: ../../terms.inc.php:249
+#: ../../terms.inc.php:285
+#: ../../terms.inc.php:291
+#: ../../terms.inc.php:309
+#: ../../terms.inc.php:315
+#: ../../terms.inc.php:328
+#: ../../terms.inc.php:333
+msgid "Additional data"
+msgstr ""
+
+#: ../../terms.inc.php:113
+#: ../../terms.inc.php:140
+#: ../../terms.inc.php:162
+#: ../../terms.inc.php:178
+#: ../../terms.inc.php:193
+#: ../../terms.inc.php:205
+msgid "Pictures"
+msgstr ""
+
+#: ../../terms.inc.php:114
+#: ../../terms.inc.php:141
+#: ../../terms.inc.php:163
+#: ../../terms.inc.php:179
+#: ../../terms.inc.php:194
+#: ../../terms.inc.php:206
+msgid "Options"
+msgstr ""
+
+#: ../../terms.inc.php:122
+msgid "Currency"
+msgstr ""
+
+#: ../../terms.inc.php:127
+msgid "Weight in kg"
+msgstr ""
+
+#: ../../terms.inc.php:129
+#: ../../terms.inc.php:153
+#: ../../terms.inc.php:169
+#: ../../terms.inc.php:187
+#: ../../terms.inc.php:240
+#: ../../terms.inc.php:306
+#: ../../terms.inc.php:325
+#: ../../terms.inc.php:337
+msgid "back"
+msgstr ""
+
+#: ../../terms.inc.php:130
+#: ../../terms.inc.php:131
+#: ../../terms.inc.php:154
+#: ../../terms.inc.php:155
+#: ../../terms.inc.php:170
+#: ../../terms.inc.php:171
+#: ../../terms.inc.php:188
+#: ../../terms.inc.php:189
+#: ../../terms.inc.php:307
+#: ../../terms.inc.php:326
+#: ../../terms.inc.php:338
+msgid "next"
+msgstr ""
+
+#: ../../terms.inc.php:136
+msgid "Click here for starting a completely new advertisement"
+msgstr ""
+
+#: ../../terms.inc.php:137
+msgid "Clear"
+msgstr ""
+
+#: ../../terms.inc.php:144
+#: ../../terms.inc.php:278
+#: ../../terms.inc.php:415
+msgid "Category"
+msgstr ""
+
+#: ../../terms.inc.php:145
+#: ../../terms.inc.php:279
+#: ../../terms.inc.php:416
+msgid "Product class"
+msgstr ""
+
+#: ../../terms.inc.php:146
+#: ../../terms.inc.php:215
+#: ../../terms.inc.php:280
+#: ../../terms.inc.php:417
+msgid "Product construction"
+msgstr ""
+
+#: ../../terms.inc.php:147
+#: ../../terms.inc.php:281
+#: ../../terms.inc.php:418
+msgid "Product condition"
+msgstr ""
+
+#: ../../terms.inc.php:159
+msgid "Here you can fill in additional equipment for your product"
+msgstr ""
+
+#: ../../terms.inc.php:181
+#: ../../terms.inc.php:335
+msgid "Choose file"
+msgstr ""
+
+#: ../../terms.inc.php:182
+#: ../../terms.inc.php:336
+msgid "Upload"
+msgstr ""
+
+#: ../../terms.inc.php:183
+msgid "For uploading pictures you have to be logged in"
+msgstr ""
+
+#: ../../terms.inc.php:184
+msgid "If you are not registered, please register "
+msgstr ""
+
+#: ../../terms.inc.php:185
+#: ../../terms.inc.php:376
+#: ../../terms.inc.php:378
+#: ../../terms.inc.php:387
+msgid "here"
+msgstr ""
+
+#: ../../terms.inc.php:186
+msgid "The first uploaded file (big picture) will appear in your advertisement as main picture"
+msgstr ""
+
+#: ../../terms.inc.php:196
+#: ../../terms.inc.php:197
+#: ../../terms.inc.php:198
+msgid "Click here"
+msgstr ""
+
+#: ../../terms.inc.php:202
+msgid "Check your advertisement carefully before submitting"
+msgstr ""
+
+#: ../../terms.inc.php:210
+msgid "Class"
+msgstr ""
+
+#: ../../terms.inc.php:214
+msgid "Data"
+msgstr ""
+
+#: ../../terms.inc.php:244
+#: ../../terms.inc.php:250
+#: ../../terms.inc.php:286
+#: ../../terms.inc.php:292
+#: ../../terms.inc.php:310
+#: ../../terms.inc.php:316
+#: ../../terms.inc.php:329
+#: ../../terms.inc.php:334
+msgid "Picture"
+msgstr ""
+
+#: ../../terms.inc.php:245
+#: ../../terms.inc.php:287
+#: ../../terms.inc.php:311
+#: ../../terms.inc.php:330
+#: ../../terms.inc.php:351
+#: ../../terms.inc.php:384
+#: ../../terms.inc.php:431
+msgid "Password"
+msgstr ""
+
+#: ../../terms.inc.php:246
+msgid "Change your password"
+msgstr ""
+
+#: ../../terms.inc.php:247
+msgid "Password changed"
+msgstr ""
+
+#: ../../terms.inc.php:251
+msgid "Old Password"
+msgstr ""
+
+#: ../../terms.inc.php:252
+#: ../../terms.inc.php:440
+msgid "New password"
+msgstr ""
+
+#: ../../terms.inc.php:253
+msgid "Confirm new password"
+msgstr ""
+
+#: ../../terms.inc.php:254
+msgid "Change password"
+msgstr ""
+
+#: ../../terms.inc.php:255
+#: ../../terms.inc.php:399
+msgid "Advertising opportunities"
+msgstr ""
+
+#: ../../terms.inc.php:256
+#: ../../terms.inc.php:404
+msgid "Contact"
+msgstr ""
+
+#: ../../terms.inc.php:257
+#: ../../terms.inc.php:401
+msgid "Data privacy policy"
+msgstr ""
+
+#: ../../terms.inc.php:258
+msgid ""
+"Thank you for registration on Aviationgate.com\n"
+"Finish the registration by clicking the following link:"
+msgstr ""
+
+#: ../../terms.inc.php:259
+msgid "Your registration"
+msgstr ""
+
+#: ../../terms.inc.php:260
+#: ../../terms.inc.php:400
+msgid "General terms"
+msgstr ""
+
+#: ../../terms.inc.php:261
+msgid "Help"
+msgstr ""
+
+#: ../../terms.inc.php:262
+#: ../../terms.inc.php:349
+msgid "Imprint"
+msgstr ""
+
+#: ../../terms.inc.php:263
+#: ../../terms.inc.php:403
+msgid "Jobs"
+msgstr ""
+
+#: ../../terms.inc.php:264
+msgid "Advertisement saved"
+msgstr ""
+
+#: ../../terms.inc.php:265
+msgid "Advertisement not found"
+msgstr ""
+
+#: ../../terms.inc.php:266
+msgid "Back"
+msgstr ""
+
+#: ../../terms.inc.php:267
+msgid "Message sent"
+msgstr ""
+
+#: ../../terms.inc.php:268
+msgid "Sent new password"
+msgstr ""
+
+#: ../../terms.inc.php:269
+msgid "User is administrator"
+msgstr ""
+
+#: ../../terms.inc.php:270
+msgid "User is not a administrator"
+msgstr ""
+
+#: ../../terms.inc.php:271
+msgid "User saved"
+msgstr ""
+
+#: ../../terms.inc.php:272
+#: ../../terms.inc.php:273
+msgid "Your new password"
+msgstr ""
+
+#: ../../terms.inc.php:274
+#: ../../terms.inc.php:402
+msgid "Partner programs"
+msgstr ""
+
+#: ../../terms.inc.php:277
+#: ../../terms.inc.php:414
+msgid "Airplane"
+msgstr ""
+
+#: ../../terms.inc.php:288
+msgid "Please enter your registration data"
+msgstr ""
+
+#: ../../terms.inc.php:289
+#: ../../terms.inc.php:313
+msgid "Profile saved"
+msgstr ""
+
+#: ../../terms.inc.php:296
+msgid "Company type"
+msgstr ""
+
+#: ../../terms.inc.php:300
+msgid "Number"
+msgstr ""
+
+#: ../../terms.inc.php:304
+#: ../../terms.inc.php:430
+#: ../../terms.inc.php:445
+msgid "E-Mail"
+msgstr ""
+
+#: ../../terms.inc.php:312
+msgid "Please enter your  registration data"
+msgstr ""
+
+#: ../../terms.inc.php:319
+msgid "Day"
+msgstr ""
+
+#: ../../terms.inc.php:320
+msgid "Day of birth"
+msgstr ""
+
+#: ../../terms.inc.php:321
+msgid "Website 1"
+msgstr ""
+
+#: ../../terms.inc.php:322
+msgid "Website 2"
+msgstr ""
+
+#: ../../terms.inc.php:331
+msgid "Choose a file for picture upload"
+msgstr ""
+
+#: ../../terms.inc.php:339
+#: ../../terms.inc.php:368
+msgid "Error"
+msgstr ""
+
+#: ../../terms.inc.php:342
+msgid "Verification was not successful"
+msgstr ""
+
+#: ../../terms.inc.php:343
+msgid "Please try again"
+msgstr ""
+
+#: ../../terms.inc.php:344
+#: ../../terms.inc.php:447
+#: ../../terms.inc.php:478
+msgid "Success"
+msgstr ""
+
+#: ../../terms.inc.php:347
+msgid "You successfully completed your registration"
+msgstr ""
+
+#: ../../terms.inc.php:348
+msgid "Login now"
+msgstr ""
+
+#: ../../terms.inc.php:352
+#: ../../terms.inc.php:396
+#: ../../terms.inc.php:425
+#: ../../terms.inc.php:434
+msgid "Register"
+msgstr ""
+
+#: ../../terms.inc.php:353
+msgid "Forgot password?"
+msgstr ""
+
+#: ../../terms.inc.php:354
+#: ../../terms.inc.php:385
+msgid "Login"
+msgstr ""
+
+#: ../../terms.inc.php:355
+msgid "You are logged in as:"
+msgstr ""
+
+#: ../../terms.inc.php:356
+msgid "Logout"
+msgstr ""
+
+#: ../../terms.inc.php:358
+msgid "New offers"
+msgstr ""
+
+#: ../../terms.inc.php:359
+msgid "Top offers"
+msgstr ""
+
+#: ../../terms.inc.php:366
+msgid "News"
+msgstr ""
+
+#: ../../terms.inc.php:367
+msgid "Welcome"
+msgstr ""
+
+#: ../../terms.inc.php:371
+msgid "Welcome %1 %2"
+msgstr ""
+
+#: ../../terms.inc.php:372
+msgid "Search products now"
+msgstr ""
+
+#: ../../terms.inc.php:373
+#: ../../terms.inc.php:484
+msgid "Create a new advertisement"
+msgstr ""
+
+#: ../../terms.inc.php:374
+msgid "Login failed, please check your username and password"
+msgstr ""
+
+#: ../../terms.inc.php:375
+msgid "If you are not registered please register"
+msgstr ""
+
+#: ../../terms.inc.php:377
+msgid "If you need a new password we can send you a new one. Just click"
+msgstr ""
+
+#: ../../terms.inc.php:379
+msgid "Please login"
+msgstr ""
+
+#: ../../terms.inc.php:382
+msgid "For performing the desired function you have to be logged in"
+msgstr ""
+
+#: ../../terms.inc.php:386
+msgid "If you are not registered, please register"
+msgstr ""
+
+#: ../../terms.inc.php:388
+msgid "Goodbye"
+msgstr ""
+
+#: ../../terms.inc.php:391
+msgid "Your logout was successful"
+msgstr ""
+
+#: ../../terms.inc.php:392
+msgid "Home"
+msgstr ""
+
+#: ../../terms.inc.php:394
+#: ../../terms.inc.php:407
+msgid "New advertisement"
+msgstr ""
+
+#: ../../terms.inc.php:395
+msgid "My last search"
+msgstr ""
+
+#: ../../terms.inc.php:397
+msgid "About us"
+msgstr ""
+
+#: ../../terms.inc.php:398
+msgid "Introduction"
+msgstr ""
+
+#: ../../terms.inc.php:405
+msgid "My Aviationgate"
+msgstr ""
+
+#: ../../terms.inc.php:406
+msgid "Edit Profile"
+msgstr ""
+
+#: ../../terms.inc.php:409
+msgid "Administration"
+msgstr ""
+
+#: ../../terms.inc.php:410
+msgid "User"
+msgstr ""
+
+#: ../../terms.inc.php:423
+msgid "After changing a slider, the search result changes automatically"
+msgstr ""
+
+#: ../../terms.inc.php:424
+msgid "Back to search"
+msgstr ""
+
+#: ../../terms.inc.php:428
+#: ../../terms.inc.php:443
+msgid "Please fill out all fields below"
+msgstr ""
+
+#: ../../terms.inc.php:432
+msgid "Repeat Password"
+msgstr ""
+
+#: ../../terms.inc.php:435
+msgid "Verification"
+msgstr ""
+
+#: ../../terms.inc.php:438
+msgid "For completing your registration you need to verificate your email"
+msgstr ""
+
+#: ../../terms.inc.php:439
+msgid "Therefore we sent you an email with a link you have to follow"
+msgstr ""
+
+#: ../../terms.inc.php:446
+msgid "Send"
+msgstr ""
+
+#: ../../terms.inc.php:450
+msgid "We sent you a new password"
+msgstr ""
+
+#: ../../terms.inc.php:451
+msgid "Your result"
+msgstr ""
+
+#: ../../terms.inc.php:453
+msgid "Manufactoring date"
+msgstr ""
+
+#: ../../terms.inc.php:455
+msgid "Ascending"
+msgstr ""
+
+#: ../../terms.inc.php:456
+msgid "Descending"
+msgstr ""
+
+#: ../../terms.inc.php:463
+#: ../../terms.inc.php:464
+msgid "Details"
+msgstr ""
+
+#: ../../terms.inc.php:465
+msgid "No entries found matching your criteria"
+msgstr ""
+
+#: ../../terms.inc.php:467
+#: ../../terms.inc.php:486
+#: ../../terms.inc.php:556
+#: ../../terms.inc.php:560
+msgid "Images"
+msgstr ""
+
+#: ../../terms.inc.php:468
+#: ../../terms.inc.php:487
+#: ../../terms.inc.php:557
+#: ../../terms.inc.php:561
+msgid "Map"
+msgstr ""
+
+#: ../../terms.inc.php:469
+#: ../../terms.inc.php:477
+#: ../../terms.inc.php:488
+#: ../../terms.inc.php:496
+#: ../../terms.inc.php:558
+#: ../../terms.inc.php:562
+#: ../../terms.inc.php:570
+msgid "Send request"
+msgstr ""
+
+#: ../../terms.inc.php:476
+msgid "Your request"
+msgstr ""
+
+#: ../../terms.inc.php:481
+msgid "Your request sent successfully"
+msgstr ""
+
+#: ../../terms.inc.php:482
+msgid "Now you can:"
+msgstr ""
+
+#: ../../terms.inc.php:483
+msgid "Go back to your last search"
+msgstr ""
+
+#: ../../terms.inc.php:521
+msgid "Share on Xing"
+msgstr ""
+
+#: ../../terms.inc.php:522
+#: ../../terms.inc.php:523
+msgid "Print"
+msgstr ""
+

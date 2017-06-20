@@ -1,0 +1,64 @@
+{%extends "page.html"%}
+
+{%block content%}
+<div class="col-md-12">
+<h1>{%trans%}Please check your order{%endtrans%}:</h1>
+<br><br>
+</div>
+<div class="col-md-12">
+<h3>{%trans%}Your cart{%endtrans%}</h3>
+<br><br>
+<table class="table table-striped">
+            <thead>
+              <tr>
+                <th class="hidden-xs"></th>
+                <th>{%trans%}Product{%endtrans%}</th>
+                <th class="text-right">{%trans%}Price{%endtrans%}</th>
+                <th class="text-right">{%trans%}Quantity{%endtrans%}</th>
+                <th class="text-right">{%trans%}Sum price{%endtrans%}</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% set sum_tax=cart.delivery_costs.sum*0.19 %}
+            {%for value in cart.contents%}
+             {%set sum_tax=sum_tax+value.sum_price*value.attributes.sys_tax%}
+              <tr>
+                <td class="col-md-2 hidden-xs"><img src="{{value.attributes.pic}}" width="100%"></td>
+                <td class="col-md-4">{{value.name}}<br>{{value.description}}</td>
+                <td class="col-md-2 text-right">{{value.price|number_format(2)}} EUR</td>
+                <td class="col-md-2 text-right">{{value.quantity}}</td>
+                <td class="col-md-2 text-right">{{value.sum_price|number_format(2)}} EUR</td>
+              </tr>
+              {%endfor%}
+              <tr>
+              <td class="hidden-xs"></td><td></td><td><h5>{%trans%}Delivery costs{%endtrans%}:</h5></td><td></td><td class="text-right"><h5>{{cart.delivery_costs.sum|number_format(2)}} EUR</h5></td>
+              </tr>
+              <tr>
+              <td class="hidden-xs"></td><td></td><td><h3>{%trans%}Sum price{%endtrans%}:</h3></td><td></td><td class="text-right"><h3>{{(cart.sum+cart.delivery_costs.sum)|number_format(2)}} EUR</h3></td>
+              </tr>
+              <tr>
+              <td class="hidden-xs"></td><td></td><td><h5>{%trans%}Included tax{%endtrans%}:</h5></td><td></td><td class="text-right"><h5>{{sum_tax|number_format(2)}} EUR</h5></td>
+              </tr>
+            </tbody>
+          </table>
+
+</div>
+
+<div class="col-md-12">
+<hr>
+<h3>{%trans%}Your payment method{%endtrans%}: {{order.order_payment_method}}</h3>
+</div>
+
+<div class="col-md-12">
+<hr>
+<h3>{%trans%}Your data{%endtrans%}:</h3>
+{{order.delivery_salutation}} {{order.delivery_firstname}} {{order.delivery_lastname}}<br>
+{{order.delivery_street}} {{order.delivery_number}}<br>
+{{order.delivery_zip}} {{order.delivery_city}} - {{order.delivery_country}}
+<br><br>
+<form method="POST" action="checkout" id="submit-frm">
+<input type="hidden" name="token" value="{{token}}">
+<p align=""><input type="button" class="btn btn-lg btn-primary order-btn" value="{%trans%}Place Order{%endtrans%}" onClick="OrderPlaced();"><span id="wait-msg" style="display:none">wait...</span></p>
+</form>
+</div>
+{%endblock%}
