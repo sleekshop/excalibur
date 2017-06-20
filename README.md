@@ -6,6 +6,8 @@
 - bootstrap
 - slim-framework
 - jquery
+- twig as template - engine
+- based on PHP
 * Version 1.0.0
 
 ### How do I get set up? ###
