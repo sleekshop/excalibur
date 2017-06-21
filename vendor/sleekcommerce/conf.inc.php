@@ -12,9 +12,6 @@ define("MYSQL_DB","");
 define("TOKEN","testshop");
 //the default  language
 define("DEFAULT_LANGUAGE","de_DE");
-//Path settings
-define("ROOTPATH",$_SERVER["DOCUMENT_ROOT"] . "/");
-define("PROJECTPATH", ROOTPATH . "");
 //Thum-pic size
 define("PRODUCT_IMAGE_THUMB_HEIGHT",30);
 //The Start-Category

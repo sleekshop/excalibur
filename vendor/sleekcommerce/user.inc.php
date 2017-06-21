@@ -2,18 +2,18 @@
 
 class UserCtl
 {
-	
+
   function __construct()
   {
-  
+
   }
 
-  
-  
- /* 
+
+
+ /*
   * Logs in the user
-  */ 
- public function Login($session="",$username="",$password="")
+  */
+ public static function Login($session="",$username="",$password="")
  {
  	$sr=new SleekShopRequest();
  	$xml=$sr->login_user($session,$username,$password);
@@ -26,12 +26,12 @@ class UserCtl
  	$result["email"]=(string)$xml->email;
  	return($result);
  }
- 
- 
-/* 
+
+
+/*
  * Logs out the user
- */ 
- public function LogOut($session="")
+ */
+ public static function LogOut($session="")
  {
  	$sr=new SleekShopRequest();
  	$xml=$sr->logout_user($session,$username,$password);
@@ -39,12 +39,12 @@ class UserCtl
  	$result["status"]=(string)$xml->status;
  	return($result);
  }
- 
- 
- /* 
+
+
+ /*
   * Get the user - data
   */
- public function GetUserData($session="")
+ public static function GetUserData($session="")
  {
  	$sr=new SleekShopRequest();
  	$xml=$sr->get_user_data($session);
@@ -67,12 +67,12 @@ class UserCtl
  	$result["country"]=(string)$xml->attributes->country;
  	return($result);
  }
- 
- 
-/* 
+
+
+/*
  * Sets the user - data
- */ 
- public function SetUserData($session="",$args=array())
+ */
+ public static function SetUserData($session="",$args=array())
  {
  	$sr=new SleekShopRequest();
  	$xml=$sr->set_user_data($session,$args);
@@ -81,12 +81,12 @@ class UserCtl
  	$result["status"]=(string)$xml->status;
  	return($result);
  }
- 
- 
+
+
  /*
   * Sets the user - password
  */
- public function SetUserPassword($session="",$passwd1="",$passwd2="",$passwd3="")
+ public static function SetUserPassword($session="",$passwd1="",$passwd2="",$passwd3="")
  {
  	$sr=new SleekShopRequest();
  	$xml=$sr->set_user_password($session,$passwd1,$passwd2,$passwd3);
@@ -95,11 +95,11 @@ class UserCtl
  	$result["status"]=(string)$xml->status;
  	return($result);
  }
- 
+
  /*
   * Get the user - orders
  */
- public function GetUserOrders($session="")
+ public static function GetUserOrders($session="")
  {
  	$sr=new SleekShopRequest();
  	$xml=$sr->get_user_orders($session);
@@ -124,13 +124,13 @@ class UserCtl
  	}
  	return($result);
  }
- 
- 
- 
+
+
+
 /*
  * Registering a user
- */ 
- public function RegisterUser($args=array(),$lang=DEFAULT_LANGUAGE)
+ */
+ public static function RegisterUser($args=array(),$lang=DEFAULT_LANGUAGE)
  {
  	$sr=new SleekShopRequest();
  	$xml=$sr->register_user($args,$lang);
@@ -142,11 +142,11 @@ class UserCtl
  	return($result);
  }
 
- 
+
  /*
   * Verifies a user
  */
- public function VerifyUser($id_user=0,$session_id="")
+ public static function VerifyUser($id_user=0,$session_id="")
  {
  	$sr=new SleekShopRequest();
  	$xml=$sr->verify_user($id_user,$session_id);
@@ -155,8 +155,8 @@ class UserCtl
  	$result["status"]=(string)$xml->status;
  	return($result);
  }
- 
- 
+
+
 }
 
 ?>

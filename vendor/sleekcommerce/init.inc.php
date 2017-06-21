@@ -5,9 +5,8 @@
  *
  * @ Kaveh Raji <kr@sleekcommerce.com>
  */
- define("ROOTPATH",$_SERVER["DOCUMENT_ROOT"] . "");
- define("PROJECTPATH", ROOTPATH . "");
-
+ define("ROOTPATH",$_SERVER["DOCUMENT_ROOT"] . "/");
+ define("PROJECTPATH", ROOTPATH . "../");
  /*
   * Now including some libaries needed
   */

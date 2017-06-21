@@ -2,15 +2,15 @@
 
 class PaymentCtl
 {
-	
+
   function __construct()
   {
-  
+
   }
 
-  
-  
-public function GetPaymentMethods()
+
+
+public static function GetPaymentMethods()
 {
 	$sr=new SleekShopRequest();
 	$xml=$sr->get_payment_methods();
@@ -28,12 +28,12 @@ public function GetPaymentMethods()
 		$result[(string)$method->name]=$piecearray;
 	}
 	return($result);
-}  
-  
-  
-public function DoPayment($id_order=0,$args=array())
+}
+
+
+public static function DoPayment($id_order=0,$args=array())
 {
-	
+
 }
 
 

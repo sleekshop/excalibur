@@ -12,7 +12,7 @@ class ShopobjectsCtl
 /*
  * Derives the availability status as a label
  */
-private function get_availability_label($qty=0,$qty_warning=0,$allow_override=0,$active=0)
+private static function get_availability_label($qty=0,$qty_warning=0,$allow_override=0,$active=0)
 {
 	if($active==0 OR $allow_override==1) return("success");
 	if($qty<$qty_warning AND $qty>0) return("warning");
@@ -20,7 +20,7 @@ private function get_availability_label($qty=0,$qty_warning=0,$allow_override=0,
 	return("success");
 }
 
-private function get_shopobject_from_xml($so="")
+private static function get_shopobject_from_xml($so="")
 {
 	$piecearray=array();
 	$piecearray["id"]=(int)$so->id;
@@ -45,7 +45,7 @@ private function get_shopobject_from_xml($so="")
 		$attr["name"]=(string)$attribute->name;
 		$attr["label"]=(string)$attribute->label;
 		$attr["value"]=(string)$attribute->value;
-    $attr["value"]=html_entity_decode($attr["value"]);
+    $attr["value"]=htmlspecialchars_decode($attr["value"]);
 		if($attr["type"]=="TXT") $attr["value"]=str_replace("\n","<br>",$attr["value"]);
     //$attr["value"]=html_entity_decode($attr["value"]);
 		if((string)$attribute->attributes()->type=="IMG")
@@ -84,7 +84,7 @@ private function get_shopobject_from_xml($so="")
 
 
 
-private function get_products_from_xml($xml="")
+private static function get_products_from_xml($xml="")
 {
 	$result=array();
 	foreach($xml->product as $so)
@@ -94,7 +94,7 @@ private function get_products_from_xml($xml="")
 	return($result);
 }
 
-private function get_contents_from_xml($xml="")
+private static function get_contents_from_xml($xml="")
 {
 	$result=array();
 	foreach($xml->content as $so)
@@ -110,7 +110,7 @@ private function get_contents_from_xml($xml="")
 /*
  * Delivers an array containing all categories with the parent defined by $id_parent
  */
-public function GetShopobjects($id_category=0,$lang=DEFAULT_LANGUAGE,$order_column="",$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
+public static function GetShopobjects($id_category=0,$lang=DEFAULT_LANGUAGE,$order_column="",$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
  {
   $sr=new SleekShopRequest();
   $xml=$sr->get_shopobjects_in_category($id_category,$lang,$order_column,$order,$left_limit,$right_limit,$needed_attributes);
@@ -137,7 +137,7 @@ public function GetShopobjects($id_category=0,$lang=DEFAULT_LANGUAGE,$order_colu
 /*
  * Delivers an array containing all categories with the parent defined by $permalink
 */
-public function SeoGetShopobjects($permalink,$lang=DEFAULT_LANGUAGE,$order_column="",$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
+public static function SeoGetShopobjects($permalink,$lang=DEFAULT_LANGUAGE,$order_column="",$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
 {
 	$sr=new SleekShopRequest();
 	$xml=$sr->seo_get_shopobjects_in_category($permalink,$lang,$order_column,$order,$left_limit,$right_limit,$needed_attributes);
@@ -167,7 +167,7 @@ public function SeoGetShopobjects($permalink,$lang=DEFAULT_LANGUAGE,$order_colum
 /*
  * Delivers the shopobject - details of a given shopobject determined by its id
  */
-public function GetProductDetails($id_product=0,$lang=DEFAULT_LANGUAGE)
+public static function GetProductDetails($id_product=0,$lang=DEFAULT_LANGUAGE)
 {
 	$sr=new SleekShopRequest();
 	$xml=$sr->get_product_details($id_product,$lang);
@@ -180,7 +180,7 @@ public function GetProductDetails($id_product=0,$lang=DEFAULT_LANGUAGE)
 /*
  * Delivers the shopobject - details of a given shopobject determined by its id
 */
-public function GetContentDetails($id_content=0,$lang=DEFAULT_LANGUAGE)
+public static function GetContentDetails($id_content=0,$lang=DEFAULT_LANGUAGE)
 {
 	$sr=new SleekShopRequest();
 	$xml=$sr->get_content_details($id_content,$lang);
@@ -194,7 +194,7 @@ public function GetContentDetails($id_content=0,$lang=DEFAULT_LANGUAGE)
 /*
  * Delivers Shopobject - Details given a permalink
  */
-public function SeoGetProductDetails($permalink="")
+public static function SeoGetProductDetails($permalink="")
 {
 	$sr=new SleekShopRequest();
 	$xml=$sr->seo_get_product_details($permalink);
@@ -207,7 +207,7 @@ public function SeoGetProductDetails($permalink="")
 /*
  * Delivers Shopobject - Details given a permalink
 */
-public function SeoGetContentDetails($permalink="")
+public static function SeoGetContentDetails($permalink="")
 {
 	$sr=new SleekShopRequest();
 	$xml=$sr->seo_get_content_details($permalink);
@@ -220,7 +220,7 @@ public function SeoGetContentDetails($permalink="")
 /*
  * Search
 */
-public function SearchProducts($constraint=array(),$left_limit,$right_limit,$order_columns=array(),$order_type="ASC",$lang=DEFAULT_LANGUAGE,$needed_attributes=array())
+public static function SearchProducts($constraint=array(),$left_limit,$right_limit,$order_columns=array(),$order_type="ASC",$lang=DEFAULT_LANGUAGE,$needed_attributes=array())
 {
 	$sr=new SleekShopRequest();
 	$xml=$sr->search_products($constraint,$left_limit,$right_limit,$order_columns,$order_type,$lang,$needed_attributes);

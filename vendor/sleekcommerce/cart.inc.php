@@ -11,7 +11,7 @@ class CartCtl
 
 
 
- private function get_cart_array($xml="")
+ private static function get_cart_array($xml="")
  {
  	$result=array();
  	$result["sum"]=(float)$xml->sum;
@@ -56,7 +56,7 @@ class CartCtl
 /*
  * Adds an element to the cart
  */
-public function Add($session="",$id_product=0,$quantity=0,$price_field="",$name_field="",$description_field="",$language=DEFAULT_LANGUAGE,$element_type="PRODUCT_GR",$id_parent_element=0,$attributes=array())
+public static function Add($session="",$id_product=0,$quantity=0,$price_field="",$name_field="",$description_field="",$language=DEFAULT_LANGUAGE,$element_type="PRODUCT_GR",$id_parent_element=0,$attributes=array())
  {
   $sr=new SleekShopRequest();
   $xml=$sr->add_to_cart($session,$id_product,$quantity,$price_field,$name_field,$description_field,$language,$element_type,$id_parent_element,$attributes);
@@ -70,7 +70,7 @@ public function Add($session="",$id_product=0,$quantity=0,$price_field="",$name_
  /*
   * Deletes an element from the cart
   */
- public function Del($session="",$id_element=0)
+ public static function Del($session="",$id_element=0)
  {
  	$sr=new SleekShopRequest();
  	$xml=$sr->sub_from_cart($session,$id_element);
@@ -84,7 +84,7 @@ public function Add($session="",$id_product=0,$quantity=0,$price_field="",$name_
  /*
   * Returns the current cart
   */
- public function Get($session="")
+ public static function Get($session="")
  {
  	if($_COOKIE["cart"]=="")
  	{
@@ -101,7 +101,7 @@ public function Add($session="",$id_product=0,$quantity=0,$price_field="",$name_
 /*
  * Gets a new cart from the server
  */
-public function Refresh($session="")
+public static function Refresh($session="")
 {
 	$sr=new SleekShopRequest();
 	$xml=$sr->get_cart($session);

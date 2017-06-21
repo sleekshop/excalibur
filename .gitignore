@@ -1,0 +1,31 @@
+kavehs-iMac:excalibur kavehraji$ vi .gitignore
+
+# Mac Files
+#-------------------------
+.DS_Store
+
+# PhpStorm project files
+#-------------------------
+.idea
+
+# Build Files
+#-------------------------
+build
+
+
+
+# logs
+logs/
+#language - stuff
+var/languages/terms.php
+var/languages/terms2.php
+var/languages/tsmarty2c.php
+
+
+# local configuration
+private/configuration/localconf.php
+
+# !!! nach Integration löschen !!!
+_gitignore_*
+
+.ftpconfig

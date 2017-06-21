@@ -11,7 +11,7 @@ class SessionCtl
 /*
  * Delivers a valid session and returns it
  */
-public function GetSession()
+public static function GetSession()
  {
   if($_COOKIE[TOKEN . '_session']=="")
   {
@@ -33,7 +33,7 @@ public function GetSession()
 /*
  * Sets the session into the cookie
  */
- public function SetSession($session="")
+ public static function SetSession($session="")
  {
  	setcookie(TOKEN . '_session',$session);
  }

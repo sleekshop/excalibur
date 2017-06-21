@@ -2,15 +2,15 @@
 
 class OrderCtl
 {
-	
+
   function __construct()
   {
-  
+
   }
 
-  
-  
-private function get_order_details($xml="")
+
+
+private static function get_order_details($xml="")
 {
 	$result=array();
 	$result["id_user"]=(int)$xml->user->id_user;
@@ -57,13 +57,13 @@ private function get_order_details($xml="")
 	$result["note"]=(string)$xml->note;
 	$result["email"]=(string)$xml->email;
 	return($result);
-}  
-  
-  
-/* 
+}
+
+
+/*
  * Set order details
  */
-public function SetOrderDetails($session="",$args=array())
+public static function SetOrderDetails($session="",$args=array())
  {
  	$sr=new SleekShopRequest();
  	$xml=$sr->set_order_details($session,$args);
@@ -71,33 +71,33 @@ public function SetOrderDetails($session="",$args=array())
  	return(self::get_order_details($xml));
  }
 
- 
- /* 
+
+ /*
   * Gets the order details
   */
- public function GetOrderDetails($session="")
+ public static function GetOrderDetails($session="")
  {
  	$sr=new SleekShopRequest();
  	$xml=$sr->get_order_details($session,$args);
  	$xml=new SimpleXMLElement($xml);
  	return(self::get_order_details($xml));
  }
- 
- 
-/* 
+
+
+/*
  * Adds the delivery_costs to the order
  */
- public function AddDeliveryCosts($session="",$delivery_costs=array())
+ public static function AddDeliveryCosts($session="",$delivery_costs=array())
  {
  	$sr=new SleekShopRequest();
  	$xml=$sr->add_delivery_costs($session,$delivery_costs);
  }
- 
- 
-/* 
+
+
+/*
  * Checks out the order
  */
- public function Checkout($session="")
+ public static function Checkout($session="")
  {
  	$sr=new SleekShopRequest();
  	$xml=$sr->checkout($session);
@@ -111,10 +111,10 @@ public function SetOrderDetails($session="",$args=array())
     return($result);
  }
 
-/* 
+/*
  * Initiates the Payment
  */
- public function DoPayment($id_order=0,$args=array())
+ public static function DoPayment($id_order=0,$args=array())
  {
  	$sr=new SleekShopRequest();
  	$xml=$sr->do_payment($id_order,$args);
@@ -125,7 +125,7 @@ public function SetOrderDetails($session="",$args=array())
  	$result["redirect"]=(string)($xml->redirect);
  	return($result);
  }
- 
+
 }
 
 ?>
