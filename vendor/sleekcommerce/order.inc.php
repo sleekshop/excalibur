@@ -122,7 +122,7 @@ public static function SetOrderDetails($session="",$args=array())
  	$result=array();
  	$result["method"]=(string)$xml->method;
  	$result["status"]=(string)$xml->status;
- 	$result["redirect"]=(string)($xml->redirect);
+ 	$result["redirect"]=html_entity_decode((string)($xml->redirect));
  	return($result);
  }
 

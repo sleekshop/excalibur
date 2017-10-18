@@ -44,7 +44,7 @@
             {% if item.children|length>0 %}
             <a href="show_category.php?id={{ item.id }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ item.label }}<span class="caret"></span></a>
             {% else %}
-            <a href="{% if item.permalink!='' %}./category/{{ item.permalink }}{% else %}show_category.php?id={{ item.id }}{% endif %}">{{ item.label }}</a>
+            <a href="{% if item.permalink!='' %}./category/{{ item.permalink }}{% else %}./category/{{ item.id }}{% endif %}">{{ item.label }}</a>
             {% endif %}
             {% if item.children|length>0 %}
              <ul class="dropdown-menu" role="menu">
@@ -57,8 +57,16 @@
            {% endfor %}
          </ul>
          <ul class="nav navbar-nav navbar-right">
-           <li class="">{% if username!='' %}<a href="profile">{% trans %}You are logged in as{% endtrans %} {{ username }}</a>{% else %}<a href="login?profile=1">{% trans %}Login{% endtrans %}</a>{% endif %}</li>
-           {% if username!='' %}<li><a href="logout">{% trans %}Abmelden{% endtrans %}</a></li>{% endif %}
+           <li class="dropdown">
+                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{language|slice(0,2)}}
+                   <span class="caret"></span></a>
+                   <ul class="dropdown-menu">
+                     <li><a href="change-lang?lang=de_DE">de</a></li>
+                     <li><a href="change-lang?lang=en_EN">en</a></li>
+                   </ul>
+                 </li>
+           <li class="">{% if username!='' %}<a href="profile">{%trans%}You are logged in as{%endtrans%} {{ username }}</a>{% else %}<a href="login?profile=1">{% trans %}Login{% endtrans %}</a>{% endif %}</li>
+           {% if username!='' %}<li><a href="logout">{%trans%}Abmelden{%endtrans%}</a></li>{% endif %}
            <li class="hidden-xs cart-hover"><a href="cart"><span class="glyphicon glyphicon-shopping-cart"> {{cart.sum|number_format(2)}} EUR</span></a>
             <span class="cart-elements well">
           <table class="table table-striped small">
@@ -147,13 +155,13 @@
               </div>
               <div class="col-md-3">
               <h4>Infos</h4>
-              <a href="./inhalt::privatsphaere-und-datenschutz">Privatsph&auml;re und Datenschutz</a><br>
-              <a href="./inhalt::versand-und-zahlungsbedingungen">Versand und Zahlungsbedingungen</a><br>
-              <a href="./inhalt::agb">AGB</a><br>
-              <a href="./inhalt::impressum">Impressum</a><br><br><br><br>
+              <a href="./content/{%trans%}privacy{%endtrans%}">{%trans%}Privacy{%endtrans%}</a><br>
+              <a href="./content/{%trans%}delivery-and-payment{%endtrans%}">{%trans%}Delivery{%endtrans%}</a><br>
+              <a href="./content/{%trans%}terms{%endtrans%}">{%trans%}Terms{%endtrans%}</a><br>
+              <a href="./content/{%trans%}imprint{%endtrans%}">{%trans%}Imprint{%endtrans%}</a><br><br><br><br>
               </div>
               <div class="col-md-3">
-              <h4>Zahlungsmethoden</h4>
+              <h4>{%trans%}Payment methods{%endtrans%}</h4>
               <img src="../img/paypal.jpg" width="100px">
               <img src="../img/sofortueberweisung.jpg" width="100px"><br><br>
               <img src="../img/paymill.jpg" width="100px">

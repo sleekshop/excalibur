@@ -46,7 +46,8 @@ private static function get_shopobject_from_xml($so="")
 		$attr["label"]=(string)$attribute->label;
 		$attr["value"]=(string)$attribute->value;
     $attr["value"]=htmlspecialchars_decode($attr["value"]);
-		if($attr["type"]=="TXT") $attr["value"]=str_replace("\n","<br>",$attr["value"]);
+  	if($attr["type"]=="TXT") $attr["value"]=str_replace("\n","<br>",$attr["value"]);
+
     //$attr["value"]=html_entity_decode($attr["value"]);
 		if((string)$attribute->attributes()->type=="IMG")
 		{

@@ -1,651 +1,759 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: sleekshop\n"
-"POT-Creation-Date: 2017-03-06 04:26+0100\n"
-"PO-Revision-Date: 2017-03-06 04:30+0100\n"
+"Project-Id-Version: excalibur\n"
+"POT-Creation-Date: 2017-10-16 16:27+0100\n"
+"PO-Revision-Date: 2017-10-16 16:31+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
-"X-Poedit-Basepath: .\n"
+"X-Poedit-KeywordsList: {%trans%};gettext;gettext_noop\n"
+"X-Poedit-Basepath: ../../\n"
 "X-Generator: Poedit 1.8.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-SearchPath-0: ../..\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: ../../terms.php:2 ../../terms2.php:2
-msgid "Shopobjects"
-msgstr "Shopobjekte"
+#: terms.php:2
+msgid "Your cart is empty"
+msgstr "Ihr Warenkorb ist leer"
 
-#: ../../terms.php:3 ../../terms2.php:3
-msgid "The fundamentals of all entities in your e-commerce world"
-msgstr "Die Grundlage aller Objekte in Ihrer E-Commerce Welt"
+#: terms.php:3
+msgid "Back"
+msgstr "Zurück"
 
-#: ../../terms.php:4 ../../terms2.php:4
-msgid "Search for shopobjects"
-msgstr "Shopobjekte suchen"
+#: terms.php:4 terms.php:20
+msgid "Your cart"
+msgstr "Ihr Warenkorb"
 
-#: ../../terms.php:5 ../../terms.php:27 ../../terms.php:33 ../../terms.php:53
-#: ../../terms.php:60 ../../terms.php:66 ../../terms.php:70 ../../terms.php:73
-#: ../../terms.php:96 ../../terms.php:99 ../../terms.php:182
-#: ../../terms.php:200 ../../terms.php:228 ../../terms.php:249
-#: ../../terms.php:279 ../../terms.php:312 ../../terms.php:334
-#: ../../terms.php:373 ../../terms.php:391 ../../terms.php:396
-#: ../../terms.php:410 ../../terms.php:423 ../../terms.php:606
-#: ../../terms.php:710 ../../terms.php:720 ../../terms.php:751
-#: ../../terms.php:813 ../../terms.php:828 ../../terms.php:840
-#: ../../terms.php:892 ../../terms.php:908 ../../terms.php:914
-#: ../../terms.php:919 ../../terms.php:944 ../../terms.php:962
-#: ../../terms.php:969 ../../terms.php:973 ../../terms.php:1007
-#: ../../terms.php:1046 ../../terms.php:1078 ../../terms.php:1101
-#: ../../terms2.php:5 ../../terms2.php:26 ../../terms2.php:32
-#: ../../terms2.php:52 ../../terms2.php:57 ../../terms2.php:61
-#: ../../terms2.php:80 ../../terms2.php:108 ../../terms2.php:165
-#: ../../terms2.php:183 ../../terms2.php:209 ../../terms2.php:247
-#: ../../terms2.php:266 ../../terms2.php:290 ../../terms2.php:329
-#: ../../terms2.php:343 ../../terms2.php:363 ../../terms2.php:529
-#: ../../terms2.php:695 ../../terms2.php:699 ../../terms2.php:732
-#: ../../terms2.php:749 ../../terms2.php:794 ../../terms2.php:824
-#: ../../terms2.php:850
-msgid "Name"
-msgstr "Name"
-
-#: ../../terms.php:6 ../../terms.php:383 ../../terms.php:424
-#: ../../terms.php:945 ../../terms2.php:6 ../../terms2.php:336
-#: ../../terms2.php:364 ../../terms2.php:750
-msgid "Creator"
-msgstr "Erstellt durch"
-
-#: ../../terms.php:7 ../../terms.php:29 ../../terms.php:628
-#: ../../terms.php:629 ../../terms.php:1075 ../../terms2.php:7
-#: ../../terms2.php:28 ../../terms2.php:542 ../../terms2.php:543
-#: ../../terms2.php:846
-msgid "Instanceable"
-msgstr "Instanziierbar"
-
-#: ../../terms.php:8 ../../terms.php:22 ../../terms.php:61 ../../terms.php:229
-#: ../../terms.php:234 ../../terms.php:286 ../../terms.php:313
-#: ../../terms.php:326 ../../terms.php:361 ../../terms.php:434
-#: ../../terms.php:613 ../../terms.php:936 ../../terms.php:953
-#: ../../terms.php:987 ../../terms.php:1028 ../../terms.php:1058
-#: ../../terms.php:1064 ../../terms.php:1065 ../../terms2.php:8
-#: ../../terms2.php:20 ../../terms2.php:210 ../../terms2.php:251
-#: ../../terms2.php:267 ../../terms2.php:282 ../../terms2.php:317
-#: ../../terms2.php:372 ../../terms2.php:758 ../../terms2.php:774
-#: ../../terms2.php:809 ../../terms2.php:830 ../../terms2.php:838
-#: ../../terms2.php:839
-msgid "Search"
-msgstr "Suchen"
-
-#: ../../terms.php:9 ../../terms.php:23 ../../terms.php:62 ../../terms.php:230
-#: ../../terms.php:314 ../../terms.php:327 ../../terms.php:362
-#: ../../terms.php:435 ../../terms.php:614 ../../terms.php:937
-#: ../../terms.php:954 ../../terms.php:988 ../../terms.php:1059
-#: ../../terms2.php:9 ../../terms2.php:21 ../../terms2.php:211
-#: ../../terms2.php:268 ../../terms2.php:283 ../../terms2.php:318
-#: ../../terms2.php:373 ../../terms2.php:759 ../../terms2.php:775
-#: ../../terms2.php:831
-msgid "Reset"
-msgstr "Zurücksetzen"
-
-#: ../../terms.php:10 ../../terms.php:328 ../../terms.php:363
-#: ../../terms.php:587 ../../terms2.php:10 ../../terms2.php:22
-#: ../../terms2.php:212 ../../terms2.php:269 ../../terms2.php:284
-#: ../../terms2.php:319 ../../terms2.php:518 ../../terms2.php:832
-msgid "Options"
-msgstr "Optionen"
-
-#: ../../terms.php:11 ../../terms2.php:11
-msgid "Create a new class"
-msgstr "Neue Klasse erstellen"
-
-#: ../../terms.php:12 ../../terms2.php:12
-msgid "Show last classes"
-msgstr "Neueste Klassen anzeigen"
-
-#: ../../terms.php:13 ../../terms2.php:13
-msgid "Shopobject details"
-msgstr "Shopobjektdetails"
-
-#: ../../terms.php:14 ../../terms.php:25 ../../terms.php:64
-#: ../../terms.php:232 ../../terms.php:316 ../../terms.php:367
-#: ../../terms.php:437 ../../terms.php:486 ../../terms.php:616
-#: ../../terms.php:939 ../../terms.php:956 ../../terms.php:990
-#: ../../terms.php:999 ../../terms.php:1001 ../../terms.php:1003
-#: ../../terms.php:1035 ../../terms.php:1037 ../../terms.php:1039
-#: ../../terms.php:1041 ../../terms.php:1061 ../../terms.php:1100
-#: ../../terms2.php:14 ../../terms2.php:323 ../../terms2.php:375
-#: ../../terms2.php:424 ../../terms2.php:761 ../../terms2.php:777
-#: ../../terms2.php:786 ../../terms2.php:788 ../../terms2.php:790
-#: ../../terms2.php:816 ../../terms2.php:818 ../../terms2.php:820
-#: ../../terms2.php:822
-msgid "Close"
-msgstr "Schließen"
-
-#: ../../terms.php:15 ../../terms.php:297
-msgid "Entity requests"
-msgstr "Aufträge"
-
-#: ../../terms.php:16
-msgid "Search and management of requests"
-msgstr "Suche und Verwaltungen der Aufträge"
-
-#: ../../terms.php:17
-msgid "Search for requests"
-msgstr "Aufträge suchen"
-
-#: ../../terms.php:18 ../../terms.php:81 ../../terms.php:381
-#: ../../terms.php:672 ../../terms.php:715 ../../terms.php:862
-#: ../../terms.php:966 ../../terms.php:1021 ../../terms.php:1050
-#: ../../terms.php:1082 ../../terms2.php:16 ../../terms2.php:64
-#: ../../terms2.php:215 ../../terms2.php:614 ../../terms2.php:828
-msgid "Distributor"
-msgstr "Distributor"
-
-#: ../../terms.php:19 ../../terms.php:21 ../../terms.php:204
-#: ../../terms.php:333 ../../terms.php:348 ../../terms.php:350
-#: ../../terms.php:352 ../../terms.php:354 ../../terms.php:427
-#: ../../terms.php:431 ../../terms.php:433 ../../terms.php:463
-#: ../../terms.php:475 ../../terms.php:618 ../../terms.php:948
-#: ../../terms.php:952 ../../terms.php:992 ../../terms.php:1049
-#: ../../terms.php:1051 ../../terms.php:1053 ../../terms2.php:17
-#: ../../terms2.php:19 ../../terms2.php:187 ../../terms2.php:289
-#: ../../terms2.php:304 ../../terms2.php:306 ../../terms2.php:308
-#: ../../terms2.php:310 ../../terms2.php:367 ../../terms2.php:371
-#: ../../terms2.php:401 ../../terms2.php:413 ../../terms2.php:532
-#: ../../terms2.php:753 ../../terms2.php:757 ../../terms2.php:779
-#: ../../terms2.php:827 ../../terms2.php:829
-msgid "All"
-msgstr "Alle"
-
-#: ../../terms.php:20 ../../terms.php:51 ../../terms.php:174
-#: ../../terms.php:567 ../../terms.php:657 ../../terms.php:983
-#: ../../terms2.php:50 ../../terms2.php:157 ../../terms2.php:498
-#: ../../terms2.php:575 ../../terms2.php:770
-msgid "Status"
-msgstr "Status\t"
-
-#: ../../terms.php:24
-msgid "Entity request details"
-msgstr "Details zum Auftrag"
-
-#: ../../terms.php:26 ../../terms.php:32 ../../terms.php:45 ../../terms.php:98
-#: ../../terms.php:199 ../../terms.php:245 ../../terms.php:277
-#: ../../terms.php:371 ../../terms.php:389 ../../terms.php:395
-#: ../../terms.php:406 ../../terms.php:422 ../../terms.php:714
-#: ../../terms.php:750 ../../terms.php:811 ../../terms.php:827
-#: ../../terms.php:867 ../../terms.php:906 ../../terms.php:913
-#: ../../terms.php:943 ../../terms.php:957 ../../terms.php:968
-#: ../../terms.php:1006 ../../terms.php:1081 ../../terms2.php:25
-#: ../../terms2.php:31 ../../terms2.php:44 ../../terms2.php:79
-#: ../../terms2.php:182 ../../terms2.php:246 ../../terms2.php:327
-#: ../../terms2.php:342 ../../terms2.php:362 ../../terms2.php:613
-#: ../../terms2.php:694 ../../terms2.php:748 ../../terms2.php:793
-msgid "ID"
-msgstr ""
-
-#: ../../terms.php:28 ../../terms.php:34 ../../terms.php:258
-#: ../../terms.php:554 ../../terms.php:633 ../../terms.php:684
-#: ../../terms.php:846 ../../terms.php:1008 ../../terms2.php:27
-#: ../../terms2.php:33 ../../terms2.php:229 ../../terms2.php:486
-#: ../../terms2.php:551 ../../terms2.php:591 ../../terms2.php:795
-msgid "Created by"
-msgstr "Erstellt durch"
-
-#: ../../terms.php:30 ../../terms.php:36 ../../terms.php:100
-#: ../../terms.php:201 ../../terms.php:266 ../../terms.php:283
-#: ../../terms.php:718 ../../terms.php:915 ../../terms.php:930
-#: ../../terms.php:1012 ../../terms2.php:29 ../../terms2.php:35
-#: ../../terms2.php:81 ../../terms2.php:184 ../../terms2.php:237
-#: ../../terms2.php:248 ../../terms2.php:617 ../../terms2.php:743
-#: ../../terms2.php:799
-msgid "Edit"
-msgstr "Bearbeiten"
-
-#: ../../terms.php:31 ../../terms.php:37 ../../terms.php:52 ../../terms.php:80
-#: ../../terms.php:101 ../../terms.php:202 ../../terms.php:211
-#: ../../terms.php:267 ../../terms.php:285 ../../terms.php:378
-#: ../../terms.php:626 ../../terms.php:719 ../../terms.php:916
-#: ../../terms.php:931 ../../terms.php:1013 ../../terms.php:1067
-#: ../../terms2.php:30 ../../terms2.php:36 ../../terms2.php:51
-#: ../../terms2.php:82 ../../terms2.php:185 ../../terms2.php:194
-#: ../../terms2.php:238 ../../terms2.php:249 ../../terms2.php:333
-#: ../../terms2.php:540 ../../terms2.php:618 ../../terms2.php:744
-#: ../../terms2.php:800
-msgid "Delete"
-msgstr "Löschen"
-
-#: ../../terms.php:35 ../../terms.php:1009 ../../terms2.php:34
-#: ../../terms2.php:796
-msgid "Shopactive"
-msgstr "Shopaktiv"
-
-#: ../../terms.php:38 ../../terms.php:85 ../../terms.php:1014
-#: ../../terms2.php:37 ../../terms2.php:68 ../../terms2.php:801
-msgid "No data available for your report"
-msgstr "Keine Daten für Ihren Bericht vorhanden"
-
-#: ../../terms.php:39 ../../terms2.php:38
-msgid "Requests report daily"
-msgstr "Anfragenreport täglich"
-
-#: ../../terms.php:40 ../../terms.php:44 ../../terms.php:87 ../../terms.php:91
-#: ../../terms.php:93 ../../terms.php:1016 ../../terms.php:1020
-#: ../../terms2.php:39 ../../terms2.php:43 ../../terms2.php:70
-#: ../../terms2.php:74 ../../terms2.php:76 ../../terms2.php:803
-#: ../../terms2.php:807
-msgid "Total"
-msgstr "Gesamt"
-
-#: ../../terms.php:41 ../../terms.php:43 ../../terms.php:321
-#: ../../terms2.php:40 ../../terms2.php:42 ../../terms2.php:277
-msgid "Requests"
-msgstr "Anfragen"
-
-#: ../../terms.php:42 ../../terms.php:89 ../../terms.php:1018
-#: ../../terms2.php:41 ../../terms2.php:72 ../../terms2.php:805
-msgid "Day"
-msgstr "Tag"
-
-#: ../../terms.php:46 ../../terms.php:108 ../../terms.php:246
-#: ../../terms.php:357 ../../terms.php:407 ../../terms.php:449
-#: ../../terms.php:563 ../../terms.php:824 ../../terms.php:874
-#: ../../terms.php:899 ../../terms.php:958 ../../terms.php:979
-#: ../../terms2.php:45 ../../terms2.php:89 ../../terms2.php:313
-#: ../../terms2.php:387 ../../terms2.php:494 ../../terms2.php:691
-#: ../../terms2.php:708 ../../terms2.php:726 ../../terms2.php:766
-msgid "Username"
-msgstr "Benutzername"
-
-#: ../../terms.php:47 ../../terms2.php:46
-msgid "email"
-msgstr "E-Mail"
-
-#: ../../terms.php:48 ../../terms.php:574 ../../terms.php:880
-#: ../../terms.php:980 ../../terms2.php:47 ../../terms2.php:505
-#: ../../terms2.php:714 ../../terms2.php:767
-msgid "First name"
-msgstr "Vorname"
-
-#: ../../terms.php:49 ../../terms.php:575 ../../terms.php:881
-#: ../../terms.php:981 ../../terms2.php:48 ../../terms2.php:506
-#: ../../terms2.php:715 ../../terms2.php:768
-msgid "Last name"
-msgstr "Nachname"
-
-#: ../../terms.php:50 ../../terms2.php:49
-msgid "Reg. date"
-msgstr "Reg. Datum"
-
-#: ../../terms.php:54 ../../terms.php:829 ../../terms.php:970
-#: ../../terms2.php:53 ../../terms2.php:696
-msgid "Address"
-msgstr "Adresse"
-
-#: ../../terms.php:55 ../../terms2.php:54
-msgid "Create manufacturer"
-msgstr "Hersteller anlegen"
-
-#: ../../terms.php:56 ../../terms.php:262 ../../terms.php:332
-#: ../../terms2.php:55 ../../terms2.php:233 ../../terms2.php:288
-msgid "Delivery state"
-msgstr "Lieferstatus"
-
-#: ../../terms.php:57 ../../terms.php:298
-msgid "Warehouses"
-msgstr "Lager"
-
-#: ../../terms.php:58
-msgid "Search and management of warehouses"
-msgstr "Suche und Verwaltungen der Lager"
-
-#: ../../terms.php:59
-msgid "Search for warehouses"
-msgstr "Lager suchen"
-
-#: ../../terms.php:63
-msgid "Warehouse details"
-msgstr "Lagerdetails"
-
-#: ../../terms.php:65 ../../terms2.php:56
-msgid "Pos"
-msgstr ""
-
-#: ../../terms.php:67 ../../terms.php:1068 ../../terms2.php:58
-#: ../../terms2.php:840
-msgid "Type"
-msgstr "Typ"
-
-#: ../../terms.php:68 ../../terms2.php:59
-msgid "Label"
-msgstr "Beschriftung"
-
-#: ../../terms.php:69 ../../terms.php:184 ../../terms.php:206
-#: ../../terms.php:465 ../../terms2.php:60 ../../terms2.php:167
-#: ../../terms2.php:189 ../../terms2.php:403
-msgid "Value"
-msgstr "Wert"
-
-#: ../../terms.php:71 ../../terms2.php:62
-msgid "Chose class"
-msgstr "Klasse wählen"
-
-#: ../../terms.php:72 ../../terms2.php:63
-msgid "Create content"
-msgstr "Inhalt erstellen"
-
-#: ../../terms.php:74 ../../terms.php:250 ../../terms.php:376
-#: ../../terms.php:393 ../../terms.php:411 ../../terms.php:599
-#: ../../terms.php:702 ../../terms.php:711 ../../terms.php:814
-#: ../../terms.php:869 ../../terms.php:909 ../../terms.php:963
-#: ../../terms.php:1010 ../../terms.php:1079 ../../terms.php:1095
-#: ../../terms2.php:109 ../../terms2.php:331 ../../terms2.php:607
-#: ../../terms2.php:797
-msgid "Quantity"
-msgstr "Anzahl"
-
-#: ../../terms.php:75 ../../terms.php:82 ../../terms.php:374
-#: ../../terms.php:392 ../../terms.php:477 ../../terms.php:620
-#: ../../terms.php:659 ../../terms.php:863 ../../terms.php:1022
-#: ../../terms2.php:65 ../../terms2.php:110 ../../terms2.php:330
-#: ../../terms2.php:415 ../../terms2.php:534 ../../terms2.php:577
-msgid "Price"
-msgstr "Preis"
-
-#: ../../terms.php:76 ../../terms.php:151 ../../terms.php:173
-#: ../../terms.php:377 ../../terms.php:773 ../../terms.php:818
-#: ../../terms2.php:111 ../../terms2.php:134 ../../terms2.php:156
-#: ../../terms2.php:332 ../../terms2.php:651 ../../terms2.php:685
+#: terms.php:5 terms2.php:111 terms2.php:134 terms2.php:156 terms2.php:332
+#: terms2.php:651 terms2.php:685
 msgid "Sum"
 msgstr "Summe"
 
-#: ../../terms.php:77 ../../terms.php:691 ../../terms2.php:112
-#: ../../terms2.php:597
-msgid "Taxclass"
-msgstr "Steuerklasse"
+#: terms.php:6 terms.php:27
+msgid "Included tax"
+msgstr "Enthaltene Ust."
 
-#: ../../terms.php:78 ../../terms.php:152 ../../terms.php:441
-#: ../../terms.php:478 ../../terms.php:621 ../../terms.php:864
-#: ../../terms.php:1023 ../../terms2.php:113 ../../terms2.php:135
-#: ../../terms2.php:379 ../../terms2.php:416 ../../terms2.php:535
-msgid "Tax"
-msgstr "Steuer"
+#: terms.php:7 terms.php:101
+msgid "Next"
+msgstr "Weiter"
 
-#: ../../terms.php:79
-msgid "Returned"
-msgstr "Rücksendung"
-
-#: ../../terms.php:83 ../../terms2.php:66
-msgid "Count"
-msgstr "Anzahl"
-
-#: ../../terms.php:84 ../../terms.php:142 ../../terms.php:470
-#: ../../terms.php:483 ../../terms.php:712 ../../terms.php:866
-#: ../../terms.php:974 ../../terms2.php:67 ../../terms2.php:125
-#: ../../terms2.php:408 ../../terms2.php:421
-msgid "Add"
-msgstr "Hinzufügen"
-
-#: ../../terms.php:86 ../../terms2.php:69
-msgid "Traffic report daily"
-msgstr "Trafficbericht täglich"
-
-#: ../../terms.php:88 ../../terms.php:90 ../../terms.php:92
-#: ../../terms2.php:71 ../../terms2.php:73 ../../terms2.php:75
-msgid "Bytes"
+#: terms.php:8
+msgid ""
+"The entered coupon-code seems to be invalid or you already used this code "
+"before"
 msgstr ""
 
-#: ../../terms.php:94 ../../terms2.php:77
-msgid "MB"
-msgstr "MB"
+#: terms.php:9
+msgid "I have a coupon-code"
+msgstr ""
 
-#: ../../terms.php:95 ../../terms.php:308 ../../terms2.php:78
-#: ../../terms2.php:264
-msgid "Logout"
-msgstr "Abmelden"
+#: terms.php:10
+msgid "Use coupon-code"
+msgstr ""
 
-#: ../../terms.php:97
-msgid "Create warehouse"
-msgstr "Lager anlegen"
+#: terms.php:11
+msgid "Thank you for your order"
+msgstr "Vielen Dank für Ihre Bestellung"
 
-#: ../../terms.php:102 ../../terms.php:105 ../../terms.php:212
-#: ../../terms.php:218 ../../terms.php:440 ../../terms.php:448
-#: ../../terms.php:550 ../../terms.php:559 ../../terms.php:562
-#: ../../terms.php:627 ../../terms.php:674 ../../terms.php:677
-#: ../../terms.php:831 ../../terms.php:835 ../../terms2.php:83
-#: ../../terms2.php:86 ../../terms2.php:195 ../../terms2.php:201
-#: ../../terms2.php:378 ../../terms2.php:386 ../../terms2.php:482
-#: ../../terms2.php:491 ../../terms2.php:493 ../../terms2.php:541
-#: ../../terms2.php:581 ../../terms2.php:584
-msgid "Main data"
-msgstr "Hauptdaten"
+#: terms.php:12 terms.php:16 terms.php:105 terms2.php:693 terms2.php:710
+msgid "Login"
+msgstr "Anmelden"
 
-#: ../../terms.php:103 ../../terms.php:127 ../../terms2.php:84
-#: ../../terms2.php:107
-msgid "Cart"
-msgstr "Warenkorb"
+#: terms.php:13
+msgid "Username and password does not match"
+msgstr "Benutzername und Passwort passen nicht zueinander"
 
-#: ../../terms.php:104 ../../terms.php:130 ../../terms.php:443
-#: ../../terms.php:487 ../../terms.php:1106 ../../terms2.php:85
-#: ../../terms2.php:114 ../../terms2.php:381 ../../terms2.php:425
-msgid "Shipping"
-msgstr "Versand"
+#: terms.php:14 terms.php:78 terms2.php:45 terms2.php:89 terms2.php:313
+#: terms2.php:387 terms2.php:494 terms2.php:691 terms2.php:708 terms2.php:726
+#: terms2.php:766
+msgid "Username"
+msgstr "Benutzername"
 
-#: ../../terms.php:106 ../../terms.php:233 ../../terms.php:257
-#: ../../terms.php:346 ../../terms2.php:87 ../../terms2.php:228
-#: ../../terms2.php:302
-msgid "Order number"
-msgstr "Bestellnummer"
+#: terms.php:15
+#, fuzzy
+msgid "Passowrd"
+msgstr "Passwort"
 
-#: ../../terms.php:107 ../../terms.php:800 ../../terms2.php:88
-#: ../../terms2.php:676
-msgid "Cart sum"
-msgstr "Warenkorbsumme"
+#: terms.php:17
+#, fuzzy
+msgid "You successfully logged out"
+msgstr "Wir haben Ihre Zahlung erfolgreich erhalten"
 
-#: ../../terms.php:109 ../../terms.php:172 ../../terms.php:247
-#: ../../terms.php:384 ../../terms.php:408 ../../terms.php:959
-#: ../../terms2.php:90 ../../terms2.php:155 ../../terms2.php:337
-msgid "Creation date"
-msgstr "Erstellungsdatum"
+#: terms.php:18
+msgid "Back to shop"
+msgstr ""
 
-#: ../../terms.php:110 ../../terms2.php:91
-msgid "Username modifier"
-msgstr "Verändert durch"
+#: terms.php:19
+#, fuzzy
+msgid "Please check your order"
+msgstr "Bitte überprüfen Sie Ihre Daten"
 
-#: ../../terms.php:111 ../../terms.php:386 ../../terms.php:717
-#: ../../terms.php:960 ../../terms.php:1084 ../../terms2.php:92
-#: ../../terms2.php:339 ../../terms2.php:616
-msgid "Modification date"
-msgstr "Veränderungsdatum"
+#: terms.php:21
+#, fuzzy
+msgid "Product"
+msgstr "PRODUCT"
 
-#: ../../terms.php:112 ../../terms.php:585 ../../terms.php:982
-#: ../../terms2.php:93 ../../terms2.php:516 ../../terms2.php:769
-msgid "eMail"
-msgstr "E-Mail"
+#: terms.php:22 terms2.php:65 terms2.php:110 terms2.php:330 terms2.php:415
+#: terms2.php:534 terms2.php:577
+msgid "Price"
+msgstr "Preis"
 
-#: ../../terms.php:113 ../../terms2.php:94
-msgid "Phone"
-msgstr "Telefonnummer"
+#: terms.php:23 terms2.php:109 terms2.php:331 terms2.php:607 terms2.php:797
+msgid "Quantity"
+msgstr "Anzahl"
 
-#: ../../terms.php:114 ../../terms.php:903 ../../terms2.php:95
-msgid "Delivery data"
-msgstr "Lieferdaten"
+#: terms.php:24 terms.php:26
+#, fuzzy
+msgid "Sum price"
+msgstr "Summe min"
 
-#: ../../terms.php:115 ../../terms.php:904 ../../terms2.php:96
-msgid "Invoice data"
-msgstr "Rechnungsdaten"
+#: terms.php:25
+#, fuzzy
+msgid "Delivery costs"
+msgstr "Lieferklasse"
 
-#: ../../terms.php:116 ../../terms.php:177 ../../terms2.php:97
-#: ../../terms2.php:160
-msgid "Show invoice"
-msgstr "Rechnung anzeigen"
-
-#: ../../terms.php:117
-msgid "Show refund"
-msgstr "Rückerstattung anzeigen"
-
-#: ../../terms.php:118 ../../terms.php:404 ../../terms.php:695
-#: ../../terms.php:858 ../../terms2.php:98 ../../terms2.php:351
-#: ../../terms2.php:601 ../../terms2.php:702
-msgid "Notes"
-msgstr "Notizen"
-
-#: ../../terms.php:119 ../../terms2.php:99
-msgid "Order status"
-msgstr "Bestellstatus"
-
-#: ../../terms.php:120 ../../terms.php:264 ../../terms.php:347
-#: ../../terms2.php:100 ../../terms2.php:235 ../../terms2.php:303
-msgid "Order state"
-msgstr "Bestellstatus"
-
-#: ../../terms.php:121 ../../terms.php:263 ../../terms.php:349
-#: ../../terms2.php:101 ../../terms2.php:234 ../../terms2.php:305
-msgid "Order type"
-msgstr "Bestellart"
-
-#: ../../terms.php:122 ../../terms.php:446 ../../terms.php:512
-#: ../../terms.php:801 ../../terms2.php:102 ../../terms2.php:384
-#: ../../terms2.php:444 ../../terms2.php:677
-msgid "Payment"
-msgstr "Bezahlung"
-
-#: ../../terms.php:123 ../../terms.php:259 ../../terms.php:351
-#: ../../terms2.php:103 ../../terms2.php:230 ../../terms2.php:307
-msgid "Payment method"
+#: terms.php:28
+#, fuzzy
+msgid "Your payment method"
 msgstr "Bezahlmethode"
 
-#: ../../terms.php:124 ../../terms.php:442 ../../terms2.php:104
-#: ../../terms2.php:380
+#: terms.php:29 terms.php:57 terms.php:59 terms.php:102
+msgid "Your data"
+msgstr ""
+
+#: terms.php:30
+#, fuzzy
+msgid "Place Order"
+msgstr "über Bestellung"
+
+#: terms.php:31
+msgid "privacy"
+msgstr ""
+
+#: terms.php:32
+msgid "Privacy"
+msgstr ""
+
+#: terms.php:33
+#, fuzzy
+msgid "delivery-and-payment"
+msgstr "Name"
+
+#: terms.php:34 terms.php:48 terms2.php:104 terms2.php:380
 msgid "Delivery"
 msgstr "Lieferung"
 
-#: ../../terms.php:125 ../../terms.php:261 ../../terms.php:353
-#: ../../terms2.php:105 ../../terms2.php:232 ../../terms2.php:309
-msgid "Delivery method"
-msgstr "Liefermethode"
+#: terms.php:35
+msgid "terms"
+msgstr ""
 
-#: ../../terms.php:126 ../../terms.php:170 ../../terms.php:460
-#: ../../terms.php:494 ../../terms.php:497 ../../terms.php:499
-#: ../../terms.php:501 ../../terms.php:503 ../../terms.php:505
-#: ../../terms.php:507 ../../terms.php:511 ../../terms.php:525
-#: ../../terms.php:533 ../../terms.php:541 ../../terms.php:552
-#: ../../terms.php:586 ../../terms.php:630 ../../terms.php:679
-#: ../../terms.php:696 ../../terms.php:704 ../../terms.php:859
-#: ../../terms2.php:106 ../../terms2.php:153 ../../terms2.php:398
-#: ../../terms2.php:432 ../../terms2.php:435 ../../terms2.php:437
-#: ../../terms2.php:439 ../../terms2.php:443 ../../terms2.php:457
-#: ../../terms2.php:465 ../../terms2.php:473 ../../terms2.php:484
-#: ../../terms2.php:517 ../../terms2.php:544 ../../terms2.php:586
-#: ../../terms2.php:602 ../../terms2.php:609
+#: terms.php:36
+msgid "Terms"
+msgstr ""
+
+#: terms.php:37
+msgid "imprint"
+msgstr "impressum"
+
+#: terms.php:38
+msgid "Imprint"
+msgstr "Impressum"
+
+#: terms.php:39
+#, fuzzy
+msgid "Payment methods"
+msgstr "Bezahlmethode"
+
+#: terms.php:40
+#, fuzzy
+msgid "Choose your payment method"
+msgstr "Bezahlmethode"
+
+#: terms.php:41
+msgid "Pay easily with PayPal"
+msgstr ""
+
+#: terms.php:42
+msgid "Comfortable payment with your bank-account"
+msgstr ""
+
+#: terms.php:43
+msgid "Pay with your creditcards"
+msgstr ""
+
+#: terms.php:44
+msgid ""
+"Pay easily after receiving your invoice. After that we will send you the "
+"ordered items"
+msgstr ""
+
+#: terms.php:45
+#, fuzzy
+msgid "Your orders"
+msgstr "Bestellung anzeigen"
+
+#: terms.php:46 terms2.php:650 terms2.php:675 terms2.php:684
+msgid "Date"
+msgstr "Datum"
+
+#: terms.php:47 terms2.php:102 terms2.php:384 terms2.php:444 terms2.php:677
+msgid "Payment"
+msgstr "Bezahlung"
+
+#: terms.php:49 terms2.php:50 terms2.php:157 terms2.php:498 terms2.php:575
+#: terms2.php:770
+msgid "Status"
+msgstr "Status\t"
+
+#: terms.php:50
+#, fuzzy
+msgid "Your password"
+msgstr "Passwort ändern"
+
+#: terms.php:51
+#, fuzzy
+msgid "New password saved"
+msgstr "Neues Passwort"
+
+#: terms.php:52
+#, fuzzy
+msgid "Current password"
+msgstr "Neues Passwort verschickt"
+
+#: terms.php:53 terms2.php:205
+msgid "New password"
+msgstr "Neues Passwort"
+
+#: terms.php:54
+#, fuzzy
+msgid "Repeat new password"
+msgstr "Neues Passwort verschickt"
+
+#: terms.php:55 terms.php:75 terms2.php:106 terms2.php:153 terms2.php:398
+#: terms2.php:432 terms2.php:435 terms2.php:437 terms2.php:439 terms2.php:443
+#: terms2.php:457 terms2.php:465 terms2.php:473 terms2.php:484 terms2.php:517
+#: terms2.php:544 terms2.php:586 terms2.php:602 terms2.php:609
 msgid "Save"
 msgstr "Speichern"
 
-#: ../../terms.php:128
-msgid "Return handling"
-msgstr "Rücksendungsverwaltung"
+#: terms.php:56 terms2.php:253 terms2.php:279 terms2.php:299 terms2.php:804
+#: terms2.php:806 terms2.php:811
+msgid "Orders"
+msgstr "Bestellungen"
 
-#: ../../terms.php:129
-msgid "Submit return"
-msgstr "Rücksendung bestätigen"
+#: terms.php:58 terms.php:80 terms2.php:198 terms2.php:692 terms2.php:709
+msgid "Password"
+msgstr "Passwort"
 
-#: ../../terms.php:131
-msgid "Pick list"
-msgstr "Sammelliste"
+#: terms.php:60 terms.php:86 terms2.php:503 terms2.php:712
+msgid "Mrs"
+msgstr "Frau"
 
-#: ../../terms.php:132 ../../terms.php:498 ../../terms2.php:115
-#: ../../terms2.php:434
+#: terms.php:61 terms.php:87 terms2.php:504 terms2.php:713
+msgid "Mr"
+msgstr "Herr"
+
+#: terms.php:62 terms.php:88 terms2.php:389
+#, fuzzy
+msgid "Firstname"
+msgstr "Vorname"
+
+#: terms.php:63 terms.php:89 terms2.php:390
+#, fuzzy
+msgid "Lastname"
+msgstr "Nachname"
+
+#: terms.php:64 terms.php:90
+#, fuzzy
+msgid "Company"
+msgstr "Firma"
+
+#: terms.php:65 terms.php:91 terms2.php:508 terms2.php:717
+msgid "Department"
+msgstr "Abteilung"
+
+#: terms.php:66 terms.php:92 terms2.php:344 terms2.php:391 terms2.php:511
+#: terms2.php:720 terms2.php:733
+msgid "Street"
+msgstr "Straße"
+
+#: terms.php:67 terms.php:93 terms2.php:345 terms2.php:392 terms2.php:512
+#: terms2.php:721 terms2.php:734
+msgid "Number"
+msgstr "Nummer"
+
+#: terms.php:68 terms.php:94 terms2.php:346 terms2.php:735
+msgid "Zip"
+msgstr "PLZ"
+
+#: terms.php:69 terms.php:95 terms2.php:347 terms2.php:394 terms2.php:514
+#: terms2.php:723 terms2.php:736
+msgid "City"
+msgstr "Stadt"
+
+#: terms.php:70 terms.php:96 terms2.php:18 terms2.php:348 terms2.php:515
+#: terms2.php:724 terms2.php:737
+msgid "State"
+msgstr "Staat"
+
+#: terms.php:71 terms.php:97 terms2.php:349 terms2.php:395 terms2.php:509
+#: terms2.php:718 terms2.php:738
+msgid "Country"
+msgstr "Land"
+
+#: terms.php:72 terms.php:98
+#, fuzzy
+msgid "Please choose your country"
+msgstr "Bitte wählen Sie einen Hersteller"
+
+#: terms.php:73 terms.php:99
+msgid "Germany"
+msgstr ""
+
+#: terms.php:74 terms.php:100 terms2.php:98 terms2.php:351 terms2.php:601
+#: terms2.php:702
+msgid "Notes"
+msgstr "Notizen"
+
+#: terms.php:76
+#, fuzzy
+msgid "Create an account"
+msgstr "Neuen Inhalt anlegen"
+
+#: terms.php:77
+msgid "The following error occured"
+msgstr ""
+
+#: terms.php:79 terms2.php:314 terms2.php:396 terms2.php:727
+msgid "E-Mail"
+msgstr ""
+
+#: terms.php:81
+#, fuzzy
+msgid "Repeat password"
+msgstr "Neues Passwort"
+
+#: terms.php:82
+msgid "Register"
+msgstr ""
+
+#: terms.php:83
+#, fuzzy
+msgid "Share this product"
+msgstr "Produkt erstellen"
+
+#: terms.php:84
+#, fuzzy
+msgid "Details"
+msgstr "Benutzerdetails"
+
+#: terms.php:85
+msgid "Also interesting for you"
+msgstr ""
+
+#: terms.php:103
+msgid "I am already registered"
+msgstr ""
+
+#: terms.php:104
+msgid ""
+"Do you have a user account? Click the \"login\" button to login with your "
+"data."
+msgstr ""
+
+#: terms.php:106
+msgid "I want to create an account"
+msgstr ""
+
+#: terms.php:107
+msgid ""
+"If you haven't a useraccount yet you can create one by clicking on register"
+msgstr ""
+
+#: terms.php:108
+msgid "Register now"
+msgstr ""
+
+#: terms.php:109
+msgid "I want to continue as a guest"
+msgstr ""
+
+#: terms.php:110
+msgid ""
+"You can continue as a guest. Just click the button \"continue as a guest\"."
+msgstr ""
+
+#: terms.php:111
+#, fuzzy
+msgid "Continue as a guest"
+msgstr "Mit diesem Auftrag fortfahren"
+
+#: terms2.php:2
+msgid "Shopobjects"
+msgstr "Shopobjekte"
+
+#: terms2.php:3
+msgid "The fundamentals of all entities in your e-commerce world"
+msgstr "Die Grundlage aller Objekte in Ihrer E-Commerce Welt"
+
+#: terms2.php:4
+msgid "Search for shopobjects"
+msgstr "Shopobjekte suchen"
+
+#: terms2.php:5 terms2.php:26 terms2.php:32 terms2.php:52 terms2.php:57
+#: terms2.php:61 terms2.php:80 terms2.php:108 terms2.php:165 terms2.php:183
+#: terms2.php:209 terms2.php:247 terms2.php:266 terms2.php:290 terms2.php:329
+#: terms2.php:343 terms2.php:363 terms2.php:529 terms2.php:695 terms2.php:699
+#: terms2.php:732 terms2.php:749 terms2.php:794 terms2.php:824 terms2.php:850
+msgid "Name"
+msgstr "Name"
+
+#: terms2.php:6 terms2.php:336 terms2.php:364 terms2.php:750
+msgid "Creator"
+msgstr "Erstellt durch"
+
+#: terms2.php:7 terms2.php:28 terms2.php:542 terms2.php:543 terms2.php:846
+msgid "Instanceable"
+msgstr "Instanziierbar"
+
+#: terms2.php:8 terms2.php:20 terms2.php:210 terms2.php:251 terms2.php:267
+#: terms2.php:282 terms2.php:317 terms2.php:372 terms2.php:758 terms2.php:774
+#: terms2.php:809 terms2.php:830 terms2.php:838 terms2.php:839
+msgid "Search"
+msgstr "Suchen"
+
+#: terms2.php:9 terms2.php:21 terms2.php:211 terms2.php:268 terms2.php:283
+#: terms2.php:318 terms2.php:373 terms2.php:759 terms2.php:775 terms2.php:831
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: terms2.php:10 terms2.php:22 terms2.php:212 terms2.php:269 terms2.php:284
+#: terms2.php:319 terms2.php:518 terms2.php:832
+msgid "Options"
+msgstr "Optionen"
+
+#: terms2.php:11
+msgid "Create a new class"
+msgstr "Neue Klasse erstellen"
+
+#: terms2.php:12
+msgid "Show last classes"
+msgstr "Neueste Klassen anzeigen"
+
+#: terms2.php:13
+msgid "Shopobject details"
+msgstr "Shopobjektdetails"
+
+#: terms2.php:14 terms2.php:323 terms2.php:375 terms2.php:424 terms2.php:761
+#: terms2.php:777 terms2.php:786 terms2.php:788 terms2.php:790 terms2.php:816
+#: terms2.php:818 terms2.php:820 terms2.php:822
+msgid "Close"
+msgstr "Schließen"
+
+#: terms2.php:15
+msgid "Search for entity requests"
+msgstr "Suche nach Aufträgen"
+
+#: terms2.php:16 terms2.php:64 terms2.php:215 terms2.php:614 terms2.php:828
+msgid "Distributor"
+msgstr "Distributor"
+
+#: terms2.php:17 terms2.php:19 terms2.php:187 terms2.php:289 terms2.php:304
+#: terms2.php:306 terms2.php:308 terms2.php:310 terms2.php:367 terms2.php:371
+#: terms2.php:401 terms2.php:413 terms2.php:532 terms2.php:753 terms2.php:757
+#: terms2.php:779 terms2.php:827 terms2.php:829
+msgid "All"
+msgstr "Alle"
+
+#: terms2.php:23
+msgid "Show last requests"
+msgstr "Neueste Aufträge anzeigen"
+
+#: terms2.php:24
+msgid "Entity request"
+msgstr "Aufträge"
+
+#: terms2.php:25 terms2.php:31 terms2.php:44 terms2.php:79 terms2.php:182
+#: terms2.php:246 terms2.php:327 terms2.php:342 terms2.php:362 terms2.php:613
+#: terms2.php:694 terms2.php:748 terms2.php:793
+msgid "ID"
+msgstr ""
+
+#: terms2.php:27 terms2.php:33 terms2.php:229 terms2.php:486 terms2.php:551
+#: terms2.php:591 terms2.php:795
+msgid "Created by"
+msgstr "Erstellt durch"
+
+#: terms2.php:29 terms2.php:35 terms2.php:81 terms2.php:184 terms2.php:237
+#: terms2.php:248 terms2.php:617 terms2.php:743 terms2.php:799
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: terms2.php:30 terms2.php:36 terms2.php:51 terms2.php:82 terms2.php:185
+#: terms2.php:194 terms2.php:238 terms2.php:249 terms2.php:333 terms2.php:540
+#: terms2.php:618 terms2.php:744 terms2.php:800
+msgid "Delete"
+msgstr "Löschen"
+
+#: terms2.php:34 terms2.php:796
+msgid "Shopactive"
+msgstr "Shopaktiv"
+
+#: terms2.php:37 terms2.php:68 terms2.php:801
+msgid "No data available for your report"
+msgstr "Keine Daten für Ihren Bericht vorhanden"
+
+#: terms2.php:38
+msgid "Requests report daily"
+msgstr "Anfragenreport täglich"
+
+#: terms2.php:39 terms2.php:43 terms2.php:70 terms2.php:74 terms2.php:76
+#: terms2.php:803 terms2.php:807
+msgid "Total"
+msgstr "Gesamt"
+
+#: terms2.php:40 terms2.php:42 terms2.php:277
+msgid "Requests"
+msgstr "Anfragen"
+
+#: terms2.php:41 terms2.php:72 terms2.php:805
+msgid "Day"
+msgstr "Tag"
+
+#: terms2.php:46
+msgid "email"
+msgstr "E-Mail"
+
+#: terms2.php:47 terms2.php:505 terms2.php:714 terms2.php:767
+msgid "First name"
+msgstr "Vorname"
+
+#: terms2.php:48 terms2.php:506 terms2.php:715 terms2.php:768
+msgid "Last name"
+msgstr "Nachname"
+
+#: terms2.php:49
+msgid "Reg. date"
+msgstr "Reg. Datum"
+
+#: terms2.php:53 terms2.php:696
+msgid "Address"
+msgstr "Adresse"
+
+#: terms2.php:54
+msgid "Create manufacturer"
+msgstr "Hersteller anlegen"
+
+#: terms2.php:55 terms2.php:233 terms2.php:288
+msgid "Delivery state"
+msgstr "Lieferstatus"
+
+#: terms2.php:56
+msgid "Pos"
+msgstr ""
+
+#: terms2.php:58 terms2.php:840
+msgid "Type"
+msgstr "Typ"
+
+#: terms2.php:59
+msgid "Label"
+msgstr "Beschriftung"
+
+#: terms2.php:60 terms2.php:167 terms2.php:189 terms2.php:403
+msgid "Value"
+msgstr "Wert"
+
+#: terms2.php:62
+msgid "Chose class"
+msgstr "Klasse wählen"
+
+#: terms2.php:63
+msgid "Create content"
+msgstr "Inhalt erstellen"
+
+#: terms2.php:66
+msgid "Count"
+msgstr "Anzahl"
+
+#: terms2.php:67 terms2.php:125 terms2.php:408 terms2.php:421
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: terms2.php:69
+msgid "Traffic report daily"
+msgstr "Trafficbericht täglich"
+
+#: terms2.php:71 terms2.php:73 terms2.php:75
+msgid "Bytes"
+msgstr ""
+
+#: terms2.php:77
+msgid "MB"
+msgstr "MB"
+
+#: terms2.php:78 terms2.php:264
+msgid "Logout"
+msgstr "Abmelden"
+
+#: terms2.php:83 terms2.php:86 terms2.php:195 terms2.php:201 terms2.php:378
+#: terms2.php:386 terms2.php:482 terms2.php:491 terms2.php:493 terms2.php:541
+#: terms2.php:581 terms2.php:584
+msgid "Main data"
+msgstr "Hauptdaten"
+
+#: terms2.php:84 terms2.php:107
+msgid "Cart"
+msgstr "Warenkorb"
+
+#: terms2.php:85 terms2.php:114 terms2.php:381 terms2.php:425
+msgid "Shipping"
+msgstr "Versand"
+
+#: terms2.php:87 terms2.php:228 terms2.php:302
+msgid "Order number"
+msgstr "Bestellnummer"
+
+#: terms2.php:88 terms2.php:676
+msgid "Cart sum"
+msgstr "Warenkorbsumme"
+
+#: terms2.php:90 terms2.php:155 terms2.php:337
+msgid "Creation date"
+msgstr "Erstellungsdatum"
+
+#: terms2.php:91
+msgid "Username modifier"
+msgstr "Verändert durch"
+
+#: terms2.php:92 terms2.php:339 terms2.php:616
+msgid "Modification date"
+msgstr "Veränderungsdatum"
+
+#: terms2.php:93 terms2.php:516 terms2.php:769
+msgid "eMail"
+msgstr "E-Mail"
+
+#: terms2.php:94
+msgid "Phone"
+msgstr "Telefonnummer"
+
+#: terms2.php:95
+msgid "Delivery data"
+msgstr "Lieferdaten"
+
+#: terms2.php:96
+msgid "Invoice data"
+msgstr "Rechnungsdaten"
+
+#: terms2.php:97 terms2.php:160
+msgid "Show invoice"
+msgstr "Rechnung anzeigen"
+
+#: terms2.php:99
+msgid "Order status"
+msgstr "Bestellstatus"
+
+#: terms2.php:100 terms2.php:235 terms2.php:303
+msgid "Order state"
+msgstr "Bestellstatus"
+
+#: terms2.php:101 terms2.php:234 terms2.php:305
+msgid "Order type"
+msgstr "Bestellart"
+
+#: terms2.php:103 terms2.php:230 terms2.php:307
+msgid "Payment method"
+msgstr "Bezahlmethode"
+
+#: terms2.php:105 terms2.php:232 terms2.php:309
+msgid "Delivery method"
+msgstr "Liefermethode"
+
+#: terms2.php:112 terms2.php:597
+msgid "Taxclass"
+msgstr "Steuerklasse"
+
+#: terms2.php:113 terms2.php:135 terms2.php:379 terms2.php:416 terms2.php:535
+msgid "Tax"
+msgstr "Steuer"
+
+#: terms2.php:115 terms2.php:434
 msgid "Shipping ticket"
 msgstr "Versandschein"
 
-#: ../../terms.php:133 ../../terms.php:792 ../../terms.php:795
-#: ../../terms2.php:116 ../../terms2.php:668 ../../terms2.php:671
+#: terms2.php:116 terms2.php:668 terms2.php:671
 msgid "Invoice"
 msgstr "Rechnung"
 
-#: ../../terms.php:134 ../../terms2.php:117
+#: terms2.php:117
 msgid "Order ready to ship"
 msgstr "Bestellung ist versandfertig"
 
-#: ../../terms.php:135 ../../terms2.php:118
+#: terms2.php:118
 msgid "Parcels"
 msgstr "Pakete"
 
-#: ../../terms.php:136 ../../terms2.php:119
+#: terms2.php:119
 msgid "Parcelclass"
 msgstr "Paketklasse"
 
-#: ../../terms.php:137 ../../terms2.php:120
+#: terms2.php:120
 msgid "No class"
 msgstr "Keine Klasse"
 
-#: ../../terms.php:138 ../../terms.php:187 ../../terms.php:188
-#: ../../terms.php:338 ../../terms.php:693 ../../terms.php:856
-#: ../../terms2.php:121 ../../terms2.php:170 ../../terms2.php:171
-#: ../../terms2.php:294 ../../terms2.php:599
+#: terms2.php:121 terms2.php:170 terms2.php:171 terms2.php:294 terms2.php:599
 msgid "Width"
 msgstr "Breite"
 
-#: ../../terms.php:139 ../../terms.php:189 ../../terms.php:190
-#: ../../terms.php:336 ../../terms.php:692 ../../terms.php:855
-#: ../../terms2.php:122 ../../terms2.php:172 ../../terms2.php:173
-#: ../../terms2.php:292 ../../terms2.php:598
+#: terms2.php:122 terms2.php:172 terms2.php:173 terms2.php:292 terms2.php:598
 msgid "Length"
 msgstr "Länge"
 
-#: ../../terms.php:140 ../../terms.php:191 ../../terms.php:192
-#: ../../terms.php:340 ../../terms.php:694 ../../terms.php:857
-#: ../../terms2.php:123 ../../terms2.php:174 ../../terms2.php:175
-#: ../../terms2.php:296 ../../terms2.php:600
+#: terms2.php:123 terms2.php:174 terms2.php:175 terms2.php:296 terms2.php:600
 msgid "Height"
 msgstr "Höhe"
 
-#: ../../terms.php:141 ../../terms.php:193 ../../terms.php:194
-#: ../../terms.php:700 ../../terms.php:860 ../../terms2.php:124
-#: ../../terms2.php:176 ../../terms2.php:177 ../../terms2.php:605
+#: terms2.php:124 terms2.php:176 terms2.php:177 terms2.php:605
 msgid "Weight"
 msgstr "Gewicht"
 
-#: ../../terms.php:143 ../../terms.php:306 ../../terms2.php:126
-#: ../../terms2.php:262
+#: terms2.php:126 terms2.php:262
 msgid "Billing"
 msgstr "Rechnungen"
 
-#: ../../terms.php:144 ../../terms2.php:127
+#: terms2.php:127
 msgid "Overview of your traffic, your account and your invoices"
 msgstr "Übersicht Ihres Verbrauchs, Ihrer Kontodaten und Ihrer Rechnungen"
 
-#: ../../terms.php:145 ../../terms.php:148 ../../terms2.php:128
-#: ../../terms2.php:131
+#: terms2.php:128 terms2.php:131
 msgid "Current usage"
 msgstr "Aktueller Verbrauch"
 
-#: ../../terms.php:146 ../../terms.php:154 ../../terms2.php:129
-#: ../../terms2.php:137
+#: terms2.php:129 terms2.php:137
 msgid "Account"
 msgstr "Konto"
 
-#: ../../terms.php:147 ../../terms.php:171 ../../terms2.php:130
-#: ../../terms2.php:154
+#: terms2.php:130 terms2.php:154
 msgid "Invoices"
 msgstr "Rechnungen"
 
-#: ../../terms.php:149 ../../terms.php:658 ../../terms2.php:132
-#: ../../terms2.php:576
+#: terms2.php:132 terms2.php:576
 msgid "Used MB"
 msgstr "Benutzte MB"
 
-#: ../../terms.php:150 ../../terms2.php:133
+#: terms2.php:133
 msgid "Price for 1 MB"
 msgstr "Preis für ein 1 MB"
 
-#: ../../terms.php:153 ../../terms2.php:136
+#: terms2.php:136
 msgid "Final price"
 msgstr "Summe"
 
-#: ../../terms.php:155 ../../terms2.php:138
+#: terms2.php:138
 msgid ""
 "For the automated debit process we use the service of our partner miniPay "
 "GmbH"
@@ -653,17 +761,17 @@ msgstr ""
 "Für das Lastschriftverfahren arbeiten wir mit unserem Partner der miniPay "
 "GmbH zusammen"
 
-#: ../../terms.php:156 ../../terms2.php:139
+#: terms2.php:139
 msgid "The activation takes place in two steps"
 msgstr "Die Aktivierung geschieht in zwei Schritten"
 
-#: ../../terms.php:157 ../../terms2.php:140
+#: terms2.php:140
 msgid "In the first step we need your mobile number to send you a tan - number"
 msgstr ""
 "Im ersten Schritt tragen Sie Ihre Mobilfunknummer ein, an die wir eine TAN - "
 "Nummer schicken"
 
-#: ../../terms.php:158 ../../terms2.php:141
+#: terms2.php:141
 msgid ""
 "In the next step you have to fill in your account informations and the tan "
 "we send you"
@@ -671,1925 +779,1644 @@ msgstr ""
 "Im nächsten Schritt, geben Sie Ihre Kontodaten ein und die TAN die wir Ihnen "
 "geschickt haben"
 
-#: ../../terms.php:159 ../../terms2.php:142
+#: terms2.php:142
 msgid ""
 "After that process we will automaticly charge the amounts for our service"
 msgstr ""
 "Nach diesem Prozess werden wir die fälligen Beträge automatisch abbuchen"
 
-#: ../../terms.php:160 ../../terms2.php:143
+#: terms2.php:143
 msgid "Enter your mobile number"
 msgstr "Tragen Sie Ihre Mobilfunknummer ein"
 
-#: ../../terms.php:161 ../../terms2.php:144
+#: terms2.php:144
 msgid "Mobile number"
 msgstr "Mobilnummer"
 
-#: ../../terms.php:162 ../../terms2.php:145
+#: terms2.php:145
 msgid "Send me a TAN"
 msgstr "TAN jetzt zuschicken"
 
-#: ../../terms.php:163 ../../terms2.php:146
+#: terms2.php:146
 msgid "Enter your account informations"
 msgstr "Tragen Sie Ihre Kontodaten ein"
 
-#: ../../terms.php:164 ../../terms2.php:147
+#: terms2.php:147
 msgid "Accountholder"
 msgstr "Kontoinhaber"
 
-#: ../../terms.php:165 ../../terms2.php:148
+#: terms2.php:148
 msgid "Account number"
 msgstr "Kontonummer"
 
-#: ../../terms.php:166 ../../terms2.php:149
+#: terms2.php:149
 msgid "Bank code number"
 msgstr "Bankleitzahl"
 
-#: ../../terms.php:167 ../../terms2.php:150
+#: terms2.php:150
 msgid "IBAN"
 msgstr ""
 
-#: ../../terms.php:168 ../../terms2.php:151
+#: terms2.php:151
 msgid "Tan in your SMS"
 msgstr "TAN in der erhaltenen SMS"
 
-#: ../../terms.php:169 ../../terms2.php:152
+#: terms2.php:152
 msgid "BIC"
 msgstr ""
 
-#: ../../terms.php:175 ../../terms2.php:158
+#: terms2.php:158
 msgid "Closed"
 msgstr "Abgeschlossen"
 
-#: ../../terms.php:176 ../../terms2.php:159
+#: terms2.php:159
 msgid "Error"
 msgstr "Fehler"
 
-#: ../../terms.php:178 ../../terms.php:631 ../../terms2.php:161
-#: ../../terms2.php:545
+#: terms2.php:161 terms2.php:545
 msgid "Create new attribute"
 msgstr "Neues Attribut erzeugen"
 
-#: ../../terms.php:179 ../../terms2.php:162
+#: terms2.php:162
 msgid "Save attributes"
 msgstr "Attribute speichern"
 
-#: ../../terms.php:180 ../../terms.php:544 ../../terms.php:557
-#: ../../terms.php:636 ../../terms.php:687 ../../terms.php:853
-#: ../../terms2.php:163 ../../terms2.php:476 ../../terms2.php:489
-#: ../../terms2.php:554 ../../terms2.php:594
+#: terms2.php:163 terms2.php:476 terms2.php:489 terms2.php:554 terms2.php:594
 msgid "Language"
 msgstr "Sprache"
 
-#: ../../terms.php:181 ../../terms2.php:164
+#: terms2.php:164
 msgid "Global"
 msgstr ""
 
-#: ../../terms.php:183 ../../terms2.php:166
+#: terms2.php:166
 msgid "Attribute name"
 msgstr "Attributname"
 
-#: ../../terms.php:185 ../../terms2.php:168
+#: terms2.php:168
 msgid "Attribute value"
 msgstr "Attributwert"
 
-#: ../../terms.php:186 ../../terms.php:928 ../../terms2.php:169
-#: ../../terms2.php:741
+#: terms2.php:169 terms2.php:741
 msgid "Delete attribute"
 msgstr "Attribut löschen"
 
-#: ../../terms.php:195 ../../terms2.php:178
+#: terms2.php:178
 msgid "Shipping provider"
 msgstr "Versandanbieter"
 
-#: ../../terms.php:196 ../../terms2.php:179
+#: terms2.php:179
 msgid "No shipping provider"
 msgstr "Kein Versandanbieter"
 
-#: ../../terms.php:197 ../../terms.php:252 ../../terms2.php:180
-#: ../../terms2.php:223
+#: terms2.php:180 terms2.php:223
 msgid "Save parcel"
 msgstr "Paket speichern"
 
-#: ../../terms.php:198 ../../terms.php:253 ../../terms2.php:181
-#: ../../terms2.php:224
+#: terms2.php:181 terms2.php:224
 msgid "Delete parcel"
 msgstr "Paket löschen"
 
-#: ../../terms.php:203 ../../terms.php:462 ../../terms2.php:186
-#: ../../terms2.php:400
+#: terms2.php:186 terms2.php:400
 msgid "Taxclass Country"
 msgstr "Steuerklasse Land"
 
-#: ../../terms.php:205 ../../terms.php:464 ../../terms2.php:188
-#: ../../terms2.php:402
+#: terms2.php:188 terms2.php:402
 msgid "Taxclass name"
 msgstr "Name"
 
-#: ../../terms.php:207 ../../terms.php:466 ../../terms2.php:190
-#: ../../terms2.php:404
+#: terms2.php:190 terms2.php:404
 msgid "Calculation"
 msgstr "Berechnung"
 
-#: ../../terms.php:208 ../../terms.php:467 ../../terms2.php:191
-#: ../../terms2.php:405
+#: terms2.php:191 terms2.php:405
 msgid "Included"
 msgstr "Inkludiert"
 
-#: ../../terms.php:209 ../../terms.php:468 ../../terms2.php:192
-#: ../../terms2.php:406
+#: terms2.php:192 terms2.php:406
 msgid "Added"
 msgstr "Addiert"
 
-#: ../../terms.php:210 ../../terms.php:469 ../../terms2.php:193
-#: ../../terms2.php:407
+#: terms2.php:193 terms2.php:407
 msgid "Subtract"
 msgstr "Subtrahiert"
 
-#: ../../terms.php:213 ../../terms.php:219 ../../terms2.php:196
-#: ../../terms2.php:202
+#: terms2.php:196 terms2.php:202
 msgid "Additional data"
 msgstr "Zusätzliche Daten"
 
-#: ../../terms.php:214 ../../terms.php:220 ../../terms2.php:197
-#: ../../terms2.php:203
+#: terms2.php:197 terms2.php:203
 msgid "Picture"
 msgstr "Bild"
 
-#: ../../terms.php:215 ../../terms.php:825 ../../terms.php:875
-#: ../../terms2.php:198 ../../terms2.php:692 ../../terms2.php:709
-msgid "Password"
-msgstr "Passwort"
-
-#: ../../terms.php:216 ../../terms2.php:199
+#: terms2.php:199
 msgid "Change your password"
 msgstr "Passwort ändern"
 
-#: ../../terms.php:217 ../../terms2.php:200
+#: terms2.php:200
 msgid "Password changed"
 msgstr "Passwort geändert"
 
-#: ../../terms.php:221 ../../terms2.php:204
+#: terms2.php:204
 msgid "Old Password"
 msgstr "Altes Passwort"
 
-#: ../../terms.php:222 ../../terms2.php:205
-msgid "New password"
-msgstr "Neues Passwort"
-
-#: ../../terms.php:223 ../../terms2.php:206
+#: terms2.php:206
 msgid "Confirm new password"
 msgstr "Neues Passwort bestätigen"
 
-#: ../../terms.php:224 ../../terms2.php:207
+#: terms2.php:207
 msgid "Change password"
 msgstr "Passwort ändern"
 
-#: ../../terms.php:225 ../../terms.php:294 ../../terms.php:833
-#: ../../terms.php:861 ../../terms2.php:704
-msgid "Distributors"
-msgstr "Distributoren"
-
-#: ../../terms.php:226
-msgid "Search and management of distributors"
-msgstr "Suche und Verwaltungen der Distributoren"
-
-#: ../../terms.php:227 ../../terms.php:311 ../../terms2.php:208
+#: terms2.php:208
 msgid "Search for distributors"
 msgstr "Distributoren suchen"
 
-#: ../../terms.php:231
-msgid "Distributor details"
-msgstr "Details zum Distributor"
+#: terms2.php:213
+msgid "Create a new distributor"
+msgstr "Distributor erzeugen"
 
-#: ../../terms.php:235 ../../terms.php:299 ../../terms.php:602
-#: ../../terms.php:609 ../../terms.php:669 ../../terms.php:912
-msgid "Checkins"
-msgstr "Checkins"
+#: terms2.php:214
+msgid "Show last distributors"
+msgstr "Neueste Distributoren anzeigen"
 
-#: ../../terms.php:236 ../../terms.php:603
-msgid "Close request"
-msgstr "Auftrag abschliessen"
-
-#: ../../terms.php:237 ../../terms.php:604
-msgid "Incomplete request"
-msgstr "Auftrag unvollständig"
-
-#: ../../terms.php:238 ../../terms2.php:216
+#: terms2.php:216
 msgid "Show"
 msgstr "Anzeigen"
 
-#: ../../terms.php:239 ../../terms.php:661 ../../terms2.php:217
-#: ../../terms2.php:579
+#: terms2.php:217 terms2.php:579
 msgid "Hide"
 msgstr "Verbergen"
 
-#: ../../terms.php:240 ../../terms.php:998 ../../terms2.php:218
-#: ../../terms2.php:785
+#: terms2.php:218 terms2.php:785
 msgid "Edit labels"
 msgstr "Beschriftungen bearbeiten"
 
-#: ../../terms.php:241 ../../terms.php:1000 ../../terms2.php:219
-#: ../../terms2.php:787
+#: terms2.php:219 terms2.php:787
 msgid "Edit attributes"
 msgstr "Attribute"
 
-#: ../../terms.php:242 ../../terms.php:270 ../../terms.php:414
-#: ../../terms2.php:220 ../../terms2.php:241 ../../terms2.php:354
+#: terms2.php:220 terms2.php:241 terms2.php:354
 msgid "SEO"
 msgstr ""
 
-#: ../../terms.php:243 ../../terms.php:997 ../../terms2.php:221
-#: ../../terms2.php:784
+#: terms2.php:221 terms2.php:784
 msgid "create node"
 msgstr "Knoten einfügen"
 
-#: ../../terms.php:244 ../../terms2.php:222
+#: terms2.php:222
 msgid "delete node"
 msgstr "Knoten löschen"
 
-#: ../../terms.php:248 ../../terms.php:278 ../../terms.php:409
-#: ../../terms.php:612 ../../terms.php:667 ../../terms.php:690
-#: ../../terms.php:709 ../../terms.php:752 ../../terms.php:836
-#: ../../terms.php:865 ../../terms.php:935 ../../terms.php:961
-#: ../../terms.php:1024 ../../terms.php:1045 ../../terms.php:1077
-#: ../../terms.php:1094
-msgid "Element number"
-msgstr "Elementnummer"
-
-#: ../../terms.php:251
-msgid "Entity Quantity"
-msgstr "Objektanzahl"
-
-#: ../../terms.php:254 ../../terms2.php:225
+#: terms2.php:225
 msgid "Create shipment"
 msgstr "Versand erzeugen"
 
-#: ../../terms.php:255 ../../terms2.php:226
+#: terms2.php:226
 msgid "Show label"
 msgstr "Versandetikett anzeigen"
 
-#: ../../terms.php:256 ../../terms2.php:227
+#: terms2.php:227
 msgid "Delete shipment"
 msgstr "Versand löschen"
 
-#: ../../terms.php:260 ../../terms.php:975 ../../terms.php:991
-#: ../../terms2.php:231 ../../terms2.php:762 ../../terms2.php:778
+#: terms2.php:231 terms2.php:762 terms2.php:778
 msgid "Payment state"
 msgstr "Bezahlstatus"
 
-#: ../../terms.php:265 ../../terms2.php:236
+#: terms2.php:236
 msgid "Cration date"
 msgstr "Erstellungsdatum"
 
-#: ../../terms.php:268 ../../terms2.php:239
+#: terms2.php:239
 msgid "Sum of the orders"
 msgstr "Summer der Bestellungen"
 
-#: ../../terms.php:269 ../../terms.php:413 ../../terms.php:1066
-#: ../../terms2.php:240 ../../terms2.php:353
+#: terms2.php:240 terms2.php:353
 msgid "General"
 msgstr "Allgemein"
 
-#: ../../terms.php:271 ../../terms.php:415 ../../terms2.php:242
-#: ../../terms2.php:355
+#: terms2.php:242 terms2.php:355
 msgid "Permalink"
 msgstr ""
 
-#: ../../terms.php:272 ../../terms.php:416 ../../terms.php:547
-#: ../../terms2.php:243 ../../terms2.php:356 ../../terms2.php:479
+#: terms2.php:243 terms2.php:356 terms2.php:479
 #, fuzzy
 msgid "Title"
 msgstr "Titel"
 
-#: ../../terms.php:273 ../../terms.php:417 ../../terms.php:548
-#: ../../terms.php:893 ../../terms2.php:244 ../../terms2.php:357
-#: ../../terms2.php:480 ../../terms2.php:701
+#: terms2.php:244 terms2.php:357 terms2.php:480 terms2.php:701
 #, fuzzy
 msgid "Description"
 msgstr "Beschreibung"
 
-#: ../../terms.php:274 ../../terms.php:418 ../../terms.php:549
-#: ../../terms2.php:245 ../../terms2.php:358 ../../terms2.php:481
+#: terms2.php:245 terms2.php:358 terms2.php:481
 msgid "Keywords"
 msgstr ""
 
-#: ../../terms.php:275 ../../terms.php:809 ../../terms.php:1004
-#: ../../terms2.php:791
-msgid "Found"
-msgstr "Gefunden"
-
-#: ../../terms.php:276 ../../terms.php:1005 ../../terms2.php:792
-msgid "products"
-msgstr "produkte"
-
-#: ../../terms.php:280 ../../terms.php:834 ../../terms.php:1052
-msgid "Inventory"
-msgstr "Bestand"
-
-#: ../../terms.php:281 ../../terms.php:850 ../../terms.php:870
-msgid "Blocked"
-msgstr "Blockiert"
-
-#: ../../terms.php:282 ../../terms.php:666 ../../terms.php:849
-msgid "in stock"
-msgstr "auf Lager"
-
-#: ../../terms.php:284 ../../terms2.php:250 ../../terms2.php:619
+#: terms2.php:250 terms2.php:619
 msgid "Add to request"
 msgstr "Zum Auftrag hinzufügen"
 
-#: ../../terms.php:287 ../../terms2.php:252
+#: terms2.php:252
 msgid "Menu"
 msgstr "Menü"
 
-#: ../../terms.php:288 ../../terms.php:323 ../../terms.php:343
-#: ../../terms.php:561 ../../terms.php:595 ../../terms.php:1017
-#: ../../terms.php:1019 ../../terms.php:1030 ../../terms2.php:253
-#: ../../terms2.php:279 ../../terms2.php:299 ../../terms2.php:804
-#: ../../terms2.php:806 ../../terms2.php:811
-msgid "Orders"
-msgstr "Bestellungen"
-
-#: ../../terms.php:289 ../../terms.php:976 ../../terms.php:1033
-#: ../../terms2.php:254 ../../terms2.php:763 ../../terms2.php:814
+#: terms2.php:254 terms2.php:763 terms2.php:814
 msgid "User"
 msgstr "Benutzer"
 
-#: ../../terms.php:290 ../../terms.php:419 ../../terms.php:1031
-#: ../../terms2.php:255 ../../terms2.php:359 ../../terms2.php:812
+#: terms2.php:255 terms2.php:359 terms2.php:812
 msgid "Products"
 msgstr "Produkte"
 
-#: ../../terms.php:291 ../../terms.php:558 ../../terms.php:688
-#: ../../terms.php:993 ../../terms2.php:256 ../../terms2.php:490
-#: ../../terms2.php:595 ../../terms2.php:780
+#: terms2.php:256 terms2.php:490 terms2.php:595 terms2.php:780
 msgid "Categories"
 msgstr "Kategorien"
 
-#: ../../terms.php:292 ../../terms.php:1032 ../../terms2.php:257
-#: ../../terms2.php:813
+#: terms2.php:257 terms2.php:813
 msgid "Contents"
 msgstr "Inhalte"
 
-#: ../../terms.php:293 ../../terms.php:676 ../../terms.php:701
-#: ../../terms.php:871 ../../terms2.php:583 ../../terms2.php:606
-msgid "Warehouse"
-msgstr "Warenwirtschaft"
-
-#: ../../terms.php:295 ../../terms.php:309
-msgid "Manufacturers"
-msgstr "Hersteller"
-
-#: ../../terms.php:296 ../../terms.php:665 ../../terms.php:1042
-msgid "Warehouse entities"
-msgstr "Lagerobjekte"
-
-#: ../../terms.php:300
-msgid "Movements"
-msgstr "Bewegungen"
-
-#: ../../terms.php:301 ../../terms.php:932
-msgid "Checkouts"
-msgstr "Checkouts\t"
-
-#: ../../terms.php:302 ../../terms2.php:258
+#: terms2.php:258
 msgid "Administration"
 msgstr ""
 
-#: ../../terms.php:303 ../../terms.php:317 ../../terms.php:319
-#: ../../terms2.php:259 ../../terms2.php:273 ../../terms2.php:275
+#: terms2.php:259 terms2.php:273 terms2.php:275
 msgid "Reports"
 msgstr "Berichte"
 
-#: ../../terms.php:304 ../../terms2.php:260
+#: terms2.php:260
 msgid "Objects"
 msgstr "Objekte"
 
-#: ../../terms.php:305 ../../terms.php:438 ../../terms2.php:261
-#: ../../terms2.php:376
+#: terms2.php:261 terms2.php:376
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: ../../terms.php:307 ../../terms.php:917 ../../terms2.php:263
-#: ../../terms2.php:730
+#: terms2.php:263 terms2.php:730
 msgid "Help"
 msgstr "Hilfe"
 
-#: ../../terms.php:310
-msgid "Search and management of manufacturers"
-msgstr "Suche und Verwaltungen der Hersteller"
+#: terms2.php:265
+msgid "Search for manufacturers"
+msgstr "Hersteller suchen"
 
-#: ../../terms.php:315
-msgid "Manufacturer details"
-msgstr "Herstellerdetails"
+#: terms2.php:270
+msgid "Create a new manufacturer"
+msgstr "Hersteller erzeugen"
 
-#: ../../terms.php:318 ../../terms2.php:274
+#: terms2.php:271
+msgid "Show last manufacturers"
+msgstr "Neueste Hersteller anzeigen"
+
+#: terms2.php:272 terms2.php:528 terms2.php:698 terms2.php:826
+msgid "Manufacturer"
+msgstr "Hersteller"
+
+#: terms2.php:274
 msgid "Significant informations for your business"
 msgstr "Signifikante Informationen für Ihr Unternehmen"
 
-#: ../../terms.php:320 ../../terms2.php:276
+#: terms2.php:276
 msgid "Report"
 msgstr "Bericht"
 
-#: ../../terms.php:322 ../../terms2.php:278
+#: terms2.php:278
 msgid "Traffic"
 msgstr "Traffic"
 
-#: ../../terms.php:324 ../../terms.php:355 ../../terms2.php:280
-#: ../../terms2.php:311
+#: terms2.php:280 terms2.php:311
 msgid "Start Date"
 msgstr "Startdatum"
 
-#: ../../terms.php:325 ../../terms.php:356 ../../terms2.php:281
-#: ../../terms2.php:312
+#: terms2.php:281 terms2.php:312
 msgid "End Date"
 msgstr "Enddatum"
 
-#: ../../terms.php:329 ../../terms.php:364 ../../terms2.php:285
-#: ../../terms2.php:320
+#: terms2.php:285 terms2.php:320
 msgid "Show orders of today"
 msgstr "Heutige Bestellung anzeigen"
 
-#: ../../terms.php:330 ../../terms.php:365 ../../terms2.php:286
-#: ../../terms2.php:321
+#: terms2.php:286 terms2.php:321
 msgid "Show orders of the past seven days"
 msgstr "Bestellungen der letzten sieben Tage anzeigen"
 
-#: ../../terms.php:331 ../../terms2.php:287
+#: terms2.php:287
 msgid "Available categories"
 msgstr "Vorhandene Kategorien"
 
-#: ../../terms.php:335 ../../terms2.php:291
+#: terms2.php:291
 #, fuzzy
 msgid "Class name"
 msgstr "Klassenname"
 
-#: ../../terms.php:337 ../../terms2.php:293
+#: terms2.php:293
 msgid "Class length"
 msgstr "Klasse - Länge"
 
-#: ../../terms.php:339 ../../terms2.php:295
+#: terms2.php:295
 msgid "Class width"
 msgstr "Klasse Breite"
 
-#: ../../terms.php:341 ../../terms2.php:297
+#: terms2.php:297
 msgid "Class height"
 msgstr "Klasse Höhe"
 
-#: ../../terms.php:342 ../../terms2.php:298
+#: terms2.php:298
 msgid "Delete class"
 msgstr "Klasse löschen"
 
-#: ../../terms.php:344 ../../terms2.php:300
+#: terms2.php:300
 msgid "Search and manage your orders"
 msgstr "Bestellungen suchen und verwalten"
 
-#: ../../terms.php:345 ../../terms2.php:301
+#: terms2.php:301
 msgid "Search for orders"
 msgstr "Bestellungen suchen"
 
-#: ../../terms.php:358 ../../terms.php:458 ../../terms.php:900
-#: ../../terms2.php:314 ../../terms2.php:396 ../../terms2.php:727
-msgid "E-Mail"
-msgstr ""
-
-#: ../../terms.php:359 ../../terms2.php:315
+#: terms2.php:315
 msgid "Invoice firstname"
 msgstr "Vorname Rechnung"
 
-#: ../../terms.php:360 ../../terms2.php:316
+#: terms2.php:316
 msgid "Invoice lastname"
 msgstr "Name Rechnung"
 
-#: ../../terms.php:366 ../../terms.php:543 ../../terms.php:1034
-#: ../../terms2.php:322 ../../terms2.php:475 ../../terms2.php:815
+#: terms2.php:322 terms2.php:475 terms2.php:815
 msgid "Order details"
 msgstr "Bestelldetails"
 
-#: ../../terms.php:368 ../../terms2.php:324
+#: terms2.php:324
 msgid "Current shopobject categories"
 msgstr "Shopobjektkategorien"
 
-#: ../../terms.php:369 ../../terms2.php:325
+#: terms2.php:325
 msgid "Click one category for deleting"
 msgstr "Klicken Sie auf eine Kategorie um diese zu entfernen"
 
-#: ../../terms.php:370 ../../terms.php:601 ../../terms.php:905
-msgid "Requested elements"
-msgstr "Bestellte Elemente"
+#: terms2.php:326
+msgid "Request elements"
+msgstr "Bestellte Objekte"
 
-#: ../../terms.php:372 ../../terms.php:390 ../../terms.php:907
-#: ../../terms2.php:328
+#: terms2.php:328
 msgid "Elem. no."
 msgstr ""
 
-#: ../../terms.php:375
-msgid "Tax rate"
-msgstr "Steuersatz"
-
-#: ../../terms.php:379
-msgid "Make the request fit and close it"
-msgstr "Auftrag anpassen und abschließen"
-
-#: ../../terms.php:380 ../../terms2.php:334
+#: terms2.php:334
 msgid "Request details"
 msgstr "Details zum Auftrag"
 
-#: ../../terms.php:382 ../../terms.php:716 ../../terms.php:1083
-#: ../../terms2.php:335 ../../terms2.php:615
+#: terms2.php:335 terms2.php:615
 msgid "Type / State"
 msgstr "Typ / Status"
 
-#: ../../terms.php:385 ../../terms2.php:338
+#: terms2.php:338
 msgid "Modifier"
 msgstr "Verändert durch"
 
-#: ../../terms.php:387 ../../terms.php:967 ../../terms2.php:340
+#: terms2.php:340
 msgid "Show request"
 msgstr "Auftrag anzeigen"
 
-#: ../../terms.php:388
-msgid "Submit request"
-msgstr "Auftrag bestätigen"
+#: terms2.php:341 terms2.php:725
+msgid "Submit"
+msgstr "Senden"
 
-#: ../../terms.php:394 ../../terms.php:600 ../../terms.php:910
-msgid "Checkin"
-msgstr ""
-
-#: ../../terms.php:397 ../../terms.php:453 ../../terms.php:580
-#: ../../terms.php:886 ../../terms.php:920 ../../terms2.php:344
-#: ../../terms2.php:391 ../../terms2.php:511 ../../terms2.php:720
-#: ../../terms2.php:733
-msgid "Street"
-msgstr "Straße"
-
-#: ../../terms.php:398 ../../terms.php:454 ../../terms.php:581
-#: ../../terms.php:887 ../../terms.php:921 ../../terms2.php:345
-#: ../../terms2.php:392 ../../terms2.php:512 ../../terms2.php:721
-#: ../../terms2.php:734
-msgid "Number"
-msgstr "Nummer"
-
-#: ../../terms.php:399 ../../terms.php:922 ../../terms2.php:346
-#: ../../terms2.php:735
-msgid "Zip"
-msgstr "PLZ"
-
-#: ../../terms.php:400 ../../terms.php:456 ../../terms.php:583
-#: ../../terms.php:889 ../../terms.php:923 ../../terms2.php:347
-#: ../../terms2.php:394 ../../terms2.php:514 ../../terms2.php:723
-#: ../../terms2.php:736
-msgid "City"
-msgstr "Stadt"
-
-#: ../../terms.php:401 ../../terms.php:584 ../../terms.php:890
-#: ../../terms.php:924 ../../terms2.php:18 ../../terms2.php:348
-#: ../../terms2.php:515 ../../terms2.php:724 ../../terms2.php:737
-msgid "State"
-msgstr "Staat"
-
-#: ../../terms.php:402 ../../terms.php:457 ../../terms.php:578
-#: ../../terms.php:884 ../../terms.php:925 ../../terms2.php:349
-#: ../../terms2.php:395 ../../terms2.php:509 ../../terms2.php:718
-#: ../../terms2.php:738
-msgid "Country"
-msgstr "Land"
-
-#: ../../terms.php:403 ../../terms2.php:350
+#: terms2.php:350
 msgid "Contact person"
 msgstr ""
 
-#: ../../terms.php:405 ../../terms2.php:352
+#: terms2.php:352
 msgid "Save distributor"
 msgstr ""
 
-#: ../../terms.php:412
-msgid "by Order"
-msgstr "über Bestellung"
-
-#: ../../terms.php:420 ../../terms2.php:360
+#: terms2.php:360
 msgid "Search, manage and edit your products"
 msgstr "Suchen, Pflegen und Verwalten Ihrer Produkte"
 
-#: ../../terms.php:421 ../../terms2.php:361
+#: terms2.php:361
 msgid "Search for products"
 msgstr "Produkte suchen"
 
-#: ../../terms.php:425 ../../terms.php:946 ../../terms2.php:365
-#: ../../terms2.php:751
+#: terms2.php:365 terms2.php:751
 msgid "Textsearch"
 msgstr "Textsuche"
 
-#: ../../terms.php:426 ../../terms.php:947 ../../terms2.php:366
-#: ../../terms2.php:752
+#: terms2.php:366 terms2.php:752
 msgid "Shopstatus"
 msgstr ""
 
-#: ../../terms.php:428 ../../terms.php:569 ../../terms.php:707
-#: ../../terms.php:742 ../../terms.php:949 ../../terms.php:985
-#: ../../terms2.php:368 ../../terms2.php:500 ../../terms2.php:611
-#: ../../terms2.php:631 ../../terms2.php:754 ../../terms2.php:772
+#: terms2.php:368 terms2.php:500 terms2.php:611 terms2.php:631 terms2.php:754
+#: terms2.php:772
 msgid "Active"
 msgstr "Aktiv"
 
-#: ../../terms.php:429 ../../terms.php:950 ../../terms2.php:369
-#: ../../terms2.php:755
+#: terms2.php:369 terms2.php:755
 msgid "Not active"
 msgstr "Nicht aktiv"
 
-#: ../../terms.php:430 ../../terms.php:951 ../../terms2.php:370
-#: ../../terms2.php:756
+#: terms2.php:370 terms2.php:756
 msgid "Shopcategory"
 msgstr "Shopkategorie"
 
-#: ../../terms.php:432 ../../terms.php:607
-msgid "Class"
-msgstr "Klasse"
-
-#: ../../terms.php:436 ../../terms.php:1036 ../../terms2.php:374
-#: ../../terms2.php:817
+#: terms2.php:374 terms2.php:817
 msgid "Product details"
 msgstr "Produktdetails"
 
-#: ../../terms.php:439 ../../terms2.php:377
+#: terms2.php:377
 msgid "Settings for payment, delivery, shipping and more"
 msgstr "Einstellungen für Bezahlung, Versand, Lieferung und mehr"
 
-#: ../../terms.php:444 ../../terms.php:495 ../../terms2.php:382
-#: ../../terms2.php:433
+#: terms2.php:382 terms2.php:433
 msgid "Forms"
 msgstr "Formulare"
 
-#: ../../terms.php:445 ../../terms.php:508 ../../terms2.php:383
-#: ../../terms2.php:440
+#: terms2.php:383 terms2.php:440
 msgid "Numbers"
 msgstr "Nummern"
 
-#: ../../terms.php:447 ../../terms2.php:385
+#: terms2.php:385
 msgid "DBS"
 msgstr ""
 
-#: ../../terms.php:450 ../../terms2.php:388
+#: terms2.php:388
 #, fuzzy
 msgid "Companyname"
 msgstr "Firma"
 
-#: ../../terms.php:451 ../../terms2.php:389
-#, fuzzy
-msgid "Firstname"
-msgstr "Vorname"
-
-#: ../../terms.php:452 ../../terms2.php:390
-#, fuzzy
-msgid "Lastname"
-msgstr "Nachname"
-
-#: ../../terms.php:455 ../../terms2.php:393
+#: terms2.php:393
 #, fuzzy
 msgid "ZIP"
 msgstr "PLZ"
 
-#: ../../terms.php:459 ../../terms2.php:397
+#: terms2.php:397
 msgid "Currency"
 msgstr "Währung"
 
-#: ../../terms.php:461 ../../terms2.php:399
+#: terms2.php:399
 msgid "Tax settings"
 msgstr "Steuereinstellungen"
 
-#: ../../terms.php:471 ../../terms2.php:409
+#: terms2.php:409
 msgid "Taxclasses"
 msgstr "Steuerklassen"
 
-#: ../../terms.php:472 ../../terms2.php:410
+#: terms2.php:410
 msgid "The first class is the default class"
 msgstr "Die erste Klasse ist die Standardklasse"
 
-#: ../../terms.php:473 ../../terms2.php:411
+#: terms2.php:411
 msgid "Delivery settings"
 msgstr "Liefereinstellungen"
 
-#: ../../terms.php:474 ../../terms.php:617 ../../terms2.php:412
-#: ../../terms2.php:531
+#: terms2.php:412 terms2.php:531
 msgid "Deliveryclass Country"
 msgstr "Land der Lieferklasse"
 
-#: ../../terms.php:476 ../../terms2.php:414
+#: terms2.php:414
 msgid "Deliveryclass name"
 msgstr "Name"
 
-#: ../../terms.php:479 ../../terms2.php:417
+#: terms2.php:417
 msgid "Cart sum min"
 msgstr "Summe min"
 
-#: ../../terms.php:480 ../../terms2.php:418
+#: terms2.php:418
 msgid "Cart sum max"
 msgstr "Summe max"
 
-#: ../../terms.php:481 ../../terms2.php:419
+#: terms2.php:419
 msgid "Cart kg min"
 msgstr "kg min"
 
-#: ../../terms.php:482 ../../terms2.php:420
+#: terms2.php:420
 msgid "Cart kg max"
 msgstr "kg max"
 
-#: ../../terms.php:484 ../../terms2.php:422
+#: terms2.php:422
 msgid "Deliveryclasses"
 msgstr "Lieferklassen"
 
-#: ../../terms.php:485 ../../terms.php:489 ../../terms2.php:423
-#: ../../terms2.php:427
+#: terms2.php:423 terms2.php:427
 msgid "Edit parcel classes"
 msgstr "Paketklassen bearbeiten"
 
-#: ../../terms.php:488 ../../terms2.php:426
+#: terms2.php:426
 msgid "Parcel classes"
 msgstr "Paketklassen"
 
-#: ../../terms.php:490 ../../terms2.php:428
+#: terms2.php:428
 msgid "DHL"
 msgstr ""
 
-#: ../../terms.php:491 ../../terms2.php:429
+#: terms2.php:429
 msgid "API URL"
 msgstr ""
 
-#: ../../terms.php:492 ../../terms2.php:430
+#: terms2.php:430
 msgid "Application ID"
 msgstr ""
 
-#: ../../terms.php:493 ../../terms2.php:431
+#: terms2.php:431
 msgid "Application token"
 msgstr ""
 
-#: ../../terms.php:496
-msgid "Picklist"
-msgstr "Sammelliste"
-
-#: ../../terms.php:500 ../../terms2.php:436
+#: terms2.php:436
 msgid "Invoice form"
 msgstr "Rechnungsformular"
 
-#: ../../terms.php:502
-msgid "Refund form"
-msgstr "Rückerstattungsformular"
-
-#: ../../terms.php:504 ../../terms2.php:438
+#: terms2.php:438
 msgid "Request form"
 msgstr "Bestellformular"
 
-#: ../../terms.php:506
-msgid "Barcode form"
-msgstr "Barcode Formular"
-
-#: ../../terms.php:509 ../../terms2.php:441
+#: terms2.php:441
 msgid "Order number structure"
 msgstr "Bestellnummerstruktur"
 
-#: ../../terms.php:510 ../../terms2.php:442
+#: terms2.php:442
 msgid "Number start"
 msgstr "Startnummer"
 
-#: ../../terms.php:513 ../../terms2.php:445
+#: terms2.php:445
 msgid "Paypal"
 msgstr ""
 
-#: ../../terms.php:514 ../../terms2.php:446
+#: terms2.php:446
 msgid "API Username"
 msgstr "API Benutzername"
 
-#: ../../terms.php:515 ../../terms2.php:447
+#: terms2.php:447
 msgid "API Password"
 msgstr "API Passwort"
 
-#: ../../terms.php:516 ../../terms2.php:448
+#: terms2.php:448
 msgid "API Signature"
 msgstr "API Signatur"
 
-#: ../../terms.php:517 ../../terms2.php:449
+#: terms2.php:449
 msgid "API Endpoint"
 msgstr "API Endpunkt"
 
-#: ../../terms.php:518 ../../terms2.php:450
+#: terms2.php:450
 msgid "Use Proxy"
 msgstr "Proxy Benutzen"
 
-#: ../../terms.php:519 ../../terms2.php:451
+#: terms2.php:451
 msgid "Proxy Host"
 msgstr ""
 
-#: ../../terms.php:520 ../../terms2.php:452
+#: terms2.php:452
 msgid "Proxy Port"
 msgstr ""
 
-#: ../../terms.php:521 ../../terms2.php:453
+#: terms2.php:453
 msgid "Paypal Url"
 msgstr ""
 
-#: ../../terms.php:522 ../../terms2.php:454
+#: terms2.php:454
 msgid "API Version"
 msgstr ""
 
-#: ../../terms.php:523 ../../terms2.php:455
+#: terms2.php:455
 msgid "API Cancel Url"
 msgstr "API Abbruch URL"
 
-#: ../../terms.php:524 ../../terms2.php:456
+#: terms2.php:456
 msgid "API Success Url"
 msgstr "API Erfolgs URL"
 
-#: ../../terms.php:526 ../../terms2.php:458
+#: terms2.php:458
 msgid "Sofortüberweisung"
 msgstr ""
 
-#: ../../terms.php:527 ../../terms.php:535 ../../terms2.php:459
-#: ../../terms2.php:467
+#: terms2.php:459 terms2.php:467
 msgid "API Url"
 msgstr ""
 
-#: ../../terms.php:528 ../../terms2.php:460
+#: terms2.php:460
 msgid "API Key"
 msgstr "API Schlüssel"
 
-#: ../../terms.php:529 ../../terms.php:538 ../../terms2.php:461
-#: ../../terms2.php:470
+#: terms2.php:461 terms2.php:470
 msgid "Cancel Url"
 msgstr "Abbruch URL"
 
-#: ../../terms.php:530 ../../terms.php:539 ../../terms2.php:462
-#: ../../terms2.php:471
+#: terms2.php:462 terms2.php:471
 msgid "Success Url"
 msgstr "Erfolgs URL"
 
-#: ../../terms.php:531 ../../terms2.php:463
+#: terms2.php:463
 msgid "Project ID"
 msgstr "Projekt ID"
 
-#: ../../terms.php:532 ../../terms2.php:464
+#: terms2.php:464
 msgid "Customer ID"
 msgstr "Kunden ID"
 
-#: ../../terms.php:534 ../../terms2.php:466
+#: terms2.php:466
 msgid "Paymill"
 msgstr ""
 
-#: ../../terms.php:536 ../../terms2.php:468
+#: terms2.php:468
 msgid "Private Key"
 msgstr ""
 
-#: ../../terms.php:537 ../../terms2.php:469
+#: terms2.php:469
 msgid "Public Key"
 msgstr ""
 
-#: ../../terms.php:540 ../../terms2.php:472
+#: terms2.php:472
 msgid "Bridge Url"
 msgstr ""
 
-#: ../../terms.php:542 ../../terms2.php:474
+#: terms2.php:474
 msgid "Init DBS"
 msgstr ""
 
-#: ../../terms.php:545 ../../terms2.php:477
+#: terms2.php:477
 msgid "Save fields"
 msgstr "Felder speichern"
 
-#: ../../terms.php:546 ../../terms2.php:478
+#: terms2.php:478
 msgid "Permanlink"
 msgstr ""
 
-#: ../../terms.php:551 ../../terms.php:678 ../../terms2.php:483
-#: ../../terms2.php:585
+#: terms2.php:483 terms2.php:585
 msgid "Shop active"
 msgstr "Shopaktiv"
 
-#: ../../terms.php:553 ../../terms.php:632 ../../terms.php:683
-#: ../../terms.php:845 ../../terms2.php:485 ../../terms2.php:550
-#: ../../terms2.php:590
+#: terms2.php:485 terms2.php:550 terms2.php:590
 msgid "Infos"
 msgstr ""
 
-#: ../../terms.php:555 ../../terms.php:634 ../../terms.php:685
-#: ../../terms.php:847 ../../terms2.php:487 ../../terms2.php:552
-#: ../../terms2.php:592
+#: terms2.php:487 terms2.php:552 terms2.php:592
 msgid "Modified by"
 msgstr "Geändert durch"
 
-#: ../../terms.php:556 ../../terms.php:635 ../../terms.php:686
-#: ../../terms.php:852 ../../terms2.php:488 ../../terms2.php:553
-#: ../../terms2.php:593
+#: terms2.php:488 terms2.php:553 terms2.php:593
 msgid "Attributes"
 msgstr "Attribute"
 
-#: ../../terms.php:560 ../../terms2.php:492
+#: terms2.php:492
 msgid "Addresses"
 msgstr "Adressen"
 
-#: ../../terms.php:564 ../../terms2.php:495
+#: terms2.php:495
 msgid "Registration date"
 msgstr "Registrierungsdatum"
 
-#: ../../terms.php:565 ../../terms2.php:496
+#: terms2.php:496
 msgid "First login"
 msgstr "Zuerst eingeloggt"
 
-#: ../../terms.php:566 ../../terms2.php:497
+#: terms2.php:497
 msgid "Last login"
 msgstr "Zuletzt eingeloggt"
 
-#: ../../terms.php:568 ../../terms.php:984 ../../terms2.php:499
-#: ../../terms2.php:771
+#: terms2.php:499 terms2.php:771
 msgid "Waiting email verification"
 msgstr "Auf E-Mail Verifikation warten"
 
-#: ../../terms.php:570 ../../terms.php:986 ../../terms2.php:501
-#: ../../terms2.php:773
+#: terms2.php:501 terms2.php:773
 msgid "Locked"
 msgstr "Gesperrt"
 
-#: ../../terms.php:571 ../../terms.php:877 ../../terms2.php:502
-#: ../../terms2.php:711
+#: terms2.php:502 terms2.php:711
 msgid "Salutation"
 msgstr "Anrede"
 
-#: ../../terms.php:572 ../../terms.php:878 ../../terms2.php:503
-#: ../../terms2.php:712
-msgid "Mrs"
-msgstr "Frau"
-
-#: ../../terms.php:573 ../../terms.php:879 ../../terms2.php:504
-#: ../../terms2.php:713
-msgid "Mr"
-msgstr "Herr"
-
-#: ../../terms.php:576 ../../terms.php:882 ../../terms2.php:507
-#: ../../terms2.php:716
+#: terms2.php:507 terms2.php:716
 msgid "Company name"
 msgstr "Firma"
 
-#: ../../terms.php:577 ../../terms.php:883 ../../terms2.php:508
-#: ../../terms2.php:717
-msgid "Department"
-msgstr "Abteilung"
-
-#: ../../terms.php:579 ../../terms.php:885 ../../terms2.php:510
-#: ../../terms2.php:719
+#: terms2.php:510 terms2.php:719
 msgid "Please choose"
 msgstr "Bitte wählen"
 
-#: ../../terms.php:582 ../../terms.php:888 ../../terms2.php:513
-#: ../../terms2.php:722
+#: terms2.php:513 terms2.php:722
 msgid "Postal code"
 msgstr "PLZ"
 
-#: ../../terms.php:588 ../../terms2.php:519
+#: terms2.php:519
 msgid "Send message"
 msgstr "Nachricht schicken"
 
-#: ../../terms.php:589 ../../terms2.php:520
+#: terms2.php:520
 msgid "Send new passwd"
 msgstr "Neues Passwort senden"
 
-#: ../../terms.php:590 ../../terms.php:901 ../../terms2.php:521
-#: ../../terms2.php:728
+#: terms2.php:521 terms2.php:728
 msgid "Groups"
 msgstr "Gruppen"
 
-#: ../../terms.php:591 ../../terms2.php:522
+#: terms2.php:522
 #, fuzzy
 msgid "Administrator"
 msgstr "Benutzer ist Administrator"
 
-#: ../../terms.php:592 ../../terms2.php:523
+#: terms2.php:523
 msgid "Management"
 msgstr "Management"
 
-#: ../../terms.php:593 ../../terms2.php:524
+#: terms2.php:524
 msgid "Adresses"
 msgstr "Adressen"
 
-#: ../../terms.php:594 ../../terms2.php:525
+#: terms2.php:525
 msgid "Add new address"
 msgstr "Neue Adresse hinzufügen"
 
-#: ../../terms.php:596 ../../terms2.php:526
+#: terms2.php:526
 #, fuzzy
 msgid "Create new class"
 msgstr "Neue Klasse erstellen"
 
-#: ../../terms.php:597 ../../terms2.php:527
+#: terms2.php:527
 msgid "Save classes"
 msgstr "Klassen speichern"
 
-#: ../../terms.php:598
-msgid "EAN or Element number"
-msgstr "EAN oder Elementnummer"
-
-#: ../../terms.php:605 ../../terms.php:838 ../../terms.php:1048
-#: ../../terms2.php:272 ../../terms2.php:528 ../../terms2.php:698
-#: ../../terms2.php:826
-msgid "Manufacturer"
-msgstr "Hersteller"
-
-#: ../../terms.php:608 ../../terms2.php:530
+#: terms2.php:530
 msgid "Create entity"
 msgstr "Objekt erzeugen"
 
-#: ../../terms.php:610
-msgid "Search and management of checkins"
-msgstr "Suche und Verwaltungen der Checkins"
-
-#: ../../terms.php:611
-msgid "Search for checkins"
-msgstr "Checkins suchen"
-
-#: ../../terms.php:615 ../../terms.php:938
-msgid "Checkin details"
-msgstr "Checkin details"
-
-#: ../../terms.php:619 ../../terms2.php:533
+#: terms2.php:533
 msgid "Deliverclass name"
 msgstr "Lieferklasse"
 
-#: ../../terms.php:622 ../../terms2.php:536
+#: terms2.php:536
 msgid "Sum min"
 msgstr "Summe min"
 
-#: ../../terms.php:623 ../../terms2.php:537
+#: terms2.php:537
 msgid "Sum max"
 msgstr "Summe max"
 
-#: ../../terms.php:624 ../../terms2.php:538
+#: terms2.php:538
 msgid "kg min"
 msgstr ""
 
-#: ../../terms.php:625 ../../terms2.php:539
+#: terms2.php:539
 msgid "kg max"
 msgstr ""
 
-#: ../../terms.php:637 ../../terms2.php:555
+#: terms2.php:546
+msgid "Apply changes to"
+msgstr "Änderungen weitergeben an"
+
+#: terms2.php:547
+msgid "None"
+msgstr "Keine weitergabe"
+
+#: terms2.php:548
+msgid "Direct children"
+msgstr "Direkte Erben"
+
+#: terms2.php:549
+msgid "Transitive"
+msgstr "Transitiv"
+
+#: terms2.php:555
 msgid "Editor will be shown in shopobject instances"
 msgstr "Der Editor erscheint in den Produktinstanzen"
 
-#: ../../terms.php:638 ../../terms2.php:556
+#: terms2.php:556
 msgid "Dashboard"
 msgstr "Cockpit"
 
-#: ../../terms.php:639 ../../terms2.php:557
+#: terms2.php:557
 msgid "Start your success from here"
 msgstr "Hier beginnt Ihr Erfolg"
 
-#: ../../terms.php:640 ../../terms2.php:558
+#: terms2.php:558
 msgid "New Orders for today"
 msgstr "Heutige Bestellungen"
 
-#: ../../terms.php:641 ../../terms2.php:559
+#: terms2.php:559
 msgid "More info"
 msgstr "Weitere Informationen"
 
-#: ../../terms.php:642 ../../terms2.php:560
+#: terms2.php:560
 msgid "User Registrations"
 msgstr "Benutzerregistrierungen"
 
-#: ../../terms.php:643 ../../terms2.php:561
+#: terms2.php:561
 msgid "Cart conversion"
 msgstr "Warenkorb - Conversion"
 
-#: ../../terms.php:644 ../../terms2.php:562
+#: terms2.php:562
 msgid "Used traffic"
 msgstr "Verbrauch"
 
-#: ../../terms.php:645 ../../terms2.php:563
+#: terms2.php:563
 msgid "Server is"
 msgstr "Ihr Serverstatus"
 
-#: ../../terms.php:646 ../../terms2.php:564
+#: terms2.php:564
 msgid "Welcome"
 msgstr "Willkommen"
 
-#: ../../terms.php:647 ../../terms2.php:565
+#: terms2.php:565
 msgid "Hello"
 msgstr "Hallo"
 
-#: ../../terms.php:648 ../../terms2.php:566
+#: terms2.php:566
 msgid "thank you for using sleekshop"
 msgstr "danke für die Benutzung von sleekshop"
 
-#: ../../terms.php:649 ../../terms2.php:567
+#: terms2.php:567
 msgid "Your testing phase expires on"
 msgstr "Ihre Testphase endet am"
 
-#: ../../terms.php:650 ../../terms2.php:568
+#: terms2.php:568
 msgid "Your data is incomplete"
 msgstr "Ihre Daten sind nicht vollständig"
 
-#: ../../terms.php:651 ../../terms2.php:569
+#: terms2.php:569
 msgid "Please check your main data"
 msgstr "Bitte überprüfen Sie Ihre Daten"
 
-#: ../../terms.php:652 ../../terms2.php:570
+#: terms2.php:570
 msgid "Go to settings"
 msgstr "Zu den Einstellungen"
 
-#: ../../terms.php:653 ../../terms2.php:571
+#: terms2.php:571
 msgid "Please check your account informations"
 msgstr "Bitte überprüfen Sie Ihre Kontodaten"
 
-#: ../../terms.php:654 ../../terms2.php:572
+#: terms2.php:572
 msgid "Go to billing settings"
 msgstr "Zu der Abrechnungsseite"
 
-#: ../../terms.php:655 ../../terms2.php:573
+#: terms2.php:573
 msgid "If you not complete your data the server can be stopped"
 msgstr "Ohne vollständige Daten kann der Server gesperrt werden"
 
-#: ../../terms.php:656 ../../terms2.php:574
+#: terms2.php:574
 msgid "Server"
 msgstr "Server"
 
-#: ../../terms.php:660 ../../terms2.php:578
+#: terms2.php:578
 msgid "Notifications"
 msgstr "Meldungen"
 
-#: ../../terms.php:662 ../../terms2.php:580
+#: terms2.php:580
 msgid "No notifications found"
 msgstr "Keine Meldungen gefunden"
 
-#: ../../terms.php:663
-msgid "Recently placed orders"
-msgstr "Neueste Bestellungen"
-
-#: ../../terms.php:664
-msgid "Show all orders"
-msgstr "Alle Bestellungen anzeigen"
-
-#: ../../terms.php:668
-msgid "Show all warehouse entities"
-msgstr "Alle Lagerobjekte anzeigen"
-
-#: ../../terms.php:670
-msgid "Ready to place"
-msgstr "Bereit zum Platzieren"
-
-#: ../../terms.php:671
-msgid "Request not finished"
-msgstr "Auftrag nicht abgeschlossen"
-
-#: ../../terms.php:673
-msgid "Show all checkins"
-msgstr "Zeige alle Checkins"
-
-#: ../../terms.php:675 ../../terms.php:689 ../../terms.php:832
-#: ../../terms.php:854 ../../terms2.php:582 ../../terms2.php:596
+#: terms2.php:582 terms2.php:596
 msgid "Metadata"
 msgstr "Metadaten"
 
-#: ../../terms.php:680 ../../terms2.php:587
+#: terms2.php:583 terms2.php:606
+msgid "Warehouse"
+msgstr "Warenwirtschaft"
+
+#: terms2.php:587
 msgid "Add variation"
 msgstr "Variation hinzufügen"
 
-#: ../../terms.php:681 ../../terms2.php:588
+#: terms2.php:588
 msgid "Variations"
 msgstr "Variationen"
 
-#: ../../terms.php:682 ../../terms2.php:589
+#: terms2.php:589
 msgid "Product variations"
 msgstr "Produktvariationen"
 
-#: ../../terms.php:697 ../../terms.php:812 ../../terms.php:841
-#: ../../terms.php:1047 ../../terms2.php:700 ../../terms2.php:825
-msgid "EAN"
-msgstr ""
-
-#: ../../terms.php:698 ../../terms2.php:603
+#: terms2.php:603
 msgid "Deliveryclass"
 msgstr "Lieferklasse"
 
-#: ../../terms.php:699 ../../terms2.php:604
+#: terms2.php:604
 msgid "Calculated"
 msgstr "Berechnet"
 
-#: ../../terms.php:703 ../../terms.php:851 ../../terms.php:1011
-#: ../../terms2.php:608 ../../terms2.php:798
+#: terms2.php:608 terms2.php:798
 msgid "Quantity warning"
 msgstr "Warnungsgrenze"
 
-#: ../../terms.php:705
-msgid "Estimate availability"
-msgstr "Bestand schätzen"
-
-#: ../../terms.php:706 ../../terms2.php:610
+#: terms2.php:610
 msgid "Allow overriding"
 msgstr "Überziehen erlauben"
 
-#: ../../terms.php:708
-msgid "Bindings"
-msgstr "Bindungen"
-
-#: ../../terms.php:713 ../../terms2.php:612
+#: terms2.php:612
 msgid "add to category"
 msgstr "zur Kategorie hinzufügen"
 
-#: ../../terms.php:721 ../../terms.php:837 ../../terms.php:842
-msgid "Barcode"
-msgstr ""
-
-#: ../../terms.php:722
-msgid "Delete storage"
-msgstr "Lagerfach löschen"
-
-#: ../../terms.php:723
-msgid "Checkin an return"
-msgstr "Eine Rücksendung einchecken"
-
-#: ../../terms.php:724
-msgid "Continue without choosing request"
-msgstr "Ohne Auftrag fortfahren"
-
-#: ../../terms.php:725
-msgid "Choose a request"
-msgstr "Auftrag auswählen"
-
-#: ../../terms.php:726
-msgid "No bindings"
-msgstr "Keine Bindungen"
-
-#: ../../terms.php:727 ../../terms2.php:620
+#: terms2.php:620
 msgid "Data correct"
 msgstr "Daten korrekt"
 
-#: ../../terms.php:728 ../../terms2.php:621
+#: terms2.php:621
 msgid "Category saved"
 msgstr "Kategorie gespeichert"
 
-#: ../../terms.php:729 ../../terms2.php:622
+#: terms2.php:622
 msgid "Address saved"
 msgstr "Adresse gespeichert"
 
-#: ../../terms.php:730 ../../terms.php:739
-msgid "Binding saved"
-msgstr "Bindung gespeichert"
-
-#: ../../terms.php:731 ../../terms.php:789 ../../terms2.php:623
-#: ../../terms2.php:665
+#: terms2.php:623 terms2.php:665
 msgid "Your new password"
 msgstr "Ihr neues Passwort"
 
-#: ../../terms.php:732 ../../terms2.php:624
+#: terms2.php:624
 msgid "User is not a manager"
 msgstr "Benutzer ist kein Manager"
 
-#: ../../terms.php:733
-msgid "Barcode saved"
-msgstr "Barcode gespeichert"
-
-#: ../../terms.php:734 ../../terms2.php:625
+#: terms2.php:625
 msgid "Distributor updated"
 msgstr "Distributor gespeichert"
 
-#: ../../terms.php:735 ../../terms2.php:626
+#: terms2.php:626
 msgid "Request form saved"
 msgstr "Auftragsformular gespeichert"
 
-#: ../../terms.php:736 ../../terms2.php:627
+#: terms2.php:627
 msgid "Payment settings saved"
 msgstr "Zahlungseinstellungen gespeichert"
 
-#: ../../terms.php:737 ../../terms.php:777 ../../terms2.php:628
-#: ../../terms2.php:655
+#: terms2.php:628 terms2.php:655
 msgid "Order parcel saved"
 msgstr "Paket gespeichert"
 
-#: ../../terms.php:738
-msgid "No storage found"
-msgstr "Kein Fach gefunden"
-
-#: ../../terms.php:740 ../../terms2.php:629
+#: terms2.php:629
 msgid "Shipment request successfull"
 msgstr "Versandanfrage erfolgreich"
 
-#: ../../terms.php:741 ../../terms2.php:630
+#: terms2.php:630
 msgid "Manufacturer saved"
 msgstr "Hersteller gespeichert"
 
-#: ../../terms.php:743 ../../terms2.php:632
+#: terms2.php:632
 msgid "Address deleted"
 msgstr "Adresse gelöscht"
 
-#: ../../terms.php:744 ../../terms.php:768 ../../terms.php:769
-#: ../../terms.php:783 ../../terms.php:788 ../../terms.php:805
-#: ../../terms2.php:633 ../../terms2.php:647 ../../terms2.php:648
-#: ../../terms2.php:660 ../../terms2.php:681
+#: terms2.php:633 terms2.php:647 terms2.php:648 terms2.php:660 terms2.php:681
 msgid "Saved"
 msgstr "Gespeichert"
 
-#: ../../terms.php:745
-msgid "Storage saved"
-msgstr "Fach gespeichert"
-
-#: ../../terms.php:746 ../../terms2.php:634
+#: terms2.php:634
 msgid "User saved"
 msgstr "Benutzer gespeichert"
 
-#: ../../terms.php:747 ../../terms.php:755 ../../terms2.php:635
-#: ../../terms2.php:638
+#: terms2.php:635 terms2.php:638
 msgid "Taxclass saved"
 msgstr "Steuerklasse gespeichert"
 
-#: ../../terms.php:748 ../../terms2.php:636
+#: terms2.php:636
 msgid "Taxclass deleted"
 msgstr "Steuerklasse gelöscht"
 
-#: ../../terms.php:749 ../../terms.php:784 ../../terms2.php:637
-#: ../../terms2.php:661
+#: terms2.php:637 terms2.php:661
 msgid "Product saved"
 msgstr "Produkt gespeichert"
 
-#: ../../terms.php:753 ../../terms.php:843 ../../terms.php:965
-msgid "Measurement"
-msgstr "Das Maß"
-
-#: ../../terms.php:754
-msgid "No element found"
-msgstr "Kein Objekt gefunden"
-
-#: ../../terms.php:756
-msgid "Checkin saved"
-msgstr "Checkin gespeichert"
-
-#: ../../terms.php:757 ../../terms2.php:639
+#: terms2.php:639
 msgid "Class saved"
 msgstr "Klasse gespeichert"
 
-#: ../../terms.php:758 ../../terms2.php:640
+#: terms2.php:640
 msgid "User is administrator"
 msgstr "Benutzer ist Administrator"
 
-#: ../../terms.php:759
-msgid "Picklist saved"
-msgstr "Sammelliste gespeichert"
-
-#: ../../terms.php:760
-msgid "Storage deleted"
-msgstr "Fach gelöscht"
-
-#: ../../terms.php:761 ../../terms2.php:641
+#: terms2.php:641
 msgid "Shipping ticket saved"
 msgstr "Versandschein gespeichert"
 
-#: ../../terms.php:762 ../../terms.php:804 ../../terms2.php:642
-#: ../../terms2.php:680
+#: terms2.php:642 terms2.php:680
 msgid "Deliveryclass saved"
 msgstr "Lieferklasse gespeichert"
 
-#: ../../terms.php:763 ../../terms2.php:643
+#: terms2.php:643
 msgid "Warehouse entity saved"
 msgstr "Lagerobjekt gespeichert"
 
-#: ../../terms.php:764 ../../terms2.php:644
+#: terms2.php:644
 msgid "Shipment settings saved"
 msgstr "Versandeinstellungen gespeichert"
 
-#: ../../terms.php:765 ../../terms2.php:645
+#: terms2.php:645
 msgid "Content saved"
 msgstr "Inhalt gespeichert"
 
-#: ../../terms.php:766 ../../terms2.php:646
+#: terms2.php:646
 msgid "Label saved"
 msgstr "Beschriftung gespeichert"
 
-#: ../../terms.php:767
-msgid "Refund form saved"
-msgstr "Rücksendeformular gespeichert"
-
-#: ../../terms.php:770 ../../terms2.php:649
+#: terms2.php:649
 msgid "User is manager"
 msgstr "Benutzer ist Manager"
 
-#: ../../terms.php:771
-msgid "Element placed"
-msgstr "Objekt platziert"
-
-#: ../../terms.php:772 ../../terms.php:799 ../../terms.php:817
-#: ../../terms2.php:650 ../../terms2.php:675 ../../terms2.php:684
-msgid "Date"
-msgstr "Datum"
-
-#: ../../terms.php:774 ../../terms2.php:652
+#: terms2.php:652
 msgid "You find your invoices in the billing section:"
 msgstr "Sie finden Ihre Rechnungen im Bereich Abrechnungen:"
 
-#: ../../terms.php:775 ../../terms2.php:653
+#: terms2.php:653
 msgid "Go to billing section"
 msgstr "Zum Abrechnungsbereich"
 
-#: ../../terms.php:776 ../../terms2.php:654
+#: terms2.php:654
 msgid "An error occured, please check your data"
 msgstr "Es ist ein Fehler aufgetreten, bitte überprüfen Sie Ihre Daten"
 
-#: ../../terms.php:778 ../../terms2.php:656
+#: terms2.php:656
 msgid "Element added"
 msgstr "Element eingefügt"
 
-#: ../../terms.php:779 ../../terms2.php:657
+#: terms2.php:657
 msgid "Parcel classes saved"
 msgstr "Paketklassen gespeichert"
 
-#: ../../terms.php:780 ../../terms2.php:658
+#: terms2.php:658
 #, fuzzy
 msgid "An error occured. We could not debit from the given account"
 msgstr "Es ist ein Fehler aufgetreten. Wir konnten den Betrag nicht abbuchen."
 
-#: ../../terms.php:781 ../../terms2.php:659
+#: terms2.php:659
 msgid "User is not a administrator"
 msgstr "Benutzer ist kein Administrator"
 
-#: ../../terms.php:782
-msgid "Return saved"
-msgstr "Rücksendung gespeichert"
-
-#: ../../terms.php:785 ../../terms2.php:662
+#: terms2.php:662
 msgid "Entry deleted"
 msgstr "Eintrag gelöscht"
 
-#: ../../terms.php:786 ../../terms2.php:663
+#: terms2.php:663
 msgid "Attribute saved"
 msgstr "Attributname gespeichert"
 
-#: ../../terms.php:787 ../../terms2.php:664
+#: terms2.php:664
 msgid "Distributor saved"
 msgstr "Distributor gespeichert"
 
-#: ../../terms.php:790 ../../terms2.php:666
+#: terms2.php:666
 msgid "Sent new password"
 msgstr "Neues Passwort verschickt"
 
-#: ../../terms.php:791 ../../terms.php:794 ../../terms2.php:667
-#: ../../terms2.php:670
+#: terms2.php:667 terms2.php:670
 msgid "New Debit"
 msgstr "Neue Abbuchung"
 
-#: ../../terms.php:793 ../../terms2.php:669
+#: terms2.php:669
 msgid "Invoice form saved"
 msgstr "Rechnungsformular gespeichert"
 
-#: ../../terms.php:796 ../../terms2.php:672
+#: terms2.php:672
 msgid "Thank you"
 msgstr "Vielen Dank"
 
-#: ../../terms.php:797 ../../terms2.php:673
+#: terms2.php:673
 msgid "we will charge the given amount in the next days"
 msgstr "wir werden den fälligen Betrag in den nächsten Tagen abbuchen"
 
-#: ../../terms.php:798 ../../terms2.php:674
+#: terms2.php:674
 msgid "Main data saved"
 msgstr "Hauptdaten gespeichert"
 
-#: ../../terms.php:802 ../../terms2.php:678
+#: terms2.php:678
 msgid "Show order"
 msgstr "Bestellung anzeigen"
 
-#: ../../terms.php:803 ../../terms2.php:679
+#: terms2.php:679
 msgid "New"
 msgstr "Neu"
 
-#: ../../terms.php:806
-msgid "Estimated the availabilities. Dont forget to save."
-msgstr "Die Verfügbarkeit geschätzt. Bitte nicht vergessen zu speichern."
-
-#: ../../terms.php:807
-msgid "Warehouse saved"
-msgstr "Lager gespeichert"
-
-#: ../../terms.php:808
-msgid "Element took"
-msgstr "Objekt entnommen"
-
-#: ../../terms.php:810 ../../terms2.php:682
+#: terms2.php:682
 msgid "Shipment action was not successfull"
 msgstr "Versandaktion war nicht erfolgreich"
 
-#: ../../terms.php:815
-msgid "Storage added"
-msgstr "Fach hinzugefügt"
-
-#: ../../terms.php:816 ../../terms2.php:683
+#: terms2.php:683
 msgid "Order updated"
 msgstr "Bestellung gespeichert"
 
-#: ../../terms.php:819 ../../terms2.php:686
+#: terms2.php:686
 msgid "Please contact our service. The server has been stopped."
 msgstr "Bitte kontaktieren Sie unseren Service. Der Server wurde gestoppt."
 
-#: ../../terms.php:820 ../../terms2.php:687
+#: terms2.php:687
 msgid "Message sent"
 msgstr "Nachricht verschickt"
 
-#: ../../terms.php:821 ../../terms2.php:688
+#: terms2.php:688
 msgid "Order numbers saved"
 msgstr "Bestellnummern gespeichert"
 
-#: ../../terms.php:822 ../../terms2.php:689
+#: terms2.php:689
 msgid "Distributor added"
 msgstr "Distributor hinzugefügt"
 
-#: ../../terms.php:823 ../../terms.php:873 ../../terms2.php:690
-#: ../../terms2.php:707
+#: terms2.php:690 terms2.php:707
 msgid "Please Login"
 msgstr "Bitte anmelden"
 
-#: ../../terms.php:826 ../../terms.php:876 ../../terms2.php:693
-#: ../../terms2.php:710
-msgid "Login"
-msgstr "Anmelden"
-
-#: ../../terms.php:830 ../../terms2.php:697
+#: terms2.php:697
 msgid "Save manufacturer"
 msgstr "Hersteller speichern"
 
-#: ../../terms.php:839
-msgid "Please choose manufacturer"
-msgstr "Bitte wählen Sie einen Hersteller"
+#: terms2.php:700 terms2.php:825
+msgid "EAN"
+msgstr ""
 
-#: ../../terms.php:844 ../../terms2.php:703
+#: terms2.php:703
 msgid "Save entity"
 msgstr "Objekt speichern"
 
-#: ../../terms.php:848
-msgid "Inventory overview"
-msgstr "Bestandsübersicht"
-
-#: ../../terms.php:868
-msgid "Storage"
-msgstr "Fach"
-
-#: ../../terms.php:872 ../../terms2.php:706
-msgid "Your logout was successfull"
-msgstr "Sie haben Sich erfolgreich abgemeldet"
-
-#: ../../terms.php:891 ../../terms.php:1092 ../../terms.php:1096
-#: ../../terms2.php:341 ../../terms2.php:725
-msgid "Submit"
-msgstr "Senden"
-
-#: ../../terms.php:894
-msgid "Amount"
-msgstr "Menge"
-
-#: ../../terms.php:895
-msgid "Action"
-msgstr "Aktion"
-
-#: ../../terms.php:896
-msgid "Refund"
-msgstr "Rückerstattung"
-
-#: ../../terms.php:897
-msgid "Resend"
-msgstr "Erneut versenden"
-
-#: ../../terms.php:898
-msgid "Delete return"
-msgstr "Rücksendung löschen"
-
-#: ../../terms.php:902 ../../terms2.php:729
-msgid "Create user"
-msgstr "Benutzer anlegen"
-
-#: ../../terms.php:911
-msgid "Corresponding cart elements"
-msgstr "Entsprechende Warenkorbelemente"
-
-#: ../../terms.php:918 ../../terms2.php:731
-msgid "We want to help you!"
-msgstr "Wir möchten Ihnen helfen!"
-
-#: ../../terms.php:926 ../../terms2.php:739
-msgid "Create distributor"
-msgstr "Distributor erzeugen"
-
-#: ../../terms.php:927 ../../terms2.php:740
-msgid "Save attribute"
-msgstr "Attribute speichern"
-
-#: ../../terms.php:929 ../../terms2.php:742
-msgid "Current addresses"
-msgstr "Aktuelle Adressen"
-
-#: ../../terms.php:933
-msgid "Search and management of checkouts"
-msgstr "Suche und Verwaltungen der Checkouts"
-
-#: ../../terms.php:934
-msgid "Search for checkouts"
-msgstr "Checkouts suchen"
-
-#: ../../terms.php:940 ../../terms2.php:745
-msgid "Content"
-msgstr "Inhalt"
-
-#: ../../terms.php:941 ../../terms2.php:746
-msgid "Manage your content"
-msgstr "Verwalten Sie Ihre Inhalte"
-
-#: ../../terms.php:942 ../../terms2.php:747
-msgid "Search for content"
-msgstr "Inhalte suchen"
-
-#: ../../terms.php:955 ../../terms.php:1038 ../../terms2.php:760
-#: ../../terms2.php:819
-msgid "Content details"
-msgstr "Inhalt details"
-
-#: ../../terms.php:964
-msgid "Not placed"
-msgstr "Nicht platziert"
-
-#: ../../terms.php:971
-msgid "Save warehouse"
-msgstr "Lager speichern"
-
-#: ../../terms.php:972
-msgid "Storages"
-msgstr "Fächer"
-
-#: ../../terms.php:977 ../../terms2.php:764
-msgid "Search and management of users"
-msgstr "Suche und Verwaltungen der Benutzer"
-
-#: ../../terms.php:978 ../../terms2.php:765
-msgid "Search for users"
-msgstr "Benutzer suchen"
-
-#: ../../terms.php:989 ../../terms.php:1040 ../../terms2.php:776
-#: ../../terms2.php:821
-msgid "User details"
-msgstr "Benutzerdetails"
-
-#: ../../terms.php:994 ../../terms2.php:781
-msgid "Management for your categories"
-msgstr "Verwaltung Ihrer Kategorien"
-
-#: ../../terms.php:995 ../../terms2.php:782
-msgid "Shop categories"
-msgstr "Shopkategorien"
-
-#: ../../terms.php:996 ../../terms2.php:783
-msgid "Root"
-msgstr ""
-
-#: ../../terms.php:1002 ../../terms2.php:789
-msgid "Edit SEO"
-msgstr "SEO bearbeiten"
-
-#: ../../terms.php:1015 ../../terms2.php:802
-msgid "Orders report daily"
-msgstr "Bestellbericht täglich"
-
-#: ../../terms.php:1025
-msgid "Ratio"
-msgstr "Verhältnis"
-
-#: ../../terms.php:1026
-msgid "Your calculated price"
-msgstr "Ihr berechneter Preis"
-
-#: ../../terms.php:1027 ../../terms2.php:808
-msgid "Delete distributor"
-msgstr "Distributor löschen"
-
-#: ../../terms.php:1029 ../../terms2.php:810
-msgid "Your result for the searchstring"
-msgstr "Ihr Ergebnis für den Suchbegriff"
-
-#: ../../terms.php:1043
-msgid "Search and management of warehouse entities"
-msgstr "Suche und Verwaltungen der Lagerobjekte"
-
-#: ../../terms.php:1044
-msgid "Search for warehouse entities"
-msgstr "Lagerobjekte suchen"
-
-#: ../../terms.php:1054
-msgid "Sufficiently stocked"
-msgstr "Ausreichend auf Lager"
-
-#: ../../terms.php:1055
-msgid "Running out of stock"
-msgstr "Nur wenige auf Lager"
-
-#: ../../terms.php:1056
-msgid "Empty stock"
-msgstr "Keine auf Lager"
-
-#: ../../terms.php:1057
-msgid "Empty without warning"
-msgstr "Keine auf Lager aber ohne Warnung"
-
-#: ../../terms.php:1060
-msgid "Entity details"
-msgstr "Objektdetails"
-
-#: ../../terms.php:1062 ../../terms2.php:836
-msgid "Search for desired products and add them by clicking"
-msgstr "Produkte suchen und durch Klicken hinzufügen"
-
-#: ../../terms.php:1063 ../../terms2.php:837
-msgid "Chosen products"
-msgstr "Gewählte Produkte"
-
-#: ../../terms.php:1069 ../../terms2.php:841
-msgid "PRODUCT"
-msgstr "PRODUCT"
-
-#: ../../terms.php:1070 ../../terms2.php:842
-msgid "CONTENT"
-msgstr "INHALT"
-
-#: ../../terms.php:1071
-msgid "WAREHOUSE_ENTITY"
-msgstr "Lagerobjekt"
-
-#: ../../terms.php:1072 ../../terms2.php:843
-msgid "Classname"
-msgstr "Klassenname"
-
-#: ../../terms.php:1073 ../../terms2.php:844
-msgid "Expands"
-msgstr "Erbt von"
-
-#: ../../terms.php:1074 ../../terms2.php:845
-msgid "Not expanding"
-msgstr "Erbt nicht"
-
-#: ../../terms.php:1076 ../../terms2.php:847
-msgid "Create class"
-msgstr "Klasse erstellen"
-
-#: ../../terms.php:1080
-msgid "Delete binding"
-msgstr "Bindung löschen"
-
-#: ../../terms.php:1085
-msgid "Continue with this request"
-msgstr "Mit diesem Auftrag fortfahren"
-
-#: ../../terms.php:1086 ../../terms2.php:848
-msgid "submit"
-msgstr "senden"
-
-#: ../../terms.php:1087 ../../terms2.php:849
-msgid "delete"
-msgstr "löschen"
-
-#: ../../terms.php:1088
-msgid "Warehouse movements"
-msgstr "Lagerbewegungen"
-
-#: ../../terms.php:1089
-msgid "Place or take warehouse entities, move them"
-msgstr "Platzieren Sie oder entnehmen Sie Lagerobjekte, einfach bewegen"
-
-#: ../../terms.php:1090
-msgid "Choose storage"
-msgstr "Fach wählen"
-
-#: ../../terms.php:1091
-msgid "Storage ID"
-msgstr "Fach ID"
-
-#: ../../terms.php:1093
-msgid "Choose product"
-msgstr "Produkt wählen"
-
-#: ../../terms.php:1097
-msgid "Choose"
-msgstr "Wählen"
-
-#: ../../terms.php:1098
-msgid "Checkin and place"
-msgstr "Einchecken und platzieren"
-
-#: ../../terms.php:1099
-msgid "Take and checkout"
-msgstr "Entnehmen und auschecken"
-
-#: ../../terms.php:1102 ../../terms2.php:851
-msgid "Chose Productclass"
-msgstr "Produktklasse wählen"
-
-#: ../../terms.php:1103 ../../terms2.php:852
-msgid "Create product"
-msgstr "Produkt erstellen"
-
-#: ../../terms.php:1104
-msgid "PAYMENT_NOT_RECEIVED"
-msgstr "Zahlung nicht erhalten"
-
-#: ../../terms.php:1105
-msgid "PAYMENT_RECEIVED"
-msgstr "Zahlung erhalten"
-
-#: ../../terms.php:1107
-msgid "Pickup"
-msgstr "Abholung"
-
-#: ../../terms.php:1108
-msgid "PROCESSING"
-msgstr "In Bearbeitung"
-
-#: ../../terms.php:1109
-msgid "CLOSED"
-msgstr "Abgeschlossen"
-
-#: ../../terms.php:1110
-msgid "MEMBER_ORDER"
-msgstr "Benutzerbestellung"
-
-#: ../../terms.php:1111
-msgid "CANCELED"
-msgstr "Abgebrochen"
-
-#: ../../terms.php:1112
-msgid "OPEN"
-msgstr "Offen"
-
-#: ../../terms.php:1113
-msgid "GUEST_ORDER"
-msgstr "Gastbestellung"
-
-#: ../../terms2.php:15
-msgid "Search for entity requests"
-msgstr "Suche nach Aufträgen"
-
-#: ../../terms2.php:23
-msgid "Show last requests"
-msgstr "Neueste Aufträge anzeigen"
-
-#: ../../terms2.php:24
-msgid "Entity request"
-msgstr "Aufträge"
-
-#: ../../terms2.php:213
-msgid "Create a new distributor"
-msgstr "Distributor erzeugen"
-
-#: ../../terms2.php:214
-msgid "Show last distributors"
-msgstr "Neueste Distributoren anzeigen"
-
-#: ../../terms2.php:265
-msgid "Search for manufacturers"
-msgstr "Hersteller suchen"
-
-#: ../../terms2.php:270
-msgid "Create a new manufacturer"
-msgstr "Hersteller erzeugen"
-
-#: ../../terms2.php:271
-msgid "Show last manufacturers"
-msgstr "Neueste Hersteller anzeigen"
-
-#: ../../terms2.php:326
-msgid "Request elements"
-msgstr "Bestellte Objekte"
-
-#: ../../terms2.php:546
-msgid "Apply changes to"
-msgstr "Änderungen weitergeben an"
-
-#: ../../terms2.php:547
-msgid "None"
-msgstr "Keine weitergabe"
-
-#: ../../terms2.php:548
-msgid "Direct children"
-msgstr "Direkte Erben"
-
-#: ../../terms2.php:549
-msgid "Transitive"
-msgstr "Transitiv"
-
-#: ../../terms2.php:705
+#: terms2.php:704
+msgid "Distributors"
+msgstr "Distributoren"
+
+#: terms2.php:705
 msgid "Add distributor"
 msgstr "Distributor hinzufügen"
 
-#: ../../terms2.php:823
+#: terms2.php:706
+msgid "Your logout was successfull"
+msgstr "Sie haben Sich erfolgreich abgemeldet"
+
+#: terms2.php:729
+msgid "Create user"
+msgstr "Benutzer anlegen"
+
+#: terms2.php:731
+msgid "We want to help you!"
+msgstr "Wir möchten Ihnen helfen!"
+
+#: terms2.php:739
+msgid "Create distributor"
+msgstr "Distributor erzeugen"
+
+#: terms2.php:740
+msgid "Save attribute"
+msgstr "Attribute speichern"
+
+#: terms2.php:742
+msgid "Current addresses"
+msgstr "Aktuelle Adressen"
+
+#: terms2.php:745
+msgid "Content"
+msgstr "Inhalt"
+
+#: terms2.php:746
+msgid "Manage your content"
+msgstr "Verwalten Sie Ihre Inhalte"
+
+#: terms2.php:747
+msgid "Search for content"
+msgstr "Inhalte suchen"
+
+#: terms2.php:760 terms2.php:819
+msgid "Content details"
+msgstr "Inhalt details"
+
+#: terms2.php:764
+msgid "Search and management of users"
+msgstr "Suche und Verwaltungen der Benutzer"
+
+#: terms2.php:765
+msgid "Search for users"
+msgstr "Benutzer suchen"
+
+#: terms2.php:776 terms2.php:821
+msgid "User details"
+msgstr "Benutzerdetails"
+
+#: terms2.php:781
+msgid "Management for your categories"
+msgstr "Verwaltung Ihrer Kategorien"
+
+#: terms2.php:782
+msgid "Shop categories"
+msgstr "Shopkategorien"
+
+#: terms2.php:783
+msgid "Root"
+msgstr ""
+
+#: terms2.php:789
+msgid "Edit SEO"
+msgstr "SEO bearbeiten"
+
+#: terms2.php:791
+msgid "Found"
+msgstr "Gefunden"
+
+#: terms2.php:792
+msgid "products"
+msgstr "produkte"
+
+#: terms2.php:802
+msgid "Orders report daily"
+msgstr "Bestellbericht täglich"
+
+#: terms2.php:808
+msgid "Delete distributor"
+msgstr "Distributor löschen"
+
+#: terms2.php:810
+msgid "Your result for the searchstring"
+msgstr "Ihr Ergebnis für den Suchbegriff"
+
+#: terms2.php:823
 msgid "Search for entities"
 msgstr "Nach Objekten suchen"
 
-#: ../../terms2.php:833
+#: terms2.php:833
 msgid "Create a new entity"
 msgstr "Neues Objekt anlegen"
 
-#: ../../terms2.php:834
+#: terms2.php:834
 msgid "Show last entities"
 msgstr "Neueste Objekte anzeigen"
 
-#: ../../terms2.php:835
+#: terms2.php:835
 msgid "Warehouse entity"
 msgstr "Lagerobjekt"
+
+#: terms2.php:836
+msgid "Search for desired products and add them by clicking"
+msgstr "Produkte suchen und durch Klicken hinzufügen"
+
+#: terms2.php:837
+msgid "Chosen products"
+msgstr "Gewählte Produkte"
+
+#: terms2.php:841
+msgid "PRODUCT"
+msgstr "PRODUCT"
+
+#: terms2.php:842
+msgid "CONTENT"
+msgstr "INHALT"
+
+#: terms2.php:843
+msgid "Classname"
+msgstr "Klassenname"
+
+#: terms2.php:844
+msgid "Expands"
+msgstr "Erbt von"
+
+#: terms2.php:845
+msgid "Not expanding"
+msgstr "Erbt nicht"
+
+#: terms2.php:847
+msgid "Create class"
+msgstr "Klasse erstellen"
+
+#: terms2.php:848
+msgid "submit"
+msgstr "senden"
+
+#: terms2.php:849
+msgid "delete"
+msgstr "löschen"
+
+#: terms2.php:851
+msgid "Chose Productclass"
+msgstr "Produktklasse wählen"
+
+#: terms2.php:852
+msgid "Create product"
+msgstr "Produkt erstellen"
+
+#~ msgid "Entity requests"
+#~ msgstr "Aufträge"
+
+#~ msgid "Search and management of requests"
+#~ msgstr "Suche und Verwaltungen der Aufträge"
+
+#~ msgid "Search for requests"
+#~ msgstr "Aufträge suchen"
+
+#~ msgid "Entity request details"
+#~ msgstr "Details zum Auftrag"
+
+#~ msgid "Warehouses"
+#~ msgstr "Lager"
+
+#~ msgid "Search and management of warehouses"
+#~ msgstr "Suche und Verwaltungen der Lager"
+
+#~ msgid "Search for warehouses"
+#~ msgstr "Lager suchen"
+
+#~ msgid "Warehouse details"
+#~ msgstr "Lagerdetails"
+
+#~ msgid "Returned"
+#~ msgstr "Rücksendung"
+
+#~ msgid "Create warehouse"
+#~ msgstr "Lager anlegen"
+
+#~ msgid "Show refund"
+#~ msgstr "Rückerstattung anzeigen"
+
+#~ msgid "Return handling"
+#~ msgstr "Rücksendungsverwaltung"
+
+#~ msgid "Submit return"
+#~ msgstr "Rücksendung bestätigen"
+
+#~ msgid "Pick list"
+#~ msgstr "Sammelliste"
+
+#~ msgid "Search and management of distributors"
+#~ msgstr "Suche und Verwaltungen der Distributoren"
+
+#~ msgid "Distributor details"
+#~ msgstr "Details zum Distributor"
+
+#~ msgid "Checkins"
+#~ msgstr "Checkins"
+
+#~ msgid "Close request"
+#~ msgstr "Auftrag abschliessen"
+
+#~ msgid "Incomplete request"
+#~ msgstr "Auftrag unvollständig"
+
+#~ msgid "Element number"
+#~ msgstr "Elementnummer"
+
+#~ msgid "Entity Quantity"
+#~ msgstr "Objektanzahl"
+
+#~ msgid "Inventory"
+#~ msgstr "Bestand"
+
+#~ msgid "Blocked"
+#~ msgstr "Blockiert"
+
+#~ msgid "in stock"
+#~ msgstr "auf Lager"
+
+#~ msgid "Manufacturers"
+#~ msgstr "Hersteller"
+
+#~ msgid "Warehouse entities"
+#~ msgstr "Lagerobjekte"
+
+#~ msgid "Movements"
+#~ msgstr "Bewegungen"
+
+#~ msgid "Checkouts"
+#~ msgstr "Checkouts\t"
+
+#~ msgid "Search and management of manufacturers"
+#~ msgstr "Suche und Verwaltungen der Hersteller"
+
+#~ msgid "Manufacturer details"
+#~ msgstr "Herstellerdetails"
+
+#~ msgid "Requested elements"
+#~ msgstr "Bestellte Elemente"
+
+#~ msgid "Tax rate"
+#~ msgstr "Steuersatz"
+
+#~ msgid "Make the request fit and close it"
+#~ msgstr "Auftrag anpassen und abschließen"
+
+#~ msgid "Submit request"
+#~ msgstr "Auftrag bestätigen"
+
+#~ msgid "Class"
+#~ msgstr "Klasse"
+
+#~ msgid "Picklist"
+#~ msgstr "Sammelliste"
+
+#~ msgid "Refund form"
+#~ msgstr "Rückerstattungsformular"
+
+#~ msgid "Barcode form"
+#~ msgstr "Barcode Formular"
+
+#~ msgid "EAN or Element number"
+#~ msgstr "EAN oder Elementnummer"
+
+#~ msgid "Search and management of checkins"
+#~ msgstr "Suche und Verwaltungen der Checkins"
+
+#~ msgid "Search for checkins"
+#~ msgstr "Checkins suchen"
+
+#~ msgid "Checkin details"
+#~ msgstr "Checkin details"
+
+#~ msgid "Recently placed orders"
+#~ msgstr "Neueste Bestellungen"
+
+#~ msgid "Show all orders"
+#~ msgstr "Alle Bestellungen anzeigen"
+
+#~ msgid "Show all warehouse entities"
+#~ msgstr "Alle Lagerobjekte anzeigen"
+
+#~ msgid "Ready to place"
+#~ msgstr "Bereit zum Platzieren"
+
+#~ msgid "Request not finished"
+#~ msgstr "Auftrag nicht abgeschlossen"
+
+#~ msgid "Show all checkins"
+#~ msgstr "Zeige alle Checkins"
+
+#~ msgid "Estimate availability"
+#~ msgstr "Bestand schätzen"
+
+#~ msgid "Bindings"
+#~ msgstr "Bindungen"
+
+#~ msgid "Delete storage"
+#~ msgstr "Lagerfach löschen"
+
+#~ msgid "Checkin an return"
+#~ msgstr "Eine Rücksendung einchecken"
+
+#~ msgid "Continue without choosing request"
+#~ msgstr "Ohne Auftrag fortfahren"
+
+#~ msgid "Choose a request"
+#~ msgstr "Auftrag auswählen"
+
+#~ msgid "No bindings"
+#~ msgstr "Keine Bindungen"
+
+#~ msgid "Binding saved"
+#~ msgstr "Bindung gespeichert"
+
+#~ msgid "Barcode saved"
+#~ msgstr "Barcode gespeichert"
+
+#~ msgid "No storage found"
+#~ msgstr "Kein Fach gefunden"
+
+#~ msgid "Storage saved"
+#~ msgstr "Fach gespeichert"
+
+#~ msgid "Measurement"
+#~ msgstr "Das Maß"
+
+#~ msgid "No element found"
+#~ msgstr "Kein Objekt gefunden"
+
+#~ msgid "Checkin saved"
+#~ msgstr "Checkin gespeichert"
+
+#~ msgid "Picklist saved"
+#~ msgstr "Sammelliste gespeichert"
+
+#~ msgid "Storage deleted"
+#~ msgstr "Fach gelöscht"
+
+#~ msgid "Refund form saved"
+#~ msgstr "Rücksendeformular gespeichert"
+
+#~ msgid "Element placed"
+#~ msgstr "Objekt platziert"
+
+#~ msgid "Return saved"
+#~ msgstr "Rücksendung gespeichert"
+
+#~ msgid "Estimated the availabilities. Dont forget to save."
+#~ msgstr "Die Verfügbarkeit geschätzt. Bitte nicht vergessen zu speichern."
+
+#~ msgid "Warehouse saved"
+#~ msgstr "Lager gespeichert"
+
+#~ msgid "Element took"
+#~ msgstr "Objekt entnommen"
+
+#~ msgid "Storage added"
+#~ msgstr "Fach hinzugefügt"
+
+#~ msgid "Inventory overview"
+#~ msgstr "Bestandsübersicht"
+
+#~ msgid "Storage"
+#~ msgstr "Fach"
+
+#~ msgid "Amount"
+#~ msgstr "Menge"
+
+#~ msgid "Action"
+#~ msgstr "Aktion"
+
+#~ msgid "Refund"
+#~ msgstr "Rückerstattung"
+
+#~ msgid "Resend"
+#~ msgstr "Erneut versenden"
+
+#~ msgid "Delete return"
+#~ msgstr "Rücksendung löschen"
+
+#~ msgid "Corresponding cart elements"
+#~ msgstr "Entsprechende Warenkorbelemente"
+
+#~ msgid "Search and management of checkouts"
+#~ msgstr "Suche und Verwaltungen der Checkouts"
+
+#~ msgid "Search for checkouts"
+#~ msgstr "Checkouts suchen"
+
+#~ msgid "Not placed"
+#~ msgstr "Nicht platziert"
+
+#~ msgid "Save warehouse"
+#~ msgstr "Lager speichern"
+
+#~ msgid "Storages"
+#~ msgstr "Fächer"
+
+#~ msgid "Ratio"
+#~ msgstr "Verhältnis"
+
+#~ msgid "Your calculated price"
+#~ msgstr "Ihr berechneter Preis"
+
+#~ msgid "Search and management of warehouse entities"
+#~ msgstr "Suche und Verwaltungen der Lagerobjekte"
+
+#~ msgid "Search for warehouse entities"
+#~ msgstr "Lagerobjekte suchen"
+
+#~ msgid "Sufficiently stocked"
+#~ msgstr "Ausreichend auf Lager"
+
+#~ msgid "Running out of stock"
+#~ msgstr "Nur wenige auf Lager"
+
+#~ msgid "Empty stock"
+#~ msgstr "Keine auf Lager"
+
+#~ msgid "Empty without warning"
+#~ msgstr "Keine auf Lager aber ohne Warnung"
+
+#~ msgid "Entity details"
+#~ msgstr "Objektdetails"
+
+#~ msgid "WAREHOUSE_ENTITY"
+#~ msgstr "Lagerobjekt"
+
+#~ msgid "Delete binding"
+#~ msgstr "Bindung löschen"
+
+#~ msgid "Warehouse movements"
+#~ msgstr "Lagerbewegungen"
+
+#~ msgid "Place or take warehouse entities, move them"
+#~ msgstr "Platzieren Sie oder entnehmen Sie Lagerobjekte, einfach bewegen"
+
+#~ msgid "Choose storage"
+#~ msgstr "Fach wählen"
+
+#~ msgid "Storage ID"
+#~ msgstr "Fach ID"
+
+#~ msgid "Choose product"
+#~ msgstr "Produkt wählen"
+
+#~ msgid "Choose"
+#~ msgstr "Wählen"
+
+#~ msgid "Checkin and place"
+#~ msgstr "Einchecken und platzieren"
+
+#~ msgid "Take and checkout"
+#~ msgstr "Entnehmen und auschecken"
+
+#~ msgid "PAYMENT_NOT_RECEIVED"
+#~ msgstr "Zahlung nicht erhalten"
+
+#~ msgid "PAYMENT_RECEIVED"
+#~ msgstr "Zahlung erhalten"
+
+#~ msgid "Pickup"
+#~ msgstr "Abholung"
+
+#~ msgid "PROCESSING"
+#~ msgstr "In Bearbeitung"
+
+#~ msgid "CLOSED"
+#~ msgstr "Abgeschlossen"
+
+#~ msgid "MEMBER_ORDER"
+#~ msgstr "Benutzerbestellung"
+
+#~ msgid "CANCELED"
+#~ msgstr "Abgebrochen"
+
+#~ msgid "OPEN"
+#~ msgstr "Offen"
+
+#~ msgid "GUEST_ORDER"
+#~ msgstr "Gastbestellung"
 
 #~ msgid "You are logged in as"
 #~ msgstr "Sie sind angemeldet als"
@@ -2608,9 +2435,6 @@ msgstr "Lagerobjekt"
 
 #~ msgid "Open"
 #~ msgstr "Öffnen"
-
-#~ msgid "Create new content"
-#~ msgstr "Neuen Inhalt anlegen"
 
 #~ msgid "Create a new user"
 #~ msgstr "Neuen Benutzer anlegen"
@@ -2646,9 +2470,3 @@ msgstr "Lagerobjekt"
 #, fuzzy
 #~ msgid "Create new Attribute"
 #~ msgstr "Neues Attribut erzeugen"
-
-#~ msgid "we successfully received your payment"
-#~ msgstr "Wir haben Ihre Zahlung erfolgreich erhalten"
-
-#~ msgid "Back"
-#~ msgstr "Zurück"

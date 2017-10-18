@@ -25,7 +25,25 @@ $app->view->parserOptions = array(
     'autoescape' => true
 );
 
+
 $app->view->parserExtensions = array(new Twig_Extension_I18n());
+
+
+//For changing the language
+$app->get('/change-lang', function () use ($app,$language,$menu,$username,$cart) {
+
+
+    unlink("../templates/cache/menu.tmp");
+    //$app->log->info("Slim-Skeleton '/' route");
+    $language=$app->request->get("lang");
+    // Render index viewdd
+    $app->setCookie(TOKEN."_lang",$language,time()+3600);
+    $app->setCookie(TOKEN."_menu","",time()+3600);
+    $menu=CategoriesCtl::GetMenu($language);
+    $res=ShopobjectsCtl::GetShopObjects(1,$language,"price","ASC",0,0,array("name","img1","price","short_description"));
+    $app->render('index.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"language"=>$language));
+});
+
 
 
 // Define routes
@@ -34,7 +52,16 @@ $app->get('/', function () use ($app,$language,$menu,$username,$cart) {
     $app->log->info("Slim-Skeleton '/' route");
     // Render index viewdd
     $res=ShopobjectsCtl::GetShopObjects(1,$language,"price","ASC",0,0,array("name","img1","price","short_description"));
-    $app->render('index.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart));
+    $app->render('index.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"language"=>$language));
+});
+
+
+$app->get('/content/:obj', function ($obj) use ($app,$request_uri,$language,$menu,$username,$cart,$store) {
+    // Sample log message
+    $app->log->info("Slim-Skeleton '/' route");
+    // Render index viewdd
+    $res=ShopObjectsCtl::SeoGetContentDetails($obj);
+    $app->render('content.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
 });
 
 
@@ -43,8 +70,15 @@ $app->get('/category/:obj', function ($obj) use ($app,$request_uri,$language,$me
     // Sample log message
     $app->log->info("Slim-Skeleton '/' route");
     // Render index viewdd
-        $res=ShopobjectsCtl::SeoGetShopobjects($obj,"price","ASC",0,0,array("name","short_description","price","img1"));
-        $app->render('show_category.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri));
+        if(is_numeric($obj))
+        {
+          echo $language;
+          $res=ShopobjectsCtl::GetShopobjects($obj,$language,"price","ASC",0,0,array("name","short_description","price","img1"));
+        }
+        else {
+          $res=ShopobjectsCtl::SeoGetShopobjects($obj,"price","ASC",0,0,array("name","short_description","price","img1"));
+        }
+        $app->render('show_category.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
 });
 
 
@@ -60,7 +94,7 @@ $app->post('/add_to_cart', function () use ($app,$language,$menu,$username,$cart
       $pic=$app->request->post("pic");
       $quantity=1;
       $res=CartCtl::Add(SessionCtl::GetSession(),$id_product,$quantity,"price","name","short_description",$language,"PRODUCT",0,array(array("lang"=>$language,"name"=>"pic","value"=>$pic)));
-      $app->render('cart.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$res,"request_uri"=>$request_uri));
+      $app->render('cart.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$res,"request_uri"=>$request_uri,"language"=>$language));
     //$app->render('index.html',array("res"=>$res));
 });
 
@@ -81,7 +115,7 @@ $app->post('/login', function() use ($app,$language,$menu,$username,$cart) {
      }
      else {
        $res=UserCtl::GetUserOrders(SessionCtl::GetSession());
-       $app->render('profile.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$res,"request_uri"=>$request_uri));
+       $app->render('profile.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$res,"request_uri"=>$request_uri,"language"=>$language));
      }
 
     }
@@ -156,7 +190,7 @@ $app->post('/userdata', function() use ($app,$request_uri,$language,$menu,$usern
       			"email"=>$userdata["email"]);
       	UserCtl::SetUserData(SessionCtl::GetSession(),$args);
       	$payment_methods=PaymentCtl::GetPaymentMethods();
-        $app->render("payment_methods.html",array("payment_methods"=>$payment_methods,"request_uri"=>$request_uri,"language"=>$language,"menu"=>$menu,"username"=>$username,"cart"=>$cart));
+        $app->render("payment_methods.html",array("payment_methods"=>$payment_methods,"request_uri"=>$request_uri,"language"=>$language,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"language"=>$language));
       }
 
  });
@@ -226,7 +260,7 @@ $app->post('/userdata', function() use ($app,$request_uri,$language,$menu,$usern
        	$res=UserCtl::SetUserData(SessionCtl::GetSession(),$args);
 
        	//$payment_methods=PaymentCtl::GetPaymentMethods();
-         $app->render("profile_userdata.html",array("userdata"=>$userdata,"request_uri"=>$request_uri,"language"=>$language,"menu"=>$menu,"username"=>$username,"cart"=>$cart));
+         $app->render("profile_userdata.html",array("userdata"=>$userdata,"request_uri"=>$request_uri,"language"=>$language,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"language"=>$language));
        }
 
   });
@@ -243,7 +277,7 @@ $app->post('/userdata', function() use ($app,$request_uri,$language,$menu,$usern
  	     $error=$res["status"];
  	     $error_count++;
       }
-      $app->render("profile_password.html",array("request_uri"=>$request_uri,"language"=>$language,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"error_count"=>$error_count,"error"=>$error,"already_sent"=>1));
+      $app->render("profile_password.html",array("request_uri"=>$request_uri,"language"=>$language,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"error_count"=>$error_count,"error"=>$error,"already_sent"=>1,"language"=>$language));
    });
 
 
@@ -356,7 +390,7 @@ $app->get('/search', function () use ($app,$request_uri,$language,$menu,$usernam
     $res=ShopobjectsCtl::SearchProducts($constraint,$left_limit,$right_limit,array(),"ASC",$language,array("name","img1","price","short_description"));
     $res["pages"]=ceil($res["count"]/CATEGORY_PRODUCT_COUNT);
     if(count($res["products"])==0) $res=0;
-    $app->render('show_category.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri));
+    $app->render('show_category.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
 });
 
 $app->get('/:obj', function ($obj) use ($app,$request_uri,$language,$menu,$username,$cart) {
@@ -367,40 +401,40 @@ $app->get('/:obj', function ($obj) use ($app,$request_uri,$language,$menu,$usern
         {
          $res=CartCtl::Get(SessionCtl::GetSession());
          if(empty($res["contents"])) $res=0;
-          $app->render('cart.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri));
+          $app->render('cart.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
         }
         elseif($obj=="del_from_cart")
          {
            $res=CartCtl::Del(SessionCtl::GetSession(),$app->request->get("id"));
            if(count($res["contents"])==0) $res=0;
-           $app->render('cart.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$res,"request_uri"=>$request_uri));
+           $app->render('cart.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$res,"request_uri"=>$request_uri,"language"=>$language));
          }
          elseif($obj=="your-data")
           {
             if($_COOKIE["username"]!="")
              {
                 $res=UserCtl::GetUserData(SessionCtl::GetSession());
-                $app->render('userdata.html',array("userdata"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri));
+                $app->render('userdata.html',array("userdata"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
              }
              else {
-              $app->render('your_data.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$res,"request_uri"=>$request_uri));
+              $app->render('your_data.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$res,"request_uri"=>$request_uri,"language"=>$language));
              }
           }
           elseif($obj=="login")
            {
              $profile=$app->request->get("profile");
-             $app->render('login.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$res,"request_uri"=>$request_uri,"profile"=>$profile));
+             $app->render('login.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$res,"request_uri"=>$request_uri,"profile"=>$profile,"language"=>$language));
            }
            elseif($obj=="logout")
             {
               UserCtl::Logout(SessionCtl::GetSession());
               setcookie('username',"");
-              $app->render('logout.html',array("res"=>$res,"menu"=>$menu,"username"=>"","cart"=>$res,"request_uri"=>$request_uri));
+              $app->render('logout.html',array("res"=>$res,"menu"=>$menu,"username"=>"","cart"=>$res,"request_uri"=>$request_uri,"language"=>$language));
             }
           elseif($obj=="profile")
            {
              $res=UserCtl::GetUserOrders(SessionCtl::GetSession());
-             $app->render('profile.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri));
+             $app->render('profile.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
            }
           elseif($obj=="register")
            {
@@ -409,22 +443,22 @@ $app->get('/:obj', function ($obj) use ($app,$request_uri,$language,$menu,$usern
            elseif($obj=="userdata")
             {
               //$order_data=OrderCtl::GetOrderDetails(SessionCtl::GetSession());
-              $app->render('userdata.html',array("userdata"=>$order_data,"menu"=>$menu,"cart"=>$cart,"username"=>$username));
+              $app->render('userdata.html',array("userdata"=>$order_data,"menu"=>$menu,"cart"=>$cart,"username"=>$username,"language"=>$language));
             }
            elseif($obj=="order_summary")
            {
              $token=$app->request->post("token");
              $id_payment=$app->request->get("id_payment");
              $order=OrderCtl::SetOrderDetails(SessionCtl::GetSession(),array("id_payment_method"=>$id_payment,"id_delivery_method"=>1));
-             $app->render('order_summary.html',array("order"=>$order,"token"=>$token,"cart"=>$cart));
+             $app->render('order_summary.html',array("order"=>$order,"token"=>$token,"cart"=>$cart,"language"=>$language));
            }
            elseif($obj=="profile-userdata"){
              $res=UserCtl::GetUserData(SessionCtl::GetSession());
-             $app->render('profile_userdata.html',array("userdata"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri));
+             $app->render('profile_userdata.html',array("userdata"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
            }
            elseif($obj=="profile-password")
             {
-              $app->render('profile_password.html',array("menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri));
+              $app->render('profile_password.html',array("menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
             }
        else {
          if(is_numeric($obj))
@@ -458,7 +492,7 @@ $app->get('/:obj', function ($obj) use ($app,$request_uri,$language,$menu,$usern
          }
         $tags=explode(",",$res["attributes"]["tags"]["value"]);
         $res["attributes"]["tags"]["arr"]=$tags;
-        $app->render('show_product.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri));
+        $app->render('show_product.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
        }
 });
 

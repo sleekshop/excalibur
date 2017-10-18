@@ -5,7 +5,7 @@
  *
  * @ Kaveh Raji <kr@sleekcommerce.com>
  */
- define("ROOTPATH",$_SERVER["DOCUMENT_ROOT"] . "/");
+ define("ROOTPATH", "");
  define("PROJECTPATH", ROOTPATH . "../");
  /*
   * Now including some libaries needed
@@ -35,7 +35,8 @@ if(!isset($_COOKIE[TOKEN."_lang"]))
  /*
  * Getting the menu
  */
-$menu=CategoriesCtl::GetMenu();
+ //echo $language;
+$menu=CategoriesCtl::GetMenu($language);
 
 /*
 * Getting the username
