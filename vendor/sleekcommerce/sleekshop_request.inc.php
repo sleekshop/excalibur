@@ -5,9 +5,9 @@
 * (c) VitaBytes 2011 - Kaveh Raji
 */
 //die("Wir updaten unsere Seite bitte haben Sie etwas Geduld.");
-define("LICENCE_USERNAME","");
-define("SERVER","");
-define("LICENCE_PASSWORD","");
+define("LICENCE_USERNAME","demo_NBSqhrcrhMci15Ir9UWI");
+define("SERVER","http://demo.sleekshop.net/srv/service/");
+define("LICENCE_PASSWORD","s9vmrbwT23B7bmjR4Vmz");
 
 class SleekShopRequest
 {
