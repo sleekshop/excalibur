@@ -65,16 +65,16 @@
                      <li><a href="change-lang?lang=en_EN">en</a></li>
                    </ul>
                  </li>
-           <li class="">{% if username!='' %}<a href="profile">{%trans%}You are logged in as{%endtrans%} {{ username }}</a>{% else %}<a href="login?profile=1">{% trans %}Login{% endtrans %}</a>{% endif %}</li>
-           {% if username!='' %}<li><a href="logout">{%trans%}Abmelden{%endtrans%}</a></li>{% endif %}
+           <li class="">{% if username!='' %}<a href="profile">{%trans%}You are logged in as{%endtrans%} {{ username }}</a>{% else %}<a href="login?profile=1">{%trans%}Login{%endtrans%}</a>{% endif %}</li>
+           {% if username!='' %}<li><a href="logout">{%trans%}Logout{%endtrans%}</a></li>{% endif %}
            <li class="hidden-xs cart-hover"><a href="cart"><span class="glyphicon glyphicon-shopping-cart"> {{cart.sum|number_format(2)}} EUR</span></a>
             <span class="cart-elements well">
           <table class="table table-striped small">
            <thead>
              <tr>
-               <th>{% trans %}Product{% endtrans %}</th>
-               <th class="text-right">{% trans %}Quantity{% endtrans %}</th>
-               <th class="text-right">{% trans %}Sum{% endtrans %}</th>
+               <th>{%trans%}Product{%endtrans%}</th>
+               <th class="text-right">{%trans%}Quantity{% endtrans %}</th>
+               <th class="text-right">{%trans%}Sum{%endtrans%}</th>
              </tr>
            </thead>
            <tbody>
@@ -101,11 +101,11 @@
              </tr>-->
                {% endif %}
                <tr>
-             <td><h5>{% trans %}Sum{% endtrans %}:</h5></td><td></td><td class="text-right"><h5>{{cart.sum+cart.delivery_costs.sum|number_format(2)}} EUR</h5></td>
+             <td><h5>{%trans%}Sum{%endtrans%}:</h5></td><td></td><td class="text-right"><h5>{{cart.sum+cart.delivery_costs.sum|number_format(2)}} EUR</h5></td>
              </tr>
            </tbody>
          </table>
-         <p align="right"><a href="cart" class="btn  btn-primary">{% trans %}To cart{% endtrans %}</a></p>
+         <p align="right"><a href="cart" class="btn  btn-primary">{%trans%}To cart{%endtrans%}</a></p>
             </span>
             </li>
          </ul>
@@ -123,7 +123,7 @@
 <div class="input-group search-field">
       <input type="text" class="form-control input-lg" placeholder="Suchbegriff..." name="searchstring">
       <span class="input-group-btn">
-        <input type="submit" class="btn btn-lg btn-primary" value="Suchen">
+        <input type="submit" class="btn btn-lg btn-primary" value="{%trans%}Search{%endtrans%}">
       </span>
     </div>
 </div>
@@ -144,7 +144,7 @@
               <div style="clear:left;"></div>
               <hr>
               <div class="col-md-3">
-              <h4>{% trans %}About us{% endtrans %}</h4>
+              <h4>{%trans%}About us{%endtrans%}</h4>
 
               </div>
               <div class="col-md-3">

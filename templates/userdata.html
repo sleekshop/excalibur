@@ -8,7 +8,7 @@
 <div class="col-md-6">
 {% if error_count>0 %}
  <div class="alert alert-danger" role="alert">
-   {% trans %}Please fill in all fields marked with *{% endtrans %}
+   {%trans%}Please fill in all fields marked with *{%endtrans%}
       </div>
 {% endif %}
 <form method="POST" action="userdata" class="form">
@@ -17,7 +17,7 @@
 <input type="text" name="email" class="form-control" value="{{ userdata.email }}">
 </div>
 <div class="form-group">
-<label>{% trans %}Salutation{% endtrans %}</label>
+<label>{%trans%}Salutation{%endtrans%}</label>
 <select name="salutation" class="form-control">
 <option value="Mrs" {% if userdata.salutation=='Mrs' %}selected{%endif%}>{%trans%}Mrs{%endtrans%}</option>
 <option value="Mr" {% if userdata.salutation=='Mr' %}selected{%endif%}>{%trans%}Mr{%endtrans%}</option>

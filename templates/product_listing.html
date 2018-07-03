@@ -6,7 +6,7 @@
 <span class="product-details"><h2>{{ value.attributes.name.value }}</h2>
 {{ value.attributes.short_description.value }}<br>
 <h3>{{ value.attributes.price.value|number_format(2)}} EUR</h3>
-<a class="btn btn-primary" href="{% if value.permalink!='' %}{{ value.permalink }}{% else %}/{{ value.id }}{% endif %}">{% trans %}Show product{% endtrans %}</a>
+<a class="btn btn-primary" href="{% if value.permalink!='' %}{{ value.permalink }}{% else %}/{{ value.id }}{% endif %}">{%trans%}Show product{%endtrans%}</a>
 </span>
 </div>
 </div>

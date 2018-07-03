@@ -15,7 +15,7 @@
 <div class="well">{{ res.attributes.short_description.value }}</div>
 <h2 align="right" style="color:black;">{{ res.attributes.price.value|number_format(2) }} EUR</h2>
 <hr>
-<h5>{% trans %}Manufacturer{% endtrans %} : {{ res.attributes.vendor.value }}</h5>
+<h5>{%trans%}Manufacturer{%endtrans%} : {{ res.attributes.vendor.value }}</h5>
 <h5>Tags:</h5>
 {% for value in res.attributes.tags.arr %}
 <a href="search?searchstring={{ value }}">{{ value }}</a>  ,
@@ -24,7 +24,7 @@
 <div class="col-md-3">
           <div class="panel panel-{{ res.availability_label }}">
             <div class="panel-heading">
-              <h3 class="panel-title">{% if res.availability_label=='success' %}{% trans %}Available{% endtrans %}{% endif %}{% if  res.availability_label=='warning' %}{% trans %}Only a few availably{% endtrans %}{% endif %}{% if res.availability_label=='danger' %}{% trans %}Not availably{% endtrans %}{% endif %}</h3>
+              <h3 class="panel-title">{% if res.availability_label=='success' %}{%trans%}Available{%endtrans%}{% endif %}{% if  res.availability_label=='warning' %}{%trans%}Only a few available{%endtrans%}{% endif %}{% if res.availability_label=='danger' %}{%trans%}Not available{%endtrans%}{% endif %}</h3>
             </div>
             <div class="panel-body">
             {% if res.availability_label!='danger' %}
@@ -39,7 +39,7 @@
             <br>
             {% endif %}
             {% if res.class=='colorprod' %}
-            <label>{% trans %}Color{% endtrans %}</label>
+            <label>{%trans%}Color{%endtrans%}</label>
             <select name="color" class="form-control size-ctl">
              {% for key, value in res.colors %}
               <option value="{{ value }}" {% if value==res.id %}selected{% endif %}>{{ key }}</option>
@@ -47,14 +47,14 @@
             </select>
             <br>
             {% endif %}
-            <label>{% trans %}Quantity{% endtrans %}</label>
+            <label>{%trans%}Quantity{%endtrans%}</label>
               <select name="quantity" class="form-control">
               <option>1</option>
               <option>2</option>
               <option>3</option>
               <option>4</option>
               </select><br>
-              <button class="btn btn-lg btn-primary" value="{% trans %}">Add to cart {% endtrans %}</button>
+              <button class="btn btn-lg btn-primary" value="{%trans%}Add to cart{%endtrans%}">{%trans%}Add to cart{%endtrans%}</button>
               <input type="hidden" name="id_product" value="{{ res.id }}">
               <input type="hidden" name="pic" value="{{ res.attributes.img1.value }}">
               <input type="hidden" name="price" value="{{ res.attributes.price.value }}">
@@ -64,7 +64,7 @@
               <input type="hidden" name="color_txt" value="{{ res.attributes.color.value }}">
               </form>
               {% else %}
-              {% trans %}This product is not available{% endtrans %}
+              {%trans%}This product is not available{%endtrans%}
               {% endif %}
             </div>
           </div>

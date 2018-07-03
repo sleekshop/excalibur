@@ -22,6 +22,7 @@ var/languages/terms2.php
 var/languages/tsmarty2c.php
 
 
+
 # local configuration
 private/configuration/localconf.php
 
