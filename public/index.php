@@ -286,6 +286,10 @@ $app->post('/checkout', function() use ($app,$request_uri,$language,$menu,$usern
 {
   $cart=CartCtl::Get(SessionCtl::GetSession());
   $token=$app->request->post("token");
+  $card_number=$app->request->post("card_number");
+  $cvc=$app->request->post("cvc");
+  $exp_month=$app->request->post("exp_month");
+  $exp_year=$app->request->post("exp_year");
   $delivery_costs=array(array("Delivery",$cart["delivery_costs"]["sum"],0.19));
   OrderCtl::AddDeliveryCosts(SessionCtl::GetSession(),$delivery_costs);
   $res=OrderCtl::Checkout(SessionCtl::GetSession());
@@ -325,7 +329,7 @@ $app->post('/checkout', function() use ($app,$request_uri,$language,$menu,$usern
    SessionCtl::SetSession($session);
    setcookie('cart',"");
    $cart=array();
-   $res=OrderCtl::DoPayment($id_order,array("token"=>$token));
+   $res=OrderCtl::DoPayment($id_order,array("card_number"=>$card_number,"cvc"=>$cvc,"exp_month"=>$exp_month,"exp_year"=>$exp_year));
    if($res["status"]=="Success")
    {
      header("Location:".$res["redirect"]);
@@ -391,6 +395,19 @@ $app->get('/search', function () use ($app,$request_uri,$language,$menu,$usernam
     $res["pages"]=ceil($res["count"]/CATEGORY_PRODUCT_COUNT);
     if(count($res["products"])==0) $res=0;
     $app->render('show_category.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
+});
+
+
+$app->post('/order_summary', function() use ($app,$request_uri,$language,$menu,$username,$cart)
+{
+ $token=$app->request->post("token");
+ $id_payment=$app->request->post("id_payment");
+ $card_number=$app->request->post("card_number");
+ $exp_month=$app->request->post("exp_month");
+ $exp_year=$app->request->post("exp_year");
+ $cvc=$app->request->post("cvc");
+ $order=OrderCtl::SetOrderDetails(SessionCtl::GetSession(),array("id_payment_method"=>$id_payment,"id_delivery_method"=>1));
+ $app->render('order_summary.html',array("order"=>$order,"token"=>$token,"cart"=>$cart,"language"=>$language,"card_number"=>$card_number,"exp_month"=>$exp_month,"exp_year"=>$exp_year,"cvc"=>$cvc));
 });
 
 $app->get('/:obj', function ($obj) use ($app,$request_uri,$language,$menu,$username,$cart) {

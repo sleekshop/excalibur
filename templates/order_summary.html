@@ -58,6 +58,11 @@
 <br><br>
 <form method="POST" action="checkout" id="submit-frm">
 <input type="hidden" name="token" value="{{token}}">
+<input type="hidden" name="token" value="{{token}}">
+<input type="hidden" name="card_number" value="{{card_number}}">
+<input type="hidden" name="cvc" value="{{cvc}}">
+<input type="hidden" name="exp_month" value="{{exp_month}}">
+<input type="hidden" name="exp_year" value="{{exp_year}}">
 <p align=""><input type="button" class="btn btn-lg btn-primary order-btn" value="{%trans%}Place Order{%endtrans%}" onClick="OrderPlaced();"><span id="wait-msg" style="display:none">wait...</span></p>
 </form>
 </div>
