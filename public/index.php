@@ -88,11 +88,9 @@ $app->post('/add_to_cart', function () use ($app,$language,$menu,$username,$cart
     // Sample log message
     $app->log->info("Slim-Skeleton '/' route");
     // Render index viewdd
-        //$res=ShopobjectsCtl::SeoGetProductDetails($obj);
-        //$app->render('show_product.html',array("res"=>$res));
       $id_product=$app->request->post("id_product");
       $pic=$app->request->post("pic");
-      $quantity=1;
+      $quantity=$app->request->post("quantity");
       $res=CartCtl::Add(SessionCtl::GetSession(),$id_product,$quantity,"price","name","short_description",$language,"PRODUCT",0,array(array("lang"=>$language,"name"=>"pic","value"=>$pic)));
       $app->render('cart.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$res,"request_uri"=>$request_uri,"language"=>$language));
     //$app->render('index.html',array("res"=>$res));
@@ -120,7 +118,7 @@ $app->post('/login', function() use ($app,$language,$menu,$username,$cart) {
 
     }
     else {
-      $app->render('login.html',array("error"=>1));
+      $app->render('login.html',array("error"=>1,"res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
     }
 
 });

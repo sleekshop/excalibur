@@ -65,6 +65,12 @@ class UserCtl
  	$result["city"]=(string)$xml->attributes->city;
  	$result["state"]=(string)$xml->attributes->state;
  	$result["country"]=(string)$xml->attributes->country;
+  foreach($xml->additional_attributes->attribute as $attribute)
+	 {
+		 $type=(string)$attribute->attributes()->type;
+		 $name=(string)$attribute->name;
+	   $result[$name]=(INT)$attribute->value;
+	 }
  	return($result);
  }
 

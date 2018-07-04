@@ -30,7 +30,7 @@
             {% if res.availability_label!='danger' %}
             <form method="post" action="add_to_cart">
             {% if res.class=='sizeprod' %}
-            <label>Gr&ouml;&szlig;e</label>
+            <label>{%trans%}Size{%endtrans%}</label>
             <select name="size" class="form-control size-ctl">
              {% for key, value in res.sizes %}
               <option value="{{ value }}" {% if value==res.id %}selected{% endif %}>{{ key }}</option>

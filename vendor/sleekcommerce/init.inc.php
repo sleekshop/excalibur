@@ -19,6 +19,7 @@
   include(PROJECTPATH . "vendor/sleekcommerce/user.inc.php");
   include(PROJECTPATH . "vendor/sleekcommerce/order.inc.php");
   include(PROJECTPATH . "vendor/sleekcommerce/payment.inc.php");
+  include(PROJECTPATH . "vendor/sleekcommerce/mailing.inc.php");
 
 /*
 * Setting the language
