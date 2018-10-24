@@ -157,7 +157,9 @@ public static function SeoGetShopobjects($permalink,$lang=DEFAULT_LANGUAGE,$orde
 	}
 	$result["attributes"]=$attributes;
 	$result["products"]=self::get_products_from_xml($xml->products);
+  $result["products_count"]=(int)$xml->products_count;
 	$result["contents"]=self::get_contents_from_xml($xml->contents);
+  $result["contents_count"]=(int)$xml->contents_count;
 	return($result);
 }
 
