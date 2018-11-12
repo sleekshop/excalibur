@@ -625,6 +625,8 @@ private $post_data=array();
 
      /* seperate content and headers */
      list($headers, $content) = explode( "\r\n\r\n", $contents, 2 );
+     socket_close($fp);
+     unset($fp);
      return $content;
  }
 
