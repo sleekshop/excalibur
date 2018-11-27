@@ -118,7 +118,7 @@ $app->post('/login', function() use ($app,$language,$menu,$username,$cart) {
 
     }
     else {
-      $app->render('login.html',array("error"=>1,"res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
+      $app->render('login.html',array("error"=>1,"res"=>$res,"menu"=>$menu,"username"=>"","cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
     }
 
 });
@@ -448,8 +448,14 @@ $app->get('/:obj', function ($obj) use ($app,$request_uri,$language,$menu,$usern
             }
           elseif($obj=="profile")
            {
-             $res=UserCtl::GetUserOrders(SessionCtl::GetSession());
-             $app->render('profile.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
+             if($username=="")
+             {
+               $app->render('login.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
+             }
+             else {
+               $res=UserCtl::GetUserOrders(SessionCtl::GetSession());
+               $app->render('profile.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
+             }
            }
           elseif($obj=="register")
            {
@@ -468,12 +474,24 @@ $app->get('/:obj', function ($obj) use ($app,$request_uri,$language,$menu,$usern
              $app->render('order_summary.html',array("order"=>$order,"token"=>$token,"cart"=>$cart,"language"=>$language,"username"=>$username));
            }
            elseif($obj=="profile-userdata"){
-             $res=UserCtl::GetUserData(SessionCtl::GetSession());
-             $app->render('profile_userdata.html',array("userdata"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
+             if($username=="")
+             {
+               $app->render('login.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
+             }
+             else {
+               $res=UserCtl::GetUserData(SessionCtl::GetSession());
+               $app->render('profile_userdata.html',array("userdata"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
+             }
            }
            elseif($obj=="profile-password")
             {
+              if($username=="")
+              {
+                $app->render('login.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
+              }
+              else {
               $app->render('profile_password.html',array("menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
+              }
             }
        else {
          if(is_numeric($obj))
