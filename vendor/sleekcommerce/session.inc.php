@@ -16,9 +16,9 @@ public static function GetSession()
   if($_COOKIE[TOKEN . '_session']=="")
   {
   $sr=new SleekShopRequest();
-  $xml=$sr->get_new_session();
-  $xml=new SimpleXMLElement($xml);
-  $code=(string)$xml->code;
+  $json=$sr->get_new_session();
+  $json=json_decode($json);
+  $code=(string)$json->code;
   self::SetSession($code);
   }
   else

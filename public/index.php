@@ -44,8 +44,6 @@ $app->get('/change-lang', function () use ($app,$language,$menu,$username,$cart)
     $app->render('index.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"language"=>$language));
 });
 
-
-
 // Define routes
 $app->get('/', function () use ($app,$language,$menu,$username,$cart) {
     // Sample log message
@@ -72,7 +70,6 @@ $app->get('/category/:obj', function ($obj) use ($app,$request_uri,$language,$me
     // Render index viewdd
         if(is_numeric($obj))
         {
-          echo $language;
           $res=ShopobjectsCtl::GetShopobjects($obj,$language,"price","ASC",0,0,array("name","short_description","price","img1"));
         }
         else {
@@ -327,8 +324,8 @@ $app->post('/checkout', function() use ($app,$request_uri,$language,$menu,$usern
    SessionCtl::SetSession($session);
    setcookie('cart',"");
    $cart=array();
-   $res=OrderCtl::DoPayment($id_order,array("card_number"=>$card_number,"cvc"=>$cvc,"exp_month"=>$exp_month,"exp_year"=>$exp_year));
-   if($res["status"]=="Success")
+   $res=OrderCtl::DoPayment($id_order,array());
+   if($res["status"]=="Success" AND $res["redirect"]!="")
    {
      header("Location:".$res["redirect"]);
    }
@@ -349,8 +346,7 @@ $app->post('/checkout', function() use ($app,$request_uri,$language,$menu,$usern
    $tpl->assign("missing_id",$res["param"]);
    $pages=array("product_not_available");
   }
-
-  $app->render("checkout.html",array("payment_methods"=>$payment_methods,"request_uri"=>$request_uri,"language"=>$language,"menu"=>$menu,"username"=>$username,"cart"=>$cart));
+  $app->render("checkout.html",array("res"=>$res,"payment_methods"=>$payment_methods,"request_uri"=>$request_uri,"language"=>$language,"menu"=>$menu,"username"=>$username,"cart"=>$cart));
 
 });
 

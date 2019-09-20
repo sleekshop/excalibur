@@ -10,52 +10,52 @@ class OrderCtl
 
 
 
-private static function get_order_details($xml="")
+private static function get_order_details($json="")
 {
 	$result=array();
-	$result["id_user"]=(int)$xml->user->id_user;
-	$result["username"]=(string)$xml->user->username;
-	$result["order_id_payment_method"]=(int)$xml->order_payment_method->id;
-	$result["order_payment_method"]=(string)$xml->order_payment_method->name;
-	$result["order_id_delivery_method"]=(int)$xml->order_delivery_method->id;
-	$result["order_delivery_method"]=(string)$xml->order_delivery_method->name;
-	$result["order_id_payment_state"]=(int)$xml->order_payment_state->id;
-	$result["order_payment_state"]=(string)$xml->order_payment_state->name;
-	$result["order_id_delivery_state"]=(int)$xml->order_delivery_state->id;
-	$result["order_delivery_state"]=(string)$xml->order_delivery_state->name;
-	$result["id_order_state"]=(int)$xml->order_state->id;
-	$result["order_state"]=(string)$xml->order_state->name;
-	$result["id_order_type"]=(int)$xml->order_type->id;
-	$result["order_type"]=(string)$xml->order_type->name;
-	$result["order_number"]=(string)$xml->order_number;
-	$result["username_creator"]=(string)$xml->username_creator;
-	$result["creation_date"]=(string)$xml->creation_date;
-	$result["username_modifier"]=(string)$xml->username_modifier;
-	$result["modification_date"]=(string)$xml->modification_date;
-	$result["delivery_companyname"]=(string)$xml->delivery_companyname;
-	$result["delivery_department"]=(string)$xml->delivery_department;
-	$result["delivery_salutation"]=(string)$xml->delivery_salutation;
-	$result["delivery_firstname"]=(string)$xml->delivery_firstname;
-	$result["delivery_lastname"]=(string)$xml->delivery_lastname;
-	$result["delivery_street"]=(string)$xml->delivery_street;
-	$result["delivery_number"]=(string)$xml->delivery_number;
-	$result["delivery_zip"]=(string)$xml->delivery_zip;
-	$result["delivery_state"]=(string)$xml->delivery_state;
-	$result["delivery_city"]=(string)$xml->delivery_city;
-	$result["delivery_country"]=(string)$xml->delivery_country;
-	$result["invoice_companyname"]=(string)$xml->invoice_companyname;
-	$result["invoice_department"]=(string)$xml->invoice_department;
-	$result["invoice_salutation"]=(string)$xml->invoice_salutation;
-	$result["invoice_firstname"]=(string)$xml->invoice_firstname;
-	$result["invoice_lastname"]=(string)$xml->invoice_lastname;
-	$result["invoice_street"]=(string)$xml->invoice_street;
-	$result["invoice_number"]=(string)$xml->invoice_number;
-	$result["invoice_zip"]=(string)$xml->invoice_zip;
-	$result["invoice_state"]=(string)$xml->invoice_state;
-	$result["invoice_city"]=(string)$xml->invoice_city;
-	$result["invoice_country"]=(string)$xml->invoice_country;
-	$result["note"]=(string)$xml->note;
-	$result["email"]=(string)$xml->email;
+	$result["id_user"]=(int)$json->user->id_user;
+	$result["username"]=(string)$json->user->username;
+	$result["order_id_payment_method"]=(int)$json->order_payment_method->id;
+	$result["order_payment_method"]=(string)$json->order_payment_method->name;
+	$result["order_id_delivery_method"]=(int)$json->order_delivery_method->id;
+	$result["order_delivery_method"]=(string)$json->order_delivery_method->name;
+	$result["order_id_payment_state"]=(int)$json->order_payment_state->id;
+	$result["order_payment_state"]=(string)$json->order_payment_state->name;
+	$result["order_id_delivery_state"]=(int)$json->order_delivery_state->id;
+	$result["order_delivery_state"]=(string)$json->order_delivery_state->name;
+	$result["id_order_state"]=(int)$json->order_state->id;
+	$result["order_state"]=(string)$json->order_state->name;
+	$result["id_order_type"]=(int)$json->order_type->id;
+	$result["order_type"]=(string)$json->order_type->name;
+	$result["order_number"]=(string)$json->order_number;
+	$result["username_creator"]=(string)$json->username_creator;
+	$result["creation_date"]=(string)$json->creation_date;
+	$result["username_modifier"]=(string)$json->username_modifier;
+	$result["modification_date"]=(string)$json->modification_date;
+	$result["delivery_companyname"]=(string)$json->delivery_companyname;
+	$result["delivery_department"]=(string)$json->delivery_department;
+	$result["delivery_salutation"]=(string)$json->delivery_salutation;
+	$result["delivery_firstname"]=(string)$json->delivery_firstname;
+	$result["delivery_lastname"]=(string)$json->delivery_lastname;
+	$result["delivery_street"]=(string)$json->delivery_street;
+	$result["delivery_number"]=(string)$json->delivery_number;
+	$result["delivery_zip"]=(string)$json->delivery_zip;
+	$result["delivery_state"]=(string)$json->delivery_state;
+	$result["delivery_city"]=(string)$json->delivery_city;
+	$result["delivery_country"]=(string)$json->delivery_country;
+	$result["invoice_companyname"]=(string)$json->invoice_companyname;
+	$result["invoice_department"]=(string)$json->invoice_department;
+	$result["invoice_salutation"]=(string)$json->invoice_salutation;
+	$result["invoice_firstname"]=(string)$json->invoice_firstname;
+	$result["invoice_lastname"]=(string)$json->invoice_lastname;
+	$result["invoice_street"]=(string)$json->invoice_street;
+	$result["invoice_number"]=(string)$json->invoice_number;
+	$result["invoice_zip"]=(string)$json->invoice_zip;
+	$result["invoice_state"]=(string)$json->invoice_state;
+	$result["invoice_city"]=(string)$json->invoice_city;
+	$result["invoice_country"]=(string)$json->invoice_country;
+	$result["note"]=(string)$json->note;
+	$result["email"]=(string)$json->email;
 	return($result);
 }
 
@@ -66,9 +66,9 @@ private static function get_order_details($xml="")
 public static function SetOrderDetails($session="",$args=array())
  {
  	$sr=new SleekShopRequest();
- 	$xml=$sr->set_order_details($session,$args);
- 	$xml=new SimpleXMLElement($xml);
- 	return(self::get_order_details($xml));
+ 	$json=$sr->set_order_details($session,$args);
+ 	$json=json_decode($json);
+ 	return(self::get_order_details($json));
  }
 
 
@@ -78,9 +78,9 @@ public static function SetOrderDetails($session="",$args=array())
  public static function GetOrderDetails($session="")
  {
  	$sr=new SleekShopRequest();
- 	$xml=$sr->get_order_details($session,$args);
- 	$xml=new SimpleXMLElement($xml);
- 	return(self::get_order_details($xml));
+ 	$json=$sr->get_order_details($session,$args);
+ 	$json=json_decode($json);
+ 	return(self::get_order_details($json));
  }
 
 
@@ -90,7 +90,7 @@ public static function SetOrderDetails($session="",$args=array())
  public static function AddDeliveryCosts($session="",$delivery_costs=array())
  {
  	$sr=new SleekShopRequest();
- 	$xml=$sr->add_delivery_costs($session,$delivery_costs);
+ 	$json=$sr->add_delivery_costs($session,$delivery_costs);
  }
 
 
@@ -100,14 +100,14 @@ public static function SetOrderDetails($session="",$args=array())
  public static function Checkout($session="")
  {
  	$sr=new SleekShopRequest();
- 	$xml=$sr->checkout($session);
- 	$xml=new SimpleXMLElement($xml);
+ 	$json=$sr->checkout($session);
+ 	$json=json_decode($json);
  	$result=array();
-    $result["status"]=(string)$xml->status;
-    $result["id_order"]=(int)$xml->id_order;
-    $result["session"]=(string)$xml->session;
-    $result["message"]=(string)$xml->message;
-    $result["param"]=(string)$xml->param;
+    $result["status"]=(string)$json->status;
+    $result["id_order"]=(int)$json->id_order;
+    $result["session"]=(string)$json->session;
+    $result["message"]=(string)$json->message;
+    $result["param"]=(string)$json->param;
     return($result);
  }
 
@@ -117,12 +117,13 @@ public static function SetOrderDetails($session="",$args=array())
  public static function DoPayment($id_order=0,$args=array())
  {
  	$sr=new SleekShopRequest();
- 	$xml=$sr->do_payment($id_order,$args);
- 	$xml=new SimpleXMLElement($xml);
+ 	$json=$sr->do_payment($id_order,$args);
+ 	$json=json_decode($json);
  	$result=array();
- 	$result["method"]=(string)$xml->method;
- 	$result["status"]=(string)$xml->status;
- 	$result["redirect"]=html_entity_decode((string)($xml->redirect));
+ 	$result["method"]=(string)$json->method;
+ 	$result["status"]=(string)$json->status;
+ 	$result["redirect"]=html_entity_decode((string)($json->redirect));
+  $result["token"]=($json->token);
  	return($result);
  }
 

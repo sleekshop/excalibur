@@ -11,16 +11,16 @@ class CartCtl
 
 
 
- private static function get_cart_array($xml="")
+ private static function get_cart_array($json="")
  {
  	$result=array();
- 	$result["sum"]=(float)$xml->sum;
- 	$result["last_inserted_id"]=(int)$xml->last_inserted_element_id;
+ 	$result["sum"]=(float)$json->sum;
+ 	$result["last_inserted_id"]=(int)$json->last_inserted_element_id;
  	$contents=array();
- 	foreach($xml->contents->element as $element)
+ 	foreach((array)$json->contents as $element)
  	{
  		$piece=array();
- 		$piece["type"]=(string)$element->attributes()->type;
+ 		$piece["type"]=(string)$element->type;
  		$piece["id"]=(int)$element->id;
  		$piece["id_product"]=(int)$element->id_product;
  		$piece["quantity"]=(float)$element->quantity;
@@ -29,16 +29,16 @@ class CartCtl
  		$piece["name"]=(string)$element->name;
  		$piece["description"]=(string)$element->description;
  		$attributes=array();
- 		foreach($element->attributes->attribute as $attr)
+ 		foreach($element->attributes as $attr)
  		{
- 			$attributes[(string)$attr->attributes()->name]=(string)$attr;
+ 			$attributes[(string)$attr->name]=(string)$attr->value;
  		}
  		$piece["attributes"]=$attributes;
  		$contents[]=$piece;
  	}
  	$delivery_costs=array();
- 	$delivery_costs["sum"]=(float)$xml->delivery_costs->sum;
- 	foreach($xml->delivery_costs->positions->position as $pos)
+ 	$delivery_costs["sum"]=(float)$json->delivery_costs->sum;
+ 	foreach((array)$json->delivery_costs->positions as $pos)
  	 {
  	  $piece=array();
  	  $piece["name"]=(string)$pos->name;
@@ -59,9 +59,9 @@ class CartCtl
 public static function Add($session="",$id_product=0,$quantity=0,$price_field="",$name_field="",$description_field="",$language=DEFAULT_LANGUAGE,$element_type="PRODUCT_GR",$id_parent_element=0,$attributes=array())
  {
   $sr=new SleekShopRequest();
-  $xml=$sr->add_to_cart($session,$id_product,$quantity,$price_field,$name_field,$description_field,$language,$element_type,$id_parent_element,$attributes);
-  $xml=new SimpleXMLElement($xml);
-  $cart=self::get_cart_array($xml);
+  $json=$sr->add_to_cart($session,$id_product,$quantity,$price_field,$name_field,$description_field,$language,$element_type,$id_parent_element,$attributes);
+  $json=json_decode($json);
+  $cart=self::get_cart_array($json);
   setcookie("cart",serialize($cart));
   return($cart);
  }
@@ -73,9 +73,9 @@ public static function Add($session="",$id_product=0,$quantity=0,$price_field=""
  public static function Del($session="",$id_element=0)
  {
  	$sr=new SleekShopRequest();
- 	$xml=$sr->sub_from_cart($session,$id_element);
- 	$xml=new SimpleXMLElement($xml);
- 	$cart=self::get_cart_array($xml);
+ 	$json=$sr->sub_from_cart($session,$id_element);
+ 	$json=json_decode($json);
+ 	$cart=self::get_cart_array($json);
  	setcookie("cart",serialize($cart));
  	return($cart);
  }
@@ -86,12 +86,12 @@ public static function Add($session="",$id_product=0,$quantity=0,$price_field=""
   */
  public static function Get($session="")
  {
- 	if($_COOKIE["cart"]=="")
+ 	if($_COOKIE["cart"]=="" OR true)
  	{
  	$sr=new SleekShopRequest();
- 	$xml=$sr->get_cart($session);
- 	$xml=new SimpleXMLElement($xml);
- 	$cart=self::get_cart_array($xml);
+ 	$json=$sr->get_cart($session);
+  $json=json_decode($json);
+ 	$cart=self::get_cart_array($json);
  	setcookie("cart",serialize($cart));
  	}
  	$cart=unserialize(stripslashes($_COOKIE["cart"]));
@@ -104,9 +104,9 @@ public static function Add($session="",$id_product=0,$quantity=0,$price_field=""
 public static function Refresh($session="")
 {
 	$sr=new SleekShopRequest();
-	$xml=$sr->get_cart($session);
-	$xml=new SimpleXMLElement($xml);
-	$cart=self::get_cart_array($xml);
+	$json=$sr->get_cart($session);
+	$json=json_decode($json);
+	$cart=self::get_cart_array($json);
 	setcookie("cart",serialize($cart));
 	return($cart);
 }

@@ -21,7 +21,7 @@
             <tbody>
             {% set sum_tax=cart.delivery_costs.sum*0.19 %}
             {%for value in cart.contents%}
-             {%set sum_tax=sum_tax+value.sum_price*value.attributes.sys_tax%}
+             {% set sum_tax=sum_tax+(value.sum_price*value.attributes.sys_tax/(value.attributes.sys_tax+1))%}
               <tr>
                 <td class="col-md-2 hidden-xs"><img src="{{value.attributes.pic}}" width="100%"></td>
                 <td class="col-md-4">{{value.name}}<br>{{value.description}}</td>
@@ -65,5 +65,7 @@
 <input type="hidden" name="exp_year" value="{{exp_year}}">
 <p align=""><input type="button" class="btn btn-lg btn-primary order-btn" value="{%trans%}Place Order{%endtrans%}" onClick="OrderPlaced();"><span id="wait-msg" style="display:none">wait...</span></p>
 </form>
+
+
 </div>
 {%endblock%}

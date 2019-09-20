@@ -13,19 +13,22 @@ class PaymentCtl
 public static function GetPaymentMethods()
 {
 	$sr=new SleekShopRequest();
-	$xml=$sr->get_payment_methods();
-	$xml=new SimpleXMLElement($xml);
+	$json=$sr->get_payment_methods();
+	$json=json_decode($json);
 	$result=array();
-	foreach($xml->payment_method as $method)
+	foreach($json as $method)
 	{
+    if($method!="payment_methods")
+    {
 		$piecearray=array();
 		$piecearray["id"]=(int)$method->id;
 		$piecearray["name"]=(string)$method->name;
-		foreach($method->attributes->attribute as $attr)
+		foreach((array)$method->attributes as $key=>$attr)
 		{
-			$piecearray["attributes"][(string)$attr->attributes()->name]=(string)$attr;
+			$piecearray["attributes"][$key]=(string)$attr;
 		}
 		$result[(string)$method->name]=$piecearray;
+   }
 	}
 	return($result);
 }

@@ -20,7 +20,7 @@ private static function get_availability_label($qty=0,$qty_warning=0,$allow_over
 	return("success");
 }
 
-private static function get_shopobject_from_xml($so="")
+private static function get_shopobject_from_json($so="")
 {
 	$piecearray=array();
 	$piecearray["id"]=(int)$so->id;
@@ -37,11 +37,11 @@ private static function get_shopobject_from_xml($so="")
 	$piecearray["availability_label"]=self::get_availability_label($piecearray["availability_quantity"],$piecearray["availability_quantity_warning"],$piecearray["availability_allow_override"],$piecearray["availability_active"]);
 	$piecearray["creation_date"]=(string)$so->creation_date;
 	$attributes=array();
-	foreach($so->attributes->attribute as $attribute)
+	foreach((array)$so->attributes as $attribute)
 	{
 		$attr=array();
-		$attr["type"]=(string)$attribute->attributes()->type;
-		$attr["id"]=(int)$attribute->attributes()->id;
+		$attr["type"]=(string)$attribute->type;
+		$attr["id"]=(int)$attribute->id;
 		$attr["name"]=(string)$attribute->name;
 		$attr["label"]=(string)$attribute->label;
 		$attr["value"]=(string)$attribute->value;
@@ -49,7 +49,7 @@ private static function get_shopobject_from_xml($so="")
   	if($attr["type"]=="TXT") $attr["value"]=str_replace("\n","<br>",$attr["value"]);
 
     //$attr["value"]=html_entity_decode($attr["value"]);
-		if((string)$attribute->attributes()->type=="IMG")
+		if((string)$attribute->type=="IMG")
 		{
 			$width=intval((string)$attribute->width);
 			$height=intval((string)$attribute->height);
@@ -59,13 +59,13 @@ private static function get_shopobject_from_xml($so="")
 			$attr["width"]=$width;
 			$attr["height"]=$height;
 		}
-		if((string)$attribute->attributes()->type=="PRODUCTS")
+		if((string)$attribute->type=="PRODUCTS")
 		{
 			$prods=$attribute->value;
 			$prods_array=array();
-			foreach($prods->product as $prod)
+			foreach((array)$prods as $prod)
 			{
-				$piece=self::get_shopobject_from_xml($prod);
+				$piece=self::get_shopobject_from_json($prod);
 				$prods_array[]=$piece;
 			}
 			$attr["value"]=$prods_array;
@@ -73,9 +73,9 @@ private static function get_shopobject_from_xml($so="")
 		$attributes[(string)$attribute->name]=$attr;
 	}
 	$variations=array();
-	foreach($so->variations->product as $var)
+	foreach((array)$so->variations as $var)
 	{
-		$variation=self::get_shopobject_from_xml($var);
+		$variation=self::get_shopobject_from_json($var);
 		$variations[]=$variation;
 	}
 	$piecearray["attributes"]=$attributes;
@@ -85,22 +85,22 @@ private static function get_shopobject_from_xml($so="")
 
 
 
-private static function get_products_from_xml($xml="")
+private static function get_products_from_json($json="")
 {
 	$result=array();
-	foreach($xml->product as $so)
+	foreach((array)$json as $so)
 	{
-     $result[(string)$so->name]=self::get_shopobject_from_xml($so);
+     $result[(string)$so->name]=self::get_shopobject_from_json($so);
 	}
 	return($result);
 }
 
-private static function get_contents_from_xml($xml="")
+private static function get_contents_from_json($json="")
 {
 	$result=array();
-	foreach($xml->content as $so)
+	foreach((array)$json as $so)
 	{
-		$result[(string)$so->name]=self::get_shopobject_from_xml($so);
+		$result[(string)$so->name]=self::get_shopobject_from_json($so);
 		$result["byclass"][(string)$so->class][]=$result[(string)$so->name];
 	}
 	return($result);
@@ -114,23 +114,25 @@ private static function get_contents_from_xml($xml="")
 public static function GetShopobjects($id_category=0,$lang=DEFAULT_LANGUAGE,$order_column="",$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
  {
   $sr=new SleekShopRequest();
-  $xml=$sr->get_shopobjects_in_category($id_category,$lang,$order_column,$order,$left_limit,$right_limit,$needed_attributes);
-  $xml=new SimpleXMLElement($xml);
+  $json=$sr->get_shopobjects_in_category($id_category,$lang,$order_column,$order,$left_limit,$right_limit,$needed_attributes);
+  $json=json_decode($json);
   $result=array();
-  $result["id_category"]=(int)$xml->category->id;
-  $result["name"]=(string)$xml->category->name;
-  $result["permalink"]=(string)$xml->category->seo->permalink;
-  $result["title"]=(string)$xml->category->seo->title;
-  $result["description"]=(string)$xml->category->seo->description;
-  $result["keywords"]=(string)$xml->category->seo->keywords;
+  $result["id_category"]=(int)$json->category->id;
+  $result["name"]=(string)$json->category->name;
+  $result["permalink"]=(string)$json->category->seo->permalink;
+  $result["title"]=(string)$json->category->seo->title;
+  $result["description"]=(string)$json->category->seo->description;
+  $result["keywords"]=(string)$json->category->seo->keywords;
   $attributes=array();
-  foreach($xml->category->attributes->attribute as $attr)
+  foreach((array)$json->category->attributes as $attr)
   {
   	$attributes[(string)$attr->attributes()->name]=(string)$attr;
   }
   $result["attributes"]=$attributes;
-  $result["products"]=self::get_products_from_xml($xml->products);
-  $result["contents"]=self::get_contents_from_xml($xml->contents);
+  $result["products"]=self::get_products_from_json($json->products);
+  $result["products_count"]=(int)$json->products_count;
+	$result["contents"]=self::get_contents_from_json($json->contents);
+  $result["contents_count"]=(int)$json->contents_count;
   return($result);
 }
 
@@ -141,25 +143,25 @@ public static function GetShopobjects($id_category=0,$lang=DEFAULT_LANGUAGE,$ord
 public static function SeoGetShopobjects($permalink,$lang=DEFAULT_LANGUAGE,$order_column="",$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
 {
 	$sr=new SleekShopRequest();
-	$xml=$sr->seo_get_shopobjects_in_category($permalink,$lang,$order_column,$order,$left_limit,$right_limit,$needed_attributes);
-	$xml=new SimpleXMLElement($xml);
+	$json=$sr->seo_get_shopobjects_in_category($permalink,$lang,$order_column,$order,$left_limit,$right_limit,$needed_attributes);
+	$json=json_decode($json);
 	$result=array();
-	$result["id_category"]=(int)$xml->category->id;
-	$result["name"]=(string)$xml->category->name;
-	$result["permalink"]=(string)$xml->category->seo->permalink;
-	$result["title"]=(string)$xml->category->seo->title;
-	$result["description"]=(string)$xml->category->seo->description;
-	$result["keywords"]=(string)$xml->category->seo->keywords;
+	$result["id_category"]=(int)$json->category->id;
+	$result["name"]=(string)$json->category->name;
+	$result["permalink"]=(string)$json->category->seo->permalink;
+	$result["title"]=(string)$json->category->seo->title;
+	$result["description"]=(string)$json->category->seo->description;
+	$result["keywords"]=(string)$json->category->seo->keywords;
 	$attributes=array();
-	foreach($xml->category->attributes->attribute as $attr)
+	foreach((array)$json->category->attributes as $attr)
 	{
 		$attributes[(string)$attr->attributes()->name]=(string)$attr;
 	}
 	$result["attributes"]=$attributes;
-	$result["products"]=self::get_products_from_xml($xml->products);
-  $result["products_count"]=(int)$xml->products_count;
-	$result["contents"]=self::get_contents_from_xml($xml->contents);
-  $result["contents_count"]=(int)$xml->contents_count;
+	$result["products"]=self::get_products_from_json($json->products);
+  $result["products_count"]=(int)$json->products_count;
+	$result["contents"]=self::get_contents_from_json($json->contents);
+  $result["contents_count"]=(int)$json->contents_count;
 	return($result);
 }
 
@@ -173,9 +175,9 @@ public static function SeoGetShopobjects($permalink,$lang=DEFAULT_LANGUAGE,$orde
 public static function GetProductDetails($id_product=0,$lang=DEFAULT_LANGUAGE)
 {
 	$sr=new SleekShopRequest();
-	$xml=$sr->get_product_details($id_product,$lang);
-	$xml=new SimpleXMLElement($xml);
-	$result=self::get_shopobject_from_xml($xml);
+	$json=$sr->get_product_details($id_product,$lang);
+	$json=json_decode($json);
+	$result=self::get_shopobject_from_json($json);
 	return($result);
 }
 
@@ -186,9 +188,9 @@ public static function GetProductDetails($id_product=0,$lang=DEFAULT_LANGUAGE)
 public static function GetContentDetails($id_content=0,$lang=DEFAULT_LANGUAGE)
 {
 	$sr=new SleekShopRequest();
-	$xml=$sr->get_content_details($id_content,$lang);
-	$xml=new SimpleXMLElement($xml);
-	$result=self::get_shopobject_from_xml($xml);
+	$json=$sr->get_content_details($id_content,$lang);
+	$json=json_decode($json);
+	$result=self::get_shopobject_from_json($json);
 	return($result);
 }
 
@@ -200,9 +202,9 @@ public static function GetContentDetails($id_content=0,$lang=DEFAULT_LANGUAGE)
 public static function SeoGetProductDetails($permalink="")
 {
 	$sr=new SleekShopRequest();
-	$xml=$sr->seo_get_product_details($permalink);
-	$xml=new SimpleXMLElement($xml);
-	$result=self::get_shopobject_from_xml($xml);
+	$json=$sr->seo_get_product_details($permalink);
+	$json=json_decode($json);
+	$result=self::get_shopobject_from_json($json);
 	return($result);
 }
 
@@ -213,9 +215,9 @@ public static function SeoGetProductDetails($permalink="")
 public static function SeoGetContentDetails($permalink="")
 {
 	$sr=new SleekShopRequest();
-	$xml=$sr->seo_get_content_details($permalink);
-	$xml=new SimpleXMLElement($xml);
-	$result=self::get_shopobject_from_xml($xml);
+	$json=$sr->seo_get_content_details($permalink);
+	$json=json_decode($json);
+	$result=self::get_shopobject_from_json($json);
 	return($result);
 }
 
@@ -226,10 +228,10 @@ public static function SeoGetContentDetails($permalink="")
 public static function SearchProducts($constraint=array(),$left_limit,$right_limit,$order_columns=array(),$order_type="ASC",$lang=DEFAULT_LANGUAGE,$needed_attributes=array())
 {
 	$sr=new SleekShopRequest();
-	$xml=$sr->search_products($constraint,$left_limit,$right_limit,$order_columns,$order_type,$lang,$needed_attributes);
-	$xml=new SimpleXMLElement($xml);
-    $result["products"]=self::get_products_from_xml($xml);
-    $result["count"]=(int)$xml->count;
+	$json=$sr->search_products($constraint,$left_limit,$right_limit,$order_columns,$order_type,$lang,$needed_attributes);
+	$json=json_decode($json);
+    $result["products"]=self::get_products_from_json($json->result);
+    $result["count"]=(int)$json->count;
     return($result);
 }
 
