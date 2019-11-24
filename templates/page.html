@@ -50,7 +50,7 @@
             {% if item.children|length>0 %}
              <ul class="dropdown-menu" role="menu">
                {% for sub in item.children %}
-                <li><a href="{% if sub.permalink!='' %}./category/{{ sub.permalink }}{% else %}show_category.php?id={{ value.id }}{% endif %}">{{ sub.label }}</a></li>
+                <li><a href="{% if sub.permalink!='' %}./category/{{ sub.permalink }}{% else %}./category/{{ sub.id }}{% endif %}">{{ sub.label }}</a></li>
                {% endfor %}
              </ul>
              {% endif %}
