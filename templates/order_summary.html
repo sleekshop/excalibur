@@ -19,7 +19,7 @@
               </tr>
             </thead>
             <tbody>
-            {% set sum_tax=cart.delivery_costs.sum*0.19 %}
+            {% set sum_tax=cart.delivery_costs.sum*0.19/1.19 %}
             {%for value in cart.contents%}
              {% set sum_tax=sum_tax+(value.sum_price*value.attributes.sys_tax/(value.attributes.sys_tax+1))%}
               <tr>
