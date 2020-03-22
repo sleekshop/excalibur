@@ -38,7 +38,7 @@ public static function GetCategories($id_parent=0,$lang=DEFAULT_LANGUAGE)
  */
  public static function GetMenu($language=DEFAULT_LANGUAGE)
  {
- 	if(!file_exists("../templates/cache/menu.tmp") OR true)
+ 	if(!file_exists("../templates/cache/menu.tmp"))
  	 {
  		 $res=CategoriesCtl::GetCategories(CATEGORIES_ID,$language);
  	   $res=serialize($res);
@@ -46,13 +46,7 @@ public static function GetCategories($id_parent=0,$lang=DEFAULT_LANGUAGE)
  	 }
  	 else {
  	 	$res=file_get_contents("../templates/cache/menu.tmp");
- 		if($_COOKIE[TOKEN."_menu"]!=strlen($res))
- 		 {
- 	    unlink("../templates/cache/menu.tmp");
- 			self::GetMenu($language);
- 		 }
  	}
- 	setcookie(TOKEN."_menu",strlen($res));
  	return(unserialize($res));
  }
 

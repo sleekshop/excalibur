@@ -116,7 +116,7 @@
 
    <br><br><br>
 <div class="col-md-4">
-<a href="index.php"><img src="../img/logo.png" border="0"></a>
+<a href="index.php">{%include 'part_logo.html'%}</a>
 </div>
 
 <div class="col-md-8">
@@ -145,7 +145,7 @@
               <div style="clear:left;"></div>
               <hr>
               <div class="col-md-3">
-              <h4>{%trans%}About us{%endtrans%}</h4>
+              {%include 'part_about_us_footer_'~language|slice(0,2) ~ '.html'%}
 
               </div>
               <div class="col-md-3">
@@ -157,14 +157,14 @@
               </div>
               <div class="col-md-3">
               <h4>{%trans%}Payment methods{%endtrans%}</h4>
-              <img src="../img/paypal.jpg" width="100px">
-              <img src="../img/sofortueberweisung.jpg" width="100px"><br><br>
-              <img src="../img/paymill.jpg" width="100px">
+              <img src="../img/paypal.png" width="100px">
+              <img src="../img/sofortueberweisung.png" width="100px"><br><br>
+              <img src="../img/creditcard.png" width="100px">
               <img src="../img/vorkasse.jpg" width="100px">
               </div>
               <div class="col-md-3">
               <h4>Netzwerke</h4>
-              <a href="https://www.facebook.com/" target="_blank"><img src="../img/facebook.png" width="50px"></a>
+              {%include 'part_social_links.html'%}
               </div>
 
               {% endblock %}

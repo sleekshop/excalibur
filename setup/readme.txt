@@ -1,11 +1,9 @@
 /*
  * This file is a short setup - instruction for the excalibur framework. A shop - framework built to interact with sleekshop.
  *
- * (c) 2017 - Kaveh Raji <kr@sleekshop.io>
+ * (c) 2020 - Kaveh Raji <kr@sleekshop.io>
  *
  */
-
-
 
 
 For the template to work properly you need to change some settings.
@@ -76,6 +74,13 @@ with the following fields, whereas name/type is used. You are free in choosing t
 - content/txt
 - img/img
 
+3.6 conf / type:CONTENT
+with the following fields, whereas name/type is used. You are free in choosing the label in the corresponding language.
+- logo/img
+- about_us_footer/html
+- facebook_link/char
+- instagram_link/char
+
 4. You also need some categories in the backend
 
 4.1 Start
@@ -86,3 +91,6 @@ This is the category which contains all categories in the menu
 
 4.3
 You have to change the category - ids of the start - and - categories  in the /vendor/conf.inc.php
+
+5.
+Create a content object of the type conf, a class you created before. Put the id of the created object into your content_webhook as parameter.

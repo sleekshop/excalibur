@@ -91,10 +91,13 @@ public static function Add($session="",$id_product=0,$quantity=0,$price_field=""
  	$sr=new SleekShopRequest();
  	$json=$sr->get_cart($session);
   $json=json_decode($json);
+  if($json->object=="error")
+  {
+    SessionCtl::SetSession("");
+    return(array());
+  }
  	$cart=self::get_cart_array($json);
- 	setcookie("cart",serialize($cart));
  	}
- 	$cart=unserialize(stripslashes($_COOKIE["cart"]));
  	return($cart);
  }
 
