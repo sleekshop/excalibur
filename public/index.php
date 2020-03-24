@@ -352,7 +352,7 @@ $app->post('/checkout', function() use ($app,$request_uri,$language,$menu,$usern
    $res=OrderCtl::DoPayment($id_order,array());
    if($res["status"]=="Success" AND $res["redirect"]!="")
    {
-     header("Location:".$res["redirect"]);
+     header("Location:". html_entity_decode($res["redirect"]));
    }
   }
   elseif($res["status"]=="error" AND $res["message"]=="SHOPOBJECT_NOT_AVAILABLE")
