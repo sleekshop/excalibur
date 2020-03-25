@@ -37,6 +37,7 @@ $app->get('/reload-menu', function () use ($app,$language,$menu,$username,$cart)
 //Reloading the menu
 $app->get('/reload-static-files', function () use ($app,$language,$menu,$username,$cart) {
     $lang=$app->request->get("language");
+    if($lang=="") $lang=DEFAULT_LANGUAGE;
     $id=$app->request->get("id_shopobject");
     $prefix=array_shift(explode("_",$language));
     $res=ShopobjectsCtl::GetContentDetails($id,$lang);
