@@ -201,7 +201,7 @@ $app->post('/userdata', function() use ($app,$request_uri,$language,$menu,$usern
       if(count($error)!=0)
       {
        $error_count++;
-       $app->render('userdata.html',array("userdata"=>$userdata,"error"=>$error,"error_count"=>$error_count));
+       $app->render('userdata.html',array("userdata"=>$userdata,"error"=>$error,"error_count"=>$error_count,"language"=>$language));
       }
       else {
         $args=array("companyname"=>$userdata["company"],"department"=>$userdata["department"],"salutation"=>$userdata["salutation"],
