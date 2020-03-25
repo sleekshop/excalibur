@@ -439,6 +439,11 @@ $app->get('/:obj', function ($obj) use ($app,$request_uri,$language,$menu,$usern
          if(empty($res["contents"])) $res=0;
           $app->render('cart.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
         }
+        elseif($obj=="checkout")
+         {
+           $error=$app->request->get("error");
+           $app->render('checkout.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$res,"request_uri"=>$request_uri,"language"=>$language,"error"=>$error));
+         }
         elseif($obj=="del_from_cart")
          {
            $res=CartCtl::Del(SessionCtl::GetSession(),$app->request->get("id"));
