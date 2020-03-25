@@ -20,4 +20,6 @@ define("START_ID",1);
 define("CATEGORIES_ID",2);
 //Product-count per page
 define("CATEGORY_PRODUCT_COUNT",20);
+//The sender and receiver of the orders
+define("ORDER_SENDER","");
 ?>

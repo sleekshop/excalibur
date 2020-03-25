@@ -339,8 +339,8 @@ $app->post('/checkout', function() use ($app,$request_uri,$language,$menu,$usern
     $msg.="E-Mail: " . $order["email"] . "\n";
     $msg.="Anmerkungen:\n".$order["notes"];
 
-    //send_plain_mail($order["email"],utf8_decode($subject),utf8_decode($msg),ORDER_SENDER);
-    //send_plain_mail("info@justgreatbread.com",utf8_decode($subject),utf8_decode($msg),ORDER_SENDER);
+    send_plain_mail($order["email"],utf8_decode($subject),utf8_decode($msg),ORDER_SENDER);
+    send_plain_mail(ORDER_SENDER,utf8_decode($subject),utf8_decode($msg),ORDER_SENDER);
    /*
     * End of email - sending
     */
