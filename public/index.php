@@ -391,7 +391,7 @@ $app->post('/register', function() use ($app,$request_uri,$language,$menu,$usern
   	if($res["status"]=="SUCCESS")
   	{
   		UserCtl::VerifyUser($res["id_user"],$res["session_id"]);
-  		$app->render("login.html",array("error_msg"=>$error_msg,"error"=>1,"user"=>$user,"email"=>$email,"cart"=>$cart,"language"=>$language,"menu"=>$menu));
+  		$app->render("login.html",array("error_msg"=>$error_msg,"error"=>0,"user"=>$user,"email"=>$email,"cart"=>$cart,"language"=>$language,"menu"=>$menu));
   	}
   	else
   	{

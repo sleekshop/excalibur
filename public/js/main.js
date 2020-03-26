@@ -50,7 +50,7 @@ $( document ).ready(function() {
 	});
 
 	$(".cart-btn").click(function(){
-		window.location.href="cart.php";
+		window.location.href="/cart";
 	});
 
 
