@@ -69,7 +69,7 @@
                  </li>
            <li class="">{% if username!='' %}<a href="profile">{%trans%}You are logged in as{%endtrans%} {{ username }}</a>{% else %}<a href="login?profile=1">{%trans%}Login{%endtrans%}</a>{% endif %}</li>
            {% if username!='' %}<li><a href="logout">{%trans%}Logout{%endtrans%}</a></li>{% endif %}
-           <li class="hidden-xs cart-hover"><a href="cart"><span class="glyphicon glyphicon-shopping-cart"> {{cart.sum|number_format(2)}} EUR</span></a>
+           <li class="hidden-xs cart-hover"><a href="cart"><span class="glyphicon glyphicon-shopping-cart"></span> {{cart.sum|number_format(2)}} EUR</a>
             <span class="cart-elements well">
           <table class="table table-striped small">
            <thead>

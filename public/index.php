@@ -156,7 +156,7 @@ $app->post('/userdata', function() use ($app,$request_uri,$language,$menu,$usern
       $salutation=$app->request->post("salutation");
       $firstname=$app->request->post("firstname");
       $lastname=$app->request->post("lastname");
-      $company=$app->request->post("company");
+      $company=$app->request->post("companyname");
       $department=$app->request->post("department");
       $street=$app->request->post("street");
       $number=$app->request->post("number");
