@@ -103,7 +103,7 @@
              </tr>-->
                {% endif %}
                <tr>
-             <td><h5>{%trans%}Sum{%endtrans%}:</h5></td><td></td><td class="text-right"><h5>{{cart.sum+cart.delivery_costs.sum|number_format(2)}} EUR</h5></td>
+             <td><h5>{%trans%}Sum{%endtrans%}:</h5></td><td></td><td class="text-right"><h5>{{(cart.sum+cart.delivery_costs.sum)|number_format(2)}} EUR</h5></td>
              </tr>
            </tbody>
          </table>
@@ -128,8 +128,8 @@
         <input type="submit" class="btn btn-lg btn-primary" value="{%trans%}Search{%endtrans%}">
       </span>
     </div>
+  </form>
 </div>
-</form>
 
 <div style="clear:left;"></div>
 <hr>
