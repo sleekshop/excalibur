@@ -5,20 +5,16 @@
 {% endblock %}
 
 {%block content%}
-<section class="page">
-    <div class="template-page">
-<div class="row">
-<div class="column">
-<h2 class="mixed-headline">
-  <span>{{res.attributes.headline.value}}</span>
-</h2>
-</div>
-</div>
-<div class="row">
-  <div class="column column--size-5">
-{{res.attributes.content.value|raw}}
-</div>
-</div>
-</div>
-</section>
+<div class="container">
+  <div class="row">
+    <div class="column">
+    <h2 class="mixed-headline">
+      <span>{{res.attributes.headline.value}}</span>
+    </h2>
+    </div>
+      <div class="column column--size-5">
+    {{res.attributes.content.value|raw}}
+    </div>
+    </div>
+  </div>
 {%endblock%}
