@@ -111,6 +111,10 @@ class UserCtl
  	$json=$sr->get_user_orders($session);
  	$json=json_decode($json);
  	$result=array();
+ 	if($json->object == "error") {
+ 		header("Location: /logout");
+		die();
+	}
  	foreach($json->orders as $order)
  	{
  		$piecearray=array();
