@@ -14,8 +14,10 @@
 <a href="index.php" class="btn btn-lg btn-primary">Zur&uuml;ck zum Shop</a>
 </div>
 <script>
-
-  var stripe = Stripe('pk_test_C0QxiEhmappznbRb2GkY5l8l');
+  {%if res.redirect!=""%}
+      window.location.href="{{redirect|escape('js')}}";
+  {%else%}
+  var stripe = Stripe('{{token}}');
 
   stripe.redirectToCheckout({
   // Make the id field from the Checkout Session creation API response
@@ -27,6 +29,7 @@
   // error, display the localized error message to your customer
   // using `result.error.message`.
 });
+{%endif%}
   </script>
   {%endif%}
 {% endblock %}

@@ -14,7 +14,7 @@
 </div>
 
 <div class="col-md-3">
-  <a href="order_summary?id_payment={{payment_methods.Stripe.id}}"><img src="/img/creditcard.jpg" class="thumbnail"></a>
+  <a href="order_summary?id_payment={{payment_methods.Stripe.id}}&token={{payment_methods.Stripe.attributes.public_key}}"><img src="/img/creditcard.jpg" class="thumbnail"></a>
 <p >{%trans%}Pay with your creditcard{%endtrans%}</p>
 </div>
 

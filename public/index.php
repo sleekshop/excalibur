@@ -80,7 +80,7 @@ $app->get('/', function () use ($app,$language,$menu,$username,$cart) {
 });
 
 
-$app->get('/content/:obj', function ($obj) use ($app,$request_uri,$language,$menu,$username,$cart,$store) {
+$app->get('/content/:obj', function ($obj) use ($app,$request_uri,$language,$menu,$username,$cart) {
     // Sample log message
     $app->log->info("Slim-Skeleton '/' route");
     // Render index viewdd
@@ -353,7 +353,7 @@ $app->post('/checkout', function() use ($app,$request_uri,$language,$menu,$usern
    $res=OrderCtl::DoPayment($id_order,array());
    if($res["status"]=="Success" AND $res["redirect"]!="")
    {
-     header("Location:". html_entity_decode($res["redirect"]));
+     $redirect=html_entity_decode($res["redirect"]);
    }
   }
   elseif($res["status"]=="error" AND $res["message"]=="SHOPOBJECT_NOT_AVAILABLE")
@@ -372,7 +372,7 @@ $app->post('/checkout', function() use ($app,$request_uri,$language,$menu,$usern
    $tpl->assign("missing_id",$res["param"]);
    $pages=array("product_not_available");
   }
-  $app->render("checkout.html",array("res"=>$res,"payment_methods"=>$payment_methods,"request_uri"=>$request_uri,"language"=>$language,"menu"=>$menu,"username"=>$username,"cart"=>$cart));
+  $app->render("checkout.html",array("token"=>$token,"redirect"=>$redirect,"res"=>$res,"payment_methods"=>$payment_methods,"request_uri"=>$request_uri,"language"=>$language,"menu"=>$menu,"username"=>$username,"cart"=>$cart));
 
 });
 
@@ -495,7 +495,7 @@ $app->get('/:obj', function ($obj) use ($app,$request_uri,$language,$menu,$usern
             }
            elseif($obj=="order_summary")
            {
-             $token=$app->request->post("token");
+             $token=$app->request->get("token");
              $id_payment=$app->request->get("id_payment");
              $order=OrderCtl::SetOrderDetails(SessionCtl::GetSession(),array("id_payment_method"=>$id_payment,"id_delivery_method"=>1));
              $app->render('order_summary.html',array("order"=>$order,"token"=>$token,"cart"=>$cart,"language"=>$language,"username"=>$username));
