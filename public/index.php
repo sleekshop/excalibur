@@ -55,6 +55,15 @@ $app->get('/reload-static-files', function () use ($app,$language,$menu,$usernam
     die("WEBHOOK_EXECUTED");
 });
 
+$app->get("/get-invoice/:id/:hash", function ($id,$hash) use ($app,$language,$menu,$username,$cart) {
+   //$app->log->info("Slim-Skeleton "/" route");
+   if(!(crypt($id,TOKEN))==base64_decode($hash)) die("PERMISSION_DENIED");
+   $invoice=OrderCtl::GetInvoice($id);
+   echo $invoice;
+   die();
+});
+
+
 //For changing the language
 $app->get('/change-lang', function () use ($app,$language,$menu,$username,$cart) {
 
@@ -338,7 +347,8 @@ $app->post('/checkout', function() use ($app,$request_uri,$language,$menu,$usern
     $msg.=$order["delivery_street"] . " " . $order["delivery_number"] . "\n";
     $msg.=$order["delivery_zip"] . " " . $order["delivery_city"] . " " . $order["delivery_country"] . "\n";
     $msg.="E-Mail: " . $order["email"] . "\n";
-    $msg.="Anmerkungen:\n".$order["notes"];
+    $msg.="Anmerkungen:\n".$order["notes"]."\n\n";
+    $msg.="Link zur Rechnung: https://".$_SERVER["HTTP_HOST"]."/get-invoice/".$res["id_order"]."/".base64_encode(crypt($id,TOKEN));
 
     send_plain_mail($order["email"],utf8_decode($subject),utf8_decode($msg),ORDER_SENDER);
     send_plain_mail(ORDER_SENDER,utf8_decode($subject),utf8_decode($msg),ORDER_SENDER);

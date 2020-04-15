@@ -127,6 +127,18 @@ public static function SetOrderDetails($session="",$args=array())
  	return($result);
  }
 
+ /*
+  * Gets the invoice
+  */
+  public static function GetInvoice($id_order=0)
+  {
+  	$sr=new SleekShopRequest();
+  	$json=$sr->get_invoice($id_order);
+  	$json=json_decode($json);
+    $invoice=(string)$json->invoice;
+  	return(base64_decode($invoice));
+  }
+
 }
 
 ?>
