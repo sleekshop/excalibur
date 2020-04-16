@@ -348,7 +348,7 @@ $app->post('/checkout', function() use ($app,$request_uri,$language,$menu,$usern
     $msg.=$order["delivery_zip"] . " " . $order["delivery_city"] . " " . $order["delivery_country"] . "\n";
     $msg.="E-Mail: " . $order["email"] . "\n";
     $msg.="Anmerkungen:\n".$order["notes"]."\n\n";
-    $msg.="Link zur Rechnung: https://".$_SERVER["HTTP_HOST"]."/get-invoice/".$res["id_order"]."/".base64_encode(crypt($id,TOKEN));
+    $msg.="Link zur Rechnung: https://".$_SERVER["HTTP_HOST"]."/get-invoice/".$res["id_order"]."/".base64_encode(crypt($res["id_order"],TOKEN));
 
     send_plain_mail($order["email"],utf8_decode($subject),utf8_decode($msg),ORDER_SENDER);
     send_plain_mail(ORDER_SENDER,utf8_decode($subject),utf8_decode($msg),ORDER_SENDER);
