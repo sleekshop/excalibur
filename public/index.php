@@ -57,7 +57,7 @@ $app->get('/reload-static-files', function () use ($app,$language,$menu,$usernam
 
 $app->get("/get-invoice/:id/:hash", function ($id,$hash) use ($app,$language,$menu,$username,$cart) {
    //$app->log->info("Slim-Skeleton "/" route");
-   if(!((crypt($id,TOKEN))==base64_decode($hash))) die("PERMISSION_DENIED");
+   if(!(crypt($id,TOKEN)==base64_decode($hash))) die("PERMISSION_DENIED");
    $invoice=OrderCtl::GetInvoice($id);
    echo $invoice;
    die();
