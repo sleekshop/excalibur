@@ -36,23 +36,23 @@ $app->get('/reload-menu', function () use ($app,$language,$menu,$username,$cart)
 
 //Reloading the menu
 $app->get('/reload-static-files', function () use ($app,$language,$menu,$username,$cart) {
-    $lang=$app->request->get("language");
-    if($lang=="") $lang=DEFAULT_LANGUAGE;
-    $id=$app->request->get("id_shopobject");
-    $prefix=array_shift(explode("_",$language));
-    $res=ShopobjectsCtl::GetContentDetails($id,$lang);
-    $about_us=$res["attributes"]["about_us_footer"]["value"];
-    unlink("../templates/part_about_us_footer_".$prefix.".html");
-    file_put_contents("../templates/part_about_us_footer_".$prefix.".html",$about_us);
-    $logo=$res["attributes"]["logo"]["value"];
-    unlink("../templates/part_logo.html");
-    file_put_contents("../templates/part_logo.html","<img src='".$logo."' border='0'>");
-    $face=$res["attributes"]["facebook_link"]["value"];
-    $insta=$res["attributes"]["instagram_link"]["value"];
-    unlink("../templates/part_social_links.html");
-    file_put_contents("../templates/part_social_links.html","<a href='".$face."' target='_blank'><img src='../img/facebook.png' width='50px'></a>
-    <a href='".$insta."' target='_blank'><img src='../img/insta.jpg' width='50px'></a>");
-    die("WEBHOOK_EXECUTED");
+  $lang=$app->request->get("language");
+  if($lang=="" OR $lang=="all") $lang=DEFAULT_LANGUAGE;
+  $id=$app->request->get("id_shopobject");
+  $prefix=array_shift(explode("_",$lang));
+  $res=ShopobjectsCtl::GetContentDetails($id,$lang);
+  $about_us=$res["attributes"]["about_us_footer"]["value"];
+  unlink("../templates/part_about_us_footer_".$prefix.".html");
+  file_put_contents("../templates/part_about_us_footer_".$prefix.".html",$about_us);
+  $logo=$res["attributes"]["logo"]["value"];
+  unlink("../templates/part_logo.html");
+  file_put_contents("../templates/part_logo.html","<img src='".$logo."' border='0'>");
+  $face=$res["attributes"]["facebook_link"]["value"];
+  $insta=$res["attributes"]["instagram_link"]["value"];
+  unlink("../templates/part_social_links.html");
+  file_put_contents("../templates/part_social_links.html","<a href='".$face."' target='_blank'><img src='../img/facebook.png' width='50px'></a>
+  <a href='".$insta."' target='_blank'><img src='../img/insta.jpg' width='50px'></a>");
+  echo "WEBHOOK_EXECUTED";
 });
 
 $app->get("/get-invoice/:id/:hash", function ($id,$hash) use ($app,$language,$menu,$username,$cart) {
