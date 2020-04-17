@@ -360,7 +360,7 @@ $app->post('/checkout', function() use ($app,$request_uri,$language,$menu,$usern
    SessionCtl::SetSession($session);
    setcookie('cart',"");
    $cart=array();
-   $res=OrderCtl::DoPayment($id_order,array());
+   $res=OrderCtl::DoPayment($id_order,array("success_url"=>"https://".$_SERVER["HTTP_HOST"]."/checkout","cancel_url"=>"https://".$_SERVER["HTTP_HOST"]."/checkout?error=1"));
    if($res["status"]=="Success" AND $res["redirect"]!="")
    {
      $redirect=html_entity_decode($res["redirect"]);
