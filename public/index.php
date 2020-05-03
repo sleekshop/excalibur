@@ -329,32 +329,11 @@ $app->post('/checkout', function() use ($app,$request_uri,$language,$menu,$usern
     * Send the order - email
     */
     $order=OrderCtl::GetOrderDetails(SessionCtl::GetSession());
-    $subject="Danke, wir haben Ihre Bestellung erhalten";
-    $msg="Vielen Dank, wir haben Ihre Bestellung erhalten.\n\n";
-       $msg.="Folgende Produkte haben Sie bestellt:\n\n";
-
-    foreach($cart["contents"] as $e)
-    {
-     $msg.= "Artikel-ID:" . $e["id_product"] . "\n" . $e["name"] . "\n". $e["description"] . "\n". "Anzahl:" . $e["quantity"] . "\nPreis: " .number_format($e["price"],2) .  " EUR\nSumme: " . number_format($e["sum_price"],2) . " EUR\n";
-     $msg.="-----------------------------------------------------------------\n";
-    }
-
-    $msg.="Summe: " . number_format($cart["sum"],2) . " EUR\n\n";
-    $msg.="Bezahlung: " . $order["order_payment_method"]."\n\n";
-    $msg.="Lieferung: " . $order["order_delivery_method"]."\n\n";
-    $msg.="Ihre Daten:\n";
-    $msg.=$order["delivery_salutation"] . " " . $order["delivery_firstname"] . " " . $order["delivery_lastname"] . "\n";
-    $msg.=$order["delivery_street"] . " " . $order["delivery_number"] . "\n";
-    $msg.=$order["delivery_zip"] . " " . $order["delivery_city"] . " " . $order["delivery_country"] . "\n";
-    $msg.="E-Mail: " . $order["email"] . "\n";
-    $msg.="Anmerkungen:\n".$order["notes"]."\n\n";
-    $msg.="Link zur Rechnung: https://".$_SERVER["HTTP_HOST"]."/get-invoice/".$res["id_order"]."/".base64_encode(crypt($res["id_order"],TOKEN));
-
-    send_plain_mail($order["email"],utf8_decode($subject),utf8_decode($msg),ORDER_SENDER);
-    send_plain_mail(ORDER_SENDER,utf8_decode($subject),utf8_decode($msg),ORDER_SENDER);
-   /*
-    * End of email - sending
-    */
+    $subject="Bestellbestätigung";
+    $invoice_link="https://".$_SERVER["HTTP_HOST"]."/get-invoice/".$res["id_order"]."/".base64_encode(crypt($res["id_order"],TOKEN));
+    $order_confirmation=OrderCtl::GetOrderConfirmation($res["id_order"],array("invoice_link"=>$invoice_link));
+    send_html_mail($order["email"],utf8_decode($subject),utf8_decode($msg),ORDER_SENDER);
+    send_html_mail(ORDER_SENDER,utf8_decode($subject),utf8_decode($msg),ORDER_SENDER);
    $id_order=$res["id_order"];
    $session=$res["session"];
    SessionCtl::SetSession($session);

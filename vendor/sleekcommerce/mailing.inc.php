@@ -39,9 +39,20 @@ function send_plain_mail($receiver,$subject,$message,$from)
 
 $header_ = 'MIME-Version: 1.0' . "\r\n" . 'Content-type: text/plain; charset=UTF-8' . "\r\n";
 $header .= "From: $from";
-  mail($receiver, $subject, $message, $header);    
+  mail($receiver, $subject, $message, $header);
 
 }
+/*
+* For sending html - emails
+*/
+function send_html_mail($receiver,$subject,$message,$from)
+ {
+$headers = "From: " . strip_tags($from) . "\r\n";
+$headers .= "Reply-To: ". strip_tags($from) . "\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+mail($receiver, $subject, $message, $headers);
+ }
 
 
 ?>

@@ -139,6 +139,19 @@ public static function SetOrderDetails($session="",$args=array())
   	return(base64_decode($invoice));
   }
 
+
+  /*
+   * Gets the order_confirmation
+   */
+   public static function GetOrderConfirmation($id_order=0,$args=array())
+   {
+     $sr=new SleekShopRequest();
+     $json=$sr->get_order_confirmation($id_order,$args);
+     $json=json_decode($json);
+     $order_confirmation=(string)$json->order_confirmation;
+     return(base64_decode($order_confirmation));
+   }
+
 }
 
 ?>
