@@ -331,7 +331,7 @@ $app->post('/checkout', function() use ($app,$request_uri,$language,$menu,$usern
     $order=OrderCtl::GetOrderDetails(SessionCtl::GetSession());
     $subject="Bestellbestätigung";
     $invoice_link="https://".$_SERVER["HTTP_HOST"]."/get-invoice/".$res["id_order"]."/".base64_encode(crypt($res["id_order"],TOKEN));
-    $order_confirmation=OrderCtl::GetOrderConfirmation($res["id_order"],array("invoice_link"=>$invoice_link));
+    $msg=OrderCtl::GetOrderConfirmation($res["id_order"],array("invoice_link"=>$invoice_link));
     send_html_mail($order["email"],utf8_decode($subject),utf8_decode($msg),ORDER_SENDER);
     send_html_mail(ORDER_SENDER,utf8_decode($subject),utf8_decode($msg),ORDER_SENDER);
    $id_order=$res["id_order"];
