@@ -14,7 +14,7 @@
     <div class="carousel-inner" role="listbox">
      {% for value in res.contents.byclass.teaser_pic %}
       <div class="item {% if loop.index==1 %}active{% endif %}">
-        <img src="{{ value.attributes.img.value }}" alt="Chania" width="100%" height="345">
+        <img src="{{ value.attributes.img.value }}" alt="Chania" width="100%">
         <div class="carousel-caption">
           <h3>{{ value.attributes.headline.value }}</h3>
           <p>{{ value.attributes.text.value }}</p>
