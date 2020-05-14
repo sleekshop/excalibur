@@ -62,7 +62,6 @@ public static function Add($session="",$id_product=0,$quantity=0,$price_field=""
   $json=$sr->add_to_cart($session,$id_product,$quantity,$price_field,$name_field,$description_field,$language,$element_type,$id_parent_element,$attributes);
   $json=json_decode($json);
   $cart=self::get_cart_array($json);
-  setcookie("cart",serialize($cart));
   return($cart);
  }
 
@@ -76,7 +75,6 @@ public static function Add($session="",$id_product=0,$quantity=0,$price_field=""
  	$json=$sr->sub_from_cart($session,$id_element);
  	$json=json_decode($json);
  	$cart=self::get_cart_array($json);
- 	setcookie("cart",serialize($cart));
  	return($cart);
  }
 
@@ -110,7 +108,6 @@ public static function Refresh($session="")
 	$json=$sr->get_cart($session);
 	$json=json_decode($json);
 	$cart=self::get_cart_array($json);
-	setcookie("cart",serialize($cart));
 	return($cart);
 }
 
