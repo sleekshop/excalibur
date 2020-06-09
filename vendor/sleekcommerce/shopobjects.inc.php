@@ -126,7 +126,7 @@ public static function GetShopobjects($id_category=0,$lang=DEFAULT_LANGUAGE,$ord
   $attributes=array();
   foreach((array)$json->category->attributes as $attr)
   {
-  	$attributes[(string)$attr->attributes()->name]=(string)$attr;
+  	$attributes[(string)$attr->name]=(string)$attr->value;
   }
   $result["attributes"]=$attributes;
   $result["products"]=self::get_products_from_json($json->products);
