@@ -116,7 +116,7 @@ $app->get('/category/:obj', function ($obj) use ($app,$request_uri,$language,$me
 
 
 
-$app->post('/add_to_cart', function () use ($app,$language,$menu,$username,$cart) {
+$app->post('/add_to_cart', function () use ($app,$request_uri,$language,$menu,$username,$cart) {
     // Sample log message
     $app->log->info("Slim-Skeleton '/' route");
     // Render index viewdd
@@ -128,7 +128,7 @@ $app->post('/add_to_cart', function () use ($app,$language,$menu,$username,$cart
     //$app->render('index.html',array("res"=>$res));
 });
 
-$app->post('/login', function() use ($app,$language,$menu,$username,$cart) {
+$app->post('/login', function() use ($app,$request_uri,$language,$menu,$username,$cart) {
 
      $username=$app->request->post("username");
      $passwd=$app->request->post("password");
@@ -194,7 +194,7 @@ $app->post('/userdata', function() use ($app,$request_uri,$language,$menu,$usern
       		"delivery_state"=>$userdata["state"],"delivery_city"=>$userdata["city"],"delivery_country"=>$userdata["country"],
       		"invoice_companyname"=>$userdata["company"],"invoice_department"=>$userdata["department"],"invoice_salutation"=>$userdata["salutation"],
       		"invoice_firstname"=>$userdata["firstname"],"invoice_lastname"=>$userdata["lastname"],"invoice_street"=>$userdata["street"],"invoice_number"=>$userdata["number"],"invoice_zip"=>$userdata["zip"],
-      		"invoice_state"=>$userdata["state"],"invoice_city"=>$userdata["city"],"invoice_country"=>$userdata["country"],"note"=>$userdata["note"],"email"=>$userdata["email"]);
+      		"invoice_state"=>$userdata["state"],"invoice_city"=>$userdata["city"],"invoice_country"=>$userdata["country"],"note"=>$userdata["notes"],"email"=>$userdata["email"]);
       $order_data=OrderCtl::SetOrderDetails(SessionCtl::GetSession(),$args);
 
 
@@ -442,19 +442,19 @@ $app->get('/:obj', function ($obj) use ($app,$request_uri,$language,$menu,$usern
          }
          elseif($obj=="your-data")
           {
-            if($_COOKIE["username"]!="")
+            if($username!="")
              {
                 $res=UserCtl::GetUserData(SessionCtl::GetSession());
                 $app->render('userdata.html',array("userdata"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
              }
              else {
-              $app->render('your_data.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
+              $app->render('your_data.html',array("menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
              }
           }
           elseif($obj=="login")
            {
              $profile=$app->request->get("profile");
-             $app->render('login.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"profile"=>$profile,"language"=>$language));
+             $app->render('login.html',array("menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"profile"=>$profile,"language"=>$language));
            }
            elseif($obj=="logout")
             {

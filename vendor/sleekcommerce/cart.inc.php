@@ -15,7 +15,7 @@ class CartCtl
  {
  	$result=array();
  	$result["sum"]=(float)$json->sum;
- 	$result["last_inserted_id"]=(int)$json->last_inserted_element_id;
+ 	isset($json->last_inserted_element_id) ? $result["last_inserted_id"]=(int)$json->last_inserted_element_id : $result["last_inserted_id"]=0;
  	$contents=array();
  	foreach((array)$json->contents as $element)
  	{
@@ -84,8 +84,6 @@ public static function Add($session="",$id_product=0,$quantity=0,$price_field=""
   */
  public static function Get($session="")
  {
- 	if($_COOKIE["cart"]=="" OR true)
- 	{
  	$sr=new SleekShopRequest();
  	$json=$sr->get_cart($session);
   $json=json_decode($json);
@@ -95,7 +93,6 @@ public static function Add($session="",$id_product=0,$quantity=0,$price_field=""
     return(array());
   }
  	$cart=self::get_cart_array($json);
- 	}
  	return($cart);
  }
 

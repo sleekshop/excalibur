@@ -42,7 +42,7 @@ $menu=CategoriesCtl::GetMenu($language);
 /*
 * Getting the username
 */
-$username=$_COOKIE["username"];
+isset($_COOKIE["username"]) ? $username=$_COOKIE["username"] : $username="";
 
 /*
 * The requested uri

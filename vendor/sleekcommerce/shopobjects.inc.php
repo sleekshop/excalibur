@@ -30,11 +30,15 @@ private static function get_shopobject_from_json($so="")
 	$piecearray["title"]=(string)$so->seo->title;
 	$piecearray["description"]=(string)$so->seo->description;
 	$piecearray["keywords"]=(string)$so->seo->keywords;
-	$piecearray["availability_quantity"]=(string)$so->availability->quantity;
-	$piecearray["availability_quantity_warning"]=(string)$so->availability->quantity_warning;
-	$piecearray["availability_allow_override"]=(string)$so->availability->allow_override;
-	$piecearray["availability_active"]=(string)$so->availability->active;
-	$piecearray["availability_label"]=self::get_availability_label($piecearray["availability_quantity"],$piecearray["availability_quantity_warning"],$piecearray["availability_allow_override"],$piecearray["availability_active"]);
+  try {
+    $piecearray["availability_quantity"]=(string)$so->availability->quantity;
+  	$piecearray["availability_quantity_warning"]=(string)$so->availability->quantity_warning;
+  	$piecearray["availability_allow_override"]=(string)$so->availability->allow_override;
+  	$piecearray["availability_active"]=(string)$so->availability->active;
+  	$piecearray["availability_label"]=self::get_availability_label($piecearray["availability_quantity"],$piecearray["availability_quantity_warning"],$piecearray["availability_allow_override"],$piecearray["availability_active"]);
+  } catch (Exception $e) {
+     //Nothing happens because it seems to be a content object without availability
+  }
 	$piecearray["creation_date"]=(string)$so->creation_date;
 	$attributes=array();
 	foreach((array)$so->attributes as $attribute)
@@ -44,9 +48,12 @@ private static function get_shopobject_from_json($so="")
 		$attr["id"]=(int)$attribute->id;
 		$attr["name"]=(string)$attribute->name;
 		$attr["label"]=(string)$attribute->label;
-		$attr["value"]=(string)$attribute->value;
-    $attr["value"]=htmlspecialchars_decode($attr["value"]);
-  	if($attr["type"]=="TXT") $attr["value"]=str_replace("\n","<br>",$attr["value"]);
+    if($attr["type"]!="PRODUCTS")
+    {
+      $attr["value"]=(string)$attribute->value;
+      $attr["value"]=htmlspecialchars_decode($attr["value"]);
+    	if($attr["type"]=="TXT") $attr["value"]=str_replace("\n","<br>",$attr["value"]);
+    }
 
     //$attr["value"]=html_entity_decode($attr["value"]);
 		if((string)$attribute->type=="IMG")
