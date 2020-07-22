@@ -480,7 +480,7 @@ $app->get('/:obj', function ($obj) use ($app,$request_uri,$language,$menu,$usern
            elseif($obj=="userdata")
             {
               //$order_data=OrderCtl::GetOrderDetails(SessionCtl::GetSession());
-              $app->render('userdata.html',array("userdata"=>$order_data,"menu"=>$menu,"cart"=>$cart,"username"=>$username,"language"=>$language));
+              $app->render('userdata.html',array("menu"=>$menu,"cart"=>$cart,"username"=>$username,"language"=>$language));
             }
            elseif($obj=="order_summary")
            {
