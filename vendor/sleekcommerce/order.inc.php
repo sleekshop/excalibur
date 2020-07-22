@@ -78,7 +78,7 @@ public static function SetOrderDetails($session="",$args=array())
  public static function GetOrderDetails($session="")
  {
  	$sr=new SleekShopRequest();
- 	$json=$sr->get_order_details($session,$args);
+ 	$json=$sr->get_order_details($session);
  	$json=json_decode($json);
  	return(self::get_order_details($json));
  }
