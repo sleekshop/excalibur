@@ -34,7 +34,7 @@ class UserCtl
  public static function LogOut($session="")
  {
  	$sr=new SleekShopRequest();
- 	$json=$sr->logout_user($session,$username,$password);
+ 	$json=$sr->logout_user($session);
  	$json=json_decode($json);
  	$result["status"]=(string)$json->status;
  	return($result);
