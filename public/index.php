@@ -512,7 +512,7 @@ $app->get('/:obj', function ($obj) use ($app,$request_uri,$language,$menu,$usern
        else {
          if(is_numeric($obj))
          {
-           $res=ShopobjectsCtl::GetProductDetails($obj);
+           $res=ShopobjectsCtl::GetProductDetails($obj,$language);
          }
          else {
            $res=ShopobjectsCtl::SeoGetProductDetails($obj);
