@@ -136,6 +136,7 @@ public static function SetOrderDetails($session="",$args=array())
   	$sr=new SleekShopRequest();
   	$json=$sr->get_invoice($id_order);
   	$json=json_decode($json);
+    if($json->object=="error") return("");
     $invoice=(string)$json->invoice;
   	return(base64_decode($invoice));
   }
@@ -148,6 +149,7 @@ public static function SetOrderDetails($session="",$args=array())
    $sr=new SleekShopRequest();
    $json=$sr->get_order_confirmation($id_order,$args);
    $json=json_decode($json);
+   if($json->object=="error") return("");
    $order_confirmation=(string)$json->order_confirmation;
    return(base64_decode($order_confirmation));
  }

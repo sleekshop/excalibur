@@ -46,7 +46,10 @@
       </div>
 <div class="col-md-12">
 <hr>
-<form method="POST" action="cart.php?method=add_coupon" class="form form-inline">
+{%if coupon_error!=""%}
+         <div class="alert alert-danger">{{coupon_error}}</div>
+         {%endif%}
+<form method="POST" action="add-coupon" class="form form-inline">
   {%if coupon_error==1%}
     <div class="alert alert-danger" role="alert">
       {%trans%}The entered coupon-code seems to be invalid or you already used this code before{%endtrans%}.

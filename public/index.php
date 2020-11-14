@@ -55,6 +55,26 @@ $app->get('/reload-static-files', function () use ($app,$language,$menu,$usernam
   echo "WEBHOOK_EXECUTED";
 });
 
+$app->post('/add-coupon', function () use ($app,$language,$menu,$username,$cart,$discount) {
+    $app->log->info("Slim-Skeleton '/' route");
+    // Render index viewdd
+    $coupon=$app->request->post("coupon");
+    $sr=new SleekShopRequest();
+    $json=$sr->add_coupons(SessionCtl::GetSession(),array(array($coupon,"Gutschein")));
+    $json=json_decode($json);
+    $error="";
+    if($json->object == "error")
+    {
+      $error=$json->message;
+    }
+    else {
+      // code...
+    }
+    $res=CartCtl::Get(SessionCtl::GetSession());
+    $app->render('cart.html',array("coupon_error"=>$error,"res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$res,"language"=>$language));
+});
+
+
 $app->get("/get-invoice/:id/:hash", function ($id,$hash) use ($app,$language,$menu,$username,$cart) {
    //$app->log->info("Slim-Skeleton "/" route");
    if(!(crypt($id,TOKEN)==base64_decode($hash))) die("PERMISSION_DENIED");
@@ -340,6 +360,7 @@ $app->post('/checkout', function() use ($app,$request_uri,$language,$menu,$usern
    setcookie('cart',"");
    $cart=array();
    $res=OrderCtl::DoPayment($id_order,array("success_url"=>"https://".$_SERVER["HTTP_HOST"]."/checkout","cancel_url"=>"https://".$_SERVER["HTTP_HOST"]."/checkout?error=1"));
+   $redirect="";
    if($res["status"]=="Success" AND $res["redirect"]!="")
    {
      $redirect=html_entity_decode($res["redirect"]);
@@ -361,7 +382,7 @@ $app->post('/checkout', function() use ($app,$request_uri,$language,$menu,$usern
    $tpl->assign("missing_id",$res["param"]);
    $pages=array("product_not_available");
   }
-  $app->render("checkout.html",array("token"=>$token,"redirect"=>$redirect,"res"=>$res,"payment_methods"=>$payment_methods,"request_uri"=>$request_uri,"language"=>$language,"menu"=>$menu,"username"=>$username,"cart"=>$cart));
+  $app->render("checkout.html",array("token"=>$token,"redirect"=>$redirect,"res"=>$res,"request_uri"=>$request_uri,"language"=>$language,"menu"=>$menu,"username"=>$username,"cart"=>$cart));
 
 });
 
