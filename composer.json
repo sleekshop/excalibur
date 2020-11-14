@@ -16,6 +16,8 @@
         "monolog/monolog": "1.*",
         "slim/slim": "2.*",
         "slim/views": "0.*",
-        "twig/twig": "1.*"
+        "twig/twig": "1.*",
+        "twig/extensions": "^1.5",
+        "sleekcommerce/sleekshop-phpsdk-json": "1.5.0"
     }
 }

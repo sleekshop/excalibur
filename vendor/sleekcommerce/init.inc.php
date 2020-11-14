@@ -11,14 +11,14 @@
   * Now including some libaries needed
   */
   include(PROJECTPATH . "vendor/sleekcommerce/conf.inc.php");
-  include(PROJECTPATH . "vendor/sleekcommerce/sleekshop_request.inc.php");
-  include(PROJECTPATH . "vendor/sleekcommerce/cart.inc.php");
-  include(PROJECTPATH . "vendor/sleekcommerce/shopobjects.inc.php");
-  include(PROJECTPATH . "vendor/sleekcommerce/categories.inc.php");
-  include(PROJECTPATH . "vendor/sleekcommerce/session.inc.php");
-  include(PROJECTPATH . "vendor/sleekcommerce/user.inc.php");
-  include(PROJECTPATH . "vendor/sleekcommerce/order.inc.php");
-  include(PROJECTPATH . "vendor/sleekcommerce/payment.inc.php");
+  include(PROJECTPATH . "vendor/sleekcommerce/sleekshop-phpsdk-json/sleekshop_request.inc.php");
+  include(PROJECTPATH . "vendor/sleekcommerce/sleekshop-phpsdk-json/cart.inc.php");
+  include(PROJECTPATH . "vendor/sleekcommerce/sleekshop-phpsdk-json/shopobjects.inc.php");
+  include(PROJECTPATH . "vendor/sleekcommerce/sleekshop-phpsdk-json/categories.inc.php");
+  include(PROJECTPATH . "vendor/sleekcommerce/sleekshop-phpsdk-json/session.inc.php");
+  include(PROJECTPATH . "vendor/sleekcommerce/sleekshop-phpsdk-json/user.inc.php");
+  include(PROJECTPATH . "vendor/sleekcommerce/sleekshop-phpsdk-json/order.inc.php");
+  include(PROJECTPATH . "vendor/sleekcommerce/sleekshop-phpsdk-json/payment.inc.php");
   include(PROJECTPATH . "vendor/sleekcommerce/mailing.inc.php");
 
 /*

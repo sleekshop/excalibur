@@ -26,7 +26,7 @@ $app->view->parserOptions = array(
 );
 
 
-$app->view->parserExtensions = array(new Twig_Extension_I18n());
+$app->view->parserExtensions = array(new Twig_Extensions_Extension_I18n());
 
 //Reloading the menu
 $app->get('/reload-menu', function () use ($app,$language,$menu,$username,$cart) {

@@ -1,0 +1,19 @@
+{
+    "name": "sleekcommerce/sleekshop-phpsdk-json",
+    "type": "library",
+    "description": "Controllers for connecting to sleekshop",
+    "keywords": ["sleekshop","sdk"],
+    "homepage": "https://www.sleekshop.io",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kaveh Raji",
+            "email": "info@sleekshop.io",
+            "homepage": "https://www.sleekshop.io",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
