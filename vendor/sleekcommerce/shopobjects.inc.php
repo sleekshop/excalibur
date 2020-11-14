@@ -60,6 +60,7 @@ private static function get_shopobject_from_json($so="")
 		{
 			$width=intval((string)$attribute->width);
 			$height=intval((string)$attribute->height);
+      $factor=1;
 			if($height!=0){$factor=PRODUCT_IMAGE_THUMB_HEIGHT/$height;}
 			$width=intval($width*$factor);
 			$height=intval($height*$factor);
