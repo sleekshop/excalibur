@@ -401,7 +401,7 @@ $app->post('/register', function() use ($app,$request_uri,$language,$menu,$usern
   	if($res["status"]=="SUCCESS")
   	{
   		UserCtl::VerifyUser($res["id_user"],$res["session_id"]);
-  		$app->render("login.html",array("error_msg"=>$error_msg,"error"=>0,"user"=>$user,"email"=>$email,"cart"=>$cart,"language"=>$language,"menu"=>$menu));
+  		$app->render("login.html",array("error"=>0,"user"=>$user,"email"=>$email,"cart"=>$cart,"language"=>$language,"menu"=>$menu));
   	}
   	else
   	{
@@ -481,7 +481,7 @@ $app->get('/:obj', function ($obj) use ($app,$request_uri,$language,$menu,$usern
             {
               UserCtl::Logout(SessionCtl::GetSession());
               setcookie('username',"");
-              $app->render('logout.html',array("res"=>$res,"menu"=>$menu,"username"=>"","cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
+              $app->render('logout.html',array("menu"=>$menu,"username"=>"","cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
             }
           elseif($obj=="profile")
            {
@@ -496,7 +496,7 @@ $app->get('/:obj', function ($obj) use ($app,$request_uri,$language,$menu,$usern
            }
           elseif($obj=="register")
            {
-             $app->render("register.html",array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
+             $app->render("register.html",array("menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
            }
            elseif($obj=="userdata")
             {
