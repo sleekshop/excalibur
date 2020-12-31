@@ -1,13 +1,9 @@
 {% for value in res.products %}
-<div class="col-md-4 list-obj" data-price="{{ value.attributes.price.value }}" data-name="{{ value.attributes.name.value }}">
+<div class="col-md-4 list-obj" data-price="{{ value.attributes.price.value }}" data-name="{{ value.attributes.name.value }}" style="min-height:430px;">
 <div class="product-column">
-<p align="center"><img src="{{ value.attributes.img1.value }}" width="80%" align="center"></p>
-<span class="product-overlay product-details"></span>
-<span class="product-details"><h2>{{ value.attributes.name.value }}</h2>
-{{ value.attributes.short_description.value }}<br>
-<h3>{{ value.attributes.price.value|number_format(2)}} EUR</h3>
-<a class="btn btn-primary" href="{% if value.permalink!='' %}{{ value.permalink }}{% else %}/{{ value.id }}{% endif %}">{%trans%}Show product{%endtrans%}</a>
-</span>
+<p align="center"><a class="" href="{% if value.permalink!='' %}{{ value.permalink }}{% else %}/{{ value.id }}{% endif %}"><img src="{{ value.attributes.img1.value }}" height="300" align="center"></a></p>
 </div>
+<a class="" href="{% if value.permalink!='' %}{{ value.permalink }}{% else %}/{{ value.id }}{% endif %}"><h4 align="center">{{ value.attributes.name.value }}</h4></a>
+<a class="" href="{% if value.permalink!='' %}{{ value.permalink }}{% else %}/{{ value.id }}{% endif %}"><h3 align="center">{{value.attributes.price.value|number_format(2)}} EUR</h3></a><br><br>
 </div>
 {% endfor %}

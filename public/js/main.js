@@ -10,20 +10,7 @@ $( document ).ready(function() {
 		});
 
 
-	$( ".product-column" ).hover(function() {
-		  $( this ).find("img").animate({
-		    width:"100%"
-		  }, 200, function() {
-		    // Animation complete.
-		  }); $(this).find(".product-details").show();}
-	     , function(){
-
-	    	 $( this ).find("img").animate({
-	 		    width:"80%"
-	 		  }, 50, function() {
-	 		    // Animation complete.
-	 		  });$(this).find(".product-details").hide();
-		});
+	
 
 
 	$( ".cart-hover" ).hover(function() {
