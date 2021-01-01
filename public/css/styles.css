@@ -49,7 +49,23 @@ font-weight:100;
   overflow:hidden;
 }
 
+.product-name{
+	width:100%;
+	text-align: center !important;
+}
+.product-name a{
+	font-size:25px;
+	color:#000000;
+}
 
+.product-price{
+	width:100%;
+	text-align: center !important;
+}
+.product-price a{
+	font-size:20px;
+	color:#000000;
+}
 .search-field
 {
 	margin-top:20px;
