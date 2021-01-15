@@ -1,10 +1,11 @@
 <?php
+if(!defined("TEMPLATE_PATH")) define("TEMPLATE_PATH","../templates");
 require '../vendor/autoload.php';
 require '../vendor/sleekcommerce/init.inc.php';
 
 // Prepare app
 $app = new \Slim\Slim(array(
-    'templates.path' => '../templates',
+    'templates.path' => TEMPLATE_PATH,
 ));
 
 // Create monolog logger and store logger in container as singleton
@@ -19,7 +20,7 @@ $app->container->singleton('log', function () {
 $app->view(new \Slim\Views\Twig());
 $app->view->parserOptions = array(
     'charset' => 'utf-8',
-    'cache' => realpath('../templates/cache'),
+    'cache' => realpath(TEMPLATE_PATH . '/cache'),
     'auto_reload' => true,
     'strict_variables' => false,
     'autoescape' => true
@@ -30,7 +31,7 @@ $app->view->parserExtensions = array(new Twig_Extensions_Extension_I18n());
 
 //Reloading the menu
 $app->get('/reload-menu', function () use ($app,$language,$menu,$username,$cart) {
-    unlink("../templates/cache/menu.tmp");
+    unlink(TEMPLATE_PATH . "/cache/menu.tmp");
     die("WEBHOOK_EXECUTED");
 });
 
@@ -42,15 +43,15 @@ $app->get('/reload-static-files', function () use ($app,$language,$menu,$usernam
   $prefix=array_shift(explode("_",$lang));
   $res=ShopobjectsCtl::GetContentDetails($id,$lang);
   $about_us=$res["attributes"]["about_us_footer"]["value"];
-  unlink("../templates/part_about_us_footer_".$prefix.".html");
-  file_put_contents("../templates/part_about_us_footer_".$prefix.".html",$about_us);
+  unlink(TEMPLATE_PATH . "/part_about_us_footer_".$prefix.".html");
+  file_put_contents(TEMPLATE_PATH . "/part_about_us_footer_".$prefix.".html",$about_us);
   $logo=$res["attributes"]["logo"]["value"];
-  unlink("../templates/part_logo.html");
-  file_put_contents("../templates/part_logo.html","<img src='".$logo."' border='0'>");
+  unlink(TEMPLATE_PATH . "/part_logo.html");
+  file_put_contents(TEMPLATE_PATH . "/part_logo.html","<img src='".$logo."' border='0'>");
   $face=$res["attributes"]["facebook_link"]["value"];
   $insta=$res["attributes"]["instagram_link"]["value"];
-  unlink("../templates/part_social_links.html");
-  file_put_contents("../templates/part_social_links.html","<a href='".$face."' target='_blank'><img src='../img/facebook.png' width='50px'></a>
+  unlink(TEMPLATE_PATH . "/part_social_links.html");
+  file_put_contents(TEMPLATE_PATH . "/part_social_links.html","<a href='".$face."' target='_blank'><img src='../img/facebook.png' width='50px'></a>
   <a href='".$insta."' target='_blank'><img src='../img/insta.jpg' width='50px'></a>");
   echo "WEBHOOK_EXECUTED";
 });
@@ -88,7 +89,7 @@ $app->get("/get-invoice/:id/:hash", function ($id,$hash) use ($app,$language,$me
 $app->get('/change-lang', function () use ($app,$language,$menu,$username,$cart) {
 
 
-    unlink("../templates/cache/menu.tmp");
+    unlink(TEMPLATE_PATH . "/cache/menu.tmp");
     //$app->log->info("Slim-Skeleton '/' route");
     $language=$app->request->get("lang");
     // Render index viewdd

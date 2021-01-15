@@ -38,14 +38,14 @@ public static function GetCategories($id_parent=0,$lang=DEFAULT_LANGUAGE)
  */
  public static function GetMenu($language=DEFAULT_LANGUAGE)
  {
- 	if(!file_exists("../templates/cache/menu.tmp"))
+ 	if(!file_exists(TEMPLATE_PATH . "/cache/menu.tmp"))
  	 {
  		 $res=CategoriesCtl::GetCategories(CATEGORIES_ID,$language);
  	   $res=serialize($res);
- 		 file_put_contents("../templates/cache/menu.tmp",$res);
+ 		 file_put_contents(TEMPLATE_PATH . "/cache/menu.tmp",$res);
  	 }
  	 else {
- 	 	$res=file_get_contents("../templates/cache/menu.tmp");
+ 	 	$res=file_get_contents(TEMPLATE_PATH . "/cache/menu.tmp");
  	}
  	return(unserialize($res));
  }
