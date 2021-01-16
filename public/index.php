@@ -56,7 +56,7 @@ $app->get('/reload-static-files', function () use ($app,$language,$menu,$usernam
   echo "WEBHOOK_EXECUTED";
 });
 
-$app->post('/add-coupon', function () use ($app,$language,$menu,$username,$cart,$discount) {
+$app->post('/add-coupon', function () use ($app,$language,$menu,$username,$cart) {
     $app->log->info("Slim-Skeleton '/' route");
     // Render index viewdd
     $coupon=$app->request->post("coupon");

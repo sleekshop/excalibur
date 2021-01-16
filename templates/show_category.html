@@ -2,6 +2,9 @@
 
 {% block content %}
 {% if res!=0 %}
+{% for value in res.contents.byclass.teaser_pic %}
+<div class="col-md-12"><img src="{{value.attributes.img.value}}" width="100%"><hr></div>
+{%endfor%}
 <div class="mayalist col-md-12" id="mayalist" data-pageqty="9">
 <nav class="pagination-nav">
   <!-- <ul class="pagination">x
@@ -22,7 +25,6 @@
 <option value="name-desc">Name absteigend</option>
 </select>
 </div>
-
 {% include "product_listing.html" %}
 </div>
 {% else %}
