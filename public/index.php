@@ -80,7 +80,7 @@ $app->get("/get-invoice/:id/:hash", function ($id,$hash) use ($app,$language,$me
    //$app->log->info("Slim-Skeleton "/" route");
    if(!(crypt($id,TOKEN)==base64_decode($hash))) die("PERMISSION_DENIED");
    $invoice=OrderCtl::GetInvoice($id);
-   echo $invoice;
+   echo utf8_decode($invoice);
    die();
 });
 
