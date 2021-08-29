@@ -96,7 +96,7 @@
 <div id="related-products" class="tab-pane">
 
 {% for value in res.attributes.related_items.value %}
-<div class="col-md-4 list-obj" data-price="{$value.attributes.price.value}" data-name="{$value.attributes.name.value}">
+<div class="col-md-4 list-obj" data-price="{{value.attributes.price.value}}" data-name="{{value.attributes.name.value}}">
 <div class="product-column">
 <p align="center"><img src="{{ value.attributes.img1.value }}" width="80%" align="center"></p>
 <span class="product-overlay product-details"></span>

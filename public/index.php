@@ -145,8 +145,9 @@ $app->post('/add_to_cart', function () use ($app,$request_uri,$language,$menu,$u
       $pic=$app->request->post("pic");
       $quantity=$app->request->post("quantity");
       $res=CartCtl::Add(SessionCtl::GetSession(),$id_product,$quantity,"price","name","short_description",$language,"PRODUCT",0,array(array("lang"=>$language,"name"=>"pic","value"=>$pic)));
-      $app->render('cart.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$res,"request_uri"=>$request_uri,"language"=>$language));
+    //$app->render('cart.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$res,"request_uri"=>$request_uri,"language"=>$language));
     //$app->render('index.html',array("res"=>$res));
+    $app->redirect('/cart');
 });
 
 $app->post('/login', function() use ($app,$request_uri,$language,$menu,$username,$cart) {
@@ -460,7 +461,8 @@ $app->get('/:obj', function ($obj) use ($app,$request_uri,$language,$menu,$usern
          {
            $res=CartCtl::Del(SessionCtl::GetSession(),$app->request->get("id"));
            if(count($res["contents"])==0) $res=0;
-           $app->render('cart.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$res,"request_uri"=>$request_uri,"language"=>$language));
+           //$app->render('cart.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$res,"request_uri"=>$request_uri,"language"=>$language));
+           $app->redirect('/cart');
          }
          elseif($obj=="your-data")
           {
