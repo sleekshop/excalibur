@@ -29,19 +29,19 @@
             <div class="panel-body">
             {% if res.availability_label!='danger' %}
             <form method="post" action="add_to_cart">
-            {% if res.class=='sizeprod' %}
-            <label>{%trans%}Size{%endtrans%}</label>
-            <select name="size" class="form-control size-ctl">
-             {% for key, value in res.sizes %}
+            {% if res.colors is not empty %}
+            <label>{%trans%}Color{%endtrans%}</label>
+            <select name="color" class="form-control size-ctl">
+             {% for key, value in res.colors %}
               <option value="{{ value }}" {% if value==res.id %}selected{% endif %}>{{ key }}</option>
              {% endfor %}
             </select>
             <br>
             {% endif %}
-            {% if res.class=='colorprod' %}
-            <label>{%trans%}Color{%endtrans%}</label>
-            <select name="color" class="form-control size-ctl">
-             {% for key, value in res.colors %}
+            {% if res.sizes is not empty %}
+            <label>{%trans%}Size{%endtrans%}</label>
+            <select name="size" class="form-control size-ctl">
+             {% for key, value in res.sizes %}
               <option value="{{ value }}" {% if value==res.id %}selected{% endif %}>{{ key }}</option>
              {% endfor %}
             </select>
