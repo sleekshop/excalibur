@@ -541,28 +541,30 @@ $app->get('/:obj', function ($obj) use ($app,$request_uri,$language,$menu,$usern
          else {
            $res=ShopobjectsCtl::SeoGetProductDetails($obj);
          }
-         if($res["class"]=="sizeprod")
-          {
-	         $sizes=array();
-	         $sizes[$res["attributes"]["size"]["value"]]=$res["id"];
-	         foreach($res["variations"] as $variation)
-          	{
-		         $sizes[$variation["attributes"]["size"]["value"]]=$variation["id"];
-	          }
-	         asort($sizes);
-	         $res["sizes"]=$sizes;
+         if ($res["attributes"]["color"]["value"] != "") {
+          $colors = array();
+          $colors[$res["attributes"]["color"]["value"]] = $res["id"];
+          foreach ($res["variations"] as $variation) {
+              if ($res["attributes"]["color"]["value"] != $variation["attributes"]["color"]["value"]) {
+                  $colors[$variation["attributes"]["color"]["value"]] = $variation["id"];
+              }
           }
-        if($res["class"]=="colorprod")
-         {
-	        $colors=array();
-	        $colors[$res["attributes"]["color"]["value"]]=$res["id"];
-	        foreach($res["variations"] as $variation)
-	         {
-		        $colors[$variation["attributes"]["color"]["value"]]=$variation["id"];
-           }
-	        asort($colors);
-	        $res["colors"]=$colors;
-         }
+          asort($colors);
+          $res["colors"] = $colors;
+        }
+        if ($res["attributes"]["size"]["value"] != "") {
+            $sizes = array();
+            $sizes[$res["attributes"]["size"]["value"]] = $res["id"];
+            foreach ($res["variations"] as $variation) {
+                if ($variation["attributes"]["color"]["value"] == $res["attributes"]["color"]["value"]) {
+                    if ($res["attributes"]["size"]["value"] != $variation["attributes"]["size"]["value"]) {
+                        $sizes[$variation["attributes"]["size"]["value"]] = $variation["id"];
+                    }
+                }
+            }
+            ksort($sizes);
+            $res["sizes"] = $sizes;
+        }
         $tags=explode(",",$res["attributes"]["tags"]["value"]);
         $res["attributes"]["tags"]["arr"]=$tags;
         $app->render('show_product.html',array("res"=>$res,"menu"=>$menu,"username"=>$username,"cart"=>$cart,"request_uri"=>$request_uri,"language"=>$language));
