@@ -88,6 +88,18 @@ class UserCtl
  	return($result);
  }
 
+/*
+ * Update the user - data
+ */
+public static function UpdateUserData($id_user="",$args=array())
+{
+	$sr=new SleekShopRequest();
+	$json=$sr->update_user_data($id_user,$args);
+	$json=json_decode($json);
+	$result=array();
+	$result["status"]=(string)$json->status;
+	return($result);
+}
 
  /*
   * Sets the user - password

@@ -447,6 +447,18 @@ private $post_data=array();
     return($this->snd_request($this->server,$post_data));
    }
 
+  /*
+   * For setting user data
+   */
+  public function update_user_data($id_user="",$args=array())
+  {
+   $post_data=$this->post_data;
+   $post_data["request"]="update_user_data";
+   $post_data["id_user"]=$id_user;
+   $post_data["attributes"]=json_encode($args);
+   return($this->snd_request($this->server,$post_data));
+  }
+
 
  /*
   * This function delivers an xml - containing all neccessary - infos of a specific product determined by permalink
