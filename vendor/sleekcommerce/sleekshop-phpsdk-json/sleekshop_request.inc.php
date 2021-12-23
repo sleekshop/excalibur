@@ -13,6 +13,7 @@ class SleekShopRequest
 private $server="";
 private $licence_username="";
 private $licence_password="";
+private $license_secret_key="";
 private $post_data=array();
 
  public function __construct()
@@ -453,6 +454,7 @@ private $post_data=array();
   public function update_user_data($id_user="",$args=array())
   {
    $post_data=$this->post_data;
+   $post_data["licence_secret_key"]=$this->license_secret_key;
    $post_data["request"]="update_user_data";
    $post_data["id_user"]=$id_user;
    $post_data["attributes"]=json_encode($args);
