@@ -4,16 +4,15 @@
 * version: 1.3.0.0
 * (c) sleekcommerce - Kaveh Raji
 */
-define("LICENCE_USERNAME","");
-define("SERVER","http://172.17.0.2/srv/service/");
-define("LICENCE_PASSWORD","");
+define("LICENCE_USERNAME","mrtfh_H5PBvHTtKG3yOVd5BDtd");
+define("SERVER","https://mrtfh.sleekshop.net/srv/service/");
+define("LICENCE_PASSWORD","3ujIbT2ksXl4XkSigN86");
 
 class SleekShopRequest
 {
 private $server="";
 private $licence_username="";
 private $licence_password="";
-private $license_secret_key="";
 private $post_data=array();
 
  public function __construct()
@@ -447,19 +446,6 @@ private $post_data=array();
     $post_data["attributes"]=json_encode($args);
     return($this->snd_request($this->server,$post_data));
    }
-
-  /*
-   * For setting user data
-   */
-  public function update_user_data($id_user="",$args=array())
-  {
-   $post_data=$this->post_data;
-   $post_data["licence_secret_key"]=$this->license_secret_key;
-   $post_data["request"]="update_user_data";
-   $post_data["id_user"]=$id_user;
-   $post_data["attributes"]=json_encode($args);
-   return($this->snd_request($this->server,$post_data));
-  }
 
 
  /*
