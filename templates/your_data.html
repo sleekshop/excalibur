@@ -1,22 +1,57 @@
-{%extends "page.html"%}
-{%block content%}
-<div class="col-md-12">
-<h1>{%trans%}Your data{%endtrans%}</h1>
-<br><br>
+{%extends "page_checkout.html"%} {%block content%}
+<div style="min-height: 450px">
+  <div class="col-md-12">
+    <div class="col-md-12" style="padding-top: 40px">
+      <a href="index.php">{%include 'part_logo.html'%}</a>
+    </div>
+    <br />
+    <h1 style="padding-top: 115px">{%trans%}Your data{%endtrans%}</h1>
+    <br /><br />
+  </div>
+  <div
+    class="col-md-4"
+    style="background-color: #f7f7f7; border-radius: 8px; min-height: 250px"
+  >
+    <div>
+      <h3>{%trans%}I am already registered{%endtrans%}:</h3>
+      {%trans%}Do you have a user account? Click the "login" button to login
+      with your data.{%endtrans%}<br /><br />
+      <a
+        href="login"
+        class="btn btn-lg btn-primary pull-right"
+        style="margin-top: 60px; border-radius: 10px"
+        >{%trans%}Login{%endtrans%}</a
+      >
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div>
+      <h3>{%trans%}I want to create an account{%endtrans%}:</h3>
+      {%trans%}If you haven't a useraccount yet you can create one by clicking
+      on register{%endtrans%}<br /><br />
+      <a
+        href="register"
+        class="btn btn-lg btn-primary pull-right"
+        style="margin-top: 60px; border-radius: 10px"
+        >{%trans%}Register now{%endtrans%}</a
+      >
+    </div>
+  </div>
+  <div
+    class="col-md-4"
+    style="background-color: #f7f7f7; border-radius: 8px; min-height: 250px"
+  >
+    <div>
+      <h3>{%trans%}I want to continue as a guest{%endtrans%}:</h3>
+      {%trans%}You can continue as a guest. Just click the button "continue as a
+      guest".{%endtrans%}<br /><br />
+      <a
+        href="userdata"
+        class="btn btn-lg btn-primary pull-right"
+        style="margin-top: 60px; border-radius: 10px"
+        >{%trans%}Continue as a guest{%endtrans%}</a
+      >
+    </div>
+  </div>
 </div>
-<div class="col-md-4">
-<h3>{%trans%}I am already registered{%endtrans%}:</h3>
-{%trans%}Do you have a user account? Click the "login" button to login with your data.{%endtrans%}<br><br>
-<a href="login" class="btn btn-lg btn-primary">{%trans%}Login{%endtrans%}</a>
-</div>
-<div class="col-md-4">
-<h3>{%trans%}I want to create an account{%endtrans%}:</h3>
-{%trans%}If you haven't a useraccount yet you can create one by clicking on register{%endtrans%}<br><br>
-<a href="register" class="btn btn-lg btn-primary">{%trans%}Register now{%endtrans%}</a>
-</div>
-<div class="col-md-4">
-<h3>{%trans%}I want to continue as a guest{%endtrans%}:</h3>
-{%trans%}You can continue as a guest. Just click the button "continue as a guest".{%endtrans%}<br><br>
-<a href="userdata" class="btn btn-lg btn-primary">{%trans%}Continue as a guest{%endtrans%}</a>
-</div>
- {%endblock%}
+{%endblock%}

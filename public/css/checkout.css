@@ -1,0 +1,24 @@
+
+.btn-primary {
+    background-color: #3d7dff;
+    border-color: #3d7dff;
+}
+
+.btn-primary:hover {
+    background-color: #3572ef;
+    border-color: #3572ef;
+}
+
+.btn-primary.active, .btn-primary:active, .open>.dropdown-toggle.btn-primary {
+    background-color: #3572ef;
+    border-color: #3572ef;
+}
+
+.form-control {
+    border: 0.5px #d5d5d5 solid;
+    border-radius: 8px;
+}
+
+.form-control::placeholder {
+    color: #333;
+}
