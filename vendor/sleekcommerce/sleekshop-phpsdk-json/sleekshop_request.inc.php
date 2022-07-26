@@ -4,9 +4,9 @@
 * version: 1.3.0.0
 * (c) sleekcommerce - Kaveh Raji
 */
-define("LICENCE_USERNAME","mrtfh_H5PBvHTtKG3yOVd5BDtd");
-define("SERVER","https://mrtfh.sleekshop.net/srv/service/");
-define("LICENCE_PASSWORD","3ujIbT2ksXl4XkSigN86");
+define("LICENCE_USERNAME","sleekcommerce");
+define("SERVER","https://SUBDOMAIN.sleekshop.net/srv/service/");
+define("LICENCE_PASSWORD","password");
 
 class SleekShopRequest
 {
@@ -400,7 +400,7 @@ private $post_data=array();
      /*
     * This function is for setting a new user - password
     */
-   public function set_user_password($session="",$old_password,$new_password1,$new_password2)
+   public function set_user_password($session,$old_password,$new_password1,$new_password2)
    {
     $post_data=$this->post_data;
     $post_data["request"]="set_user_password";

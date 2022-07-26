@@ -1,0 +1,166 @@
+{%extends "page_checkout_simple.twig"%}
+
+{% block content %}
+<div class="row" style="min-height: 100vh; border-radius: 9px;">
+
+  <div class="col-md-12" style="height: 100vh;">
+    
+    <div class="col-md-12" style="padding-top: 40px;">
+      <a href="index.php">{%include 'part_logo.twig'%}</a>
+    </div>
+    <br /><br />
+    <br /><br />
+    
+    <h1 style="padding-top: 40px;">Ihre Daten</h1>
+    <br><br>
+    <div class="col-md-8 offset-md-2" style="padding-top: 40px;">
+      {% if error_count>0 %}
+      <div class="alert alert-danger" role="alert">
+        {%trans%}Please fill in all fields marked with *{%endtrans%}
+      </div>
+      {% endif %}
+      <form method="POST" action="userdata" class="form" id="submit">
+        <div class="form-group {{error.email}}">
+          <input type="text" placeholder="E-Mail *" name="email" class="form-control" value="{{ userdata.email }}" required>
+        </div>
+        <div class="form-group">
+          <select name="salutation" class="form-control">
+            <option value="">{%trans%}Salutation{%endtrans%}</option>
+            <option value="Mrs" {% if userdata.salutation=='Mrs' %}selected{%endif%}>{%trans%}Mrs{%endtrans%}</option>
+            <option value="Mr" {% if userdata.salutation=='Mr' %}selected{%endif%}>{%trans%}Mr{%endtrans%}</option>
+          </select>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 form-group {{error.firstname}}">
+            <input type="text" placeholder="{%trans%}Firstname{%endtrans%} *" name="firstname" class="form-control" value="{{userdata.firstname}}" required>
+          </div>
+          <div class="col-lg-6 form-group {{error.lastname}}">
+            <input type="text" placeholder="{%trans%}Lastname{%endtrans%} *" name="lastname" class="form-control" value="{{userdata.lastname}}" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="{%trans%}Company{%endtrans%}" name="companyname" class="form-control" value="{{userdata.companyname}}">
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="{%trans%}Department{%endtrans%}" name="department" class="form-control" value="{{userdata.department}}">
+        </div>
+        <div class="row">
+        <div class="col-lg-6 form-group {{error.street}}">
+          <input type="text" placeholder="{%trans%}Street{%endtrans%} *" name="street" class="form-control" value="{{userdata.street}}" required>
+        </div>
+        <div class="col-lg-6 form-group {{error.number}}">
+          <input type="text" placeholder="{%trans%}Number{%endtrans%} *" name="number" class="form-control" value="{{userdata.number}}" required>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-lg-6 form-group {{error.city}}">
+          <input type="text" placeholder="{%trans%}City{%endtrans%} *" name="city" class="form-control" value="{{userdata.city}}" required>
+        </div>
+        <div class="col-lg-6 form-group {{error.zip}}">
+          <input type="text" placeholder="{%trans%}Zip{%endtrans%} *" name="zip" class="form-control" value="{{userdata.zip}}" required>
+        </div>
+        </div>
+        <div class="form-group {{error.state}}">
+          <input type="text" placeholder="{%trans%}State{%endtrans%} *" name="state" class="form-control" value="{{userdata.state}}" required>
+        </div>
+        <div class="form-group {{error.country}}">
+          <select name="country" class="form-control" required>
+            <option value="">{%trans%}Please choose your country{%endtrans%}</option>
+            <option value="DE" {% if userdata.country=='DE'%}selected{%endif%}>{%trans%}Germany{%endtrans%}</option>
+          </select>
+          <!-- <input type="text" name="country" class="form-control" value="{$userdata.country}"> -->
+        </div>
+        <div class="form-group">
+          <textarea type="text" placeholder="{%trans%}Notes{%endtrans%}" name="notes" class="form-control">{{userdata.notes}}</textarea>
+        </div>
+        
+        <div class="different-address">
+          <div class="ship-different-title">
+              <h4>
+                  <label>Versand an eine andere Adresse?</label>
+                  <input id="ship-box" name="diffaddress" value="diffadd" type="checkbox" onclick="toggleAddr()" />
+              </h4>
+          </div>
+          <div id="secondaryaddr">
+        
+          <div class="form-group">
+            <select name="salutation" class="form-control">
+              <option value="">{%trans%}Salutation{%endtrans%}</option>
+              <option value="Mrs" {% if userdata.salutation=='Mrs' %}selected{%endif%}>{%trans%}Mrs{%endtrans%}</option>
+              <option value="Mr" {% if userdata.salutation=='Mr' %}selected{%endif%}>{%trans%}Mr{%endtrans%}</option>
+            </select>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 form-group {{error.firstname}}">
+              <input type="text" placeholder="{%trans%}Firstname{%endtrans%} *" name="dfirstname" class="form-control" value="{{userdata.firstname}}">
+            </div>
+            <div class="col-lg-6 form-group {{error.lastname}}">
+              <input type="text" placeholder="{%trans%}Lastname{%endtrans%} *" name="dlastname" class="form-control" value="{{userdata.lastname}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="{%trans%}Company{%endtrans%}" name="dcompanyname" class="form-control" value="{{userdata.companyname}}">
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="{%trans%}Department{%endtrans%}" name="ddepartment" class="form-control" value="{{userdata.department}}">
+          </div>
+          <div class="row">
+          <div class="col-lg-6 form-group {{error.street}}">
+            <input type="text" placeholder="{%trans%}Street{%endtrans%} *" name="dstreet" class="form-control" value="{{userdata.street}}">
+          </div>
+          <div class="col-lg-6 form-group {{error.number}}">
+            <input type="text" placeholder="{%trans%}Number{%endtrans%} *" name="dnumber" class="form-control" value="{{userdata.number}}">
+          </div>
+          </div>
+          <div class="row">
+          <div class="col-lg-6 form-group {{error.city}}">
+            <input type="text" placeholder="{%trans%}City{%endtrans%} *" name="dcity" class="form-control" value="{{userdata.city}}">
+          </div>
+          <div class="col-lg-6 form-group {{error.zip}}">
+            <input type="text" placeholder="{%trans%}Zip{%endtrans%} *" name="dzip" class="form-control" value="{{userdata.zip}}">
+          </div>
+          </div>
+          <div class="form-group {{error.state}}">
+            <input type="text" placeholder="{%trans%}State{%endtrans%} *" name="dstate" class="form-control" value="{{userdata.state}}">
+          </div>
+          <div class="form-group {{error.country}}">
+            <select name="dcountry" class="form-control">
+              <option value="">{%trans%}Please choose your country{%endtrans%}</option>
+              <option value="DE" {% if userdata.country=='DE'%}selected{%endif%}>{%trans%}Germany{%endtrans%}</option>
+            </select>
+            <!-- <input type="text" name="country" class="form-control" value="{$userdata.country}"> -->
+          </div>
+          
+          </div>
+        
+        </div>
+        
+        <br />
+        <p align="right"><input type="submit" form="submit" class="btn btn-primary float-right" style="border-radius: 10px; margin-bottom: 30px;" value="{%trans%}Next{%endtrans%}"></p>
+        
+  
+      </form>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  
+  document.getElementById("secondaryaddr").style.display = "none";
+  
+  function toggleAddr() {
+    
+    var x = document.getElementById("secondaryaddr");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+    
+  }
+  
+</script>
+
+{% endblock %}

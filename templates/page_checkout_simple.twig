@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{res.title}}</title>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="preload"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    /></noscript>
+    <link
+      rel="preload"
+      href="/css/checkout.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="/css/checkout.css" /></noscript>
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css?family=Montserrat+Alternates"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Montserrat+Alternates"
+    /></noscript>
+    <script src="https://js.stripe.com/v3/"></script>
+    <base href="/" />
+  </head>
+  <body>
+    <div class="container">
+      {% block header %} {% endblock %} 
+      {% block head %} {% endblock %} 
+      {% block content %} HERE OUR CONTENT {% endblock %}
+    </div>
+  </body>
+  <script src="/js/jquery/jquery.min.js" defer></script>
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"
+    defer
+  ></script>
+  <script src="/js/jquery/jquery.imageLens.js" defer></script>
+  <script src="/js/mayalist/mayalist.js" defer></script>
+  <script src="/js/main.js" defer></script>
+</html>

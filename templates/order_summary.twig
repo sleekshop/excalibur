@@ -1,0 +1,133 @@
+{% extends "page_checkout.twig" %} 
+{% block content %}
+
+  <div class="col-md-7 px-0">
+      <div class="products">
+          <a href="javascript:void(0)">
+              <figure class="figure head-logo">
+                  {% include 'part_logo.twig' %}
+              </figure>
+          </a>
+          <h2 class="sub-heading font-30 fw-600 text-dark pb-4">{% trans %}Delivery Address{% endtrans %}:</h2>
+          <div class="order-left mt-4">
+              <h4 class="font-24 fw-400 mb-4 text-dark">{{order.delivery_salutation}} {{order.delivery_firstname}} {{order.delivery_lastname}}</h4>
+              {# <div class="d-flex justify-content-between w-75">
+                      <p class="font-16 fw-400 text-dark">+000 123 4567</p>
+                      <p class="font-16 fw-400 text-dark">+000 123 4567</p>
+              </div> #}
+              <p class="font-16 fw-400 text-dark">{{order.delivery_street}} {{order.delivery_number}}<br /> 
+              {{order.delivery_zip}} {{order.delivery_city}} - {{order.delivery_country}}</p>
+          </div>
+
+          <h2 class="sub-heading font-30 fw-600 text-dark">{% trans %}Billing Address{% endtrans %}:</h2>
+          <div class="order-left mt-4">
+              <h4 class="font-24 fw-400 mb-4 text-dark">{{order.invoice_salutation}} {{order.invoice_firstname}} {{order.invoice_lastname}}</h4>
+              {# <div class="d-flex justify-content-between w-75">
+                  <p class="font-16 fw-400 text-dark">+000 123 4567</p>
+                  <p class="font-16 fw-400 text-dark">+000 123 4567</p>
+              </div> #}
+              <p class="font-16 fw-400 text-dark">{{order.invoice_street}} {{order.invoice_number}}<br />
+              {{order.invoice_zip}} {{order.invoice_city}} - {{order.invoice_country}}</p>
+          </div>
+      </div>  <!-------------Class Product End---------->
+  </div> 
+  <div class="col-md-5 px-0">
+      <div class="order">
+          <h2 class="sub-heading font-30 fw-600 text-dark">Order Summary</h2>
+          
+          {% set sum_tax=0 %}
+          {% for value in cart.contents %}
+          {% set sum_tax=sum_tax+value.sum_price*value.attributes.sys_tax %}
+        <div class="product-main d-flex flex-wrap justify-content-between border-btm py-3">
+          <div class="left">
+            <div class="d-md-flex d-block align-items-center">
+              <div class="flex-shrink-0 order-img">
+                <img src="{{value.attributes.pic}}" class="product-img" alt="...">
+              </div>
+              <div class="flex-grow-1 product_text ms-4">
+                <h3 class="font-16 fw-400 text-dark">{{ value.quantity }}x {{ value.name }}</h3>
+                <p class="font-13 fw-400 text-dark m-0">{{ value.description }}</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="right mt-4">
+            <h6 class="font-16 fw-bold text-dark">{{ value.sum_price|number_format(2)}} €</h6>
+          </div>
+        </div>
+          {% for value in value.sub_elements.contents %}
+            <div class="product-main d-flex flex-wrap justify-content-between border-btm py-3">
+              <div class="left">
+                <div class="d-md-flex d-block align-items-center">
+                  <div class="flex-shrink-0 order-img">
+                    <img src="{{value.attributes.pic}}" class="product-img" alt="...">
+                  </div>
+                  <div class="flex-grow-1 product_text ms-4">
+                    <h3 class="font-16 fw-400 text-dark">{{ value.name }}</h3>
+                    <p class="font-13 fw-400 text-dark m-0">{{ value.description }}</p>
+
+                  </div>
+                </div>
+              </div>
+              <div class="right mt-4">
+                <h6 class="font-16 fw-bold text-dark">{{ value.sum_price|number_format(2)}} €</h6>
+              </div>
+            </div>
+          {% endfor %}
+        {% endfor %}
+          
+          {# <div class="apply-code">
+              <form>
+                  <div class="col-12">
+                      <div class="d-flex flex-wrap align-items-center">
+                          <div class="apply-input">
+                              <label for="example" class="form-label font-18 fw-600 text-dark">Coupon Code</label>
+                              <input type="text" class="form-control" aria-describedby="Help">
+                          </div>
+                          <!-- <div> -->
+                              <button class="btn apply-btn font-13 fw-400 rounded-0">APPLY NOW</button>
+                          <!-- </div> -->
+                      </div>
+                  </div>
+              </form>
+          </div> #}
+          <div class="top order-list">
+              <div class="items d-flex justify-content-between">
+                  <h6 class="font-16 fw-400 text-dark">{% trans %}Included tax{% endtrans %}</h6>
+                  <p class="font-16 fw-400 text-dark">{{sum_tax|number_format(2)}} €</p>
+              </div>
+              <div class="ship d-flex justify-content-between">
+                  <h6 class="font-16 fw-400 text-dark mb-0">{% trans %}Delivery costs{% endtrans %}</h6>
+                  <p class="font-12 fw-400 text-dark">{{cart.delivery_costs.sum|number_format(2)}} €</p>
+              </div>
+              <div class="total d-flex justify-content-between">
+                  <h6 class="font-18 fw-400 text-dark">{% trans %}Sum price{% endtrans %}</h6>
+                  <p class="font-18 fw-bold text-dark"><span class="font-12 fw-400 text-dark me-3"></span>{{(cart.sum+cart.delivery_costs.sum)|number_format(2)}} €</p>
+              </div>
+          </div>  <!------order-list Class End---------->
+          <div class="payment-mode mb-4">
+              <h4 class="font-18 fw-600 text-dark">{% trans %}Payment{% endtrans %}</h4>
+              <p class="font-16 fw-400 text-dark">{% trans %}After placing your order, you will be redirected to mollie for payment.{% endtrans %}</p>
+              <img src="assets/images/mollie.png" alt="" class="img-fluid" style="max-width: 55%;">
+          </div>
+          <div class="bottom text-center">
+          <form method="POST" action="checkout" id="submit-frm">
+            <input type="hidden" name="token" value="{{token}}" />
+            <input type="hidden" name="card_number" value="{{card_number}}" />
+            <input type="hidden" name="cvc" value="{{cvc}}" />
+            <input type="hidden" name="exp_month" value="{{exp_month}}" />
+            <input type="hidden" name="exp_year" value="{{exp_year}}" />
+            <p align="right">
+              <input
+                type="button"
+                class="btn checkout-btn text-white rounded-0 font-16 fw-400 mt-3"
+                value="{% trans %}Place Order{% endtrans %}"
+                onClick="OrderPlaced();"
+              /><span id="wait-msg" style="display: none">wait...</span>
+            </p>
+          </form>
+          </div> <!-----------Bottom Class End---------->
+      </div>
+  </div><!--------col End--------------->
+
+{% endblock %}

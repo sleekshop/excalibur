@@ -1,0 +1,383 @@
+{% extends "page_checkout.twig" %}
+
+{% block content %}
+
+	<div class="col-lg-7 col-md-6 px-0">
+		<div class="products">
+			<a href="javascript:void(0)">
+				<figure class="figure head-logo">
+					{% include 'part_logo.twig' %}
+				</figure>
+			</a>
+
+			<div class="modal fade" id="loginModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+				<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+					<h5 class="modal-title font-36 fw-bold text-dark" id="exampleModalToggleLabel">{% trans %}Login{% endtrans %}</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+					{% if error=="login" %}
+						<div class="alert alert-danger" role="alert">
+							{%trans%}An error occured{%endtrans%}.
+						</div>
+					{% endif %}
+					<form method="POST" id="loginForm" action="express-login">
+						<div class="form-group mb-3">
+							<label for="exampleInputEmail1" class="form-label">{% trans %}Username{% endtrans %}</label>
+							<input type="text" class="form-control" aria-describedby="emailHelp" name="username" required>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1" class="form-label">{% trans %}Password{% endtrans %}</label>
+							<input type="password" class="form-control mb-3" name="password" required>
+						</div>
+						<div class="d-flex flex-wrap justify-content-between mb-3">
+						{# <div class="text-start">
+							<div class="form-group checkbox">
+								<label>
+								<input type="checkbox" class="form-check-input">
+								<span class="form-check-label font-14 fw-400">Remember Me</span>
+								</label>
+							</div>
+						</div>
+						<div class="text-end ms-2">
+							<a href="javascript:void(0)" class="font-14 fw-400 text-dark text-decoration-none">Forget Your Password?</a>
+						</div> #}
+							<input type="hidden" name="profile" value="{{profile}}">
+						</div>
+						<button type="submit" class="btn black-btn text-white rounded-0 mb-0 font-16 fw-400">{% trans %}Login{% endtrans %}</button>
+					</form>
+					</div>
+					<div class="modal-footer text-center d-block w-100 border-top-0">
+					{# <p>Don't Have An Account Yet?<a href="register.html" class="fw-500"> Register Now!</a></p> #}
+					</div>
+				</div>
+				</div>
+			</div>
+
+			<div class="modal fade" id="registerModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+				<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+					<h5 class="modal-title font-36 fw-bold text-dark" id="exampleModalToggleLabel">{% trans %}Register{% endtrans %}</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+					{% if error=="register" %}
+						<div class="alert alert-danger" role="alert">
+							{%trans%}An error occured{%endtrans%}.
+						</div>
+					{% endif %}
+
+						<form method="POST" action="express-register" class="form" id="registerForm">
+							<div class="form-group">
+								<label>{% trans %}Username{% endtrans %}</label><br>
+								<input type="input" class="form-control input-lg" name="user" value="{{user}}" required>
+							</div>
+							<div class="form-group">
+								<label>{% trans %}E-Mail{% endtrans %}</label><br>
+								<input type="input" class="form-control input-lg" name="email" value="{{email}}" required>
+							</div>
+							<div class="form-group">
+								<label>{% trans %}Password{% endtrans %}</label><br>
+								<input type="password" class="form-control input-lg" name="password" required>
+							</div>
+							<div class="form-group">
+								<label>{% trans %}Repeat password{% endtrans %}</label><br>
+								<input type="password" class="form-control input-lg" name="password2" required>
+							</div>
+							<div class="form-group">
+								<input type="hidden" name="already_sent" value="1">
+								<button type="submit" class="btn black-btn text-white rounded-0 mb-0 font-16 fw-400">{% trans %}Register{% endtrans %}</button>
+							</div>
+						</form>
+
+
+					</div>
+					<div class="modal-footer text-center d-block w-100 border-top-0">
+					{# <p>Don't Have An Account Yet?<a href="register.html" class="fw-500"> Register Now!</a></p> #}
+					</div>
+				</div>
+				</div>
+			</div>
+
+			<h1 class="sub-heading font-40 fw-400 mb-5">{% trans %}Checkout{% endtrans %}</h1>
+			<h2 class="font-30 fw-bold text-dark">{% trans %}Billing Details{% endtrans %}</h2>
+			<div class="login-strip">
+			{% if username == "" %}
+				<p class="font-16 fw-400">{% trans %}Do You Have An Account?{% endtrans %} <a data-bs-toggle="modal" href="#loginModal" role="button">{% trans %}Login{% endtrans %}</a> {% trans %}Or{% endtrans %}  <a data-bs-toggle="modal" href="#registerModal" role="button">{% trans %}Register{% endtrans %}</a></p>
+			{% else %}
+				<p class="font-16 fw-400"> {% trans %}Welcome back{% endtrans %} {{username}} </p>
+			{% endif %}
+			</div>
+
+			{% if error_count>0 %}
+			<div class="alert alert-danger" role="alert">
+			{% trans %}Please fill in all fields marked with *{% endtrans %}
+			</div>
+			{% endif %}
+
+			<form action="express-checkout" method="POST" id="expressForm">
+
+				<input type="hidden" value="9" name="id_payment" id="id_payment">
+
+				<div class="form-group mb-3 {{error.email}}">
+					<label class="form-label">E-Mail *</label>
+					<input type="text" placeholder="E-Mail *" name="email" class="form-control" value="{{ userdata.email }}" required>
+				</div>
+				<div class="form-group mb-3">
+					<label class="form-label">{% trans %}Salutation{% endtrans %} *</label>
+					<select name="salutation" class="form-control" required>
+					<option value="">{% trans %}Salutation{% endtrans %}</option>
+					<option value="Mrs" {% if userdata.salutation=='Mrs' %}selected{%endif%}>{% trans %}Mrs{% endtrans %}</option>
+					<option value="Mr" {% if userdata.salutation=='Mr' %}selected{%endif%}>{% trans %}Mr{% endtrans %}</option>
+					</select>
+				</div>
+				<div class="names d-flex flex-wrap justify-content-between">
+					<div class="form-group mb-3 {{error.firstname}}">
+						<label class="form-label">{% trans %}Firstname{% endtrans %} *</label>
+						<input type="text" placeholder="{% trans %}Firstname{% endtrans %} *" name="firstname" class="form-control" value="{{userdata.firstname}}" required>
+					</div>
+					<div class="form-group mb-3 {{error.lastname}}">
+						<label class="form-label">{% trans %}Lastname{% endtrans %} *</label>
+						<input type="text" placeholder="{% trans %}Lastname{% endtrans %} *" name="lastname" class="form-control" value="{{userdata.lastname}}" required>
+					</div>
+				</div>
+				<div class="form-group mb-3">
+					<label class="form-label">{% trans %}Company{% endtrans %}</label>
+					<input type="text" placeholder="{% trans %}Company{% endtrans %}" name="companyname" class="form-control" value="{{userdata.companyname}}">
+				</div>
+				<div class="form-group mb-3">
+					<label class="form-label">{% trans %}Department{% endtrans %}</label>
+					<input type="text" placeholder="{% trans %}Department{% endtrans %}" name="department" class="form-control" value="{{userdata.department}}">
+				</div>
+				<div class="names d-flex flex-wrap justify-content-between">
+					<div class="form-group mb-3 {{error.street}}">
+						<label class="form-label">{% trans %}Street{% endtrans %} *</label>
+						<input type="text" placeholder="{% trans %}Street{% endtrans %} *" name="street" class="form-control" value="{{userdata.street}}" required>
+					</div>
+					<div class="form-group mb-3 {{error.number}}">
+						<label class="form-label">{% trans %}Number{% endtrans %} *</label>
+						<input type="text" placeholder="{% trans %}Number{% endtrans %} *" name="number" class="form-control" value="{{userdata.number}}" required>
+					</div>
+				</div>
+				<div class="names d-flex flex-wrap justify-content-between">
+					<div class="form-group mb-3 {{error.city}}">
+						<label class="form-label">{% trans %}City{% endtrans %} *</label>
+						<input type="text" placeholder="{% trans %}City{% endtrans %} *" name="city" class="form-control" value="{{userdata.city}}" required>
+					</div>
+					<div class="form-group mb-3 {{error.zip}}">
+						<label class="form-label">{% trans %}Zip{% endtrans %} *</label>
+						<input type="text" placeholder="{% trans %}Zip{% endtrans %} *" name="zip" class="form-control" value="{{userdata.zip}}" required>
+					</div>
+				</div>
+				<div class="form-group mb-3 {{error.state}}">
+					<label class="form-label">{% trans %}State{% endtrans %} *</label>
+					<input type="text" placeholder="{% trans %}State{% endtrans %} *" name="state" class="form-control" value="{{userdata.state}}" required>
+				</div>
+				<div class="form-group mb-3 {{error.country}}">
+					<label class="form-label">{% trans %}Country{% endtrans %} *</label>
+					<select name="country" class="form-control" required>
+						<option value="">{% trans %}Please choose your country{% endtrans %}</option>
+						<option value="DE" {% if userdata.country=='DE'%}selected{%endif%}>{% trans %}Germany{% endtrans %}</option>
+					</select>
+				</div>
+				
+				<div class="form-group mb-3">
+					<label class="form-label">{% trans %}Notes{% endtrans %}</label>
+					<textarea type="text" placeholder="{% trans %}Notes{% endtrans %}" name="notes" class="form-control">{{userdata.notes}}</textarea>
+				</div>
+
+
+				<div class="different-address">
+
+					<div class="login-strip">
+						<h4>
+							<label>Versand an eine andere Adresse?</label>
+							<input id="ship-box" name="diffaddress" value="diffadd" type="checkbox" onclick="toggleAddr()" style="display: inline; " />
+						</h4>
+					</div>
+
+						
+					<div id="secondaryaddr">
+				
+					<div class="form-group mb-3">
+						<label class="form-label">{% trans %}Salutation{% endtrans %} *</label>
+						<select name="dsalutation" class="form-control">
+							<option value="">{% trans %}Salutation{% endtrans %}</option>
+							<option value="Mrs" {% if userdata.salutation=='Mrs' %}selected{%endif%}>{% trans %}Mrs{% endtrans %}</option>
+							<option value="Mr" {% if userdata.salutation=='Mr' %}selected{%endif%}>{% trans %}Mr{% endtrans %}</option>
+						</select>
+					</div>
+					<div class="names d-flex flex-wrap justify-content-between">
+						<div class="form-group mb-3">
+							<label class="form-label">{% trans %}Firstname{% endtrans %} *</label>
+							<input type="text" placeholder="{% trans %}Firstname{% endtrans %} *" name="dfirstname" class="form-control" value="{{userdata.firstname}}">
+						</div>
+						<div class="form-group mb-3">
+							<label class="form-label">{% trans %}Lastname{% endtrans %} *</label>
+							<input type="text" placeholder="{% trans %}Lastname{% endtrans %} *" name="dlastname" class="form-control" value="{{userdata.lastname}}">
+						</div>
+					</div>
+					<div class="form-group mb-3">
+						<label class="form-label">{% trans %}Company{% endtrans %}</label>
+						<input type="text" placeholder="{% trans %}Company{% endtrans %}" name="dcompanyname" class="form-control" value="{{userdata.companyname}}">
+					</div>
+					<div class="form-group mb-3">
+						<label class="form-label">{% trans %}Department{% endtrans %}</label>
+						<input type="text" placeholder="{% trans %}Department{% endtrans %}" name="ddepartment" class="form-control" value="{{userdata.department}}">
+					</div>
+					<div class="names d-flex flex-wrap justify-content-between">
+						<div class="form-group mb-3">
+							<label class="form-label">{% trans %}Street{% endtrans %} *</label>
+							<input type="text" placeholder="{% trans %}Street{% endtrans %} *" name="dstreet" class="form-control" value="{{userdata.street}}">
+						</div>
+						<div class="form-group mb-3">
+							<label class="form-label">{% trans %}Number{% endtrans %} *</label>
+							<input type="text" placeholder="{% trans %}Number{% endtrans %} *" name="dnumber" class="form-control" value="{{userdata.number}}">
+						</div>
+					</div>
+					<div class="names d-flex flex-wrap justify-content-between">
+						<div class="form-group mb-3">
+							<label class="form-label">{% trans %}City{% endtrans %} *</label>
+							<input type="text" placeholder="{% trans %}City{% endtrans %} *" name="dcity" class="form-control" value="{{userdata.city}}">
+						</div>
+						<div class="form-group mb-3">
+							<label class="form-label">{% trans %}Zip{% endtrans %} *</label>
+							<input type="text" placeholder="{% trans %}Zip{% endtrans %} *" name="dzip" class="form-control" value="{{userdata.zip}}">
+						</div>
+					</div>
+					<div class="form-group mb-3">
+						<label class="form-label">{% trans %}State{% endtrans %} *</label>
+						<input type="text" placeholder="{% trans %}State{% endtrans %} *" name="dstate" class="form-control" value="{{userdata.state}}">
+					</div>
+					<div class="form-group mb-3">
+						<select name="dcountry" class="form-control">
+							<option value="">{% trans %}Please choose your country{% endtrans %}</option>
+							<option value="DE" {% if userdata.country=='DE'%}selected{%endif%}>{% trans %}Germany{% endtrans %}</option>
+						</select>
+						<!-- <input type="text" name="country" class="form-control" value="{$userdata.country}"> -->
+					</div>
+					
+					</div>
+				
+				</div>
+	 
+
+
+			</form>
+		</div> <!-------------Class Product End---------->
+	</div>
+	<div class="col-lg-5 col-md-6 px-0">
+		<div class="order">
+			<h2 class="sub-heading font-30 fw-600 text-dark">{% trans %}Your cart{% endtrans %}</h2>
+
+			{% set sum_tax=0 %}
+		  	{% for value in cart.contents %}
+		  	{% set sum_tax=sum_tax+value.sum_price*value.attributes.sys_tax %}
+			<div class="product-main d-flex flex-wrap justify-content-between border-btm py-3">
+				<div class="left">
+					<div class="d-md-flex d-block align-items-center">
+						<div class="flex-shrink-0 order-img">
+							<img src="{{value.attributes.pic}}" class="product-img" alt="...">
+						</div>
+						<div class="flex-grow-1 product_text ms-4">
+							<h3 class="font-16 fw-400 text-dark">{{ value.quantity }}x {{ value.name }}</h3>
+							<p class="font-13 fw-400 text-dark m-0">{{ value.description }}</p>
+
+						</div>
+					</div>
+				</div>
+				<div class="right mt-4">
+					<h6 class="font-16 fw-bold text-dark">{{ value.sum_price|number_format(2)}} €</h6>
+				</div>
+			</div>
+				{% for value in value.sub_elements.contents %}
+					<div class="product-main d-flex flex-wrap justify-content-between border-btm py-3">
+						<div class="left">
+							<div class="d-md-flex d-block align-items-center">
+								<div class="flex-shrink-0 order-img">
+									<img src="{{value.attributes.pic}}" class="product-img" alt="...">
+								</div>
+								<div class="flex-grow-1 product_text ms-4">
+									<h3 class="font-16 fw-400 text-dark">{{ value.name }}</h3>
+									<p class="font-13 fw-400 text-dark m-0">{{ value.description }}</p>
+
+								</div>
+							</div>
+						</div>
+						<div class="right mt-4">
+							<h6 class="font-16 fw-bold text-dark">{{ value.sum_price|number_format(2)}} €</h6>
+						</div>
+					</div>
+				{% endfor %}
+		  {% endfor %}
+
+
+			{# <div class="apply-code">
+				<form>
+					<div class="col-12">
+						<div class="d-flex flex-wrap align-items-center">
+							<div class="apply-input">
+								<label for="example" class="form-label font-18 fw-600">Coupon Code</label>
+								<input type="text" class="form-control" aria-describedby="Help">
+							</div>
+								<button class="btn apply-btn font-13 fw-400 rounded-0">APPLY NOW</button>
+						</div>
+					</div>
+				</form>
+			</div> #}
+			<div class="top order-list">
+				{# <div class="items d-flex justify-content-between">
+					<h6 class="font-16 fw-400 text-dark">Subtotal</h6>
+					<p class="font-16 fw-400 text-dark">$1,880.00</p>
+				</div> #}
+				{% if cart.delivery_costs.sum>0 %}
+				<div class="ship d-flex justify-content-between">
+					<h6 class="font-16 fw-400 mb-0 text-dark">{% trans %}Shipping{% endtrans %}<img src="assets/images/question-circle.svg" class="img-fluid ms-3" alt=""></h6>
+					<p class="font-12 fw-400 text-dark">{{cart.delivery_costs.sum|number_format(2)}} €</p>
+				</div>
+				{% endif %}
+				<div class="total d-flex justify-content-between">
+					<h6 class="font-18 fw-400 text-dark">{% trans %}Sum{% endtrans %}</h6>
+					<p class="font-18 fw-bold text-dark"><span class="font-12 fw-400 text-dark me-3"></span>{{(cart.sum+cart.delivery_costs.sum)|number_format(2)}} €</p>
+				</div>
+			</div>  <!------order-list Class End---------->
+			<div class="payment-mode mb-4">
+				<h4 class="font-18 text-dark">{% trans %}Payment{% endtrans %}</h4>
+				<p class="font-16 text-dark">{% trans %}After placing your order, you will be redirected to mollie for payment.{% endtrans %}</p>
+				<img src="/img/paymentsbymollie.png" style="max-width: 55%;" alt="" class="img-fluid">
+			</div>
+			<div class="bottom text-center">
+				<button type="submit" class="btn checkout-btn text-white rounded-0 font-16 fw-400 mb-0 mt-3" form="expressForm">{% trans %}Next{% endtrans %}</button>
+			</div> <!-----------Bottom Class End---------->
+		</div>
+	</div>
+            
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  
+  document.getElementById("secondaryaddr").style.display = "none";
+  
+  function toggleAddr() {
+	
+	var x = document.getElementById("secondaryaddr");
+	if (x.style.display === "none") {
+	  x.style.display = "block";
+	} else {
+	  x.style.display = "none";
+	}
+	
+  }
+
+window.addEventListener('load', function () {
+
+ {% if error == "register" %} $('#registerModal').modal('show'); {% endif %}
+ {% if error == "login" %} $('#loginModal').modal('show'); {% endif %}
+
+});
+  
+</script>
+
+{% endblock %}

@@ -26,8 +26,15 @@ public static function GetCategories($id_parent=0,$lang=DEFAULT_LANGUAGE)
     $piecearray["title"]=(string)$shopcategory->seo->title;
     $piecearray["description"]=(string)$shopcategory->seo->description;
     $piecearray["keywords"]=(string)$shopcategory->seo->keywords;
+    $attributes=array();
+    foreach($shopcategory->attributes as $attr) {
+      $attributes[$attr->name]=$attr->value;
+    }
+    $piecearray["attributes"]=$attributes;
+    isset($shopcategory->attributes->link->value) ? $piecearray["link"]=(string)$shopcategory->attributes->link->value : $piecearray["link"]="";
     $piecearray["children"]=self::GetCategories($piecearray["id"],$lang);
     $result[]=$piecearray;
+
   }
   return($result);
  }

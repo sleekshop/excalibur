@@ -1,0 +1,123 @@
+/*<<|---------------------------View -> 1900---------------------------|>>*/
+@media (max-width:1599px) {
+    section .products{
+        padding: 20px 30px 80px 30px;
+    }
+    section .order{
+        padding: 148px 30px 80px 30px;
+    }
+    figure.figure.head-logo {
+        margin-bottom: 10px;
+    }
+    h1.main-heading {
+        margin-bottom: 20px;
+    }
+}
+/*<<|---------------------------View ->1024---------------------------|>>*/
+@media (max-width:1024px) {
+   section.checkout form .names div{
+    width: 100%;
+} 
+.products .product-main img.product-img{
+    margin-bottom: 15px;
+} 
+}
+@media screen and (max-width: 1314px) and (min-width: 768px) {
+    .apply-btn {
+        margin-top:15px;
+        max-width: 100%;
+        width: 100%;
+    }
+    .apply-input{
+        margin-right: 0;
+        max-width: 100%;
+        width: 100%;
+    }
+}
+/*<<|---------------------------View -> 767---------------------------|>>*/
+@media (max-width: 767px) {
+    section .products,section .order{
+        padding: 60px 25px;
+    }
+    .flex-grow-1.product_text.ms-4 {
+        margin: 15px 0 0 0 !important;
+    }
+    figure.figure.head-logo {
+        margin-bottom: 50px;
+    }
+    h1.main-heading {
+        margin-bottom: 25px;
+    }
+    .back-home{
+        max-width: 100%;
+    }
+    .payment-btn,
+    .payment-para,
+    .pf-btn,
+    .checkout-btn.w-25{
+        max-width: 93%;
+        width: 100% !important;
+        font-size: 14px;
+    }
+    .thank-you {
+        padding: 150px 15px;
+    }
+    .payment-failed{
+        padding: 150px 0;
+    }
+}
+/*<<|---------------------------View -> 599---------------------------|>>*/
+@media (max-width: 599px) {
+    section .products,section .order {
+        padding: 40px 15px;
+    }
+    /* .payment-logos{
+        margin-bottom: 15px;
+    }
+    .payment-logos:last-child{
+        margin-bottom: 0;
+    } */
+}
+/*<<|---------------------------View -> 575---------------------------|>>*/
+@media (max-width: 575px) {    
+    .modal.show .modal-dialog {
+        margin: 0;
+        padding: 30px;
+    }
+    .modal-footer p{
+        padding: 0;
+    }
+    .modal-body {
+        padding: 0 15px;
+    }
+    .modal-footer{
+        padding: 22px 30px 40px 30px;
+    }
+    .thank-you{
+        padding: 100px 15px;
+    }
+    .payment-failed{
+        padding: 100px 0;
+    }
+}
+@media (max-width:517px){
+    .apply-btn {
+        margin-top:15px;
+        max-width: 100%;
+        width: 100%;
+    }
+    .apply-input{
+        margin-right: 0;
+        max-width: 100%;
+        width: 100%;
+    }
+}
+/*<<|---------------------------View -> 425---------------------------|>>*/
+@media (max-width: 424px) {	
+    .form-group.checkbox {
+        margin-bottom: 10px;
+    }  
+    .order-left div.w-75{
+          width: 100% !important;
+    }
+}

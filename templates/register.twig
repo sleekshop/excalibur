@@ -1,0 +1,36 @@
+{%extends "page.twig"%}
+{%block content%}
+<div class="col-md-12">
+<h1>{%trans%}Create an account{%endtrans%}</h1>
+<br><br>
+</div>
+<div class="col-md-6">
+{%if error==1%}
+<div class="alert alert-danger" role="alert">
+{%trans%}The following error occured{%endtrans%}: {{error_msg}}
+</div>
+{%endif%}
+<form method="POST" action="register" class="form">
+<div class="form-group">
+<label>{%trans%}Username{%endtrans%}</label><br>
+<input type="input" class="form-control input-lg" name="user" value="{{user}}">
+</div>
+<div class="form-group">
+<label>{%trans%}E-Mail{%endtrans%}</label><br>
+<input type="input" class="form-control input-lg" name="email" value="{{email}}">
+</div>
+<div class="form-group">
+<label>{%trans%}Password{%endtrans%}</label><br>
+<input type="password" class="form-control input-lg" name="password">
+</div>
+<div class="form-group">
+<label>{%trans%}Repeat password{%endtrans%}</label><br>
+<input type="password" class="form-control input-lg" name="password2">
+</div>
+<div class="form-group">
+<button type="submit" class="btn btn-lg btn-primary">{%trans%}Register{%endtrans%}</button>
+<input type="hidden" name="already_sent" value="1">
+</div>
+</form>
+</div>
+{%endblock%}

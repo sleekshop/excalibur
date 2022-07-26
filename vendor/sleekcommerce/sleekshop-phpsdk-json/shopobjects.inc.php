@@ -30,15 +30,15 @@ private static function get_shopobject_from_json($so="")
 	$piecearray["title"]=(string)$so->seo->title;
 	$piecearray["description"]=(string)$so->seo->description;
 	$piecearray["keywords"]=(string)$so->seo->keywords;
-  try {
-    $piecearray["availability_quantity"]=(string)$so->availability->quantity;
-  	$piecearray["availability_quantity_warning"]=(string)$so->availability->quantity_warning;
-  	$piecearray["availability_allow_override"]=(string)$so->availability->allow_override;
-  	$piecearray["availability_active"]=(string)$so->availability->active;
-  	$piecearray["availability_label"]=self::get_availability_label($piecearray["availability_quantity"],$piecearray["availability_quantity_warning"],$piecearray["availability_allow_override"],$piecearray["availability_active"]);
-  } catch (Exception $e) {
-     //Nothing happens because it seems to be a content object without availability
-  }
+  	
+    if (isset($so->availability->quantity)) 
+	{
+		$piecearray["availability_quantity"]=(string)$so->availability->quantity;
+  		$piecearray["availability_quantity_warning"]=(string)$so->availability->quantity_warning;
+  		$piecearray["availability_allow_override"]=(string)$so->availability->allow_override;
+  		$piecearray["availability_active"]=(string)$so->availability->active;
+		$piecearray["availability_label"]=self::get_availability_label($piecearray["availability_quantity"],$piecearray["availability_quantity_warning"],$piecearray["availability_allow_override"],$piecearray["availability_active"]);
+	}
 	$piecearray["creation_date"]=(string)$so->creation_date;
 	$attributes=array();
 	foreach((array)$so->attributes as $attribute)
@@ -134,7 +134,7 @@ public static function GetShopobjects($id_category=0,$lang=DEFAULT_LANGUAGE,$ord
   $attributes=array();
   foreach((array)$json->category->attributes as $attr)
   {
-  	$attributes[(string)$attr->attributes()->name]=(string)$attr;
+	$attributes[$attr->name]=$attr->value;
   }
   $result["attributes"]=$attributes;
   $result["products"]=self::get_products_from_json($json->products);
@@ -225,7 +225,11 @@ public static function SeoGetContentDetails($permalink="")
 	$sr=new SleekShopRequest();
 	$json=$sr->seo_get_content_details($permalink);
 	$json=json_decode($json);
-	$result=self::get_shopobject_from_json($json);
+	if (isset($json->object) && $json->object == 'error') {
+		$result = null;
+	} else {
+        $result=self::get_shopobject_from_json($json);
+    }
 	return($result);
 }
 
@@ -233,7 +237,7 @@ public static function SeoGetContentDetails($permalink="")
 /*
  * Search
 */
-public static function SearchProducts($constraint=array(),$left_limit,$right_limit,$order_columns=array(),$order_type="ASC",$lang=DEFAULT_LANGUAGE,$needed_attributes=array())
+public static function SearchProducts($constraint=array(),$left_limit=0,$right_limit=0,$order_columns=array(),$order_type="ASC",$lang=DEFAULT_LANGUAGE,$needed_attributes=array())
 {
 	$sr=new SleekShopRequest();
 	$json=$sr->search_products($constraint,$left_limit,$right_limit,$order_columns,$order_type,$lang,$needed_attributes);
