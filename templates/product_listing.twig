@@ -1,0 +1,18 @@
+{% for value in res.products %}
+    <div class="col-md-4 list-obj" data-price="{{ value.attributes.price.value }}" data-name="{{ value.attributes.name.value }}" style="min-height:430px;">
+        <div class="product-column">
+
+            <p align="center">
+                <a class="" href="{% if value.permalink!='' %}{{ value.permalink }}{% else %}/{{ value.id }}{% endif %}">
+                    <img src="{{ value.attributes.img1.value }}" height="300" align="center">
+                </a>
+            </p>
+        </div>
+        <div class="product-name">
+            <a class="" href="{% if value.permalink!='' %}{{ value.permalink }}{% else %}/{{ value.id }}{% endif %}">{{ value.attributes.name.value }}</a>
+        </div>
+        <div class="product-price">
+            <a class="" href="{% if value.permalink!='' %}{{ value.permalink }}{% else %}/{{ value.id }}{% endif %}">{{value.attributes.price.value|number_format(2)}} EUR</a>
+        </div>
+    </div>
+{% endfor %}

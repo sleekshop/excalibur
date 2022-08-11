@@ -13,17 +13,20 @@ class SessionCtl
  */
 public static function GetSession()
  {
-  if($_COOKIE[TOKEN . '_session']=="")
-  {
-  $sr=new SleekShopRequest();
-  $json=$sr->get_new_session();
-  $json=json_decode($json);
-  $code=(string)$json->code;
-  self::SetSession($code);
+  if (!isset($_COOKIE[TOKEN . '_session']) || $_COOKIE[TOKEN . '_session']=="") {
+      $sr=new SleekShopRequest();
+      $json=$sr->get_new_session();
+      $json=json_decode($json);
+      if (isset($json->code)) {
+          $code=(string)$json->code;
+          self::SetSession($code);
+      } else {
+        throw new Exception("API ERROR // Error getting session");
+      }
   }
   else
   {
-  	$code=$_COOKIE[TOKEN . '_session'];
+      $code=$_COOKIE[TOKEN . '_session'];
   }
   return($code);
 }

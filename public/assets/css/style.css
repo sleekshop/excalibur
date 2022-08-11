@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap');
+@font-face {
+    font-family: 'Hind';
+    src: url('../fonts/Hind-Light.otf') format('opentype'),
+         url('../fonts/Hind-Light.ttf') format('truetype'),
+         url('../fonts/Hind-Light.woff') format('woff'),
+         url('../fonts/Hind-Light.woff2') format('woff2'),
+         url('../fonts/Hind-Light.eot');
+    font-weight: 300;    
+}
+@font-face {
+    font-family: 'Hind';
+    src: url('../fonts/Hind-Regular.otf') format('opentype'),
+         url('../fonts/Hind-Regular.ttf') format('truetype'),
+         url('../fonts/Hind-Regular.woff') format('woff'),
+         url('../fonts/Hind-Regular.woff2') format('woff2'),
+         url('../fonts/Hind-Regular.eot');
+    font-weight: 400;    
+}
+@font-face {
+    font-family: 'Hind';
+    src: url('../fonts/Hind-Medium.otf') format('opentype'),
+         url('../fonts/Hind-Medium.ttf') format('truetype'),
+         url('../fonts/Hind-Medium.woff') format('woff'),
+         url('../fonts/Hind-Medium.woff2') format('woff2'),
+         url('../fonts/Hind-Medium.eot');
+    font-weight: 500;    
+}
+@font-face {
+    font-family: 'Hindi';
+    src: url('../fonts/Hind-Semibold.otf') format('opentype'),
+         url('../fonts/Hind-Semibold.ttf') format('truetype'),
+         url('../fonts/Hind-Semibold.woff') format('woff'),
+         url('../fonts/Hind-Semibold.woff2') format('woff2'),
+         url('../fonts/Hind-Semibold.eot');
+    font-weight: 600;    
+}
+@font-face {
+    font-family: 'Hindi';
+    src: url('../fonts/Hind-Bold.otf') format('opentype'),
+         url('../fonts/Hind-Bold.ttf') format('truetype'),
+         url('../fonts/Hind-Bold.woff') format('woff'),
+         url('../fonts/Hind-Bold.woff2') format('woff2'),
+         url('../fonts/Hind-Bold.eot');
+    font-weight: 700; 
+}
+/* @font-face {
+    font-family: 'Josefin Sans', sans-serif;
+    src: url('../fonts/JosefinSans-Thin.otf') format('opentype'),
+         url('../fonts/JosefinSans-Thin.ttf') format('truetype'),
+         url('../fonts/JosefinSans-Thin.woff') format('woff'),
+         url('../fonts/JosefinSans-Thin.woff2') format('woff2'),
+         url('../fonts/JosefinSans-Thin.eot');
+    font-weight: 100; 
+}
+@font-face {
+    font-family: 'Josefin Sans', sans-serif;
+    src: url('../fonts/JosefinSans-ExtraLight.otf') format('opentype'),
+         url('../fonts/JosefinSans-ExtraLight.ttf') format('truetype'),
+         url('../fonts/JosefinSans-ExtraLight.woff') format('woff'),
+         url('../fonts/JosefinSans-ExtraLight.woff2') format('woff2'),
+         url('../fonts/JosefinSans-ExtraLight.eot');
+    font-weight: 200;    
+}
+@font-face {
+    font-family: 'Josefin Sans', sans-serif;
+    src: url('../fonts/JosefinSans-Light.otf') format('opentype'),
+         url('../fonts/JosefinSans-Light.ttf') format('truetype'),
+         url('../fonts/JosefinSans-Light.woff') format('woff'),
+         url('../fonts/JosefinSans-Light.woff2') format('woff2'),
+         url('../fonts/JosefinSans-Light.eot');
+    font-weight: 300; 
+}
+@font-face {
+    font-family: 'Josefin Sans', sans-serif;
+    src: url('../fonts/JosefinSans-Regular.otf') format('opentype'),
+         url('../fonts/JosefinSans-Regular.ttf') format('truetype'),
+         url('../fonts/JosefinSans-Regular.woff') format('woff'),
+         url('../fonts/JosefinSans-Regular.woff2') format('woff2'),
+         url('../fonts/JosefinSans-Regular.eot');
+    font-weight: 400; 
+}
+@font-face {
+    font-family: 'Josefin Sans', sans-serif;
+    src: url('../fonts/JosefinSans-Medium.otf') format('opentype'),
+         url('../fonts/JosefinSans-Medium.ttf') format('truetype'),
+         url('../fonts/JosefinSans-Medium.woff') format('woff'),
+         url('../fonts/JosefinSans-Medium.woff2') format('woff2'),
+         url('../fonts/JosefinSans-Medium.eot');
+    font-weight: 500; 
+}
+@font-face {
+    font-family: 'Josefin Sans', sans-serif;
+    src: url('../fonts/JosefinSans-SemiBold.otf') format('opentype'),
+         url('../fonts/JosefinSans-SemiBold.ttf') format('truetype'),
+         url('../fonts/JosefinSans-SemiBold.woff') format('woff'),
+         url('../fonts/JosefinSans-SemiBold.woff2') format('woff2'),
+         url('../fonts/JosefinSans-SemiBold.eot');
+    font-weight: 600; 
+}
+@font-face {
+    font-family: 'Josefin Sans', sans-serif;
+    src: url('../fonts/JosefinSans-Bold.otf') format('opentype'),
+         url('../fonts/JosefinSans-Bold.ttf') format('truetype'),
+         url('../fonts/JosefinSans-Bold.woff') format('woff'),
+         url('../fonts/JosefinSans-Bold.woff2') format('woff2'),
+         url('../fonts/JosefinSans-Bold.eot');
+    font-weight: 700; 
+} */
+body{
+    margin: 0; padding: 0;
+    font-family: 'Hind';
+}
+:root {
+    --primary-color: #14326E;
+    --light-color:#F7F8F9;
+    --yellow-color: #DCB800;
+    --muted-color: #387195;
+    --purple-color: #492EB1;
+    --pink-color: #AA1C6A;
+}
+.btn:focus{
+    box-shadow: none;
+}
+.f-h{
+    font-family: 'Hind';
+}
+.f-j{
+    font-family: 'Josefin Sans', sans-serif;
+}
+.font-11{
+    font-size:11px;
+}
+.font-12{
+    font-size:12px;
+}
+.font-13{
+    font-size:13px;
+}
+.font-14{
+    font-size:14px;
+}
+.font-16{
+    font-size:16px;
+}
+.font-18{
+    font-size:18px;
+}
+.font-20{
+    font-size:20px;
+}
+.font-22{
+    font-size:22px;
+}
+.font-24{
+    font-size:24px;
+}
+.font-30{
+    font-size: 30px;
+}
+.font-36{
+    font-size: 36px;
+}
+.font-40{
+    font-size: 40px;
+}
+.fw-200{
+    font-weight:200;
+}
+.fw-300{
+    font-weight:300;
+}
+.fw-400{
+    font-weight:400;
+}
+.fw-500{
+    font-weight:500;
+}
+.fw-600 {
+    font-weight: 600 !important;
+}
+.fw-700 {
+    font-weight: 700 !important;
+}
+.fw-800 {
+    font-weight: 800 !important;
+}
+.fw-900 {
+    font-weight: 900 !important;
+}
+.text-dark{
+    color: #000 !important;
+}
+.text-danger{
+    color: #F90000 !important;
+}
+a:hover{
+    color: blue !important;
+}
+.checkout-btn{
+    width: 100%;
+    background-color:#000000;
+    border: 1px solid #000;
+    margin-bottom: 23px;
+    padding: 20px 0;
+    text-transform: uppercase;
+}
+.black-btn{
+    width: 100%;
+    background-color:#000000;
+    border: 1px solid #000;
+    padding: 15px 0;
+    text-transform: uppercase;
+}
+.checkout-btn:hover,
+.black-btn:hover,
+.pf-btn:hover{
+    background-color: transparent;
+    border: 1px solid #000;
+    color: #000 !important;
+}
+.pf-btn:hover img,
+.checkout-btn:hover img{
+    filter: brightness(1) invert(1);
+}
+.pf-btn {
+    background-color: #000000;
+    border: 1px solid #000;
+    padding: 20px 28px 16px 28px;
+}
+span.me-2.lock-icon {
+    position: relative;
+    bottom: 3px;
+}
+/*-------------------Cart Page CSS Here------------------------*/
+section .products{
+    background-color: #fff;
+    padding: 40px 82px 360px 155px;
+}
+section .order{
+    background-color: #F9FAFA;
+    padding: 267px 120px 0px 60px;
+    height: 100%;
+}
+figure.figure.head-logo {
+    margin-bottom: 110px;
+}
+h1.main-heading {
+    margin-bottom: 52px;
+}
+h2.sub-heading {
+    border-bottom: 1px solid #DBDBDB;
+    padding-bottom: 23px;
+}
+.products .product-main img.product-img {
+    margin-right: 25px;
+}
+.products .product-main {
+    border-bottom: 1px solid #DCDCDC;
+    padding: 30px 0;
+}
+.products .product-main .product-counter button {
+    width: 36px;
+    height: 35px;
+    border: 1px solid #C5C5C5;
+    background: #FFFFFF;  
+}
+.products .product-main .product-counter input{
+    width: 48px;
+    height: 35px;
+    border: 1px solid #C5C5C5;
+    background: #FFFFFF;
+    text-align: center; 
+}
+.products .product-main .product-text {
+    max-width: 260px;
+    width: 100%;
+}
+.order .order-list {
+    margin: 33px 0 18px 0;
+}
+.order .order-list .total {
+    border-top: 1px solid #C4C4C43D;
+    padding-top: 30px;
+}
+.order-list div.ship {
+    margin-bottom: 8px;
+}
+.order .bottom p{
+    color: #000;
+    opacity: 0.7;
+    line-height: 18px;
+}
+/*-------------------Cart Page CSS Here------------------------*/
+/**************----------------CheckOut Page CSS Here----------------******************/
+.login-strip {
+    background: #F9FAFA;
+    padding: 10px 28px;
+    margin:25px 0;
+}
+.login-strip p,
+.login-strip a{
+    color:#8E8E8E;
+    margin-bottom: 0;
+}
+section.checkout form .names div{
+    width: 49%;
+}    

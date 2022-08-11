@@ -1,0 +1,48 @@
+{% extends "page_checkout.twig" %}
+
+{% block content %}
+  {% if error==1 %}
+  <section class="thank-you">
+   <div class="container-fluid">
+        <div class="row text-center">
+            <div class="col-12">
+              <h1 class="font-40 fw-400 mb-4 text-dark">Payment Failed</h1>
+                <img src="assets/images/error-icon.svg" alt="" class="img-fluid">
+                <p class="font-16 fw-400 thank-para">{% trans %}Etwas mit der Bezahlung hat nicht funktioniert aber Ihre Bestellung haben wir erhalten.{% endtrans %}</p>
+                <a href="/" class="btn checkout-btn back-home rounded-0 font-16 fw-400 text-white">BACK TO SHOP</a>
+            </div>
+        </div>
+    </div>
+    </section>
+  {% else %}
+<section class="thank-you">
+   <div class="row text-center">
+      <div class="col-12">
+        <h1 class="font-40 fw-400 mb-4 text-dark">{% trans %}Thank you for your order{% endtrans %}</h1>
+          <img src="assets/images/right-icon.svg" class="img-fluid" alt="">
+          <p class="font-16 fw-400 thank-para text-dark"></p>
+          <a href="/" class="btn black-btn text-white rounded-0 mb-0 font-16 fw-400 back-home">BACK TO HOME</a>
+      </div>
+    </div>
+    </section>
+
+  <script>
+    {% if res.redirect != "" %}
+      window.location.href="{{redirect|escape('js')}}";
+    {% else %}
+    var stripe = Stripe('{{token}}');
+
+    stripe.redirectToCheckout({
+    // Make the id field from the Checkout Session creation API response
+    // available to this file, so you can provide it as parameter here
+    // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
+    sessionId: '{{res.token}}'
+  }).then(function (result) {
+    // If `redirectToCheckout` fails due to a browser or network
+    // error, display the localized error message to your customer
+    // using `result.error.message`.
+  });
+  {% endif %}
+  </script>
+  {% endif %}
+{% endblock %}

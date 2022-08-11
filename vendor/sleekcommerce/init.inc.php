@@ -57,10 +57,9 @@ $cart=CartCtl::Get(SessionCtl::GetSession());
 putenv('LC_MESSAGES='.$language);
 setlocale(LC_MESSAGES, $language);
 // Specify the location of the translation tables
-bindtextdomain($language, PROJECTPATH.'/var/languages');
+bindtextdomain($language, PROJECTPATH . '/var/languages');
 bind_textdomain_codeset($language, 'UTF-8');
 // Choose domain
 textdomain($language);
-
 
 ?>

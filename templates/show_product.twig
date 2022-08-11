@@ -1,0 +1,118 @@
+{% extends "page.twig" %}
+
+{% block content %}
+
+<div class="col-md-4">
+
+<img src="{{ res.attributes.img1.value }}" width="100%" class="thumb-pic lens-pic">
+{% if res.attributes.img2.width>0 %}<img src="{{ res.attributes.img2.value }}" width="32%" class="thumb-pic">{% endif %}
+{% if res.attributes.img3.width>0 %}<img src="{{ res.attributes.img3.value }}" width="32%" class="thumb-pic">{% endif %}
+{% if res.attributes.img4.width>0 %}<img src="{{ res.attributes.img4.value }}" width="32%" class="thumb-pic">{% endif %}
+
+</div>
+<div class="col-md-5">
+<h1>{{ res.attributes.name.value }}</h1>
+<div class="well">{{ res.attributes.short_description.value }}</div>
+<h2 align="right" style="color:black;">{{ res.attributes.price.value|number_format(2) }} EUR</h2>
+<hr>
+<h5>{%trans%}Manufacturer{%endtrans%} : {{ res.attributes.vendor.value }}</h5>
+<h5>Tags:</h5>
+{% for value in res.attributes.tags.arr %}
+<a href="search?searchstring={{ value }}">{{ value }}</a>  ,
+{% endfor %}
+</div>
+<div class="col-md-3">
+          <div class="panel panel-{{ res.availability_label }}">
+            <div class="panel-heading">
+              <h3 class="panel-title">{% if res.availability_label=='success' %}{%trans%}Available{%endtrans%}{% endif %}{% if  res.availability_label=='warning' %}{%trans%}Only a few available{%endtrans%}{% endif %}{% if res.availability_label=='danger' %}{%trans%}Not available{%endtrans%}{% endif %}</h3>
+            </div>
+            <div class="panel-body">
+            {% if res.availability_label!='danger' %}
+            <form method="post" action="add_to_cart">
+            {% if res.colors is not empty %}
+            <label>{%trans%}Color{%endtrans%}</label>
+            <select name="color" class="form-control size-ctl">
+             {% for key, value in res.colors %}
+              <option value="{{ value }}" {% if value==res.id %}selected{% endif %}>{{ key }}</option>
+             {% endfor %}
+            </select>
+            <br>
+            {% endif %}
+            {% if res.sizes is not empty %}
+            <label>{%trans%}Size{%endtrans%}</label>
+            <select name="size" class="form-control size-ctl">
+             {% for key, value in res.sizes %}
+              <option value="{{ value }}" {% if value==res.id %}selected{% endif %}>{{ key }}</option>
+             {% endfor %}
+            </select>
+            <br>
+            {% endif %}
+            <label>{%trans%}Quantity{%endtrans%}</label>
+              <select name="quantity" class="form-control">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              </select><br>
+              <button class="btn btn-lg btn-primary" value="{%trans%}Add to cart{%endtrans%}">{%trans%}Add to cart{%endtrans%}</button>
+              <input type="hidden" name="id_product" value="{{ res.id }}">
+              <input type="hidden" name="pic" value="{{ res.attributes.img1.value }}">
+              <input type="hidden" name="price" value="{{ res.attributes.price.value }}">
+              <input type="hidden" name="name" value="{{ res.attributes.name.value }}">
+              <input type="hidden" name="short_description" value="{{ res.attributes.short_description.value }}">
+              <input type="hidden" name="size_txt" value="{{ res.attributes.size.value }}">
+              <input type="hidden" name="color_txt" value="{{ res.attributes.color.value }}">
+              </form>
+              {% else %}
+              {%trans%}This product is not available{%endtrans%}
+              {% endif %}
+            </div>
+          </div>
+<br>
+ {#<div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">{%trans%}Share this product{%endtrans%}</h3>
+            </div>
+            <div class="panel-body">
+<div class="fb-share-button" data-href="{{ request_uri }}" data-layout="box_count"></div>
+</div>
+</div>#}
+
+</div>
+
+
+
+<div class="col-md-12">
+<br><br>
+<ul class="nav nav-tabs">
+<li class="active"><a href="#prod-details-txt" data-toggle="tab">{%trans%}Details{%endtrans%}</a></li>
+<li><a href="#related-products" data-toggle="tab">{%trans%}Also interesting for you{%endtrans%}</a></li>
+</ul>
+<div class="tab-content">
+<div id="prod-details-txt" class="tab-pane active">
+<br>
+<p>{{res.attributes.description.value|raw}}</p>
+</div>
+<div id="related-products" class="tab-pane">
+
+{% for value in res.attributes.related_items.value %}
+<div class="col-md-4 list-obj" data-price="{{value.attributes.price.value}}" data-name="{{value.attributes.name.value}}">
+<div class="product-column">
+<p align="center"><img src="{{ value.attributes.img1.value }}" width="80%" align="center"></p>
+<span class="product-overlay product-details"></span>
+<span class="product-details"><h2>{{ value.attributes.name.value }}</h2>
+{{ value.attributes.short_description.value }}<br>
+<h3>{{ value.attributes.price.value|number_format(2) }} EUR</h3>
+<a class="btn btn-primary" href="{% if value.permalink!='' %}{{ value.permalink }}{% else %}get_product_details.php?id_product={{ value.id }}{% endif %}">Zum Produkt</a>
+</span>
+</div>
+</div>
+{% endfor %}
+
+
+</div>
+
+</div>
+</div>
+
+{% endblock %}
