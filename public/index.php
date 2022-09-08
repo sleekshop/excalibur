@@ -163,24 +163,46 @@ $app->add(TwigMiddleware::create($app, $twig));
 	
 	$app->get("/content/{obj}", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
 
-	  // Render index view
-	  $res = ShopObjectsCtl::SeoGetShopobjects($args['obj'], "prio", "DESC");
+		// Render index view
+		$res = ShopObjectsCtl::SeoGetContentDetails($args['obj']);
+  
+		if ($res == null) { 
+		  $response = $response->withStatus(302);
+		  return $response->withHeader('Location', '/404');
+		}
+		
+		$view = Twig::fromRequest($request);
+		return $view->render($response, 'content_v1.twig', [
+			"res" => 			$res,
+			"menu" => 		$menu,
+			"username" => 	$username,
+			"cart" => 		$cart,
+			"request_uri" => 	$request_uri,
+			"language" => 	$language,
+		]);
+		
+	  });
+	  
+	$app->get("/page/{obj}", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
 
-	  if ($res == null) { 
-		$response = $response->withStatus(302);
-		return $response->withHeader('Location', '/404');
-	  }
-	  
-	  $view = Twig::fromRequest($request);
-	  return $view->render($response, 'content.twig', [
-		  "res" => 			$res,
-		  "menu" => 		$menu,
-		  "username" => 	$username,
-		  "cart" => 		$cart,
-		  "request_uri" => 	$request_uri,
-		  "language" => 	$language,
-	  ]);
-	  
+		// Render index view
+		$res = ShopObjectsCtl::SeoGetShopobjects($args['obj'], "prio", "DESC");
+
+		if ($res == null) { 
+			$response = $response->withStatus(302);
+			return $response->withHeader('Location', '/404');
+		}
+		
+		$view = Twig::fromRequest($request);
+		return $view->render($response, 'content.twig', [
+			"res" => 			$res,
+			"menu" => 		$menu,
+			"username" => 	$username,
+			"cart" => 		$cart,
+			"request_uri" => 	$request_uri,
+			"language" => 	$language,
+		]);
+	
 	});
 	
 	$app->get("/category/{obj}", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
