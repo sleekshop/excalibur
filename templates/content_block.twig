@@ -1,6 +1,6 @@
 {% set open = false %}
 
-{% for value in res.contents %}
+{% for value in res.contents.byclass.content_block %}
 
     {% if open != value.attributes.layout.value %}
 
