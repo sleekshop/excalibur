@@ -83,3 +83,25 @@ font-display: swap;
 .thumb-pic {
 	display:none;
 }
+
+.maintxt {
+	position: relative
+}
+
+.mercur-col {
+	background: #f4f4f4;
+	border-radius: 3rem;
+}
+
+.mercur-a {
+	color: unset;
+}
+
+.overlay-text {
+	position: absolute;
+	left: 0;
+	bottom: 10rem;
+	background: rgb(255 255 250 / 78%);
+	padding: 1rem;
+	border-radius: 1rem;
+}
