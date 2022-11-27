@@ -88,7 +88,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 	$app->get("/", function ($request, $response, $args) use ($app, $language, $menu, $username, $cart) {
 	
   		$res = ShopobjectsCtl::GetShopObjects( START_ID, $language, "price", "ASC", 0, 0, ["name", "img1", "price", "short_description"] );
-  		
+
   		$view = Twig::fromRequest($request);
 		
   		return $view->render($response, 'index.twig', [

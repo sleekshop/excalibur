@@ -110,6 +110,7 @@ private static function get_contents_from_json($json="")
 	{
 		$result[(string)$so->name]=self::get_shopobject_from_json($so);
 		$result["byclass"][(string)$so->class][]=$result[(string)$so->name];
+		(isset($so->attributes->layout)) ? $result["layouts"][(string)$so->attributes->layout->value]=1 : '';
 	}
 	return($result);
 }
