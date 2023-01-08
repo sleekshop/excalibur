@@ -1,0 +1,26 @@
+{###
+# YOU CAN ADDRESS THE CURRENT ITEM AS item
+###}
+
+{###THE INTRO SECTION###}
+{% if res.contents.chain[item.id].prev!='mercur' %}
+    <div class="row">
+{%endif%}
+
+
+{###THE MAIN SECTION###}
+
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-centered mt-3">
+                        <div class="" style="background:#f4f4f4;border-radius: 3rem;position:relative;">
+                            <img src="{{ item.attributes.img.value }}" class="img-fluid">
+                            <h1 class="" style="position:absolute;right:10px;top:50%"><a class="mercur-a" href="{{ item.attributes.button_link.value }}">{{ item.attributes.title.value }}</a></h1>
+                        </div>
+                    </div>
+
+
+{###END OF MAIN SECTION###}
+
+{###THE OUTRO SECTION###}
+{% if res.contents.chain[item.id].next!='mercur' %}
+</div>
+{%endif%}

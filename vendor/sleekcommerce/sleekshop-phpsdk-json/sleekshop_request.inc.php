@@ -4,9 +4,9 @@
 * version: 1.3.0.0
 * (c) sleekcommerce - Kaveh Raji
 */
-define("LICENCE_USERNAME","sleekcommerce");
-define("SERVER","https://SUBDOMAIN.sleekshop.net/srv/service/");
-define("LICENCE_PASSWORD","password");
+define("LICENCE_USERNAME","");
+define("SERVER","http://YOURSHOP.sleekshop.net/srv/service/");
+define("LICENCE_PASSWORD","");
 
 class SleekShopRequest
 {

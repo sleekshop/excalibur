@@ -10,7 +10,7 @@ $( document ).ready(function() {
 		});
 
 
-	
+
 
 
 	$( ".cart-hover" ).hover(function() {

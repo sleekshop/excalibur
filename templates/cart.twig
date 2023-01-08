@@ -1,4 +1,9 @@
-{% extends 'page.twig' %} {% block content %} {% if res==0 %}
+{% extends 'page.twig' %}
+
+{% block content %}
+<div class="container">
+<div class="row">
+{% if res==0 %}
 <div class="col-md-12">
   <h1>{%trans%}Your cart is empty{%endtrans%}</h1>
   <br /><br />
@@ -94,4 +99,6 @@
 	</h3>
   </form>
 </div>
-{%endif%} {% endblock %}
+{%endif%}
+</div></div>
+{% endblock %}

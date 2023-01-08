@@ -1,0 +1,24 @@
+{###
+# YOU CAN ADDRESS THE CURRENT ITEM AS item
+###}
+
+{###THE INTRO SECTION###}
+{% if res.contents.chain[item.id].prev!='mars' %}
+{%endif%}
+
+
+{###THE MAIN SECTION###}
+
+<div class="row mt-5 mb-3">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                        <h2 class="text-center">{{ item.attributes.title.value }}</h2>
+                        <p class="text-center">{{ item.attributes.description.value|raw }}</p>
+            </div>
+        </div>
+
+
+{###END OF MAIN SECTION###}
+
+{###THE OUTRO SECTION###}
+{% if res.contents.chain[item.id].next!='mars' %}
+{%endif%}

@@ -5,112 +5,111 @@
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>{{res.title}}</title>
 		<!-- Latest compiled and minified CSS -->
-	<link rel="preload" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	<noscript><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></noscript>
+	<link rel="preload" href="/css/bootstrap/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css"></noscript>
 	<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 	<noscript><link rel="stylesheet" href="/css/styles.css"></noscript>
-	<link rel="preload" href="https://fonts.googleapis.com/css?family=Montserrat+Alternates" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat+Alternates"></noscript>
 	<base href="/" >
 	</head>
 	<body>
 
-	   <div class="container">
-			 {% block header %}
-	<nav class="navbar navbar-default navbar-fixed-top">
-	 <div class="container">
-	   <div class="navbar-header">
-		 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-		   <span class="sr-only">Navigation ein-/ausblenden</span>
-		   <span class="icon-bar"></span>
-		   <span class="icon-bar"></span>
-		   <span class="icon-bar"></span>
-		   <span class="icon-bar"></span>
-		 </button>
-		 <button type="button" class="cart-btn navbar-toggle btn glyphicon glyphicon-shopping-cart" data-toggle="" data-target="#cart" aria-expanded="false" >
-		   <span class="sr-only">Navigation ein-/ausblenden</span>
+	{% block header %}
 
-		 </button>
-		 <a class="navbar-brand" href="/">{%trans%}Home{%endtrans%}</a>
-	   </div>
-	   <div id="navbar" class="navbar-collapse collapse">
-		 <ul class="nav navbar-nav">
-		   {% for item in menu %}
-			<li {% if loop.index==0 %}class="" {% endif %} {% if item.children|length>0 %}class="dropdown"{% endif %}>
-			{% if item.children|length>0 %}
-			<a href="/{{ item.id }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ item.label }}<span class="caret"></span></a>
-			{% else %}
-			<a href="{% if item.permalink!='' %}/category/{{ item.permalink }}{% else %}/category/{{ item.id }}{% endif %}">{{ item.label }}</a>
-			{% endif %}
-			{% if item.children|length>0 %}
-			 <ul class="dropdown-menu" role="menu">
-			   {% for sub in item.children %}
-				<li><a href="{% if sub.permalink!='' %}/category/{{ sub.permalink }}{% else %}/category/{{ sub.id }}{% endif %}">{{ sub.label }}</a></li>
-			   {% endfor %}
-			 </ul>
-			 {% endif %}
-			</li>
-		   {% endfor %}
-		 </ul>
-		 <ul class="nav navbar-nav navbar-right">
-		   <li class="dropdown">
-				   <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{language|slice(0,2)}}
-				   <span class="caret"></span></a>
-				   <ul class="dropdown-menu">
-					 <li><a href="change-lang?lang=de_DE">de</a></li>
-					 <li><a href="change-lang?lang=en_EN">en</a></li>
-				   </ul>
+	<nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top" aria-label="">
+    <div class="container">
+       <a class="navbar-brand" href="/">{%trans%}Home{%endtrans%}</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample03">
+        <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+					{% for item in menu %}
+				 <li {% if loop.index==0 %} {% endif %} class="nav-item {% if item.children|length>0 %} dropdown{% endif %}">
+				 {% if item.children|length>0 %}
+				 <a href="/{{ item.id }}" class="nav-link dropdown-toggle" id="" data-bs-toggle="dropdown" aria-expanded="false">{{ item.label }}</a>
+				 {% else %}
+				 <a class="nav-link" href="{% if item.permalink!='' %}/category/{{ item.permalink }}{% else %}/category/{{ item.id }}{% endif %}">{{ item.label }}</a>
+				 {% endif %}
+				 {% if item.children|length>0 %}
+					<ul class="dropdown-menu" aria-labelledby="">
+						{% for sub in item.children %}
+					 <li><a class="dropdown-item" href="{% if sub.permalink!='' %}/category/{{ sub.permalink }}{% else %}/category/{{ sub.id }}{% endif %}">{{ sub.label }}</a></li>
+						{% endfor %}
+					</ul>
+					{% endif %}
 				 </li>
-		   <li class="">{% if username!='' %}<a href="/profile">{%trans%}You are logged in as{%endtrans%} {{ username }}</a>{% else %}<a href="login?profile=1">{%trans%}Login{%endtrans%}</a>{% endif %}</li>
-		   {% if username!='' %}<li><a href="/logout">{%trans%}Logout{%endtrans%}</a></li>{% endif %}
-		   <li class="hidden-xs cart-hover"><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> {{cart.sum|number_format(2)}} EUR</a>
-			<span class="cart-elements well">
-		  <table class="table table-striped small">
-		   <thead>
-			 <tr>
-			   <th>{%trans%}Product{%endtrans%}</th>
-			   <th class="text-right">{%trans%}Quantity{% endtrans %}</th>
-			   <th class="text-right">{%trans%}Sum{%endtrans%}</th>
-			 </tr>
-		   </thead>
-		   <tbody>
-		   {% set sum_tax=0 %}
-		   {% for value in cart.contents %}
-			{% set sum_tax=sum_tax+value.sum_price*value.attributes.sys_tax %}
-			 <tr>
-			   <td class="">{{ value.name }}</td>
-			   <td class="text-right">{{ value.quantity }}</td>
-			   <td class="text-right">{{ value.sum_price|number_format(2)}} EUR</td>
-			 </tr>
-			 {% for value in value.sub_elements.contents %}
-			  <tr>
-				<td class="col-md-4">+ {{ value.name }}<br>{{ value.description }}</td>
-				<td class="col-md-2 text-right">{{ value.quantity }}</td>
-				<td class="col-md-2 text-right">{{ value.sum_price|number_format(2)}} EUR</td>
-			  </tr>
-			  {% endfor %}
-			 {% endfor %}
+					{% endfor %}
+        </ul>
 
-			  {% if cart.delivery_costs.sum>0 %}
-			 <!--  <tr>
-			   <td>Lieferkosten:</td><td class="col-md-2 text-right">1</td><td class="col-md-2 text-right">{|number_format:$cart.delivery_costs.sum,2} EUR</td>
-			 </tr>-->
-			   {% endif %}
-			   <tr>
-			 <td><h5>{%trans%}Sum{%endtrans%}:</h5></td><td></td><td class="text-right"><h5>{{(cart.sum+cart.delivery_costs.sum)|number_format(2)}} EUR</h5></td>
-			 </tr>
-		   </tbody>
-		 </table>
-		 <p align="right"><a href="/cart" class="btn  btn-primary">{%trans%}To cart{%endtrans%}</a></p>
-			</span>
-			</li>
-		 </ul>
-	   </div><!--/.nav-collapse -->
-	 </div>
-   </nav>
+				<span>
 
-   <br><br><br>
-<div class="col-md-4">
+					<ul class="navbar-nav me-auto mb-2 mb-sm-0">
+						<li class="nav-item dropdown">
+	            <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown" aria-expanded="false">{{language|slice(0,2)}}</a>
+	            <ul class="dropdown-menu" aria-labelledby="dropdown03">
+	              <li><a class="dropdown-item" href="change-lang?lang=de_DE">de</a></li>
+	              <li><a class="dropdown-item" href="change-lang?lang=en_EN">en</a></li>
+	            </ul>
+	          </li>
+
+ 				   <li class="nav-item">{% if username!='' %}<a href="/profile" class="nav-link">{%trans%}You are logged in as{%endtrans%} {{ username }}</a>{% else %}<a href="login?profile=1" class="nav-link">{%trans%}Login{%endtrans%}</a>{% endif %}</li>
+ 				   {% if username!='' %}<li class="nav-item"><a href="/logout" class="nav-link">{%trans%}Logout{%endtrans%}</a></li>{% endif %}
+ 				   <li class="hidden-xs cart-hover nav-item"><a href="/cart" class="nav-link">{{cart.sum|number_format(2)}} EUR</a>
+ 					<div class="cart-elements card">
+					<div class="card-body">
+ 				  <table class="table table-striped small">
+ 				   <thead>
+ 					 <tr>
+ 					   <th>{%trans%}Product{%endtrans%}</th>
+ 					   <th class="text-right">{%trans%}Quantity{% endtrans %}</th>
+ 					   <th class="text-right">{%trans%}Sum{%endtrans%}</th>
+ 					 </tr>
+ 				   </thead>
+ 				   <tbody>
+ 				   {% set sum_tax=0 %}
+ 				   {% for value in cart.contents %}
+ 					{% set sum_tax=sum_tax+value.sum_price*value.attributes.sys_tax %}
+ 					 <tr>
+ 					   <td class="">{{ value.name }}</td>
+ 					   <td class="text-right">{{ value.quantity }}</td>
+ 					   <td class="text-right">{{ value.sum_price|number_format(2)}} EUR</td>
+ 					 </tr>
+ 					 {% for value in value.sub_elements.contents %}
+ 					  <tr>
+ 						<td class="col-md-4">+ {{ value.name }}<br>{{ value.description }}</td>
+ 						<td class="col-md-2 text-right">{{ value.quantity }}</td>
+ 						<td class="col-md-2 text-right">{{ value.sum_price|number_format(2)}} EUR</td>
+ 					  </tr>
+ 					  {% endfor %}
+ 					 {% endfor %}
+
+ 					  {% if cart.delivery_costs.sum>0 %}
+ 					 <!--  <tr>
+ 					   <td>Lieferkosten:</td><td class="col-md-2 text-right">1</td><td class="col-md-2 text-right">{|number_format:$cart.delivery_costs.sum,2} EUR</td>
+ 					 </tr>-->
+ 					   {% endif %}
+ 					   <tr>
+ 					 <td><h5>{%trans%}Sum{%endtrans%}:</h5></td><td></td><td class="text-right"><h5>{{(cart.sum+cart.delivery_costs.sum)|number_format(2)}} EUR</h5></td>
+ 					 </tr>
+ 				   </tbody>
+ 				 </table>
+ 				 <p align="right"><a href="/cart" class="btn  btn-primary">{%trans%}To cart{%endtrans%}</a></p>
+			 </div>
+			 </div>
+ 					</li>
+ 				 </ul>
+
+			  </span>
+     </div>
+    </div>
+  </nav>
+
+<div class="container">
+	<br><br><br>
+  <div class="row">
+
+<div class="col-md-4 mt-2">
 <a href="/">{%include 'part_logo.twig'%}</a>
 </div>
 
@@ -125,9 +124,9 @@
   </form>
 </div>
 
-<div style="clear:left;"></div>
-<hr>
-
+<hr class="mt-4">
+</div>
+</div>
 			 {% endblock %}
 			 {% block head %}
 
@@ -137,12 +136,12 @@
 
 
 			  {% block footer %}
+        <div class="container">
 
-			  <div style="clear:left;"></div>
 			  <hr>
+				<div class="row">
 			  <div class="col-md-3">
 			  {%include 'part_about_us_footer_'~language|slice(0,2) ~ '.twig'%}
-
 			  </div>
 			  <div class="col-md-3">
 			  <h4>Infos</h4>
@@ -165,14 +164,14 @@
 			  <div class="col-md-12">
 				<p align="right">Powered by <a href="https://www.sleekshop.io">sleekshop</a></p>
 			  </div>
-
+			</div>
+			</div>
 			  {% endblock %}
 
-	   </div>
 
 	</body>
 	<script src="/js/jquery/jquery.min.js" defer></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous" defer></script>
+	<script src="/js/bootstrap/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
 	<script src="/js/jquery/jquery.imageLens.js" defer></script>
 	<script src="/js/mayalist/mayalist.js" defer></script>
 	<script src="/js/main.js" defer></script>

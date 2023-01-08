@@ -30,8 +30,8 @@ private static function get_shopobject_from_json($so="")
 	$piecearray["title"]=(string)$so->seo->title;
 	$piecearray["description"]=(string)$so->seo->description;
 	$piecearray["keywords"]=(string)$so->seo->keywords;
-  	
-    if (isset($so->availability->quantity)) 
+
+    if (isset($so->availability->quantity))
 	{
 		$piecearray["availability_quantity"]=(string)$so->availability->quantity;
   		$piecearray["availability_quantity_warning"]=(string)$so->availability->quantity_warning;
@@ -106,11 +106,19 @@ private static function get_products_from_json($json="")
 private static function get_contents_from_json($json="")
 {
 	$result=array();
+  $prev="not_set";
+  $prevkey=0;
 	foreach((array)$json as $so)
 	{
 		$result[(string)$so->name]=self::get_shopobject_from_json($so);
 		$result["byclass"][(string)$so->class][]=$result[(string)$so->name];
-		(isset($so->attributes->layout)) ? $result["layouts"][(string)$so->attributes->layout->value]=1 : '';
+		if(isset($so->attributes->layout)){
+    $result["layouts"][(string)$so->attributes->layout->value]=1;
+    $result["chain"][$result[$so->name]["id"]]=array("prev"=>$prev,"next"=>"not_set");
+    if($prevkey>0) $result["chain"][$prevkey]["next"]=$result[$so->name]["attributes"]["layout"]["value"];
+    $prevkey=$result[$so->name]["id"];
+    $prev=$result[$so->name]["attributes"]["layout"]["value"];
+    }
 	}
 	return($result);
 }

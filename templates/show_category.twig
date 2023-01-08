@@ -1,40 +1,14 @@
 {% extends "page.twig" %}
 
 {% block content %}
+
+<div class="container">
+{% include 'content_block.twig' %}
+<div style="clear:left;"></div>
+</div>
+
 {% if res!=0 %}
-    
-    {% for value in res.contents.byclass.teaser_pic %}
-        <div class="col-md-12">
-            <img src="{{ value.attributes.img.value }}" width="100%">
-            <hr>
-        </div>
-    {% endfor %}
-
-    <div class="mayalist col-md-12" id="mayalist" data-pageqty="9">
-        <nav class="pagination-nav">
-        <!-- <ul class="pagination">x
-            <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-            {loop="$res.pages"}
-            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-            {/loop}
-            <li class=""><a href="#">2</a></li>
-            <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-        </ul>-->
-        </nav>
-        <div style="position:absolute;right:0px;top:10px;">
-            <select class="sort-selector form-control">
-                <option value="">Sortierung w&auml;hlen</option>
-                <option value="price-asc">Preis aufsteigend</option>
-                <option value="price-desc">Preis absteigend</option>
-                <option value="name-asc">Name aufsteigend</option>
-                <option value="name-desc">Name absteigend</option>
-            </select>
-        </div>
-        
-        {% include "product_listing.twig" %}
-
-    </div>
-
+{% include "product_listing.twig" %}
 {% else %}
 
     <div class="col-md-12">

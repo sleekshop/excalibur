@@ -45,52 +45,52 @@ $app->add(TwigMiddleware::create($app, $twig));
 
 	//Reloading the menu
 	$app->get("/reload-menu", function () use ($app, $language, $menu, $username, $cart) {
-		
+
   		unlink(TEMPLATE_PATH . "/cache/menu.tmp");
   		die("WEBHOOK_EXECUTED");
-	
+
 	});
-	
+
 	//Reloading the menu
 	$app->get("/reload-static-files", function ($request, $response) use ($app, $language, $menu, $username, $cart) {
-		
+
 		$lang = $request->getQueryParams()['language'] ?? '';
-		
+
 		if ($lang == "" or $lang == "all") {
 		$lang = DEFAULT_LANGUAGE;
 		}
 		$id = $request->getQueryParams()['id_shopobject'] ?? '';
-		
+
 		$langstmp = explode("_", $lang);
 		$prefix = array_shift($langstmp);
-		
+
 		$res = ShopobjectsCtl::GetContentDetails($id, $lang);
-			
+
 		$about_us = $res["attributes"]["about_us_footer"]["value"];
 		if (is_file(TEMPLATE_PATH . "/part_about_us_footer_" . $prefix . ".twig")) unlink(TEMPLATE_PATH . "/part_about_us_footer_" . $prefix . ".twig");
 		file_put_contents(TEMPLATE_PATH . "/part_about_us_footer_" . $prefix . ".twig", $about_us);
-		
+
 		$logo = $res["attributes"]["logo"]["value"];
 		if (is_file(TEMPLATE_PATH . "/part_logo.twig")) unlink(TEMPLATE_PATH . "/part_logo.twig");
 		file_put_contents(TEMPLATE_PATH . "/part_logo.twig", "<img src='" . $logo . "' class='img-fluid' alt='' />");
-		
+
 		$face = $res["attributes"]["facebook_link"]["value"];
 		$insta = $res["attributes"]["instagram_link"]["value"];
 		if (is_file(TEMPLATE_PATH . "/part_social_links.twig")) unlink(TEMPLATE_PATH . "/part_social_links.twig");
 		file_put_contents(TEMPLATE_PATH . "/part_social_links.twig", "<a href='" . $face . "' target='_blank'><img src='../img/facebook.png' width='50px'></a> <a href='" . $insta .	"' target='_blank'><img src='../img/insta.jpg' width='50px'></a>" );
-		
+
 		echo "WEBHOOK_EXECUTED";
 	    die();
-  
+
 	});
 
 
 	$app->get("/", function ($request, $response, $args) use ($app, $language, $menu, $username, $cart) {
-	
-  		$res = ShopobjectsCtl::GetShopObjects( START_ID, $language, "price", "ASC", 0, 0, ["name", "img1", "price", "short_description"] );
+
+  		$res = ShopobjectsCtl::GetShopObjects( START_ID, $language, "prio", "DESC", 0, 0, ["name", "img1", "price", "short_description"] );
 
   		$view = Twig::fromRequest($request);
-		
+
   		return $view->render($response, 'index.twig', [
 	  		"res" => 		$res,
 	  		"menu" => 		$menu,
@@ -98,14 +98,14 @@ $app->add(TwigMiddleware::create($app, $twig));
 	  		"cart" => 		$cart,
 			"language" => 	$language,
   		]);
-  	
+
 	})->setName('home');
 
 
 	// Cart
-	
+
 	$app->post("/add-coupon", function ($request, $response, $args) use ($app, $language, $menu, $username, $cart) {
-	  
+
 	  // Render index view
 	  $coupon = $_POST['coupon'];
 	  $sr = new SleekShopRequest();
@@ -118,7 +118,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 		// code...
 	  }
 	  $res = CartCtl::Get(SessionCtl::GetSession());
-	  
+
 	  	$view = Twig::fromRequest($request);
 		return $view->render($response, 'cart.twig', [
 			"coupon_error" => 	$error,
@@ -128,49 +128,49 @@ $app->add(TwigMiddleware::create($app, $twig));
 			"cart" => 			$res,
 			"language" => 		$language,
 		]);
-	  
+
 	});
-	
-	
+
+
 	$app->get("/get-invoice/{id}/{hash}", function ($request, $response, $args) use ($app, $language, $menu, $username, $cart) {
-	  
+
 	  if (!(crypt($args['id'], TOKEN) == base64_decode($args['hash']))) {
 		die("PERMISSION_DENIED");
 	  }
 	  $invoice = OrderCtl::GetInvoice($args['id']);
 	  echo utf8_decode($invoice);
 	  die();
-	  
+
 	});
-	
+
 	//For changing the language
 	$app->get("/change-lang", function ($request, $response) use ($app,$language,$menu,$username,$cart) {
-	  
+
 	  unlink(TEMPLATE_PATH . "/cache/menu.tmp");
-	  
+
 	  $language = $request->getQueryParams()['lang'] ?? '';
-	  
+
 	  // Render index view
 	  setcookie(TOKEN . "_lang", $language, time() + 3600);
 	  setcookie(TOKEN . "_menu", "", time() + 3600);
 	  $menu = CategoriesCtl::GetMenu($language);
 	  $res = ShopobjectsCtl::GetShopObjects(1, $language, "price", "ASC", 0, 0, ["name", "img1", "price", "short_description"]);
-	  
+
 	  $response = $response->withStatus(302);
 	  return $response->withHeader('Location', '/');
-	  
+
 	});
-	
+
 	$app->get("/content/{obj}", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
 
 		// Render index view
 		$res = ShopObjectsCtl::SeoGetContentDetails($args['obj']);
-  
-		if ($res == null) { 
+
+		if ($res == null) {
 		  $response = $response->withStatus(302);
 		  return $response->withHeader('Location', '/404');
 		}
-		
+
 		$view = Twig::fromRequest($request);
 		return $view->render($response, 'content_v1.twig', [
 			"res" => 			$res,
@@ -180,19 +180,19 @@ $app->add(TwigMiddleware::create($app, $twig));
 			"request_uri" => 	$request_uri,
 			"language" => 	$language,
 		]);
-		
+
 	  });
-	  
+
 	$app->get("/page/{obj}", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
 
 		// Render index view
 		$res = ShopObjectsCtl::SeoGetShopobjects($args['obj'], "prio", "DESC");
 
-		if ($res == null) { 
+		if ($res == null) {
 			$response = $response->withStatus(302);
 			return $response->withHeader('Location', '/404');
 		}
-		
+
 		$view = Twig::fromRequest($request);
 		return $view->render($response, 'content.twig', [
 			"res" => 			$res,
@@ -202,9 +202,9 @@ $app->add(TwigMiddleware::create($app, $twig));
 			"request_uri" => 	$request_uri,
 			"language" => 	$language,
 		]);
-	
+
 	});
-	
+
 	$app->get("/category/{obj}", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
 
 	  // Render index view
@@ -225,7 +225,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 	  ]);
 
 	});
-	
+
 	$app->get("/express-checkout", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
 
 	  // Render index view
@@ -234,7 +234,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 	  } else {
 		$res = [];
 	  }
-	  
+
 	  $payment_methods = PaymentCtl::GetPaymentMethods();
 
 	  $view = Twig::fromRequest($request);
@@ -247,9 +247,9 @@ $app->add(TwigMiddleware::create($app, $twig));
 		"language" => 			$language,
 		"payment_methods" => 	$payment_methods
 	  ]);
-	  
+
 	});
-	
+
 	$app->post("/add_to_cart", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
 
 	  // Render index viewdd
@@ -260,18 +260,18 @@ $app->add(TwigMiddleware::create($app, $twig));
 	  $res = CartCtl::Add(SessionCtl::GetSession(), $id_product, $quantity,	"price", "name", "short_description", $language, "PRODUCT", 0, [
 		  [
 			  "lang" => $language,
-			  "name" => "pic", 
+			  "name" => "pic",
 			  "value" => $pic
 		  ]]
 	  );
-	  
+
 	  $response = $response->withStatus(302);
 	  return $response->withHeader('Location', '/cart');
-	  
+
 	});
-	
+
 	$app->post("/login", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
-		
+
 	  $username = $_POST['username'];
 	  $passwd = $_POST['password'];
 	  $res = UserCtl::Login(SessionCtl::GetSession(), $username, $passwd);
@@ -324,17 +324,17 @@ $app->add(TwigMiddleware::create($app, $twig));
 		]);
 
 	  }
-	  
+
 	});
-	
+
 	$app->post("/express-login", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
-		
+
 	  $username = $_POST['username'];
 	  $passwd = $_POST['password'];
 	  $res = UserCtl::Login(SessionCtl::GetSession(), $username, $passwd);
-		  
+
 	  if ($res["status"] == "SUCCESS") {
-		  
+
 		$username = $res["username"];
 		setcookie("username", $username);
 		$res = UserCtl::GetUserData(SessionCtl::GetSession());
@@ -349,7 +349,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 			"request_uri" => 	$request_uri,
 			"language" => 		$language,
 		]);
-		  
+
 	  } else {
 
 		$view = Twig::fromRequest($request);
@@ -364,14 +364,14 @@ $app->add(TwigMiddleware::create($app, $twig));
 		]);
 
 	  }
-	  
+
 	});
-	
+
 	$app->post("/userdata", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
-	  
+
 	  $error = [];
 	  $error_count = 0;
-	  
+
 	  if (isset($_POST['diffaddress']) && $_POST['diffaddress'] == "diffadd") {
 		   $dsalutation = 	$_POST['dsalutation'];
 		   $dfirstname = 	$_POST['dfirstname'];
@@ -397,7 +397,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 		   $dzip = 			$_POST['zip'];
 		   $dcity = 		$_POST['city'];
 	   }
-	  
+
 	   $salutation =	$_POST['salutation'];
 	   $firstname = 	$_POST['firstname'];
 	   $lastname = 		$_POST['lastname'];
@@ -412,8 +412,8 @@ $app->add(TwigMiddleware::create($app, $twig));
 	   //$phone = 		$_POST['phone'];
 	   $company = 		$_POST['companyname'];
 	   $department = 	$_POST['department'];
-	  
-	  
+
+
 	   if (isset($_POST['diffaddress']) && $_POST['diffaddress'] == "diffadd") {
 		   $userdata["dsalutation"] = 	$dsalutation;
 		   $userdata["dfirstname"] =	$dfirstname;
@@ -453,7 +453,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 	   $userdata["notes"] =			$notes;
 	   $userdata["email"] =			$email;
 	   //$userdata["phone"] =			$phone;
-	  
+
 	   $args=array(
 		   "delivery_companyname" => 	$userdata["dcompany"],
 		   "delivery_department" =>		$userdata["ddepartment"],
@@ -480,9 +480,9 @@ $app->add(TwigMiddleware::create($app, $twig));
 		   "note" =>					$userdata["notes"],
 		   "email" =>					$userdata["email"]
 	   );
-	  
+
 	  $order_data = OrderCtl::SetOrderDetails(SessionCtl::GetSession(), $args);
-	
+
 	  if ($email == "") {
 		$error["email"] = "has-error";
 	  }
@@ -510,7 +510,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 	  if ($country == "") {
 		$error["country"] = "has-error";
 	  }
-	
+
 	  if (count($error) != 0) {
 		$error_count++;
 
@@ -552,14 +552,14 @@ $app->add(TwigMiddleware::create($app, $twig));
 		]);
 
 	  }
-	  
+
 	});
-	
+
 	$app->post("/express-checkout", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
-	  
+
 	  $error = [];
 	  $error_count = 0;
-	  
+
 	  if (isset($_POST['diffaddress']) && $_POST['diffaddress'] == "diffadd") {
 		   $dsalutation = 	$_POST['dsalutation'];
 		   $dfirstname = 	$_POST['dfirstname'];
@@ -585,7 +585,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 		   $dzip = 			$_POST['zip'];
 		   $dcity = 		$_POST['city'];
 	   }
-	  
+
 	   $salutation =	$_POST['salutation'];
 	   $firstname = 	$_POST['firstname'];
 	   $lastname = 		$_POST['lastname'];
@@ -600,8 +600,8 @@ $app->add(TwigMiddleware::create($app, $twig));
 	   $phone = 		$_POST['phone'] ?? '';
 	   $company = 		$_POST['companyname'] ?? '';
 	   $department = 	$_POST['department'] ?? '';
-	  
-	  
+
+
 	   if (isset($_POST['diffaddress']) && $_POST['diffaddress'] == "diffadd") {
 		   $userdata["dsalutation"] = 	$dsalutation;
 		   $userdata["dfirstname"] =	$dfirstname;
@@ -641,7 +641,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 	   $userdata["notes"] =			$notes;
 	   $userdata["email"] =			$email;
 	   $userdata["phone"] =			$phone;
-	  
+
 	   $args=array(
 		   "delivery_companyname" => 	$userdata["dcompany"],
 		   "delivery_department" =>		$userdata["ddepartment"],
@@ -668,9 +668,9 @@ $app->add(TwigMiddleware::create($app, $twig));
 		   "note" =>					$userdata["notes"],
 		   "email" =>					$userdata["email"]
 	   );
-	  
+
 	  $order_data = OrderCtl::SetOrderDetails(SessionCtl::GetSession(), $args);
-	
+
 	  if ($email == "") {
 		$error["email"] = "has-error";
 	  }
@@ -698,7 +698,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 	  if ($country == "") {
 		$error["country"] = "has-error";
 	  }
-	
+
 	  if (count($error) != 0) {
 		$error_count++;
 
@@ -726,7 +726,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 		  "email" => 		$userdata["email"],
 		];
 		UserCtl::SetUserData(SessionCtl::GetSession(), $args);
-		
+
 		$id_payment = $_POST['id_payment'];
 		$order = OrderCtl::SetOrderDetails(SessionCtl::GetSession(), [
 		  "id_payment_method" => 	$id_payment,
@@ -740,13 +740,13 @@ $app->add(TwigMiddleware::create($app, $twig));
 		  	"language" => 	$language,
 		  	"username" => 	$username,
 		]);
-		
+
 	  }
-	  
+
 	});
-	
+
 	$app->post("/profile-userdata", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
-	  
+
 	  $error = [];
 	  $error_count = 0;
 
@@ -777,7 +777,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 	  $userdata["country"] = 		$country;
 	  $userdata["notes"] = 			$notes;
 	  $userdata["email"] = 			$email;
-	
+
 	  $args = [
 		"delivery_companyname" => 	$userdata["company"] ?? '',
 		"delivery_department" => 	$userdata["department"] ?? '',
@@ -804,7 +804,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 		"note" => 					$userdata["note"] ?? '',
 		"email" => 					$userdata["email"] ?? '',
 	  ];
-	
+
 	  if ($email == "") {
 		$error["email"] = "has-error";
 	  }
@@ -832,7 +832,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 	  if ($country == "") {
 		$error["country"] = "has-error";
 	  }
-	
+
 	  if (count($error) != 0) {
 		$error_count++;
 
@@ -859,7 +859,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 		  "email" => 		$userdata["email"],
 		];
 		$res = UserCtl::SetUserData(SessionCtl::GetSession(), $args);
-	
+
 		//$payment_methods=PaymentCtl::GetPaymentMethods();
 
 		$view = Twig::fromRequest($request);
@@ -875,11 +875,11 @@ $app->add(TwigMiddleware::create($app, $twig));
 		]);
 
 	  }
-	  
+
 	});
-	
+
 	$app->post("/profile-password", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
-	  
+
 	  $error_count = 0;
 	  $passwd1 = $_POST['passwd1'];
 	  $passwd2 = $_POST['passwd2'];
@@ -904,19 +904,19 @@ $app->add(TwigMiddleware::create($app, $twig));
 			"already_sent" => 	1,
 			"language" => 		$language,
 		]);
-	  
+
 	});
-	
+
 	$app->post("/checkout", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
-		
+
 	  $cart = CartCtl::Get(SessionCtl::GetSession());
-	  
+
 	  $token = 			$_POST['token'];
 	  $card_number = 	$_POST['card_number'];
 	  $cvc = 			$_POST['cvc'];
 	  $exp_month = 		$_POST['exp_month'];
 	  $exp_year = 		$_POST['exp_year'];
-	  
+
 	  $delivery_costs = [["Delivery", $cart["delivery_costs"]["sum"], 0.19]];
 	  OrderCtl::AddDeliveryCosts(SessionCtl::GetSession(), $delivery_costs);
 
@@ -933,35 +933,35 @@ $app->add(TwigMiddleware::create($app, $twig));
 		]);
 		send_html_mail($order["email"], utf8_decode($subject), utf8_decode($msg), ORDER_SENDER);
 		send_html_mail(ORDER_SENDER, utf8_decode($subject), utf8_decode($msg), ORDER_SENDER);
-		
+
 		$id_order = $res["id_order"];
 		$session = $res["session"];
-		
+
 		SessionCtl::SetSession($session);
 		setcookie("cart", "");
 		$cart = [];
-		
+
 		$res = OrderCtl::DoPayment($id_order, [
 		  "success_url" => "https://" . $_SERVER["HTTP_HOST"] . "/checkout",
 		  "cancel_url" => "https://" . $_SERVER["HTTP_HOST"] . "/checkout?error=1",
 		]);
-		
+
 		$redirect = "";
-		
+
 		if ($res["status"] == "Success" and $res["redirect"] != "") {
 		  $redirect = html_entity_decode($res["redirect"]);
 		}
 
 	  } elseif ($res["status"] == "error" and $res["message"] == "SHOPOBJECT_NOT_AVAILABLE") {
-		
+
 		$cart = CartCtl::Refresh(SessionCtl::GetSession());
-	
+
 		foreach ($cart["contents"] as $prod) {
 		  if ($prod["type"] == "DELIVERY_COSTS") {
 			$cart = CartCtl::Del(SessionCtl::GetSession(), $prod["id"]);
 		  }
 		}
-		
+
 		$tpl->assign("cart", $cart);
 		$tpl->assign("missing_id", $res["param"]);
 		$pages = ["product_not_available"];
@@ -979,11 +979,11 @@ $app->add(TwigMiddleware::create($app, $twig));
 			"username" => 		$username,
 			"cart" => 			$cart,
 		]);
-	  
+
 	});
-	
+
 	$app->post("/register", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
-		
+
 	  $user = 			$_POST['user'];
 	  $email = 			$_POST['email'];
 	  $passwd1 = 		$_POST['password'];
@@ -1032,11 +1032,11 @@ $app->add(TwigMiddleware::create($app, $twig));
 
 		}
 	  }
-	  
+
 	});
-	
+
 	$app->post("/express-register", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username,$cart) {
-	  
+
 	  $user = 			$_POST['user'];
 	  $email = 			$_POST['email'];
 	  $passwd1 = 		$_POST['password'];
@@ -1088,11 +1088,11 @@ $app->add(TwigMiddleware::create($app, $twig));
 
 		}
 	  }
-	  
+
 	});
-	
+
 	$app->get("/search", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
-		
+
 	  // Render index view
 	  $searchstring = $request->getQueryParams()['searchstring'] ?? '';
 	  ($request->getQueryParams()['page'] ?? '' != "")
@@ -1111,7 +1111,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 	  $left_limit = 0;
 	  $right_limit = 20;
 	  $res = ShopobjectsCtl::SearchProducts($constraint, $left_limit, $right_limit, [], "ASC", $language, ["name", "img1", "price", "short_description"]);
-	  
+
 	  $res["pages"] = ceil($res["count"] / CATEGORY_PRODUCT_COUNT);
 
 	  if (count($res["products"]) == 0) {
@@ -1127,11 +1127,11 @@ $app->add(TwigMiddleware::create($app, $twig));
 			"request_uri" => 	$request_uri,
 			"language" => 		$language,
 		]);
-	  
+
 	});
-	
+
 	$app->post("/order_summary", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
-		
+
 	  $token = 			$_POST['token'];
 	  $id_payment = 	$_POST['id_payment'];
 	  $card_number = 	$_POST['card_number'];
@@ -1155,11 +1155,11 @@ $app->add(TwigMiddleware::create($app, $twig));
 		"exp_year" => 		$exp_year,
 		"cvc" => 			$cvc,
 	  ]);
-	  
+
 	});
-	
+
 	$app->get("/{obj}", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
-	
+
 		$obj = $args['obj'] ?? '';
 
 	  	if ($obj == "cart") {
@@ -1194,7 +1194,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 			]);
 
 	  	} elseif ($obj == "del_from_cart") {
-			
+
 			$res = CartCtl::Del(SessionCtl::GetSession(), $request->getQueryParams()['id'] ?? '');
 			if (count($res["contents"]) == 0) {
 		  		$res = 0;
@@ -1204,7 +1204,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 			return $response->withHeader('Location', '/cart');
 
 	  	} elseif ($obj == "your-data") {
-			
+
 			if ($username != "") {
 		  		$res = UserCtl::GetUserData(SessionCtl::GetSession());
 
@@ -1232,7 +1232,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 			}
 
 	  	} elseif ($obj == "login") {
-		
+
 			$profile = $request->getQueryParams()['profile'] ?? '';
 
 			$view = Twig::fromRequest($request);
@@ -1328,7 +1328,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 			]);
 
 	  	} elseif ($obj == "profile-userdata") {
-			
+
 			if ($username == "") {
 
 				$view = Twig::fromRequest($request);
@@ -1342,7 +1342,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 				]);
 
 			} else {
-		  
+
 				$res = UserCtl::GetUserData(SessionCtl::GetSession());
 
 		  		$view = Twig::fromRequest($request);
@@ -1354,9 +1354,9 @@ $app->add(TwigMiddleware::create($app, $twig));
 					"request_uri" => 	$request_uri,
 					"language" => 		$language,
 				]);
-		
+
 			}
-	  
+
 		} elseif ($obj == "404") {
 
 			$view = Twig::fromRequest($request);
@@ -1380,7 +1380,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 			]);
 
 	  	} elseif ($obj == "profile-password") {
-		
+
 			if ($username == "") {
 
 				$view = Twig::fromRequest($request);
@@ -1405,9 +1405,9 @@ $app->add(TwigMiddleware::create($app, $twig));
 				]);
 
 			}
-	  	
+
 		} else {
-			
+
 			if (is_numeric($obj)) {
 		  		$res = ShopobjectsCtl::GetProductDetails($obj, $language);
 			} else {
@@ -1415,10 +1415,10 @@ $app->add(TwigMiddleware::create($app, $twig));
 			}
 
 			if (isset($res["attributes"]["color"]["value"]) && $res["attributes"]["color"]["value"] != "") {
-		  		
+
 				$colors = [];
 		  		$colors[$res["attributes"]["color"]["value"]] = $res["id"];
-		  
+
 				foreach ($res["variations"] as $variation) {
 					if ($res["attributes"]["color"]["value"] != $variation["attributes"]["color"]["value"]) {
 			  			$colors[$variation["attributes"]["color"]["value"]] = $variation["id"];
@@ -1426,15 +1426,15 @@ $app->add(TwigMiddleware::create($app, $twig));
 		  		}
 		  		asort($colors);
 		  		$res["colors"] = $colors;
-			
+
 			}
 
 			if (isset($res["attributes"]["size"]["value"]) && $res["attributes"]["size"]["value"] != "") {
-		  		
+
 				$sizes = [];
 		  		$sizes[$res["attributes"]["size"]["value"]] = $res["id"];
 		  		foreach ($res["variations"] as $variation) {
-			
+
 					if ($variation["attributes"]["color"]["value"] == $res["attributes"]["color"]["value"]) {
 
 						if ($res["attributes"]["size"]["value"] != $variation["attributes"]["size"]["value"]) {
@@ -1445,7 +1445,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 
 		  		ksort($sizes);
 		  		$res["sizes"] = $sizes;
-			
+
 			}
 
 			$tags = explode(",", $res["attributes"]["tags"]["value"]);
@@ -1462,7 +1462,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 			]);
 
 	  	}
-	  
+
 	});
 
 

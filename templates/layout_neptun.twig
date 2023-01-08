@@ -1,0 +1,29 @@
+{###
+# YOU CAN ADDRESS THE CURRENT ITEM AS item
+###}
+
+{###THE INTRO SECTION###}
+{% if res.contents.chain[item.id].prev!='neptun' %}
+{%endif%}
+
+
+{###THE MAIN SECTION###}
+
+<div class="containers" style="padding-top: 5rem;padding-bottom: 5rem;">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <img src="{{ item.attributes.img.value }}" alt="IMG" style="max-height: 500px;width: 100%;object-fit: cover;">
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <h1>{{ item.attributes.title.value }}</h1>
+            {{ item.attributes.description.value|raw }}
+        </div>
+
+    </div>
+</div>
+
+{###END OF MAIN SECTION###}
+
+{###THE OUTRO SECTION###}
+{% if res.contents.chain[item.id].next!='neptun' %}
+{%endif%}

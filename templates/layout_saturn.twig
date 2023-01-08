@@ -1,0 +1,37 @@
+{###
+# YOU CAN ADDRESS THE CURRENT ITEM AS item
+###}
+
+{###THE INTRO SECTION###}
+{% if res.contents.chain[item.id].prev!='saturn' %}
+
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+
+{%endif%}
+
+{###THE MAIN SECTION###}
+
+                    <div class="carousel-item {% if res.contents.chain[item.id].prev!='saturn' %}active{% endif %}">
+                      <img src="{{ item.attributes.img.value }}" class="d-block w-100" alt="...">
+                      <div class="carousel-caption d-none d-md-block">
+                      <h3>{{ item.attributes.title.value|raw }}</h3>
+                      <p>{{ item.attributes.description.value|raw }}</p>
+                     </div>
+                    </div>
+
+{###END OF MAIN SECTION###}
+
+{###THE OUTRO SECTION###}
+{% if res.contents.chain[item.id].next!='saturn' %}
+</div>
+</div>
+{%endif%}
