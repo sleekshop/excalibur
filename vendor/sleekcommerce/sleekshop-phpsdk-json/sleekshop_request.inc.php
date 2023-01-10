@@ -5,7 +5,7 @@
 * (c) sleekcommerce - Kaveh Raji
 */
 define("LICENCE_USERNAME","");
-define("SERVER","http://YOURSHOP.sleekshop.net/srv/service/");
+define("SERVER","https://YOURSHOP.sleekshop.net/srv/service/");
 define("LICENCE_PASSWORD","");
 
 class SleekShopRequest
