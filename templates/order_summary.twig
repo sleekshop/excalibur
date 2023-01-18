@@ -8,7 +8,7 @@
                   {% include 'part_logo.twig' %}
               </figure>
           </a>
-          <h2 class="sub-heading font-30 fw-600 text-dark pb-4">{% trans %}Delivery Address{% endtrans %}:</h2>
+          <h2 class="sub-heading font-30 fw-600 text-dark pb-4">{%trans%}Delivery Address{%endtrans%}:</h2>
           <div class="order-left mt-4">
               <h4 class="font-24 fw-400 mb-4 text-dark">{{order.delivery_salutation}} {{order.delivery_firstname}} {{order.delivery_lastname}}</h4>
               {# <div class="d-flex justify-content-between w-75">
@@ -19,7 +19,7 @@
               {{order.delivery_zip}} {{order.delivery_city}} - {{order.delivery_country}}</p>
           </div>
 
-          <h2 class="sub-heading font-30 fw-600 text-dark">{% trans %}Billing Address{% endtrans %}:</h2>
+          <h2 class="sub-heading font-30 fw-600 text-dark">{%trans%}Billing Address{%endtrans%}:</h2>
           <div class="order-left mt-4">
               <h4 class="font-24 fw-400 mb-4 text-dark">{{order.invoice_salutation}} {{order.invoice_firstname}} {{order.invoice_lastname}}</h4>
               {# <div class="d-flex justify-content-between w-75">
@@ -93,21 +93,21 @@
           </div> #}
           <div class="top order-list">
               <div class="items d-flex justify-content-between">
-                  <h6 class="font-16 fw-400 text-dark">{% trans %}Included tax{% endtrans %}</h6>
+                  <h6 class="font-16 fw-400 text-dark">{%trans%}Included tax{%endtrans%}</h6>
                   <p class="font-16 fw-400 text-dark">{{sum_tax|number_format(2)}} €</p>
               </div>
               <div class="ship d-flex justify-content-between">
-                  <h6 class="font-16 fw-400 text-dark mb-0">{% trans %}Delivery costs{% endtrans %}</h6>
+                  <h6 class="font-16 fw-400 text-dark mb-0">{%trans%}Delivery costs{%endtrans%}</h6>
                   <p class="font-12 fw-400 text-dark">{{cart.delivery_costs.sum|number_format(2)}} €</p>
               </div>
               <div class="total d-flex justify-content-between">
-                  <h6 class="font-18 fw-400 text-dark">{% trans %}Sum price{% endtrans %}</h6>
+                  <h6 class="font-18 fw-400 text-dark">{%trans%}Sum price{%endtrans%}</h6>
                   <p class="font-18 fw-bold text-dark"><span class="font-12 fw-400 text-dark me-3"></span>{{(cart.sum+cart.delivery_costs.sum)|number_format(2)}} €</p>
               </div>
           </div>  <!------order-list Class End---------->
           <div class="payment-mode mb-4">
-              <h4 class="font-18 fw-600 text-dark">{% trans %}Payment{% endtrans %}</h4>
-              <p class="font-16 fw-400 text-dark">{% trans %}After placing your order, you will be redirected to mollie for payment.{% endtrans %}</p>
+              <h4 class="font-18 fw-600 text-dark">{%trans%}Payment{%endtrans%}</h4>
+              <p class="font-16 fw-400 text-dark">{%trans%}After placing your order, you will be redirected to mollie for payment.{%endtrans%}</p>
               <img src="assets/images/mollie.png" alt="" class="img-fluid" style="max-width: 55%;">
           </div>
           <div class="bottom text-center">
@@ -121,7 +121,7 @@
               <input
                 type="button"
                 class="btn checkout-btn text-white rounded-0 font-16 fw-400 mt-3"
-                value="{% trans %}Place Order{% endtrans %}"
+                value="{%trans%}Place Order{%endtrans%}"
                 onClick="OrderPlaced();"
               /><span id="wait-msg" style="display: none">wait...</span>
             </p>

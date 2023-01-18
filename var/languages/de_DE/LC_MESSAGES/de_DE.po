@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: excalibur\n"
-"POT-Creation-Date: 2018-07-03 20:01+0200\n"
-"PO-Revision-Date: 2018-07-03 20:06+0200\n"
+"POT-Creation-Date: 2023-01-18 17:50+0100\n"
+"PO-Revision-Date: 2023-01-18 17:53+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -11,403 +11,541 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: {%trans%};gettext;gettext_noop\n"
 "X-Poedit-Basepath: ../..\n"
-"X-Generator: Poedit 2.0.4\n"
+"X-Generator: Poedit 3.2.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: terms.php:2
-msgid "Your orders"
-msgstr "Ihre Bestellungen"
+#: trans.php:2 trans.php:155
+msgid "Back to shop"
+msgstr "Zurück zum Shop"
 
-#: terms.php:3
-msgid "Date"
-msgstr "Datum"
+#: trans.php:3
+msgid "Your cart is empty"
+msgstr "Ihr Warenkorb ist leer"
 
-#: terms.php:4
-msgid "Payment"
-msgstr "Bezahlung"
+#: trans.php:4
+msgid "Back"
+msgstr "Zurück"
 
-#: terms.php:5 terms.php:18
-msgid "Delivery"
-msgstr "Lieferung"
+#: trans.php:5 trans.php:66 trans.php:143 trans.php:161
+msgid "Your cart"
+msgstr "Ihr Warenkorb"
 
-#: terms.php:6
-msgid "Status"
-msgstr "Status"
-
-#: terms.php:7
-msgid "You are logged in as"
-msgstr "Sie sind angemeldet als"
-
-#: terms.php:8 terms.php:27 terms.php:55 terms.php:59
-msgid "Login"
-msgstr "Anmelden"
-
-#: terms.php:9
-msgid "Logout"
-msgstr "Abmelden"
-
-#: terms.php:10 terms.php:107 terms.php:121
+#: trans.php:6 trans.php:67 trans.php:162 trans.php:182
 msgid "Product"
 msgstr "Produkt"
 
-#: terms.php:11 terms.php:12 terms.php:111
+#: trans.php:7 trans.php:163
+msgid "Price"
+msgstr "Preis"
+
+#: trans.php:8 trans.php:68 trans.php:164 trans.php:183 trans.php:253
+msgid "Quantity"
+msgstr "Anzahl"
+
+#: trans.php:9 trans.php:165 trans.php:167 trans.php:174
+msgid "Sum price"
+msgstr "Summe"
+
+#: trans.php:10 trans.php:69 trans.php:70 trans.php:145 trans.php:184
+#: trans.php:185
 msgid "Sum"
 msgstr "Summe"
 
-#: terms.php:13
-msgid "To cart"
-msgstr "Zum Warenkorb"
+#: trans.php:11 trans.php:168 trans.php:172
+msgid "Included tax"
+msgstr "Enthaltene Ust"
 
-#: terms.php:14
-msgid "About us"
-msgstr "Über uns"
+#: trans.php:12 trans.php:71 trans.php:148 trans.php:290
+msgid "Next"
+msgstr "Weiter"
 
-#: terms.php:15
-msgid "privacy"
-msgstr "datenschutz"
+#: trans.php:13
+msgid ""
+"The entered coupon-code seems to be invalid or you already used\n"
+"\t  this code before"
+msgstr ""
+"Der eingegebene Gutschein-Code scheint ungültig zu sein oder Sie haben "
+"diesen Code bereits verwendet\n"
+"\t  diesen Code bereits verwendet"
 
-#: terms.php:16
-msgid "Privacy"
-msgstr "Datenschutz"
+#: trans.php:14
+msgid "I have a coupon-code"
+msgstr "Ich habe einen Coupon-Code"
 
-#: terms.php:17
-msgid "delivery-and-payment"
-msgstr "lieferung-und-versand"
+#: trans.php:15
+msgid "Use coupon-code"
+msgstr "Benutzen Sie den Coupon-Code"
 
-#: terms.php:19
-msgid "terms"
-msgstr "agb"
+#: trans.php:16
+msgid ""
+"Etwas mit der Bezahlung hat nicht funktioniert aber Ihre Bestellung haben "
+"wir erhalten."
+msgstr ""
 
-#: terms.php:20
-msgid "Terms"
-msgstr "AGB"
+#: trans.php:17
+msgid "Thank you for your order"
+msgstr "Vielen Dank für Ihre Bestellung"
 
-#: terms.php:21
-msgid "imprint"
-msgstr "impressum"
+#: trans.php:18 trans.php:22 trans.php:72 trans.php:76 trans.php:87
+#: trans.php:149 trans.php:153 trans.php:180 trans.php:294
+msgid "Login"
+msgstr "Anmelden"
 
-#: terms.php:22
-msgid "Imprint"
-msgstr "Impressum"
+#: trans.php:19 trans.php:24 trans.php:74 trans.php:79 trans.php:151
+#: trans.php:242
+msgid "Username"
+msgstr "Benutzername"
 
-#: terms.php:23
-msgid "Payment methods"
-msgstr "Bezahlmöglichkeiten"
+#: trans.php:20 trans.php:26 trans.php:75 trans.php:81 trans.php:152
+#: trans.php:219 trans.php:244
+msgid "Password"
+msgstr "Passwort"
 
-#: terms.php:24 terms.php:35 terms.php:84 terms.php:129
+#: trans.php:21 trans.php:28
+msgid "Close"
+msgstr "Schließen"
+
+#: trans.php:23 trans.php:29 trans.php:77 trans.php:83 trans.php:89
+#: trans.php:246
+msgid "Register"
+msgstr "Registrieren"
+
+#: trans.php:25 trans.php:80 trans.php:243
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: trans.php:27 trans.php:82 trans.php:245
+msgid "Repeat password"
+msgstr "Passwort wiederholen"
+
+#: trans.php:30
+#, fuzzy
+#| msgid "Payment method"
+msgid "Payment Method"
+msgstr "Bezahlmethode"
+
+#: trans.php:31 trans.php:146 trans.php:175 trans.php:208
+msgid "Payment"
+msgstr "Bezahlung"
+
+#: trans.php:32 trans.php:147 trans.php:176
+msgid "After placing your order, you will be redirected to mollie for payment."
+msgstr ""
+"Nachdem Sie Ihre Bestellung aufgegeben haben, werden Sie zur Zahlung an "
+"mollie weitergeleitet."
+
+#: trans.php:33 trans.php:91 trans.php:221 trans.php:260
+msgid "Please fill in all fields marked with *"
+msgstr "Bitte füllen sie alle mit * gekennzeichneten Felder aus"
+
+#: trans.php:34
+msgid "Anmelden"
+msgstr ""
+
+#: trans.php:35
+msgid "oder"
+msgstr ""
+
+#: trans.php:36
+#, fuzzy
+#| msgid "Register"
+msgid "Registrieren"
+msgstr "Registrieren"
+
+#: trans.php:37 trans.php:52 trans.php:92 trans.php:93 trans.php:119
+#: trans.php:120 trans.php:223 trans.php:261 trans.php:276
+msgid "Salutation"
+msgstr "Anrede"
+
+#: trans.php:38 trans.php:53 trans.php:94 trans.php:121 trans.php:224
+#: trans.php:262 trans.php:277
+msgid "Mrs"
+msgstr "Frau"
+
+#: trans.php:39 trans.php:54 trans.php:95 trans.php:122 trans.php:225
+#: trans.php:263 trans.php:278
+msgid "Mr"
+msgstr "Herr"
+
+#: trans.php:40 trans.php:55 trans.php:96 trans.php:97 trans.php:123
+#: trans.php:124 trans.php:226 trans.php:264 trans.php:279
+msgid "Firstname"
+msgstr "Vorname"
+
+#: trans.php:41 trans.php:56 trans.php:98 trans.php:99 trans.php:125
+#: trans.php:126 trans.php:227 trans.php:265 trans.php:280
+msgid "Lastname"
+msgstr "Nachname"
+
+#: trans.php:42 trans.php:57 trans.php:100 trans.php:101 trans.php:127
+#: trans.php:128 trans.php:228 trans.php:266 trans.php:281
+msgid "Company"
+msgstr "Firma"
+
+#: trans.php:43 trans.php:58 trans.php:102 trans.php:103 trans.php:129
+#: trans.php:130 trans.php:229 trans.php:267 trans.php:282
+msgid "Department"
+msgstr "Abteilung"
+
+#: trans.php:44 trans.php:59 trans.php:104 trans.php:105 trans.php:131
+#: trans.php:132 trans.php:230 trans.php:268 trans.php:283
+msgid "Street"
+msgstr "Straße"
+
+#: trans.php:45 trans.php:60 trans.php:106 trans.php:107 trans.php:133
+#: trans.php:134 trans.php:231 trans.php:269 trans.php:284
+msgid "Number"
+msgstr "Nummer"
+
+#: trans.php:46 trans.php:61 trans.php:108 trans.php:109 trans.php:135
+#: trans.php:136 trans.php:233 trans.php:270 trans.php:285
+msgid "City"
+msgstr "Stadt"
+
+#: trans.php:47 trans.php:62 trans.php:110 trans.php:111 trans.php:137
+#: trans.php:138 trans.php:232 trans.php:271 trans.php:286
+msgid "Zip"
+msgstr "PLZ"
+
+#: trans.php:48 trans.php:63 trans.php:112 trans.php:113 trans.php:139
+#: trans.php:140 trans.php:234 trans.php:272 trans.php:287
+msgid "State"
+msgstr "Staat"
+
+#: trans.php:49 trans.php:64 trans.php:115 trans.php:141 trans.php:236
+#: trans.php:273 trans.php:288
+msgid "Please choose your country"
+msgstr "Bitte wählen Sie ihr Land"
+
+#: trans.php:50 trans.php:65 trans.php:116 trans.php:142 trans.php:237
+#: trans.php:274 trans.php:289
+msgid "Germany"
+msgstr "Deutschland"
+
+#: trans.php:51 trans.php:117 trans.php:118 trans.php:238 trans.php:275
+msgid "Notes"
+msgstr "Notizen"
+
+#: trans.php:73 trans.php:78
+msgid "An error occured"
+msgstr "Ein Fehler ist aufgetreten"
+
+#: trans.php:84
+msgid "Checkout"
+msgstr "Kasse"
+
+#: trans.php:85
+msgid "Billing Details"
+msgstr "Rechnungsdetails"
+
+#: trans.php:86
+msgid "Do You Have An Account?"
+msgstr "Haben Sie ein Konto?"
+
+#: trans.php:88
+msgid "Or"
+msgstr "Oder"
+
+#: trans.php:90
+msgid "Welcome back"
+msgstr "Willkommen"
+
+#: trans.php:114 trans.php:235
+msgid "Country"
+msgstr "Land"
+
+#: trans.php:144
+msgid "Shipping"
+msgstr "Versand"
+
+#: trans.php:150
+msgid "Username and password does not match"
+msgstr "Benutzername und Passwort passen nicht zueinander"
+
+#: trans.php:154
+msgid "You successfully logged out"
+msgstr "Sie haben sich erfolgreich abgemeldet"
+
+#: trans.php:156
+msgid "Please check your order"
+msgstr "Bitte überprüfen Sie Ihre Bestellung"
+
+#: trans.php:157
+msgid "Your payment method"
+msgstr "Ihre Bezahlmethode"
+
+#: trans.php:158 trans.php:218 trans.php:220 trans.php:291
 msgid "Your data"
 msgstr "Ihre Daten"
 
-#: terms.php:25
+#: trans.php:159
+msgid "Delivery address:"
+msgstr "Lieferadresse:"
+
+#: trans.php:160
+msgid "Billing address:"
+msgstr "Rechnungsadresse:"
+
+#: trans.php:166 trans.php:173
+msgid "Delivery costs"
+msgstr "Lieferkosten"
+
+#: trans.php:169 trans.php:177
+msgid "Place Order"
+msgstr "Bestellung auslösen"
+
+#: trans.php:170
+msgid "Delivery Address"
+msgstr "Lieferadresse"
+
+#: trans.php:171
+msgid "Billing Address"
+msgstr "Rechnungsadresse"
+
+#: trans.php:178
+msgid "Home"
+msgstr ""
+
+#: trans.php:179
+msgid "You are logged in as"
+msgstr "Sie sind angemeldet als"
+
+#: trans.php:181
+msgid "Logout"
+msgstr "Abmelden"
+
+#: trans.php:186
+msgid "To cart"
+msgstr "Zum Warenkorb"
+
+#: trans.php:187
+msgid "Search"
+msgstr "Suchen"
+
+#: trans.php:188
+msgid "privacy"
+msgstr "datenschutz"
+
+#: trans.php:189
+msgid "Privacy"
+msgstr "Datenschutz"
+
+#: trans.php:190
+msgid "delivery-and-payment"
+msgstr "lieferung-und-versand"
+
+#: trans.php:191 trans.php:209
+msgid "Delivery"
+msgstr "Lieferung"
+
+#: trans.php:192
+msgid "terms"
+msgstr "agb"
+
+#: trans.php:193
+msgid "Terms"
+msgstr "AGB"
+
+#: trans.php:194
+msgid "imprint"
+msgstr "impressum"
+
+#: trans.php:195
+msgid "Imprint"
+msgstr "Impressum"
+
+#: trans.php:196
+msgid "Payment methods"
+msgstr "Bezahlmöglichkeiten"
+
+#: trans.php:197
+msgid "Choose your payment method"
+msgstr "Wählen sie ihre Bezahlmethode"
+
+#: trans.php:198
+msgid "Pay easily with PayPal"
+msgstr "Bezahlen sie einfach mit PayPal"
+
+#: trans.php:199
+msgid "Comfortable payment with your bank-account"
+msgstr "Komfortables Bezahlen mit ihren Bankdaten"
+
+#: trans.php:200
+msgid "Pay with your creditcard"
+msgstr "Bezahlen sie mit ihrer Kreditkarte"
+
+#: trans.php:201
+msgid ""
+"Pay easily after receiving your invoice. After that we will\n"
+"        send you the ordered items"
+msgstr ""
+"Bezahlen Sie einfach nach Erhalt Ihrer Rechnung. Danach senden wir Ihnen die "
+"bestellten Artikel"
+
+#: trans.php:202
+msgid "Creditcard number"
+msgstr "Kreditkartennummer"
+
+#: trans.php:203
+msgid "Expiration month"
+msgstr "Verfallsmonat"
+
+#: trans.php:204
+msgid "Expiration year"
+msgstr "Verfallsjahr"
+
+#: trans.php:205
+msgid "Weiter"
+msgstr ""
+
+#: trans.php:206
+msgid "Your orders"
+msgstr "Ihre Bestellungen"
+
+#: trans.php:207
+msgid "Date"
+msgstr "Datum"
+
+#: trans.php:210
+msgid "Status"
+msgstr "Status"
+
+#: trans.php:211
+msgid "Your password"
+msgstr "Ihr Passwort"
+
+#: trans.php:212
+msgid "New password saved"
+msgstr "Neues Passwort gespeichert"
+
+#: trans.php:213
+msgid "Current password"
+msgstr "Bisheriges Passwort"
+
+#: trans.php:214
+msgid "New password"
+msgstr "Neues Passwort"
+
+#: trans.php:215
+msgid "Repeat new password"
+msgstr "Neues Passwort wiederholen"
+
+#: trans.php:216 trans.php:239
+msgid "Save"
+msgstr "Speichern"
+
+#: trans.php:217
+msgid "Orders"
+msgstr "Bestellungen"
+
+#: trans.php:222
+msgid "Fields have been updated successfully!"
+msgstr "Die Felder wurden erfolgreich aktualisiert!"
+
+#: trans.php:240
+msgid "Create an account"
+msgstr "Konto anlegen"
+
+#: trans.php:241
+msgid "The following error occured"
+msgstr "Der folgende Fehler ist aufgetreten"
+
+#: trans.php:247
+msgid "Manufacturer"
+msgstr "Hersteller"
+
+#: trans.php:248
+msgid "Available"
+msgstr "Verfügbar"
+
+#: trans.php:249
+msgid "Only a few available"
+msgstr "Nur wenige verfügbar"
+
+#: trans.php:250
+msgid "Not available"
+msgstr "Nicht verfügbar"
+
+#: trans.php:251
+msgid "Color"
+msgstr "Farbe"
+
+#: trans.php:252
+msgid "Size"
+msgstr "Größe"
+
+#: trans.php:254 trans.php:255
+msgid "Add to cart"
+msgstr "In den Warenkorb"
+
+#: trans.php:256
+msgid "This product is not available"
+msgstr "Dieses Produkt ist nicht verfügbar"
+
+#: trans.php:257
+msgid "Share this product"
+msgstr "Produkt teilen"
+
+#: trans.php:258
+msgid "Details"
+msgstr "Details"
+
+#: trans.php:259
+msgid "Also interesting for you"
+msgstr "Ebenfalls interessant"
+
+#: trans.php:292
 msgid "I am already registered"
 msgstr "Ich bin bereits registriert"
 
-#: terms.php:26
+#: trans.php:293
 msgid ""
-"Do you have a user account? Click the \"login\" button to login with your "
-"data."
+"Do you have a user account? Click the \"login\" button to login\n"
+"      with your data."
 msgstr "Haben Sie ein Konto? Klicken sie auf „login“ um sich anzumelden."
 
-#: terms.php:28
+#: trans.php:295
 msgid "I want to create an account"
 msgstr "Ich möchte ein Konto erstellen"
 
-#: terms.php:29
+#: trans.php:296
 msgid ""
-"If you haven't a useraccount yet you can create one by clicking on register"
+"If you haven't a useraccount yet you can create one by clicking\n"
+"      on register"
 msgstr ""
-"Wenn sie kein Benutzerkonto haben, können sie eins erstellen wenn sie auf "
+"Wenn sie kein Benutzerkonto haben, können sie eins erstellen, indem Sie auf "
 "registrieren klicken"
 
-#: terms.php:30
+#: trans.php:297
 msgid "Register now"
 msgstr "Jetzt registrieren"
 
-#: terms.php:31
+#: trans.php:298
 msgid "I want to continue as a guest"
 msgstr "Ich möchte als Gast fortfahren"
 
-#: terms.php:32
+#: trans.php:299
+#, fuzzy
+#| msgid ""
+#| "You can continue as a guest. Just click the button \"continue as a "
+#| "guest\"."
 msgid ""
-"You can continue as a guest. Just click the button \"continue as a guest\"."
+"You can continue as a guest. Just click the button \"continue as a\n"
+"      guest\"."
 msgstr ""
 "Sie können als Gast fortfahren. Klicken Sie einfach auf die Schaltfläche "
 "„als Gast fortfahren“."
 
-#: terms.php:33
+#: trans.php:300
 msgid "Continue as a guest"
 msgstr "Als Gast fortfahren"
 
-#: terms.php:34
-msgid "Orders"
-msgstr "Bestellungen"
-
-#: terms.php:36 terms.php:52 terms.php:58
-msgid "Password"
-msgstr "Passwort"
-
-#: terms.php:37
-msgid "Manufacturer"
-msgstr "Hersteller"
-
-#: terms.php:38
-msgid "Available"
-msgstr "Verfügbar"
-
-#: terms.php:39
-msgid "Only a few available"
-msgstr "Nur wenige verfügbar"
-
-#: terms.php:40
-msgid "Not available"
-msgstr "Nicht verfügbar"
-
-#: terms.php:41
-msgid "Color"
-msgstr "Farbe"
-
-#: terms.php:42 terms.php:109 terms.php:123
-msgid "Quantity"
-msgstr "Anzahl"
-
-#: terms.php:43
-msgid "Add to cart"
-msgstr "In den Warenkorb"
-
-#: terms.php:44
-msgid "This product is not available"
-msgstr "Dieses Produkt ist nicht verfügbar"
-
-#: terms.php:45
-msgid "Share this product"
-msgstr "Produkt teilen"
-
-#: terms.php:46
-msgid "Details"
-msgstr "Details"
-
-#: terms.php:47
-msgid "Also interesting for you"
-msgstr "Ebenfalls interessant"
-
-#: terms.php:48
-msgid "Create an account"
-msgstr "Konto anlegen"
-
-#: terms.php:49
-msgid "The following error occured"
-msgstr "Der folgende Fehler ist aufgetreten"
-
-#: terms.php:50 terms.php:57
-msgid "Username"
-msgstr "Benutzername"
-
-#: terms.php:51
-msgid "E-Mail"
-msgstr "E-Mail"
-
-#: terms.php:53
-msgid "Repeat password"
-msgstr "Passwort wiederholen"
-
-#: terms.php:54
-msgid "Register"
-msgstr "Registrieren"
-
-#: terms.php:56
-msgid "Username and password does not match"
-msgstr "Benutzername und Passwort passen nicht zueinander"
-
-#: terms.php:60
-msgid "Choose your payment method"
-msgstr "Wählen sie ihre Bezahlmethode"
-
-#: terms.php:61
-msgid "Pay easily with PayPal"
-msgstr "Bezahlen sie einfach mit PayPal"
-
-#: terms.php:62
-msgid "Comfortable payment with your bank-account"
-msgstr "Komfortables Bezahlen mit ihren Bankdaten"
-
-#: terms.php:63
-msgid "Pay with your creditcard"
-msgstr "Bezahlen sie mit ihrer Kreditkarte"
-
-#: terms.php:64
-msgid ""
-"Pay easily after receiving your invoice. After that we will send you the "
-"ordered items"
-msgstr ""
-"Bezahlen sie einfach nach erhalt der Rechnung. Hiernach werden die "
-"bestellten Produkte verschickt"
-
-#: terms.php:65
-msgid "Thank you for your order"
-msgstr "Vielen Dank für Ihre Bestellung"
-
-#: terms.php:66 terms.php:85
-msgid "Please fill in all fields marked with *"
-msgstr "Bitte füllen sie alle mit * gekennzeichneten Felder aus"
-
-#: terms.php:67 terms.php:86
-msgid "Salutation"
-msgstr "Anrede"
-
-#: terms.php:68 terms.php:87
-msgid "Mrs"
-msgstr "Frau"
-
-#: terms.php:69 terms.php:88
-msgid "Mr"
-msgstr "Herr"
-
-#: terms.php:70 terms.php:89
-msgid "Firstname"
-msgstr "Vorname"
-
-#: terms.php:71 terms.php:90
-msgid "Lastname"
-msgstr "Nachname"
-
-#: terms.php:72 terms.php:91
-msgid "Company"
-msgstr "Firma"
-
-#: terms.php:73 terms.php:92
-msgid "Department"
-msgstr "Abteilung"
-
-#: terms.php:74 terms.php:93
-msgid "Street"
-msgstr "Straße"
-
-#: terms.php:75 terms.php:94
-msgid "Number"
-msgstr "Nummer"
-
-#: terms.php:76 terms.php:95
-msgid "Zip"
-msgstr "PLZ"
-
-#: terms.php:77 terms.php:96
-msgid "City"
-msgstr "Stadt"
-
-#: terms.php:78 terms.php:97
-msgid "State"
-msgstr "Staat"
-
-#: terms.php:79 terms.php:98
-msgid "Country"
-msgstr "Land"
-
-#: terms.php:80 terms.php:99
-msgid "Please choose your country"
-msgstr "Bitte wählen Sie ihr Land"
-
-#: terms.php:81 terms.php:100
-msgid "Germany"
-msgstr "Deutschland"
-
-#: terms.php:82 terms.php:101
-msgid "Notes"
-msgstr "Notizen"
-
-#: terms.php:83 terms.php:113
-msgid "Next"
-msgstr "Weiter"
-
-#: terms.php:102 terms.php:136
-msgid "Save"
-msgstr "Speichern"
-
-#: terms.php:103
-msgid "Show product"
-msgstr "Produkt anzeigen"
-
-#: terms.php:104
-msgid "Your cart is empty"
-msgstr "Ihr Warenkorb ist leer"
-
-#: terms.php:105
-msgid "Back"
-msgstr "Zurück"
-
-#: terms.php:106 terms.php:120
-msgid "Your cart"
-msgstr "Ihr Warenkorb"
-
-#: terms.php:108 terms.php:122
-msgid "Price"
-msgstr "Preis"
-
-#: terms.php:110 terms.php:124 terms.php:126
-msgid "Sum price"
-msgstr "Summe"
-
-#: terms.php:112 terms.php:127
-msgid "Included tax"
-msgstr "Enthaltene Ust"
-
-#: terms.php:114
-msgid ""
-"The entered coupon-code seems to be invalid or you already used this code "
-"before"
-msgstr ""
-
-#: terms.php:115
-msgid "I have a coupon-code"
-msgstr ""
-
-#: terms.php:116
-msgid "Use coupon-code"
-msgstr ""
-
-#: terms.php:117
-msgid "You successfully logged out"
-msgstr "Sie haben sich erfolgreich abgemeldet"
-
-#: terms.php:118
-msgid "Back to shop"
-msgstr "Zurück zum Shop"
-
-#: terms.php:119
-msgid "Please check your order"
-msgstr "Bitte überprüfen Sie Ihre Bestellung"
-
-#: terms.php:125
-msgid "Delivery costs"
-msgstr "Lieferkosten"
-
-#: terms.php:128
-msgid "Your payment method"
-msgstr "Ihre Bezahlmethode"
-
-#: terms.php:130
-msgid "Place Order"
-msgstr "Bestellung auslösen"
-
-#: terms.php:131
-msgid "Your password"
-msgstr "Ihr Passwort"
-
-#: terms.php:132
-msgid "New password saved"
-msgstr "Neues Passwort gespeichert"
-
-#: terms.php:133
-msgid "Current password"
-msgstr "Bisheriges Passwort"
-
-#: terms.php:134
-msgid "New password"
-msgstr "Neues Passwort"
-
-#: terms.php:135
-msgid "Repeat new password"
-msgstr "Neues Passwort wiederholen"
+#~ msgid "About us"
+#~ msgstr "Über uns"
+
+#~ msgid "Show product"
+#~ msgstr "Produkt anzeigen"
 
 #, fuzzy
 #~ msgid "Passowrd"
@@ -431,9 +569,6 @@ msgstr "Neues Passwort wiederholen"
 #~ msgid "Instanceable"
 #~ msgstr "Instanziierbar"
 
-#~ msgid "Search"
-#~ msgstr "Suchen"
-
 #~ msgid "Reset"
 #~ msgstr "Zurücksetzen"
 
@@ -448,9 +583,6 @@ msgstr "Neues Passwort wiederholen"
 
 #~ msgid "Shopobject details"
 #~ msgstr "Shopobjektdetails"
-
-#~ msgid "Close"
-#~ msgstr "Schließen"
 
 #~ msgid "Search for entity requests"
 #~ msgstr "Suche nach Aufträgen"
@@ -506,9 +638,6 @@ msgstr "Neues Passwort wiederholen"
 #~ msgid "Reg. date"
 #~ msgstr "Reg. Datum"
 
-#~ msgid "Address"
-#~ msgstr "Adresse"
-
 #~ msgid "Create manufacturer"
 #~ msgstr "Hersteller anlegen"
 
@@ -548,12 +677,6 @@ msgstr "Neues Passwort wiederholen"
 #~ msgid "Cart"
 #~ msgstr "Warenkorb"
 
-#~ msgid "Shipping"
-#~ msgstr "Versand"
-
-#~ msgid "Order number"
-#~ msgstr "Bestellnummer"
-
 #~ msgid "Cart sum"
 #~ msgstr "Warenkorbsumme"
 
@@ -589,9 +712,6 @@ msgstr "Neues Passwort wiederholen"
 
 #~ msgid "Order type"
 #~ msgstr "Bestellart"
-
-#~ msgid "Payment method"
-#~ msgstr "Bezahlmethode"
 
 #~ msgid "Delivery method"
 #~ msgstr "Liefermethode"
@@ -631,9 +751,6 @@ msgstr "Neues Passwort wiederholen"
 
 #~ msgid "Weight"
 #~ msgstr "Gewicht"
-
-#~ msgid "Billing"
-#~ msgstr "Rechnungen"
 
 #~ msgid "Overview of your traffic, your account and your invoices"
 #~ msgstr "Übersicht Ihres Verbrauchs, Ihrer Kontodaten und Ihrer Rechnungen"
@@ -1198,9 +1315,6 @@ msgstr "Neues Passwort wiederholen"
 #~ msgid "Server is"
 #~ msgstr "Ihr Serverstatus"
 
-#~ msgid "Welcome"
-#~ msgstr "Willkommen"
-
 #~ msgid "Hello"
 #~ msgstr "Hallo"
 
@@ -1251,9 +1365,6 @@ msgstr "Neues Passwort wiederholen"
 
 #~ msgid "Product variations"
 #~ msgstr "Produktvariationen"
-
-#~ msgid "Deliveryclass"
-#~ msgstr "Lieferklasse"
 
 #~ msgid "Calculated"
 #~ msgstr "Berechnet"
@@ -1625,9 +1736,6 @@ msgstr "Neues Passwort wiederholen"
 
 #~ msgid "Movements"
 #~ msgstr "Bewegungen"
-
-#~ msgid "Checkouts"
-#~ msgstr "Checkouts\t"
 
 #~ msgid "Search and management of manufacturers"
 #~ msgstr "Suche und Verwaltungen der Hersteller"
