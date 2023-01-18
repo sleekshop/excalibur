@@ -41,16 +41,16 @@
 	  <div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 		  <div class="modal-header">
-			<h5 class="modal-title" id="exampleModalCenterTitle">{% trans %}Login{% endtrans %}</h5>
+			<h5 class="modal-title" id="exampleModalCenterTitle">{%trans%}Login{%endtrans%}</h5>
 		  </div>
 		  <div class="modal-body">
 			<form method="POST" id="loginForm" action="express-login" class="uk-form uk-text-center">
 				<div class="form-group">
-				<label>{% trans %}Username{% endtrans %}</label><br>
+				<label>{%trans%}Username{%endtrans%}</label><br>
 				<input type="text" class="form-control input-lg" name="username">
 				</div>
 				<div class="form-group">
-				<label>{% trans %}Password{% endtrans %}</label><br>
+				<label>{%trans%}Password{%endtrans%}</label><br>
 				<input type="password" class="form-control input-lg" name="password">
 				</div>
 				<div class="form-group">
@@ -59,8 +59,8 @@
 			</form>
 		  </div>
 		  <div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans %}Close{% endtrans %}</button>
-			<button type="submit" form="loginForm" class="btn btn-primary">{% trans %}Login{% endtrans %}</button>
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">{%trans%}Close{%endtrans%}</button>
+			<button type="submit" form="loginForm" class="btn btn-primary">{%trans%}Login{%endtrans%}</button>
 		  </div>
 		</div>
 	  </div>
@@ -71,24 +71,24 @@
 	  <div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 		  <div class="modal-header">
-			<h5 class="modal-title" id="exampleModalCenterTitle">{% trans %}Register{% endtrans %}</h5>
+			<h5 class="modal-title" id="exampleModalCenterTitle">{%trans%}Register{%endtrans%}</h5>
 		  </div>
 		  <div class="modal-body">
 			<form method="POST" action="express-register" class="form" id="registerForm">
 				<div class="form-group">
-					<label>{% trans %}Username{% endtrans %}</label><br>
+					<label>{%trans%}Username{%endtrans%}</label><br>
 					<input type="input" class="form-control input-lg" name="user" value="{{user}}">
 				</div>
 				<div class="form-group">
-					<label>{% trans %}E-Mail{% endtrans %}</label><br>
+					<label>{%trans%}E-Mail{%endtrans%}</label><br>
 					<input type="input" class="form-control input-lg" name="email" value="{{email}}">
 				</div>
 				<div class="form-group">
-					<label>{% trans %}Password{% endtrans %}</label><br>
+					<label>{%trans%}Password{%endtrans%}</label><br>
 					<input type="password" class="form-control input-lg" name="password">
 				</div>
 				<div class="form-group">
-					<label>{% trans %}Repeat password{% endtrans %}</label><br>
+					<label>{%trans%}Repeat password{%endtrans%}</label><br>
 					<input type="password" class="form-control input-lg" name="password2">
 				</div>
 				<div class="form-group">
@@ -97,8 +97,8 @@
 			</form>
 		  </div>
 		  <div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans %}Close{% endtrans %}</button>
-			<button type="submit" form="registerForm" class="btn btn-primary">{% trans %}Register{% endtrans %}</button>
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">{%trans%}Close{%endtrans%}</button>
+			<button type="submit" form="registerForm" class="btn btn-primary">{%trans%}Register{%endtrans%}</button>
 		  </div>
 		</div>
 	  </div>
@@ -119,7 +119,7 @@
 	
 	{#
 	<section class="payment_box pb-4">
-	<h3>{% trans %}Payment Method{% endtrans %}</h3>
+	<h3>{%trans%}Payment Method{%endtrans%}</h3>
 				
 	<div class="d-flex align-items-center pt-lg-3">
 	  <label class="pay_item"><img src="/img/paypal.png" alt="paypal">
@@ -142,22 +142,22 @@
     </section>
 	#}
 	<section class="payment_box pb-4">
-	<h3>{% trans %}Payment{% endtrans %}</h3>
-	<p>{% trans %}After placing your order, you will be redirected to mollie for payment.{% endtrans %}</p>
+	<h3>{%trans%}Payment{%endtrans%}</h3>
+	<p>{%trans%}After placing your order, you will be redirected to mollie for payment.{%endtrans%}</p>
 	<img src="/img/paymentsbymollie.png" style="max-width: 55%;" />
 	<input type="hidden" value="9" name="id_payment" id="id_payment">
 	</section>
 		
 	{% if error_count>0 %}
 	<div class="alert alert-danger" role="alert">
-	  {% trans %}Please fill in all fields marked with *{% endtrans %}
+	  {%trans%}Please fill in all fields marked with *{%endtrans%}
 	</div>
 	{% endif %}
 	
 	<br>
 	<h3>Ihre Daten</h3>
 	{% if username == "" %}
-	<p>Sie haben bereits ein Konto? <a type="button" data-toggle="modal" data-target="#login" href="javascript:;">{% trans %}Anmelden{% endtrans %}</a> {% trans %}oder{% endtrans %} <a type="button" data-toggle="modal" data-target="#register" href="javascript:;">{% trans %}Registrieren{% endtrans %}</a></p>
+	<p>Sie haben bereits ein Konto? <a type="button" data-toggle="modal" data-target="#login" href="javascript:;">{%trans%}Anmelden{%endtrans%}</a> {%trans%}oder{%endtrans%} <a type="button" data-toggle="modal" data-target="#register" href="javascript:;">{%trans%}Registrieren{%endtrans%}</a></p>
 	{% endif %}
 	<br>
 	
@@ -166,53 +166,53 @@
 	  </div>
 	  <div class="form-group">
 		<select name="salutation" class="form-control">
-		  <option value="">{% trans %}Salutation{% endtrans %}</option>
-		  <option value="Mrs" {% if userdata.salutation=='Mrs' %}selected{%endif%}>{% trans %}Mrs{% endtrans %}</option>
-		  <option value="Mr" {% if userdata.salutation=='Mr' %}selected{%endif%}>{% trans %}Mr{% endtrans %}</option>
+		  <option value="">{%trans%}Salutation{%endtrans%}</option>
+		  <option value="Mrs" {% if userdata.salutation=='Mrs' %}selected{%endif%}>{%trans%}Mrs{%endtrans%}</option>
+		  <option value="Mr" {% if userdata.salutation=='Mr' %}selected{%endif%}>{%trans%}Mr{%endtrans%}</option>
 		</select>
 	  </div>
 	  <div class="row">
 		<div class="col-lg-6 form-group {{error.firstname}}">
-		  <input type="text" placeholder="{% trans %}Firstname{% endtrans %} *" name="firstname" class="form-control" value="{{userdata.firstname}}" required>
+		  <input type="text" placeholder="{%trans%}Firstname{%endtrans%} *" name="firstname" class="form-control" value="{{userdata.firstname}}" required>
 		</div>
 		<div class="col-lg-6 form-group {{error.lastname}}">
-		  <input type="text" placeholder="{% trans %}Lastname{% endtrans %} *" name="lastname" class="form-control" value="{{userdata.lastname}}" required>
+		  <input type="text" placeholder="{%trans%}Lastname{%endtrans%} *" name="lastname" class="form-control" value="{{userdata.lastname}}" required>
 		</div>
 	  </div>
 	  <div class="form-group">
-		<input type="text" placeholder="{% trans %}Company{% endtrans %}" name="companyname" class="form-control" value="{{userdata.companyname}}">
+		<input type="text" placeholder="{%trans%}Company{%endtrans%}" name="companyname" class="form-control" value="{{userdata.companyname}}">
 	  </div>
 	  <div class="form-group">
-		<input type="text" placeholder="{% trans %}Department{% endtrans %}" name="department" class="form-control" value="{{userdata.department}}">
+		<input type="text" placeholder="{%trans%}Department{%endtrans%}" name="department" class="form-control" value="{{userdata.department}}">
 	  </div>
 	  <div class="row">
 	  <div class="col-lg-6 form-group {{error.street}}">
-		<input type="text" placeholder="{% trans %}Street{% endtrans %} *" name="street" class="form-control" value="{{userdata.street}}" required>
+		<input type="text" placeholder="{%trans%}Street{%endtrans%} *" name="street" class="form-control" value="{{userdata.street}}" required>
 	  </div>
 	  <div class="col-lg-6 form-group {{error.number}}">
-		<input type="text" placeholder="{% trans %}Number{% endtrans %} *" name="number" class="form-control" value="{{userdata.number}}" required>
+		<input type="text" placeholder="{%trans%}Number{%endtrans%} *" name="number" class="form-control" value="{{userdata.number}}" required>
 	  </div>
 	  </div>
 	  <div class="row">
 	  <div class="col-lg-6 form-group {{error.city}}">
-		<input type="text" placeholder="{% trans %}City{% endtrans %} *" name="city" class="form-control" value="{{userdata.city}}" required>
+		<input type="text" placeholder="{%trans%}City{%endtrans%} *" name="city" class="form-control" value="{{userdata.city}}" required>
 	  </div>
 	  <div class="col-lg-6 form-group {{error.zip}}">
-		<input type="text" placeholder="{% trans %}Zip{% endtrans %} *" name="zip" class="form-control" value="{{userdata.zip}}" required>
+		<input type="text" placeholder="{%trans%}Zip{%endtrans%} *" name="zip" class="form-control" value="{{userdata.zip}}" required>
 	  </div>
 	  </div>
 	  <div class="form-group {{error.state}}">
-		<input type="text" placeholder="{% trans %}State{% endtrans %} *" name="state" class="form-control" value="{{userdata.state}}">
+		<input type="text" placeholder="{%trans%}State{%endtrans%} *" name="state" class="form-control" value="{{userdata.state}}">
 	  </div>
 	  <div class="form-group {{error.country}}">
 		<select name="country" class="form-control" required>
-		  <option value="">{% trans %}Please choose your country{% endtrans %}</option>
-		  <option value="DE" {% if userdata.country=='DE'%}selected{%endif%}>{% trans %}Germany{% endtrans %}</option>
+		  <option value="">{%trans%}Please choose your country{%endtrans%}</option>
+		  <option value="DE" {% if userdata.country=='DE'%}selected{%endif%}>{%trans%}Germany{%endtrans%}</option>
 		</select>
 	  </div>
 	  
 	  <div class="form-group">
-		  <textarea type="text" placeholder="{% trans %}Notes{% endtrans %}" name="notes" class="form-control">{{userdata.notes}}</textarea>
+		  <textarea type="text" placeholder="{%trans%}Notes{%endtrans%}" name="notes" class="form-control">{{userdata.notes}}</textarea>
 	  </div>
 	  
 	  <div class="different-address">
@@ -226,48 +226,48 @@
 	  
 		<div class="form-group">
 		  <select name="salutation" class="form-control">
-			<option value="">{% trans %}Salutation{% endtrans %}</option>
-			<option value="Mrs" {% if userdata.salutation=='Mrs' %}selected{%endif%}>{% trans %}Mrs{% endtrans %}</option>
-			<option value="Mr" {% if userdata.salutation=='Mr' %}selected{%endif%}>{% trans %}Mr{% endtrans %}</option>
+			<option value="">{%trans%}Salutation{%endtrans%}</option>
+			<option value="Mrs" {% if userdata.salutation=='Mrs' %}selected{%endif%}>{%trans%}Mrs{%endtrans%}</option>
+			<option value="Mr" {% if userdata.salutation=='Mr' %}selected{%endif%}>{%trans%}Mr{%endtrans%}</option>
 		  </select>
 		</div>
 		<div class="row">
 		  <div class="col-lg-6 form-group {{error.firstname}}">
-			<input type="text" placeholder="{% trans %}Firstname{% endtrans %} *" name="dfirstname" class="form-control" value="{{userdata.firstname}}">
+			<input type="text" placeholder="{%trans%}Firstname{%endtrans%} *" name="dfirstname" class="form-control" value="{{userdata.firstname}}">
 		  </div>
 		  <div class="col-lg-6 form-group {{error.lastname}}">
-			<input type="text" placeholder="{% trans %}Lastname{% endtrans %} *" name="dlastname" class="form-control" value="{{userdata.lastname}}">
+			<input type="text" placeholder="{%trans%}Lastname{%endtrans%} *" name="dlastname" class="form-control" value="{{userdata.lastname}}">
 		  </div>
 		</div>
 		<div class="form-group">
-		  <input type="text" placeholder="{% trans %}Company{% endtrans %}" name="dcompanyname" class="form-control" value="{{userdata.companyname}}">
+		  <input type="text" placeholder="{%trans%}Company{%endtrans%}" name="dcompanyname" class="form-control" value="{{userdata.companyname}}">
 		</div>
 		<div class="form-group">
-		  <input type="text" placeholder="{% trans %}Department{% endtrans %}" name="ddepartment" class="form-control" value="{{userdata.department}}">
+		  <input type="text" placeholder="{%trans%}Department{%endtrans%}" name="ddepartment" class="form-control" value="{{userdata.department}}">
 		</div>
 		<div class="row">
 		<div class="col-lg-6 form-group {{error.street}}">
-		  <input type="text" placeholder="{% trans %}Street{% endtrans %} *" name="dstreet" class="form-control" value="{{userdata.street}}">
+		  <input type="text" placeholder="{%trans%}Street{%endtrans%} *" name="dstreet" class="form-control" value="{{userdata.street}}">
 		</div>
 		<div class="col-lg-6 form-group {{error.number}}">
-		  <input type="text" placeholder="{% trans %}Number{% endtrans %} *" name="dnumber" class="form-control" value="{{userdata.number}}">
+		  <input type="text" placeholder="{%trans%}Number{%endtrans%} *" name="dnumber" class="form-control" value="{{userdata.number}}">
 		</div>
 		</div>
 		<div class="row">
 		<div class="col-lg-6 form-group {{error.city}}">
-		  <input type="text" placeholder="{% trans %}City{% endtrans %} *" name="dcity" class="form-control" value="{{userdata.city}}">
+		  <input type="text" placeholder="{%trans%}City{%endtrans%} *" name="dcity" class="form-control" value="{{userdata.city}}">
 		</div>
 		<div class="col-lg-6 form-group {{error.zip}}">
-		  <input type="text" placeholder="{% trans %}Zip{% endtrans %} *" name="dzip" class="form-control" value="{{userdata.zip}}">
+		  <input type="text" placeholder="{%trans%}Zip{%endtrans%} *" name="dzip" class="form-control" value="{{userdata.zip}}">
 		</div>
 		</div>
 		<div class="form-group {{error.state}}">
-		  <input type="text" placeholder="{% trans %}State{% endtrans %} *" name="dstate" class="form-control" value="{{userdata.state}}">
+		  <input type="text" placeholder="{%trans%}State{%endtrans%} *" name="dstate" class="form-control" value="{{userdata.state}}">
 		</div>
 		<div class="form-group {{error.country}}">
 		  <select name="dcountry" class="form-control">
-			<option value="">{% trans %}Please choose your country{% endtrans %}</option>
-			<option value="DE" {% if userdata.country=='DE'%}selected{%endif%}>{% trans %}Germany{% endtrans %}</option>
+			<option value="">{%trans%}Please choose your country{%endtrans%}</option>
+			<option value="DE" {% if userdata.country=='DE'%}selected{%endif%}>{%trans%}Germany{%endtrans%}</option>
 		  </select>
 		  <!-- <input type="text" name="country" class="form-control" value="{$userdata.country}"> -->
 		</div>
@@ -281,7 +281,7 @@
 
   <div class="col-md-6 rightbg6" style="background-color: #f7f7f7; border-radius: 0 10px 10px 0;">
 	<br />
-	<h3>{% trans %}Your cart{% endtrans %}</h3>
+	<h3>{%trans%}Your cart{%endtrans%}</h3>
 	<br />
 	
 	<div style="background-color: #ffffff; margin-top: 5vh; border-radius: 10px; ">
@@ -290,9 +290,9 @@
 		<thead>
 		  <tr>
 			<th class="hidden-xs"></th>
-			<th>{% trans %}Product{% endtrans %}</th>
-			<th class="text-right">{% trans %}Quantity{% endtrans %}</th>
-			<th class="text-right">{% trans %}Sum{% endtrans %}</th>
+			<th>{%trans%}Product{%endtrans%}</th>
+			<th class="text-right">{%trans%}Quantity{%endtrans%}</th>
+			<th class="text-right">{%trans%}Sum{%endtrans%}</th>
 		  </tr>
 		</thead>
 		<tbody>
@@ -322,7 +322,7 @@
 		  {% endif %}
 		  <tr>
 			<td>
-			  <h5>{% trans %}Sum{% endtrans %}:</h5>
+			  <h5>{%trans%}Sum{%endtrans%}:</h5>
 			</td>
 			<td></td>
 			<td></td>
@@ -335,7 +335,7 @@
 	  
 	</div>
 	<br />
-	  <p align="right"><button type="submit" form="expressForm" class="btn btn-primary float-right" style="border-radius: 10px;">{% trans %}Next{% endtrans %}</button>
+	  <p align="right"><button type="submit" form="expressForm" class="btn btn-primary float-right" style="border-radius: 10px;">{%trans%}Next{%endtrans%}</button>
   </div>
 
 </form>

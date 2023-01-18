@@ -84,7 +84,7 @@ final class TranslationExtension extends AbstractExtension
     public function getTokenParsers(): array
     {
         return [
-            // {% trans %}Symfony is great!{% endtrans %}
+            // {%trans%}Symfony is great!{%endtrans%}
             new TransTokenParser(),
 
             // {% trans_default_domain "foobar" %}

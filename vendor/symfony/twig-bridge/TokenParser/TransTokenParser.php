@@ -67,7 +67,7 @@ final class TransTokenParser extends AbstractTokenParser
             }
         }
 
-        // {% trans %}message{% endtrans %}
+        // {%trans%}message{%endtrans%}
         $stream->expect(Token::BLOCK_END_TYPE);
         $body = $this->parser->subparse([$this, 'decideTransFork'], true);
 
