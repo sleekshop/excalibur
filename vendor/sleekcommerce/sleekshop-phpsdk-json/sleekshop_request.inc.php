@@ -4,9 +4,9 @@
 * version: 1.3.0.0
 * (c) sleekcommerce - Kaveh Raji
 */
-define("LICENCE_USERNAME","excaliburtest_vond8MbNzHm9G6YKrbU0");
-define("SERVER","https://excaliburtest.sleekshop.net/srv/service/");
-define("LICENCE_PASSWORD","ao8am7WAC4woHE9OEAcp");
+define("SERVER","https://YOUR-SHOP.sleekshop.net/srv/service/");
+define("LICENCE_USERNAME","");
+define("LICENCE_PASSWORD","");
 
 class SleekShopRequest
 {

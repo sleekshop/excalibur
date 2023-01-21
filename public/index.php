@@ -119,27 +119,27 @@ $app->add(TwigMiddleware::create($app, $twig));
 		file_put_contents(TEMPLATE_PATH . "/tpl_vars.twig", $switcher);
 
     /*
-    * now the shop_conf.inc.php
-    */
-    $start_id=$res["attributes"]["start_id"]["value"];
-    $categories_id=$res["attributes"]["categories_id"]["value"];
-    $order_sender=$res["attributes"]["order_sender"]["value"];
-    $conf='<?php
-    /*
-     * ShopConf - file
-     *
-     * @ Kaveh Raji <kr@sleekcommerce.com>
-     */
-     //The Start-Category
-     define("START_ID",'.$start_id.');
-     //The categories id
-     define("CATEGORIES_ID",'.$categories_id.');
-     //The sender and receiver of the orders
-     define("ORDER_SENDER","'.$order_sender.'");
-     ?>';
-     file_put_contents(SHOP_CONF_PATH . "/shop_conf.inc.php", $conf);
-		 echo "WEBHOOK_EXECUTED";
-	   die();
+  * now the shop_conf.inc.php
+  */
+  $res["attributes"]["start_id"]["value"]!="" ? $start_id=$res["attributes"]["start_id"]["value"] : $start_id=1;
+  $res["attributes"]["categories_id"]["value"]!="" ? $categories_id=$res["attributes"]["categories_id"]["value"] : $categories_id=2;
+  $res["attributes"]["order_sender"]["value"]!="" ? $order_sender=$res["attributes"]["order_sender"]["value"] : $order_sender="info@sleekshop.io";
+  $conf='<?php
+  /*
+   * ShopConf - file
+   *
+   * @ Kaveh Raji <kr@sleekcommerce.com>
+   */
+   //The Start-Category
+   define("START_ID",'.$start_id.');
+   //The categories id
+   define("CATEGORIES_ID",'.$categories_id.');
+   //The sender and receiver of the orders
+   define("ORDER_SENDER","'.$order_sender.'");
+   ?>';
+   file_put_contents(SHOP_CONF_PATH . "/shop_conf.inc.php", $conf);
+   echo "WEBHOOK_EXECUTED";
+   die();
 	});
 
 
