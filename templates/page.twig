@@ -1,3 +1,4 @@
+{%import "tpl_vars.twig" as tpl_vars%}
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,6 +7,7 @@
 		<title>{{res.title}}</title>
 		<!-- Latest compiled and minified CSS -->
 	<link rel="preload" href="/css/bootstrap/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	{%include "part_favicon.twig"%}
 	<noscript><link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css"></noscript>
 	<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 	<noscript><link rel="stylesheet" href="/css/styles.css"></noscript>
@@ -45,13 +47,16 @@
 				<span>
 
 					<ul class="navbar-nav me-auto mb-2 mb-sm-0">
-						<li class="nav-item dropdown">
+
+
+						<li class="nav-item dropdown" style="{{tpl_vars.sys_language_switcher()}}">
 	            <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown" aria-expanded="false">{{language|slice(0,2)}}</a>
 	            <ul class="dropdown-menu" aria-labelledby="dropdown03">
-	              <li><a class="dropdown-item" href="change-lang?lang=de_DE">de</a></li>
+	              <li><a class="dropdown-item" href="change-lang?lang=de_DE">de {{sys_language_switcher}}s</a></li>
 	              <li><a class="dropdown-item" href="change-lang?lang=en_EN">en</a></li>
 	            </ul>
 	          </li>
+						
 
  				   <li class="nav-item">{% if username!='' %}<a href="/profile" class="nav-link">{%trans%}You are logged in as{%endtrans%} {{ username }}</a>{% else %}<a href="login?profile=1" class="nav-link">{%trans%}Login{%endtrans%}</a>{% endif %}</li>
  				   {% if username!='' %}<li class="nav-item"><a href="/logout" class="nav-link">{%trans%}Logout{%endtrans%}</a></li>{% endif %}

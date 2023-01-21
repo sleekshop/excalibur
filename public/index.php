@@ -10,11 +10,16 @@ use Symfony\Component\Translation\IdentityTranslator;
 use Symfony\Component\Translation\Loader\MoFileLoader;
 use Twig\TwigFunction;
 
+if (!defined("SHOP_CONF_PATH")){
+  define("SHOP_CONF_PATH","../vendor/sleekcommerce");
+}
+
 if (!defined("TEMPLATE_PATH")) {
   define("TEMPLATE_PATH", "../templates");
 }
 
 require __DIR__ . '/../vendor/autoload.php';
+require SHOP_CONF_PATH . "/shop_conf.inc.php";
 require "../vendor/sleekcommerce/init.inc.php";
 
 // Create App
@@ -73,15 +78,68 @@ $app->add(TwigMiddleware::create($app, $twig));
 		$logo = $res["attributes"]["logo"]["value"];
 		if (is_file(TEMPLATE_PATH . "/part_logo.twig")) unlink(TEMPLATE_PATH . "/part_logo.twig");
 		file_put_contents(TEMPLATE_PATH . "/part_logo.twig", "<img src='" . $logo . "' class='img-fluid' alt='' />");
+    /*
+    favicon - section
+    */
+    $favicon = $res["attributes"]["favicon"]["value"];
+    if (is_file(TEMPLATE_PATH . "/part_favicon.twig")) unlink(TEMPLATE_PATH . "/part_favicon.twig");
+		file_put_contents(TEMPLATE_PATH . "/part_favicon.twig", "<link rel='icon' type='image/png' href='".$favicon."'>");
 
-		$face = $res["attributes"]["facebook_link"]["value"];
-		$insta = $res["attributes"]["instagram_link"]["value"];
 		if (is_file(TEMPLATE_PATH . "/part_social_links.twig")) unlink(TEMPLATE_PATH . "/part_social_links.twig");
-		file_put_contents(TEMPLATE_PATH . "/part_social_links.twig", "<a href='" . $face . "' target='_blank'><img src='../img/facebook.png' width='50px'></a> <a href='" . $insta .	"' target='_blank'><img src='../img/insta.jpg' width='50px'></a>" );
+    /*
+    Setting up the social - media icons
+    */
+    $insta = $res["attributes"]["instagram_link"]["value"];
+    $tiktok = $res["attributes"]["tiktok_link"]["value"];
+    $pinterest = $res["attributes"]["pinterest_link"]["value"];
+    $twitter = $res["attributes"]["twitter_link"]["value"];
+    $youtube = $res["attributes"]["youtube_link"]["value"];
+    $face = $res["attributes"]["facebook_link"]["value"];
+		$spotify = $res["attributes"]["spotify_link"]["value"];
+    $linkedin = $res["attributes"]["linkedin_link"]["value"];
 
-		echo "WEBHOOK_EXECUTED";
-	    die();
 
+    $linkstr="";
+    if($insta!="") $linkstr.="<a href='" . $insta .	"' target='_blank'><img src='../img/instagram.png' width='30px'></a> ";
+    if($tiktok!="") $linkstr.="<a href='" . $tiktok .	"' target='_blank'><img src='../img/tiktok.png' width='30px'></a> ";
+    if($pinterest!="") $linkstr.="<a href='" . $pinterest .	"' target='_blank'><img src='../img/pinterest.png' width='30px'></a> ";
+    if($twitter!="") $linkstr.="<a href='" . $twitter .	"' target='_blank'><img src='../img/twitter.png' width='30px'></a> ";
+    if($youtube!="") $linkstr.="<a href='" . $youtube .	"' target='_blank'><img src='../img/youtube.png' width='30px'></a> ";
+    if($face!="") $linkstr.="<a href='" . $face .	"' target='_blank'><img src='../img/facebook.png' width='30px'></a> ";
+    if($spotify!="") $linkstr.="<a href='" . $spotify .	"' target='_blank'><img src='../img/spotify.png' width='30px'></a> ";
+    if($linkedin!="") $linkstr.="<a href='" . $linkedin .	"' target='_blank'><img src='../img/linkedin.png' width='30px'></a> ";
+		file_put_contents(TEMPLATE_PATH . "/part_social_links.twig", $linkstr );
+
+    /*
+    * setting language switcher
+    */
+    $language_switcher=$res["attributes"]["language_switcher"]["value"];
+    $switcher="{%macro sys_language_switcher()%}display:none;{%endmacro%}";
+    if($language_switcher!="false") $switcher="{%macro sys_language_switcher()%}display:block;{%endmacro%}";
+		file_put_contents(TEMPLATE_PATH . "/tpl_vars.twig", $switcher);
+
+    /*
+    * now the shop_conf.inc.php
+    */
+    $start_id=$res["attributes"]["start_id"]["value"];
+    $categories_id=$res["attributes"]["categories_id"]["value"];
+    $order_sender=$res["attributes"]["order_sender"]["value"];
+    $conf='<?php
+    /*
+     * ShopConf - file
+     *
+     * @ Kaveh Raji <kr@sleekcommerce.com>
+     */
+     //The Start-Category
+     define("START_ID",'.$start_id.');
+     //The categories id
+     define("CATEGORIES_ID",'.$categories_id.');
+     //The sender and receiver of the orders
+     define("ORDER_SENDER","'.$order_sender.'");
+     ?>';
+     file_put_contents(SHOP_CONF_PATH . "/shop_conf.inc.php", $conf);
+		 echo "WEBHOOK_EXECUTED";
+	   die();
 	});
 
 
