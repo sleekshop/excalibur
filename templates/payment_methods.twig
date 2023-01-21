@@ -7,7 +7,7 @@
     </div>
   </div>
   <div class="col-md-12">
-    <h1>{% trans %}Choose your payment method{% endtrans %}:</h1>
+    <h1>{%trans%}Choose your payment method{%endtrans%}:</h1>
     <br /><br />
   </div>
   <div class="col-md-6">
@@ -23,7 +23,7 @@
         ><img src="/img/paypal.jpg" class=""
       /></a>
       <hr />
-      <p>{% trans %}Pay easily with PayPal{% endtrans %}</p>
+      <p>{%trans%}Pay easily with PayPal{%endtrans%}</p>
     </div>
   </div>
   <div class="col-md-6">
@@ -40,7 +40,7 @@
         ><img src="/img/sofortueberweisung.jpg" class=""
       /></a>
       <hr />
-      <p>{% trans %}Comfortable payment with your bank-account{% endtrans %}</p>
+      <p>{%trans%}Comfortable payment with your bank-account{%endtrans%}</p>
     </div>
   </div>
 
@@ -58,7 +58,7 @@
         ><img src="/img/stripe.png" class=""
       /></a>
       <hr />
-      <p>{% trans %}Pay with your creditcard{% endtrans %}</p>
+      <p>{%trans%}Pay with your creditcard{%endtrans%}</p>
     </div>
   </div>
 
@@ -76,8 +76,8 @@
       /></a>
       <hr />
       <p>
-        {% trans %}Pay easily after receiving your invoice. After that we will
-        send you the ordered items{% endtrans %}
+        {%trans%}Pay easily after receiving your invoice. After that we will
+        send you the ordered items{%endtrans%}
       </p>
     </div>
   </div>
@@ -111,7 +111,7 @@
         <form class="form payfrm" method="POST" action="order_summary">
           <div class="form-group">
             <label class="card-number-label"
-              >{% trans %}Creditcard number{% endtrans %}</label
+              >{%trans%}Creditcard number{%endtrans%}</label
             ><br />
             <input
               class="card-number span2 form-control"
@@ -134,7 +134,7 @@
           </div>
           <div class="form-group">
             <label class="card-expiry-label"
-              >{% trans %}Expiration month{% endtrans %}</label
+              >{%trans%}Expiration month{%endtrans%}</label
             ><br />
             <input
               class="card-expiry-month span1 form-control"
@@ -145,7 +145,7 @@
             />
           </div>
           <div class="form-group">
-            <label>{% trans %}Expiration year{% endtrans %}</label><br />
+            <label>{%trans%}Expiration year{%endtrans%}</label><br />
             <input
               class="card-expiry-year span1 form-control"
               name="exp_year"
@@ -176,7 +176,7 @@
             name="btn_check_cc"
             id="btn_check_cc"
             class="btn btn-primary"
-            value="{% trans %}Weiter{% endtrans %}"
+            value="{%trans%}Weiter{%endtrans%}"
           />
           <input type="hidden" name="token" id="token" />
           <input

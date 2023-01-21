@@ -21,27 +21,27 @@
       <div style="padding-top: 40px">
         <a href="/">{%include 'part_logo.twig'%}</a>
       </div>
-      <h3>{% trans %}Please check your order{% endtrans %}</h3>
+      <h3>{%trans%}Please check your order{%endtrans%}</h3>
 
       <div class="col-md-12">
         <hr />
         <h3>
-          {% trans %}Your payment method{% endtrans %}:
+          {%trans%}Your payment method{%endtrans%}:
           {{order.order_payment_method}}
         </h3>
       </div>
 
       <div class="col-md-12">
         <hr />
-        <h3>{% trans %}Your data{% endtrans %}:</h3><br />
-        <h4>{% trans %}Delivery address:{% endtrans %}</h4>
+        <h3>{%trans%}Your data{%endtrans%}:</h3><br />
+        <h4>{%trans%}Delivery address:{%endtrans%}</h4>
         <p>{{order.delivery_salutation}} {{order.delivery_firstname}}
         {{order.delivery_lastname}}<br />
         {{order.delivery_street}} {{order.delivery_number}}<br />
         {{order.delivery_zip}} {{order.delivery_city}} -
         {{order.delivery_country}}</p>
         <br />
-        <h4>{% trans %}Billing address:{% endtrans %}</h4>
+        <h4>{%trans%}Billing address:{%endtrans%}</h4>
         <p>{{order.invoice_salutation}} {{order.invoice_firstname}}
         {{order.invoice_lastname}}<br />
         {{order.invoice_street}} {{order.invoice_number}}<br />
@@ -59,7 +59,7 @@
       "
     >
       <br />
-      <h3>{% trans %}Your cart{% endtrans %}</h3>
+      <h3>{%trans%}Your cart{%endtrans%}</h3>
       <br />
       <div
         style="background-color: #ffffff; margin-top: 5vh; border-radius: 10px"
@@ -68,10 +68,10 @@
           <thead>
             <tr>
               <th class="hidden-xs"></th>
-              <th>{% trans %}Product{% endtrans %}</th>
-              <th class="text-right">{% trans %}Price{% endtrans %}</th>
-              <th class="text-right">{% trans %}Quantity{% endtrans %}</th>
-              <th class="text-right">{% trans %}Sum price{% endtrans %}</th>
+              <th>{%trans%}Product{%endtrans%}</th>
+              <th class="text-right">{%trans%}Price{%endtrans%}</th>
+              <th class="text-right">{%trans%}Quantity{%endtrans%}</th>
+              <th class="text-right">{%trans%}Sum price{%endtrans%}</th>
             </tr>
           </thead>
           <tbody>
@@ -97,7 +97,7 @@
             <tr>
               <td class="hidden-xs"></td>
               <td></td>
-              <td><h5>{% trans %}Delivery costs{% endtrans %}:</h5></td>
+              <td><h5>{%trans%}Delivery costs{%endtrans%}:</h5></td>
               <td></td>
               <td class="text-right">
                 <h5>{{cart.delivery_costs.sum|number_format(2)}} EUR</h5>
@@ -106,7 +106,7 @@
             <tr>
               <td class="hidden-xs"></td>
               <td></td>
-              <td><h4>{% trans %}Sum price{% endtrans %}:</h4></td>
+              <td><h4>{%trans%}Sum price{%endtrans%}:</h4></td>
               <td></td>
               <td class="text-right">
                 <h4>
@@ -117,7 +117,7 @@
             <tr>
               <td class="hidden-xs"></td>
               <td></td>
-              <td><h5>{% trans %}Included tax{% endtrans %}:</h5></td>
+              <td><h5>{%trans%}Included tax{%endtrans%}:</h5></td>
               <td></td>
               <td class="text-right">
                 <h5>{{sum_tax|number_format(2)}} EUR</h5>
@@ -138,7 +138,7 @@
           <input
             type="button"
             class="btn btn-lg btn-primary order-btn"
-            value="{% trans %}Place Order{% endtrans %}"
+            value="{%trans%}Place Order{%endtrans%}"
             onClick="OrderPlaced();"
           /><span id="wait-msg" style="display: none">wait...</span>
         </p>
