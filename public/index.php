@@ -70,7 +70,6 @@ $app->add(TwigMiddleware::create($app, $twig));
 		$prefix = array_shift($langstmp);
 
 		$res = ShopobjectsCtl::GetContentDetails($id, $lang);
-print_r($res);
 		$about_us = $res["attributes"]["about_us_footer"]["value"];
 		if (is_file(TEMPLATE_PATH . "/part_about_us_footer_" . $prefix . ".twig")) unlink(TEMPLATE_PATH . "/part_about_us_footer_" . $prefix . ".twig");
 		file_put_contents(TEMPLATE_PATH . "/part_about_us_footer_" . $prefix . ".twig", $about_us);
