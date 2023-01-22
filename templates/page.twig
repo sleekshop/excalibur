@@ -7,11 +7,12 @@
 		<title>{{res.title}}</title>
 		<!-- Latest compiled and minified CSS -->
 	<link rel="preload" href="/css/bootstrap/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	{%include "part_favicon.twig"%}
+	{%include "part_favicon.twig" ignore missing%}
 	<noscript><link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css"></noscript>
 	<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 	<noscript><link rel="stylesheet" href="/css/styles.css"></noscript>
 	<base href="/" >
+	{% include "part_header_snippets.twig" ignore missing%}
 	</head>
 	<body>
 
@@ -56,7 +57,7 @@
 	              <li><a class="dropdown-item" href="change-lang?lang=en_EN">en</a></li>
 	            </ul>
 	          </li>
-						
+
 
  				   <li class="nav-item">{% if username!='' %}<a href="/profile" class="nav-link">{%trans%}You are logged in as{%endtrans%} {{ username }}</a>{% else %}<a href="login?profile=1" class="nav-link">{%trans%}Login{%endtrans%}</a>{% endif %}</li>
  				   {% if username!='' %}<li class="nav-item"><a href="/logout" class="nav-link">{%trans%}Logout{%endtrans%}</a></li>{% endif %}
@@ -115,7 +116,7 @@
   <div class="row">
 
 <div class="col-md-4 mt-2">
-<a href="/">{%include 'part_logo.twig'%}</a>
+<a href="/">{%include 'part_logo.twig' ignore missing%}</a>
 </div>
 
 <div class="col-md-8">
@@ -146,7 +147,7 @@
 			  <hr>
 				<div class="row">
 			  <div class="col-md-3">
-			  {%include 'part_about_us_footer_'~language|slice(0,2) ~ '.twig'%}
+			  {%include 'part_about_us_footer_'~language|slice(0,2) ~ '.twig' ignore missing%}
 			  </div>
 			  <div class="col-md-3">
 			  <h4>Infos</h4>
@@ -164,7 +165,7 @@
 			  </div>
 			  <div class="col-md-3">
 			  <h4>Netzwerke</h4>
-			  {%include 'part_social_links.twig'%}
+			  {%include 'part_social_links.twig' ignore missing%}
 			  </div>
 			  <div class="col-md-12">
 				<p align="right">Powered by <a href="https://www.sleekshop.io">sleekshop</a></p>
@@ -180,4 +181,5 @@
 	<script src="/js/jquery/jquery.imageLens.js" defer></script>
 	<script src="/js/mayalist/mayalist.js" defer></script>
 	<script src="/js/main.js" defer></script>
+	{% include "part_bottom_snippets.twig" ignore missing%}
 </html>
