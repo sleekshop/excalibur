@@ -115,7 +115,7 @@ $app->add(TwigMiddleware::create($app, $twig));
     $language_switcher=$res["attributes"]["language_switcher"]["value"];
     $switcher="{%macro sys_language_switcher()%}display:none;{%endmacro%}";
     if($language_switcher!="false") $switcher="{%macro sys_language_switcher()%}display:block;{%endmacro%}";
-		file_put_contents(TEMPLATE_PATH . "/tpl_vars.twig", $switcher);
+		file_put_contents(TEMPLATE_PATH . "/part_tpl_vars.twig", $switcher);
 
     /*
   * now the shop_conf.inc.php
