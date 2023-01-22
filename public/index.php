@@ -137,6 +137,12 @@ $app->add(TwigMiddleware::create($app, $twig));
    define("ORDER_SENDER","'.$order_sender.'");
    ?>';
    file_put_contents(SHOP_CONF_PATH . "/shop_conf.inc.php", $conf);
+
+   /*
+  * Now the header and bottom snippets
+  */
+  if(!is_file(TEMPLATE_PATH . "/part_header_snippets.twig")) file_put_contents(TEMPLATE_PATH . "/part_header_snippets.twig", " ");
+  if(!is_file(TEMPLATE_PATH . "/part_bottom_snippets.twig")) file_put_contents(TEMPLATE_PATH . "/part_bottom_snippets.twig", " ");
    echo "WEBHOOK_EXECUTED";
    die();
 	});
