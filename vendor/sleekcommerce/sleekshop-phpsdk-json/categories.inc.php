@@ -22,6 +22,7 @@ public static function GetCategories($id_parent=0,$lang=DEFAULT_LANGUAGE)
     $piecearray=array();
     $piecearray["id"]=(int)$shopcategory->id;
     $piecearray["label"]=(string)$shopcategory->label;
+    $piecearray["name"]=(string)$shopcategory->name;
     $piecearray["permalink"]=(string)$shopcategory->seo->permalink;
     $piecearray["title"]=(string)$shopcategory->seo->title;
     $piecearray["description"]=(string)$shopcategory->seo->description;
@@ -32,6 +33,7 @@ public static function GetCategories($id_parent=0,$lang=DEFAULT_LANGUAGE)
     }
     $piecearray["attributes"]=$attributes;
     isset($shopcategory->attributes->link->value) ? $piecearray["link"]=(string)$shopcategory->attributes->link->value : $piecearray["link"]="";
+    isset($shopcategory->attributes->location->value) ? $piecearray["location"]=(string)$shopcategory->attributes->location->value : $piecearray["location"]="";
     $piecearray["children"]=self::GetCategories($piecearray["id"],$lang);
     $result[]=$piecearray;
 
@@ -47,9 +49,9 @@ public static function GetCategories($id_parent=0,$lang=DEFAULT_LANGUAGE)
  {
  	if(!file_exists(TEMPLATE_PATH . "/cache/menu.tmp"))
  	 {
- 		 $res=CategoriesCtl::GetCategories(CATEGORIES_ID,$language);
- 	   $res=serialize($res);
- 		 file_put_contents(TEMPLATE_PATH . "/cache/menu.tmp",$res);
+        $res=CategoriesCtl::GetCategories(CATEGORIES_ID,$language);
+ 	    $res=serialize($res);
+        file_put_contents(TEMPLATE_PATH . "/cache/menu.tmp",$res);
  	 }
  	 else {
  	 	$res=file_get_contents(TEMPLATE_PATH . "/cache/menu.tmp");

@@ -16,4 +16,3 @@ define("DEFAULT_LANGUAGE","de_DE");
 define("PRODUCT_IMAGE_THUMB_HEIGHT",30);
 //Product-count per page
 define("CATEGORY_PRODUCT_COUNT",20);
-?>
