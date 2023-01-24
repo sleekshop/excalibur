@@ -1,185 +1,208 @@
-{%import "part_tpl_vars.twig" as tpl_vars%}
+{% import "part_tpl_vars.twig" as tpl_vars %}
 <!DOCTYPE html>
 <html>
-	<head>
-	  <meta charset="UTF-8" />
-	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{{res.title}}</title>
-		<!-- Latest compiled and minified CSS -->
-	<link rel="preload" href="/css/bootstrap/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	{%include "part_favicon.twig"%}
-	<noscript><link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css"></noscript>
-	<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	<noscript><link rel="stylesheet" href="/css/styles.css"></noscript>
-	<base href="/" >
-	{% include "part_header_snippets.twig"%}
-	</head>
-	<body>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ res.title }}</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="preload" href="/css/bootstrap/bootstrap.min.css" as="style"
+          onload="this.onload=null;this.rel='stylesheet'">
+    {% include "part_favicon.twig" %}
+    <noscript>
+        <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    </noscript>
+    <link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="/css/styles.css">
+    </noscript>
+    <base href="/">
+    {% include "part_header_snippets.twig" %}
+</head>
+<body>
 
-	{% block header %}
+{% block header %}
 
-	<nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top" aria-label="">
-    <div class="container">
-       <a class="navbar-brand" href="/">{%trans%}Home{%endtrans%}</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top" aria-label="">
+        <div class="container">
+            <a class="navbar-brand" href="/">{% trans %}Home{% endtrans %}</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03"
+                    aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExample03">
-        <ul class="navbar-nav me-auto mb-2 mb-sm-0">
-					{% for item in menu %}
-				 <li {% if loop.index==0 %} {% endif %} class="nav-item {% if item.children|length>0 %} dropdown{% endif %}">
-				 {% if item.children|length>0 %}
-				 <a href="/{{ item.id }}" class="nav-link dropdown-toggle" id="" data-bs-toggle="dropdown" aria-expanded="false">{{ item.label }}</a>
-				 {% else %}
-				 <a class="nav-link" href="{% if item.permalink!='' %}/category/{{ item.permalink }}{% else %}/category/{{ item.id }}{% endif %}">{{ item.label }}</a>
-				 {% endif %}
-				 {% if item.children|length>0 %}
-					<ul class="dropdown-menu" aria-labelledby="">
-						{% for sub in item.children %}
-					 <li><a class="dropdown-item" href="{% if sub.permalink!='' %}/category/{{ sub.permalink }}{% else %}/category/{{ sub.id }}{% endif %}">{{ sub.label }}</a></li>
-						{% endfor %}
-					</ul>
-					{% endif %}
-				 </li>
-					{% endfor %}
-        </ul>
-
-				<span>
-
+            <div class="collapse navbar-collapse" id="navbarsExample03">
+                <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                    {% for item in menu %}
+                        {% if item.name == 'header' %}
+                            {% for item in item.children %}
+                                <li {% if loop.index==0 %} {% endif %}
+                                        class="nav-item {% if item.children|length>0 %} dropdown{% endif %}">
+                                    {% if item.children|length>0 %}
+                                        <a href="{% if item.link != "" %}{{ item.link }}{% else %}/{{ item.id }}{% endif %}"
+                                           class="nav-link dropdown-toggle" id=""
+                                           data-bs-toggle="dropdown" aria-expanded="false">{{ item.label }}</a>
+                                    {% else %}
+                                        <a class="nav-link"
+                                           href="{% if item.link != "" %}{{ item.link }}{% else %}{% if item.permalink!='' %}/category/{{ item.permalink }}{% else %}/category/{{ item.id }}{% endif %}{% endif %}">{{ item.label }}</a>
+                                    {% endif %}
+                                    {% if item.children|length>0 %}
+                                        <ul class="dropdown-menu" aria-labelledby="">
+                                            {% for sub in item.children %}
+                                                <li><a class="dropdown-item"
+                                                       href="{% if sub.link != "" %}{{ sub.link }}{% else %}{% if sub.permalink!='' %}/category/{{ sub.permalink }}{% else %}/category/{{ sub.id }}{% endif %}{% endif %}">{{ sub.label }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <span>
 					<ul class="navbar-nav me-auto mb-2 mb-sm-0">
+						<li class="nav-item dropdown" style="{{ tpl_vars.sys_language_switcher() }}">
+	            			<a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown"
+                               aria-expanded="false">{{ language|slice(0,2) }}</a>
+	            			<ul class="dropdown-menu" aria-labelledby="dropdown03">
+	              				<li><a class="dropdown-item"
+                                       href="change-lang?lang=de_DE">de {{ sys_language_switcher }}</a></li>
+	              				<li><a class="dropdown-item" href="change-lang?lang=en_EN">en</a></li>
+	            			</ul>
+	          			</li>
 
-
-						<li class="nav-item dropdown" style="{{tpl_vars.sys_language_switcher()}}">
-	            <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown" aria-expanded="false">{{language|slice(0,2)}}</a>
-	            <ul class="dropdown-menu" aria-labelledby="dropdown03">
-	              <li><a class="dropdown-item" href="change-lang?lang=de_DE">de {{sys_language_switcher}}</a></li>
-	              <li><a class="dropdown-item" href="change-lang?lang=en_EN">en</a></li>
-	            </ul>
-	          </li>
-
-
- 				   <li class="nav-item">{% if username!='' %}<a href="/profile" class="nav-link">{%trans%}You are logged in as{%endtrans%} {{ username }}</a>{% else %}<a href="login?profile=1" class="nav-link">{%trans%}Login{%endtrans%}</a>{% endif %}</li>
- 				   {% if username!='' %}<li class="nav-item"><a href="/logout" class="nav-link">{%trans%}Logout{%endtrans%}</a></li>{% endif %}
- 				   <li class="hidden-xs cart-hover nav-item"><a href="/cart" class="nav-link">{{cart.sum|number_format(2)}} EUR</a>
- 					<div class="cart-elements card">
-					<div class="card-body">
- 				  <table class="table table-striped small">
+					   <li class="nav-item">{% if username!='' %}<a href="/profile"
+                                                                    class="nav-link">{% trans %}You are logged in as{% endtrans %} {{ username }}</a>{% else %}
+                               <a href="login?profile=1" class="nav-link">{% trans %}Login{% endtrans %}</a>{% endif %}</li>
+					   {% if username!='' %}
+                           <li class="nav-item"><a href="/logout" class="nav-link">{% trans %}Logout{% endtrans %}</a>
+                           </li>{% endif %}
+						<li class="hidden-xs cart-hover nav-item"><a href="/cart"
+                                                                     class="nav-link">{{ cart.sum|number_format(2) }} EUR</a>
+						<div class="cart-elements card">
+						<div class="card-body">
+ 				  		<table class="table table-striped small">
  				   <thead>
  					 <tr>
- 					   <th>{%trans%}Product{%endtrans%}</th>
- 					   <th class="text-right">{%trans%}Quantity{%endtrans%}</th>
- 					   <th class="text-right">{%trans%}Sum{%endtrans%}</th>
+ 					   <th>{% trans %}Product{% endtrans %}</th>
+ 					   <th class="text-right">{% trans %}Quantity{% endtrans %}</th>
+ 					   <th class="text-right">{% trans %}Sum{% endtrans %}</th>
  					 </tr>
  				   </thead>
  				   <tbody>
  				   {% set sum_tax=0 %}
- 				   {% for value in cart.contents %}
- 					{% set sum_tax=sum_tax+value.sum_price*value.attributes.sys_tax %}
- 					 <tr>
+                   {% for value in cart.contents %}
+                       {% set sum_tax=sum_tax+value.sum_price*value.attributes.sys_tax %}
+                       <tr>
  					   <td class="">{{ value.name }}</td>
  					   <td class="text-right">{{ value.quantity }}</td>
- 					   <td class="text-right">{{ value.sum_price|number_format(2)}} EUR</td>
+ 					   <td class="text-right">{{ value.sum_price|number_format(2) }} EUR</td>
  					 </tr>
  					 {% for value in value.sub_elements.contents %}
- 					  <tr>
+                       <tr>
  						<td class="col-md-4">+ {{ value.name }}<br>{{ value.description }}</td>
  						<td class="col-md-2 text-right">{{ value.quantity }}</td>
- 						<td class="col-md-2 text-right">{{ value.sum_price|number_format(2)}} EUR</td>
+ 						<td class="col-md-2 text-right">{{ value.sum_price|number_format(2) }} EUR</td>
  					  </tr>
- 					  {% endfor %}
- 					 {% endfor %}
+                   {% endfor %}
+                   {% endfor %}
 
- 					  {% if cart.delivery_costs.sum>0 %}
- 					 <!--  <tr>
- 					   <td>Lieferkosten:</td><td class="col-md-2 text-right">1</td><td class="col-md-2 text-right">{|number_format:$cart.delivery_costs.sum,2} EUR</td>
- 					 </tr>-->
- 					   {% endif %}
+                   {% if cart.delivery_costs.sum>0 %}
+                       <!--  <tr>
+                         <td>Lieferkosten:</td><td class="col-md-2 text-right">1</td><td class="col-md-2 text-right">{|number_format:$cart.delivery_costs.sum,2} EUR</td>
+                       </tr>-->
+                   {% endif %}
  					   <tr>
- 					 <td><h5>{%trans%}Sum{%endtrans%}:</h5></td><td></td><td class="text-right"><h5>{{(cart.sum+cart.delivery_costs.sum)|number_format(2)}} EUR</h5></td>
+ 					 <td><h5>{% trans %}Sum{% endtrans %}:</h5></td><td></td><td
+                                   class="text-right"><h5>{{ (cart.sum+cart.delivery_costs.sum)|number_format(2) }} EUR</h5></td>
  					 </tr>
  				   </tbody>
  				 </table>
- 				 <p align="right"><a href="/cart" class="btn  btn-primary">{%trans%}To cart{%endtrans%}</a></p>
+ 				 <p align="right"><a href="/cart" class="btn  btn-primary">{% trans %}To cart{% endtrans %}</a></p>
 			 </div>
 			 </div>
  					</li>
  				 </ul>
 
 			  </span>
-     </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <br><br><br>
+        <div class="row">
+
+            <div class="col-md-4 mt-2">
+                <a href="/">{% include 'part_logo.twig' %}</a>
+            </div>
+
+            <div class="col-md-8">
+                <form method="GET" action="search">
+                    <div class="input-group search-field">
+                        <input type="text" class="form-control input-lg" placeholder="Suchbegriff..."
+                               name="searchstring">
+                        <span class="input-group-btn">
+							<input type="submit" class="btn btn-lg btn-primary" value="{% trans %}Search{% endtrans %}">
+					  	</span>
+                    </div>
+                </form>
+            </div>
+
+            <hr class="mt-4">
+        </div>
     </div>
-  </nav>
+{% endblock %}
+{% block head %}
 
-<div class="container">
-	<br><br><br>
-  <div class="row">
+{% endblock %}
 
-<div class="col-md-4 mt-2">
-<a href="/">{%include 'part_logo.twig'%}</a>
-</div>
-
-<div class="col-md-8">
-<form method="GET" action="search">
-<div class="input-group search-field">
-	  <input type="text" class="form-control input-lg" placeholder="Suchbegriff..." name="searchstring">
-	  <span class="input-group-btn">
-		<input type="submit" class="btn btn-lg btn-primary" value="{%trans%}Search{%endtrans%}">
-	  </span>
-	</div>
-  </form>
-</div>
-
-<hr class="mt-4">
-</div>
-</div>
-			 {% endblock %}
-			 {% block head %}
-
-			 {% endblock %}
-
-			 {% block content %} HERE  OUR CONTENT {% endblock %}
+{% block content %} HERE  OUR CONTENT {% endblock %}
 
 
-			  {% block footer %}
-        <div class="container">
+{% block footer %}
+    <div class="container">
 
-			  <hr>
-				<div class="row">
-			  <div class="col-md-3">
-			  {%include 'part_about_us_footer_'~language|slice(0,2) ~ '.twig'%}
-			  </div>
-			  <div class="col-md-3">
-			  <h4>Infos</h4>
-			  <a href="/content/{%trans%}privacy{%endtrans%}">{%trans%}Privacy{%endtrans%}</a><br>
-			  <a href="/content/{%trans%}delivery-and-payment{%endtrans%}">{%trans%}Delivery{%endtrans%}</a><br>
-			  <a href="/content/{%trans%}terms{%endtrans%}">{%trans%}Terms{%endtrans%}</a><br>
-			  <a href="/content/{%trans%}imprint{%endtrans%}">{%trans%}Imprint{%endtrans%}</a><br><br><br><br>
-			  </div>
-			  <div class="col-md-3">
-			  <h4>{%trans%}Payment methods{%endtrans%}</h4>
-			  <img src="../img/paypal.png" width="100px">
-			  <img src="../img/sofortueberweisung.png" width="100px"><br><br>
-			  <img src="../img/creditcard.png" width="100px">
-			  <img src="../img/vorkasse.jpg" width="100px">
-			  </div>
-			  <div class="col-md-3">
-			  <h4>Netzwerke</h4>
-			  {%include 'part_social_links.twig'%}
-			  </div>
-			  <div class="col-md-12">
-				<p align="right">Powered by <a href="https://www.sleekshop.io">sleekshop</a></p>
-			  </div>
-			</div>
-			</div>
-			  {% endblock %}
+        <hr>
+        <div class="row">
+            <div class="col-md-3">
+                {% include 'part_about_us_footer_'~language|slice(0,2) ~ '.twig' %}
+            </div>
+            <div class="col-md-3">
+                <h4>Infos</h4>
+                {% for item in menu %}
+                    {% if item.name == 'footer' %}
+                        {% for item in item.children %}
+                            <a href="{% if item.link != "" %}{{ item.link }}{% else %}{% if item.permalink!='' %}/category/{{ item.permalink }}{% else %}/category/{{ item.id }}{% endif %}{% endif %}">{{ item.label }}</a><br>
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="col-md-3">
+                <h4>{% trans %}Payment methods{% endtrans %}</h4>
+                <img src="../img/paypal.png" width="100px">
+                <img src="../img/sofortueberweisung.png" width="100px"><br><br>
+                <img src="../img/creditcard.png" width="100px">
+                <img src="../img/vorkasse.jpg" width="100px">
+            </div>
+            <div class="col-md-3">
+                <h4>Netzwerke</h4>
+                {% include 'part_social_links.twig' %}
+            </div>
+            <div class="col-md-12">
+                <p align="right">Powered by <a href="https://www.sleekshop.io">sleekshop</a></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
 
 
-	</body>
-	<script src="/js/jquery/jquery.min.js" defer></script>
-	<script src="/js/bootstrap/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
-	<script src="/js/jquery/jquery.imageLens.js" defer></script>
-	<script src="/js/mayalist/mayalist.js" defer></script>
-	<script src="/js/main.js" defer></script>
-	{% include "part_bottom_snippets.twig"%}
+</body>
+<script src="/js/jquery/jquery.min.js" defer></script>
+<script src="/js/bootstrap/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
+<script src="/js/jquery/jquery.imageLens.js" defer></script>
+<script src="/js/mayalist/mayalist.js" defer></script>
+<script src="/js/main.js" defer></script>
+{% include "part_bottom_snippets.twig" %}
 </html>
