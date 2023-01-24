@@ -209,8 +209,6 @@ $app->add(TwigMiddleware::create($app, $twig));
 	//For changing the language
 	$app->get("/change-lang", function ($request, $response) use ($app,$language,$menu,$username,$cart) {
 
-	  unlink(TEMPLATE_PATH . "/cache/menu.tmp");
-
 	  $language = $request->getQueryParams()['lang'] ?? '';
 
 	  // Render index view
