@@ -51,7 +51,12 @@ $app->add(TwigMiddleware::create($app, $twig));
 	//Reloading the menu
 	$app->get("/reload-menu", function () use ($app, $language, $menu, $username, $cart) {
 
-  		unlink(TEMPLATE_PATH . "/cache/menu.tmp");
+		  // unlink all files in template_path . "/cache" ending with -menu.tmp
+		  $files = glob(TEMPLATE_PATH . "/cache/*-menu.tmp");
+		  foreach($files as $file){
+		    if(is_file($file)) unlink($file);
+		  }
+
   		die("WEBHOOK_EXECUTED");
 
 	});
