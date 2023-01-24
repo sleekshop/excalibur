@@ -21,6 +21,12 @@
 </head>
 <body>
 
+{% for value in res.contents.byclass.shop_banner %}
+    <div class="alert alert-{{ value.attributes.color.value }} text-center" role="alert" style="top: 56px;">
+        {{ value.attributes.text.value }}
+    </div>
+{% endfor %}
+
 {% block header %}
 
     <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top" aria-label="">
@@ -160,10 +166,8 @@
 
 {% block content %} HERE  OUR CONTENT {% endblock %}
 
-
 {% block footer %}
     <div class="container">
-
         <hr>
         <div class="row">
             <div class="col-md-3">
@@ -174,17 +178,18 @@
                 {% for item in menu %}
                     {% if item.name == 'footer' %}
                         {% for item in item.children %}
-                            <a href="{% if item.link != "" %}{{ item.link }}{% else %}{% if item.permalink!='' %}/category/{{ item.permalink }}{% else %}/category/{{ item.id }}{% endif %}{% endif %}">{{ item.label }}</a><br>
+                            <a href="{% if item.link != "" %}{{ item.link }}{% else %}{% if item.permalink!='' %}/category/{{ item.permalink }}{% else %}/category/{{ item.id }}{% endif %}{% endif %}">{{ item.label }}</a>
+                            <br>
                         {% endfor %}
                     {% endif %}
                 {% endfor %}
             </div>
             <div class="col-md-3">
                 <h4>{% trans %}Payment methods{% endtrans %}</h4>
-                <img src="../img/paypal.png" width="100px">
-                <img src="../img/sofortueberweisung.png" width="100px"><br><br>
-                <img src="../img/creditcard.png" width="100px">
-                <img src="../img/vorkasse.jpg" width="100px">
+                <img src="/img/paypal.png" width="100px">
+                <img src="/img/sofortueberweisung.png" width="100px"><br><br>
+                <img src="/img/creditcard.png" width="100px">
+                <img src="/img/vorkasse.jpg" width="100px">
             </div>
             <div class="col-md-3">
                 <h4>Netzwerke</h4>
