@@ -165,6 +165,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 	  		"username" => 	$username,
 	  		"cart" => 		$cart,
 			"language" => 	$language,
+      "category" => "product",
   		]);
 
 	})->setName('home');
