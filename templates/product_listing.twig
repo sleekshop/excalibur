@@ -5,16 +5,16 @@
         <div class="product-column">
 
             <p align="center">
-                <a class="" href="{% if value.permalink!='' %}{{ value.permalink }}{% else %}/{{ value.id }}{% endif %}">
+                <a class="" href="{% if value.permalink!='' %}/{{category}}/{{ value.permalink }}{% else %}/{{category}}/{{ value.id }}{% endif %}">
                     <img src="{{ value.attributes.img1.value }}" height="300" align="center">
                 </a>
             </p>
         </div>
         <div class="product-name">
-            <a class="" href="{% if value.permalink!='' %}{{ value.permalink }}{% else %}/{{ value.id }}{% endif %}">{{ value.attributes.name.value }}</a>
+            <a class="" href="{% if value.permalink!='' %}/{{category}}/{{ value.permalink }}{% else %}/{{category}}/{{ value.id }}{% endif %}">{{ value.attributes.name.value }}</a>
         </div>
         <div class="product-price">
-            <a class="" href="{% if value.permalink!='' %}{{ value.permalink }}{% else %}/{{ value.id }}{% endif %}">{{value.attributes.price.value|number_format(2)}} EUR</a>
+            <a class="" href="{% if value.permalink!='' %}/{{category}}/{{ value.permalink }}{% else %}/{{category}}/{{ value.id }}{% endif %}">{{value.attributes.price.value|number_format(2)}} EUR</a>
         </div>
     </div>
 {% endfor %}

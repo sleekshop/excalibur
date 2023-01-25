@@ -16,6 +16,7 @@
     <noscript>
         <link rel="stylesheet" href="/css/styles.css">
     </noscript>
+    {%if canonical!=''%}<link rel="canonical" href="{{canonical}}" />{%endif%}
     <base href="/">
     {% include "part_header_snippets.twig" %}
 </head>
@@ -50,13 +51,13 @@
                                            data-bs-toggle="dropdown" aria-expanded="false">{{ item.label }}</a>
                                     {% else %}
                                         <a class="nav-link"
-                                           href="{% if item.link != "" %}{{ item.link }}{% else %}{% if item.permalink!='' %}/category/{{ item.permalink }}{% else %}/category/{{ item.id }}{% endif %}{% endif %}">{{ item.label }}</a>
+                                           href="{% if item.link != "" %}{{ item.link }}{% else %}{% if item.permalink!='' %}/{{ item.permalink }}{% else %}/{{ item.id }}{% endif %}{% endif %}">{{ item.label }}</a>
                                     {% endif %}
                                     {% if item.children|length>0 %}
                                         <ul class="dropdown-menu" aria-labelledby="">
                                             {% for sub in item.children %}
                                                 <li><a class="dropdown-item"
-                                                       href="{% if sub.link != "" %}{{ sub.link }}{% else %}{% if sub.permalink!='' %}/category/{{ sub.permalink }}{% else %}/category/{{ sub.id }}{% endif %}{% endif %}">{{ sub.label }}</a>
+                                                       href="{% if sub.link != "" %}{{ sub.link }}{% else %}{% if sub.permalink!='' %}/{{ sub.permalink }}{% else %}/{{ sub.id }}{% endif %}{% endif %}">{{ sub.label }}</a>
                                                 </li>
                                             {% endfor %}
                                         </ul>
@@ -178,7 +179,7 @@
                 {% for item in menu %}
                     {% if item.name == 'footer' %}
                         {% for item in item.children %}
-                            <a href="{% if item.link != "" %}{{ item.link }}{% else %}{% if item.permalink!='' %}/category/{{ item.permalink }}{% else %}/category/{{ item.id }}{% endif %}{% endif %}">{{ item.label }}</a>
+                            <a href="{% if item.link != "" %}{{ item.link }}{% else %}{% if item.permalink!='' %}/{{ item.permalink }}{% else %}/{{ item.id }}{% endif %}{% endif %}">{{ item.label }}</a>
                             <br>
                         {% endfor %}
                     {% endif %}

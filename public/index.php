@@ -271,26 +271,6 @@ $app->add(TwigMiddleware::create($app, $twig));
 
 	});
 
-	$app->get("/category/{obj}", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
-
-	  // Render index view
-	  if (is_numeric($args['obj'])) {
-		$res = ShopobjectsCtl::GetShopobjects($args['obj'], $language, "price", "ASC", 0, 0, ["name", "short_description", "price", "img1"]);
-	  } else {
-		$res = ShopobjectsCtl::SeoGetShopobjects($args['obj'], "price", "ASC", 0, 0, [ "name", "short_description", "price", "img1" ]);
-	  }
-
-	  $view = Twig::fromRequest($request);
-	  return $view->render($response, 'show_category.twig', [
-		"res" => 			$res,
-		"menu" => 			$menu,
-		"username" => 		$username,
-		"cart" => 			$cart,
-		"request_uri" => 	$request_uri,
-		"language" => 		$language,
-	  ]);
-
-	});
 
 	$app->get("/express-checkout", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
 
@@ -1192,6 +1172,7 @@ $app->add(TwigMiddleware::create($app, $twig));
 			"cart" => 			$cart,
 			"request_uri" => 	$request_uri,
 			"language" => 		$language,
+      "category" => "product",
 		]);
 
 	});
@@ -1223,6 +1204,73 @@ $app->add(TwigMiddleware::create($app, $twig));
 	  ]);
 
 	});
+
+
+  $app->get("/{category}/{obj}", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
+
+    // Render index view
+    $obj = $args['obj'] ?? '';
+    $cat = $args['cat'] ?? '';
+    if (is_numeric($obj)) {
+        $res = ShopobjectsCtl::GetProductDetails($obj, $language);
+    } else {
+        $res = ShopobjectsCtl::SeoGetProductDetails($obj);
+    }
+    $type=$res["attributes"]["type"]["value"];
+    $type=="" ? $canonical="product" : $canonical=$type;
+    $canonical="https://" . $_SERVER["HTTP_HOST"] . "/" . $canonical ."/".$obj;
+    if (isset($res["attributes"]["color"]["value"]) && $res["attributes"]["color"]["value"] != "") {
+
+      $colors = [];
+        $colors[$res["attributes"]["color"]["value"]] = $res["id"];
+
+      foreach ($res["variations"] as $variation) {
+        if ($res["attributes"]["color"]["value"] != $variation["attributes"]["color"]["value"]) {
+            $colors[$variation["attributes"]["color"]["value"]] = $variation["id"];
+        }
+        }
+        asort($colors);
+        $res["colors"] = $colors;
+
+    }
+
+    if (isset($res["attributes"]["size"]["value"]) && $res["attributes"]["size"]["value"] != "") {
+
+      $sizes = [];
+        $sizes[$res["attributes"]["size"]["value"]] = $res["id"];
+        foreach ($res["variations"] as $variation) {
+
+        if ($variation["attributes"]["color"]["value"] == $res["attributes"]["color"]["value"]) {
+
+          if ($res["attributes"]["size"]["value"] != $variation["attributes"]["size"]["value"]) {
+            $sizes[$variation["attributes"]["size"]["value"]] = $variation["id"];
+            }
+        }
+        }
+
+        ksort($sizes);
+        $res["sizes"] = $sizes;
+
+    }
+
+    $tags = explode(",", $res["attributes"]["tags"]["value"]);
+    $res["attributes"]["tags"]["arr"] = $tags;
+
+    $view = Twig::fromRequest($request);
+    return $view->render($response, 'show_product.twig', [
+      "res" => 			$res,
+        "menu" => 			$menu,
+      "username" => 		$username,
+        "cart" => 			$cart,
+        "request_uri" => 	$request_uri,
+        "language" => 		$language,
+        "canonical" => $canonical,
+    ]);
+
+  });
+
+
+
 
 	$app->get("/{obj}", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
 
@@ -1474,58 +1522,25 @@ $app->add(TwigMiddleware::create($app, $twig));
 
 		} else {
 
-			if (is_numeric($obj)) {
-		  		$res = ShopobjectsCtl::GetProductDetails($obj, $language);
-			} else {
-		  		$res = ShopobjectsCtl::SeoGetProductDetails($obj);
-			}
 
-			if (isset($res["attributes"]["color"]["value"]) && $res["attributes"]["color"]["value"] != "") {
+      if (is_numeric($args['obj'])) {
+      $res = ShopobjectsCtl::GetShopobjects($args['obj'], $language, "price", "ASC", 0, 0, ["name", "short_description", "price", "img1"]);
+      } else {
+      $res = ShopobjectsCtl::SeoGetShopobjects($args['obj'], "price", "ASC", 0, 0, [ "name", "short_description", "price", "img1" ]);
+      }
 
-				$colors = [];
-		  		$colors[$res["attributes"]["color"]["value"]] = $res["id"];
+      $view = Twig::fromRequest($request);
+      return $view->render($response, 'show_category.twig', [
+      "res" => 			$res,
+      "menu" => 			$menu,
+      "username" => 		$username,
+      "cart" => 			$cart,
+      "request_uri" => 	$request_uri,
+      "language" => 		$language,
+      "category" => $args['obj'],
+      ]);
 
-				foreach ($res["variations"] as $variation) {
-					if ($res["attributes"]["color"]["value"] != $variation["attributes"]["color"]["value"]) {
-			  			$colors[$variation["attributes"]["color"]["value"]] = $variation["id"];
-					}
-		  		}
-		  		asort($colors);
-		  		$res["colors"] = $colors;
-
-			}
-
-			if (isset($res["attributes"]["size"]["value"]) && $res["attributes"]["size"]["value"] != "") {
-
-				$sizes = [];
-		  		$sizes[$res["attributes"]["size"]["value"]] = $res["id"];
-		  		foreach ($res["variations"] as $variation) {
-
-					if ($variation["attributes"]["color"]["value"] == $res["attributes"]["color"]["value"]) {
-
-						if ($res["attributes"]["size"]["value"] != $variation["attributes"]["size"]["value"]) {
-							$sizes[$variation["attributes"]["size"]["value"]] = $variation["id"];
-			  			}
-					}
-		  		}
-
-		  		ksort($sizes);
-		  		$res["sizes"] = $sizes;
-
-			}
-
-			$tags = explode(",", $res["attributes"]["tags"]["value"]);
-			$res["attributes"]["tags"]["arr"] = $tags;
-
-			$view = Twig::fromRequest($request);
-			return $view->render($response, 'show_product.twig', [
-				"res" => 			$res,
-		  		"menu" => 			$menu,
-				"username" => 		$username,
-		  		"cart" => 			$cart,
-		  		"request_uri" => 	$request_uri,
-		  		"language" => 		$language,
-			]);
+      return(true);
 
 	  	}
 
