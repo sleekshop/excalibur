@@ -108,20 +108,22 @@
                         <br>{{ res.attributes.description.value|raw }}</div>
                     <div class="tab-pane fade" id="related" role="tabpanel" aria-labelledby="profile-tab">
                         {% for value in res.attributes.related_items.value %}
-                            <div class="col-md-4 list-obj" data-price="{{ value.attributes.price.value }}"
-                                 data-name="{{ value.attributes.name.value }}">
-                                <div class="product-column">
-                                    <p align="center"><img src="{{ value.attributes.img1.value }}" width="80%"
-                                                           align="center"></p>
-                                    <span class="product-overlay product-details"></span>
-                                    <span class="product-details"><h2>{{ value.attributes.name.value }}</h2>
-                                      {{ value.attributes.short_description.value }}<br>
-                                      <h3>{{ value.attributes.price.value|number_format(2) }} EUR</h3>
-                                      <a class="btn btn-primary"
-                                         href="/{% if value.permalink!='' %}{{ value.permalink }}{% else %}{{ value.id }}{% endif %}">Zum Produkt</a>
-                                      </span>
-                                </div>
+                        <div class="col-md-4" data-price="{{ value.attributes.price.value }}" data-name="{{ value.attributes.name.value }}" style="min-height:430px;">
+                            <div class="product-column">
+
+                                <p align="center">
+                                    <a class="" href="{% if value.permalink!='' %}/{{category}}/{{ value.permalink }}{% else %}/{{category}}/{{ value.id }}{% endif %}">
+                                        <img src="{{ value.attributes.img1.value }}" height="300" align="center">
+                                    </a>
+                                </p>
                             </div>
+                            <div class="product-name">
+                                <a class="" href="{% if value.permalink!='' %}/{{category}}/{{ value.permalink }}{% else %}/{{category}}/{{ value.id }}{% endif %}">{{ value.attributes.name.value }}</a>
+                            </div>
+                            <div class="product-price">
+                                <a class="" href="{% if value.permalink!='' %}/{{category}}/{{ value.permalink }}{% else %}/{{category}}/{{ value.id }}{% endif %}">{{value.attributes.price.value|number_format(2)}} EUR</a>
+                            </div>
+                        </div>
                         {% endfor %}
 
                     </div>

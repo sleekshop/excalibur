@@ -1266,6 +1266,7 @@ $app->add(TwigMiddleware::create($app, $twig));
         "request_uri" => 	$request_uri,
         "language" => 		$language,
         "canonical" => $canonical,
+        "category" => "product",
     ]);
 
   });
