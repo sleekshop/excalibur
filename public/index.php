@@ -1268,6 +1268,7 @@ $app->get("/{category}/{obj}", function ($request, $response, $args) use ($app, 
         "request_uri" => $request_uri,
         "language" => $language,
         "canonical" => $canonical,
+        "category" => "product",
     ]);
 
 });
