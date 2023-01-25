@@ -33,7 +33,7 @@ public static function GetCategories($id_parent=0,$lang=DEFAULT_LANGUAGE)
     }
     $piecearray["attributes"]=$attributes;
     isset($shopcategory->attributes->link->value) ? $piecearray["link"]=(string)$shopcategory->attributes->link->value : $piecearray["link"]="";
-    isset($shopcategory->attributes->location->value) ? $piecearray["location"]=(string)$shopcategory->attributes->location->value : $piecearray["location"]="";
+    isset($shopcategory->attributes->position->value) ? $piecearray["position"]=(string)$shopcategory->attributes->position->value : $piecearray["position"]="";
     $piecearray["children"]=self::GetCategories($piecearray["id"],$lang);
     $result[]=$piecearray;
 
