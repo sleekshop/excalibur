@@ -107,17 +107,30 @@ private static function get_contents_from_json($json="")
 {
 	$result=array();
   $prev="not_set";
+  $current="not_set";
   $prevkey=0;
+  $layoutindex=0;
+  $layoutmax=1;
+  $index=0;
+  $result["chain"]=array();
 	foreach((array)$json as $so)
 	{
 		$result[(string)$so->name]=self::get_shopobject_from_json($so);
 		$result["byclass"][(string)$so->class][]=$result[(string)$so->name];
 		if(isset($so->attributes->layout)){
+    $current=(string)$so->attributes->layout->value;
     $result["layouts"][(string)$so->attributes->layout->value]=1;
-    $result["chain"][$result[$so->name]["id"]]=array("prev"=>$prev,"next"=>"not_set");
+    $current!=$prev ? $layoutindex=0 : $layoutindex++;
+    $layoutmax=$layoutindex+1;
+    foreach($result["chain"] as $k=>$v)
+    {
+      if($result["chain"][$k]["index"]>$index-$layoutmax) $result["chain"][$k]["layoutmax"]=$layoutmax;
+    }
+    $result["chain"][$result[$so->name]["id"]]=array("prev"=>$prev,"current"=>$current,"next"=>"not_set","index"=>$index,"layoutindex"=>$layoutindex,"layoutmax"=>$layoutmax);
     if($prevkey>0) $result["chain"][$prevkey]["next"]=$result[$so->name]["attributes"]["layout"]["value"];
     $prevkey=$result[$so->name]["id"];
     $prev=$result[$so->name]["attributes"]["layout"]["value"];
+    $index++;
     }
 	}
 	return($result);
