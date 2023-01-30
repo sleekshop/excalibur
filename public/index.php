@@ -156,7 +156,7 @@ $app->get("/reload-static-files", function ($request, $response) use ($app, $lan
 
 $app->get("/", function ($request, $response, $args) use ($app, $language, $menu, $username, $cart) {
 
-    $res = ShopobjectsCtl::GetShopObjects(START_ID, $language, "prio", "DESC", 0, 0, ["name", "img1", "price", "short_description"]);
+    $res = ShopobjectsCtl::GetShopObjects(START_ID, $language, ["prio","price"], "DESC", 0, 0, ["name", "img1", "price", "short_description"]);
 
     $view = Twig::fromRequest($request);
 
@@ -222,7 +222,7 @@ $app->get("/change-lang", function ($request, $response) use ($app, $language, $
     setcookie(TOKEN . "_lang", $language, time() + 3600);
     setcookie(TOKEN . "_menu", "", time() + 3600);
     $menu = CategoriesCtl::GetMenu($language);
-    $res = ShopobjectsCtl::GetShopObjects(1, $language, "price", "ASC", 0, 0, ["name", "img1", "price", "short_description"]);
+    $res = ShopobjectsCtl::GetShopObjects(START_ID, $language, ["prio","price"], "ASC", 0, 0, ["name", "img1", "price", "short_description"]);
 
     $response = $response->withStatus(302);
     return $response->withHeader('Location', '/');
@@ -254,7 +254,7 @@ $app->get("/content/{obj}", function ($request, $response, $args) use ($app, $re
 $app->get("/page/{obj}", function ($request, $response, $args) use ($app, $request_uri, $language, $menu, $username, $cart) {
 
     // Render index view
-    $res = ShopObjectsCtl::SeoGetShopobjects($args['obj'], "prio", "DESC");
+    $res = ShopObjectsCtl::SeoGetShopobjects($args['obj'], ["prio", "price"], "DESC");
 
     if ($res == null) {
         $response = $response->withStatus(302);
@@ -1526,9 +1526,9 @@ $app->get("/{obj}", function ($request, $response, $args) use ($app, $request_ur
 
 
         if (is_numeric($args['obj'])) {
-            $res = ShopobjectsCtl::GetShopobjects($args['obj'], $language, "price", "ASC", 0, 0, ["name", "short_description", "price", "img1"]);
+            $res = ShopobjectsCtl::GetShopobjects($args['obj'], $language, ["prio","price"], "ASC", 0, 0, ["name", "short_description", "price", "img1"]);
         } else {
-            $res = ShopobjectsCtl::SeoGetShopobjects($args['obj'], "price", "ASC", 0, 0, ["name", "short_description", "price", "img1"]);
+            $res = ShopobjectsCtl::SeoGetShopobjects($args['obj'], ["prio","price"], "ASC", 0, 0, ["name", "short_description", "price", "img1"]);
         }
 
         $view = Twig::fromRequest($request);

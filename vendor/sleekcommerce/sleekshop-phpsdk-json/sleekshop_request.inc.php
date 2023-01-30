@@ -5,8 +5,8 @@
 * (c) sleekcommerce - Kaveh Raji
 */
 define("SERVER","https://YOUR-SHOP.sleekshop.net/srv/service/");
-define("LICENCE_USERNAME","");
-define("LICENCE_PASSWORD","");
+define("LICENCE_USERNAME","kalabru_0Ur1pGMPMXK809qum745");
+define("LICENCE_PASSWORD","4qKAywsccRuGGC6pVrai");
 
 class SleekShopRequest
 {
@@ -47,13 +47,13 @@ private $post_data=array();
    * Order Column determines the order column
    * The Order determines the order
    */
-  public function get_products_in_category($id_category=0,$lang=DEFAULT_LANGUAGE,$order_column="",$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
+  public function get_products_in_category($id_category=0,$lang=DEFAULT_LANGUAGE,$order_columns=array(),$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
   {
    $post_data=$this->post_data;
    $post_data["request"]="get_products_in_category";
    $post_data["id_category"]=$id_category;
    $post_data["language"]=$lang;
-   $post_data["order_column"]=$order_column;
+   $post_data["order_columns"]=json_encode($order_columns);
    $post_data["order"]=$order;
    $post_data["left_limit"]=$left_limit;
    $post_data["right_limit"]=$right_limit;
@@ -70,13 +70,13 @@ private $post_data=array();
    * Order Column determines the order column
    * The Order determines the order
    */
-  public function get_shopobjects_in_category($id_category=0,$lang=DEFAULT_LANGUAGE,$order_column="",$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
+  public function get_shopobjects_in_category($id_category=0,$lang=DEFAULT_LANGUAGE,$order_columns=array(),$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
   {
    $post_data=$this->post_data;
    $post_data["request"]="get_shopobjects_in_category";
    $post_data["id_category"]=$id_category;
    $post_data["language"]=$lang;
-   $post_data["order_column"]=$order_column;
+   $post_data["order_columns"]=json_encode($order_columns);
    $post_data["order"]=$order;
    $post_data["left_limit"]=$left_limit;
    $post_data["right_limit"]=$right_limit;
@@ -93,13 +93,13 @@ private $post_data=array();
    * Order Column determines the order column
    * The Order determines the order
    */
-  public function get_contents_in_category($id_category=0,$lang=DEFAULT_LANGUAGE,$order_column="",$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
+  public function get_contents_in_category($id_category=0,$lang=DEFAULT_LANGUAGE,$order_columns=array(),$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
   {
    $post_data=$this->post_data;
    $post_data["request"]="get_contents_in_category";
    $post_data["id_category"]=$id_category;
    $post_data["language"]=$lang;
-   $post_data["order_column"]=$order_column;
+   $post_data["order_columns"]=json_encode($order_columns);
    $post_data["order"]=$order;
    $post_data["left_limit"]=$left_limit;
    $post_data["right_limit"]=$right_limit;
@@ -112,13 +112,13 @@ private $post_data=array();
    * This function dumps all products and child - categories inherited in an category determined by its id
    * Further it is possible to influence the product listing like order, leftlimit and so on
    */
-  public function dump_category($id_category=0,$lang=DEFAULT_LANGUAGE,$order_column="",$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
+  public function dump_category($id_category=0,$lang=DEFAULT_LANGUAGE,$order_columns=array(),$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
   {
    $post_data=$this->post_data;
    $post_data["request"]="dump_category";
    $post_data["id_category"]=$id_category;
    $post_data["language"]=$lang;
-   $post_data["order_column"]=$order_column;
+   $post_data["order_columns"]=json_encode($order_columns);
    $post_data["order"]=$order;
    $post_data["left_limit"]=$left_limit;
    $post_data["right_limit"]=$right_limit;
@@ -516,12 +516,12 @@ private $post_data=array();
    * Order Column determines the order column
    * The Order determines the order
    */
-  public function seo_get_products_in_category($permalink="",$order_column="",$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
+  public function seo_get_products_in_category($permalink="",$order_columns=array(),$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
   {
    $post_data=$this->post_data;
    $post_data["request"]="seo_get_products_in_category";
    $post_data["permalink"]=$permalink;
-   $post_data["order_column"]=$order_column;
+   $post_data["order_columns"]=json_encode($order_columns);
    $post_data["order"]=$order;
    $post_data["left_limit"]=$left_limit;
    $post_data["right_limit"]=$right_limit;
@@ -538,12 +538,12 @@ private $post_data=array();
    * Order Column determines the order column
    * The Order determines the order
    */
-  public function seo_get_contents_in_category($permalink="",$order_column="",$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
+  public function seo_get_contents_in_category($permalink="",$order_columns=array(),$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
   {
    $post_data=$this->post_data;
    $post_data["request"]="seo_get_contents_in_category";
    $post_data["permalink"]=$permalink;
-   $post_data["order_column"]=$order_column;
+   $post_data["order_columns"]=json_encode($order_columns);
    $post_data["order"]=$order;
    $post_data["left_limit"]=$left_limit;
    $post_data["right_limit"]=$right_limit;
@@ -561,12 +561,12 @@ private $post_data=array();
    * Order Column determines the order column
    * The Order determines the order
    */
-  public function seo_get_shopobjects_in_category($permalink="",$order_column="",$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
+  public function seo_get_shopobjects_in_category($permalink="",$order_columns=array(),$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
   {
    $post_data=$this->post_data;
    $post_data["request"]="seo_get_shopobjects_in_category";
    $post_data["permalink"]=$permalink;
-   $post_data["order_column"]=$order_column;
+   $post_data["order_columns"]=json_encode($order_columns);
    $post_data["order"]=$order;
    $post_data["left_limit"]=$left_limit;
    $post_data["right_limit"]=$right_limit;

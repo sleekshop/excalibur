@@ -141,10 +141,10 @@ private static function get_contents_from_json($json="")
 /*
  * Delivers an array containing all categories with the parent defined by $id_parent
  */
-public static function GetShopobjects($id_category=0,$lang=DEFAULT_LANGUAGE,$order_column="",$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
+public static function GetShopobjects($id_category=0,$lang=DEFAULT_LANGUAGE,$order_columns=array(),$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
  {
   $sr=new SleekShopRequest();
-  $json=$sr->get_shopobjects_in_category($id_category,$lang,$order_column,$order,$left_limit,$right_limit,$needed_attributes);
+  $json=$sr->get_shopobjects_in_category($id_category,$lang,$order_columns,$order,$left_limit,$right_limit,$needed_attributes);
   $json=json_decode($json);
   $result=array();
   $result["id_category"]=(int)$json->category->id;
@@ -170,10 +170,10 @@ public static function GetShopobjects($id_category=0,$lang=DEFAULT_LANGUAGE,$ord
 /*
  * Delivers an array containing all categories with the parent defined by $permalink
 */
-public static function SeoGetShopobjects($permalink,$order_column="",$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
+public static function SeoGetShopobjects($permalink,$order_columns=array(),$order="ASC",$left_limit=0,$right_limit=0,$needed_attributes=array())
 {
 	$sr=new SleekShopRequest();
-	$json=$sr->seo_get_shopobjects_in_category($permalink,$order_column,$order,$left_limit,$right_limit,$needed_attributes);
+	$json=$sr->seo_get_shopobjects_in_category($permalink,$order_columns,$order,$left_limit,$right_limit,$needed_attributes);
 	$json=json_decode($json);
 	$result=array();
 	$result["id_category"]=(int)$json->category->id;
