@@ -1225,11 +1225,11 @@ $app->get("/{category}/{obj}", function ($request, $response, $args) use ($app, 
     if (isset($res["attributes"]["color"]["value"]) && $res["attributes"]["color"]["value"] != "") {
 
         $colors = [];
-        $colors[$res["attributes"]["color"]["value"]] = $res["id"];
+        $res["permalink"]=="" ? $colors[$res["attributes"]["color"]["value"]] = $res["id"] : $colors[$res["attributes"]["color"]["value"]] = $res["permalink"];
 
         foreach ($res["variations"] as $variation) {
             if ($res["attributes"]["color"]["value"] != $variation["attributes"]["color"]["value"]) {
-                $colors[$variation["attributes"]["color"]["value"]] = $variation["id"];
+                $variation["permalink"]=="" ? $colors[$variation["attributes"]["color"]["value"]] = $variation["id"] : $colors[$variation["attributes"]["color"]["value"]] = $variation["permalink"];
             }
         }
         asort($colors);
@@ -1240,13 +1240,14 @@ $app->get("/{category}/{obj}", function ($request, $response, $args) use ($app, 
     if (isset($res["attributes"]["size"]["value"]) && $res["attributes"]["size"]["value"] != "") {
 
         $sizes = [];
-        $sizes[$res["attributes"]["size"]["value"]] = $res["id"];
+
+        $res["permalink"]=="" ? $sizes[$res["attributes"]["size"]["value"]] = $res["id"] : $sizes[$res["attributes"]["size"]["value"]] = $res["permalink"];
         foreach ($res["variations"] as $variation) {
 
             if ($variation["attributes"]["color"]["value"] == $res["attributes"]["color"]["value"]) {
 
                 if ($res["attributes"]["size"]["value"] != $variation["attributes"]["size"]["value"]) {
-                    $sizes[$variation["attributes"]["size"]["value"]] = $variation["id"];
+                    $variation["permalink"]=="" ? $sizes[$variation["attributes"]["size"]["value"]] = $variation["id"] : $sizes[$variation["attributes"]["size"]["value"]] = $variation["permalink"];
                 }
             }
         }

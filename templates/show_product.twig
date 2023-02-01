@@ -37,8 +37,8 @@
                                     <label>{% trans %}Color{% endtrans %}</label>
                                     <select name="color" class="form-control size-ctl">
                                         {% for key, value in res.colors %}
-                                            <option value="{{ value }}"
-                                                    {% if value==res.id %}selected{% endif %}>{{ key }}</option>
+                                            <option value="/{{category}}/{{ value }}"
+                                                    {% if value==res.id or value==res.permalink %}selected{% endif %}>{{ key }}</option>
                                         {% endfor %}
                                     </select>
                                     <br>
@@ -47,8 +47,8 @@
                                     <label>{% trans %}Size{% endtrans %}</label>
                                     <select name="size" class="form-control size-ctl">
                                         {% for key, value in res.sizes %}
-                                            <option value="{{ value }}"
-                                                    {% if value==res.id %}selected{% endif %}>{{ key }}</option>
+                                            <option value="/{{category}}/{{ value }}"
+                                                    {% if vvalue==res.id or value==res.permalink %}selected{% endif %}>{{ key }}</option>
                                         {% endfor %}
                                     </select>
                                     <br>
@@ -112,16 +112,16 @@
                             <div class="product-column">
 
                                 <p align="center">
-                                    <a class="" href="{% if value.permalink!='' %}/{{category}}/{{ value.permalink }}{% else %}/{{category}}/{{ value.id }}{% endif %}">
+                                    <a class="" href="{% if value.permalink!='' %}/product/{{ value.permalink }}{% else %}/product/{{ value.id }}{% endif %}">
                                         <img src="{{ value.attributes.img1.value }}" height="300" align="center">
                                     </a>
                                 </p>
                             </div>
                             <div class="product-name">
-                                <a class="" href="{% if value.permalink!='' %}/{{category}}/{{ value.permalink }}{% else %}/{{category}}/{{ value.id }}{% endif %}">{{ value.attributes.name.value }}</a>
+                                <a class="" href="{% if value.permalink!='' %}/product/{{ value.permalink }}{% else %}/product/{{ value.id }}{% endif %}">{{ value.attributes.name.value }}</a>
                             </div>
                             <div class="product-price">
-                                <a class="" href="{% if value.permalink!='' %}/{{category}}/{{ value.permalink }}{% else %}/{{category}}/{{ value.id }}{% endif %}">{{value.attributes.price.value|number_format(2)}} EUR</a>
+                                <a class="" href="{% if value.permalink!='' %}/product/{{ value.permalink }}{% else %}/product/{{ value.id }}{% endif %}">{{value.attributes.price.value|number_format(2)}} EUR</a>
                             </div>
                         </div>
                         {% endfor %}
