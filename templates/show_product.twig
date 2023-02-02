@@ -48,7 +48,7 @@
                                     <select name="size" class="form-control size-ctl">
                                         {% for key, value in res.sizes %}
                                             <option value="/{{category}}/{{ value }}"
-                                                    {% if vvalue==res.id or value==res.permalink %}selected{% endif %}>{{ key }}</option>
+                                                    {% if value==res.id or value==res.permalink %}selected{% endif %}>{{ key }}</option>
                                         {% endfor %}
                                     </select>
                                     <br>
