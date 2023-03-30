@@ -225,7 +225,7 @@ $app->get("/change-lang", function ($request, $response) use ($app, $language, $
     $res = ShopobjectsCtl::GetShopObjects(START_ID, $language, ["prio","price"], "ASC", 0, 0, ["name", "img1", "price", "short_description"]);
 
     $response = $response->withStatus(302);
-    return $response->withHeader('Location', '/');
+    return $response->withHeader('Location', '/?t=' + time());
 
 });
 
@@ -236,7 +236,7 @@ $app->get("/content/{obj}", function ($request, $response, $args) use ($app, $re
 
     if ($res == null) {
         $response = $response->withStatus(302);
-        return $response->withHeader('Location', '/404');
+        return $response->withHeader('Location', '/404?t=' + time());
     }
 
     $view = Twig::fromRequest($request);
@@ -258,7 +258,7 @@ $app->get("/page/{obj}", function ($request, $response, $args) use ($app, $reque
 
     if ($res == null) {
         $response = $response->withStatus(302);
-        return $response->withHeader('Location', '/404');
+        return $response->withHeader('Location', '/404?t=' + time());
     }
 
     $view = Twig::fromRequest($request);
@@ -314,7 +314,7 @@ $app->post("/add_to_cart", function ($request, $response, $args) use ($app, $req
     );
 
     $response = $response->withStatus(302);
-    return $response->withHeader('Location', '/cart');
+    return $response->withHeader('Location', '/cart?t=' + time());
 
 });
 
@@ -1318,7 +1318,7 @@ $app->get("/{obj}", function ($request, $response, $args) use ($app, $request_ur
         }
 
         $response = $response->withStatus(302);
-        return $response->withHeader('Location', '/cart');
+        return $response->withHeader('Location', '/cart?t=' + time());
 
     } elseif ($obj == "your-data") {
 
