@@ -241,6 +241,16 @@ private $post_data=array();
    return $this->snd_request($this->server,$post_data);
   }
 
+ /*
+  * This function gets all delivery countries activated in the backend
+  */
+  public function get_delivery_countries()
+  {
+   $post_data=$this->post_data;
+   $post_data["request"]="get_delivery_countries";
+   return $this->snd_request($this->server,$post_data);
+  }
+
   /*
    * This function returns the actual order-details
    */

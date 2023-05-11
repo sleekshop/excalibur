@@ -180,7 +180,11 @@
 					<label class="form-label">{%trans%}Country{%endtrans%} *</label>
 					<select name="country" class="form-control" required>
 						<option value="">{%trans%}Please choose your country{%endtrans%}</option>
-						<option value="DE" {% if userdata.country=='DE'%}selected{%endif%}>{%trans%}Germany{%endtrans%}</option>
+						{% for value in delivery_countries.countries %}
+							<option value="{{value.iso}}" {% if userdata.country == value.iso %} selected {%endif%}>{{ value.printable_name }}</option>
+						{% else %}
+							<option value="DE" {% if userdata.country=='DE'%} selected {%endif%}>{%trans%}Germany{%endtrans%}</option>
+						{% endfor %}
 					</select>
 				</div>
 				
@@ -255,7 +259,11 @@
 					<div class="form-group mb-3">
 						<select name="dcountry" class="form-control">
 							<option value="">{%trans%}Please choose your country{%endtrans%}</option>
-							<option value="DE" {% if userdata.country=='DE'%}selected{%endif%}>{%trans%}Germany{%endtrans%}</option>
+							{% for value in delivery_countries.countries %}
+								<option value="{{value.iso}}" {% if userdata.country == value.iso %} selected {%endif%}>{{ value.printable_name }}</option>
+							{% else %}
+								<option value="DE" {% if userdata.country=='DE'%} selected {%endif%}>{%trans%}Germany{%endtrans%}</option>
+							{% endfor %}
 						</select>
 						<!-- <input type="text" name="country" class="form-control" value="{$userdata.country}"> -->
 					</div>
