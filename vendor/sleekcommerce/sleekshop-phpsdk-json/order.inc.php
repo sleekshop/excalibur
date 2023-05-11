@@ -72,6 +72,18 @@ public static function SetOrderDetails($session="",$args=array())
  }
 
 
+/*
+ * Gets the active delivery countries
+ */
+public static function GetDeliveryCountries()
+ {
+ 	$sr=new SleekShopRequest();
+ 	$json=$sr->get_delivery_countries($session,$args);
+ 	$json=json_decode($json);
+ 	return $json;
+ }
+
+
  /*
   * Gets the order details
   */

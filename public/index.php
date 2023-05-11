@@ -225,7 +225,7 @@ $app->get("/change-lang", function ($request, $response) use ($app, $language, $
     $res = ShopobjectsCtl::GetShopObjects(START_ID, $language, ["prio","price"], "ASC", 0, 0, ["name", "img1", "price", "short_description"]);
 
     $response = $response->withStatus(302);
-    return $response->withHeader('Location', '/?t=' + time());
+    return $response->withHeader('Location', '/?t=' . time());
 
 });
 
@@ -236,7 +236,7 @@ $app->get("/content/{obj}", function ($request, $response, $args) use ($app, $re
 
     if ($res == null) {
         $response = $response->withStatus(302);
-        return $response->withHeader('Location', '/404?t=' + time());
+        return $response->withHeader('Location', '/404?t=' . time());
     }
 
     $view = Twig::fromRequest($request);
@@ -258,7 +258,7 @@ $app->get("/page/{obj}", function ($request, $response, $args) use ($app, $reque
 
     if ($res == null) {
         $response = $response->withStatus(302);
-        return $response->withHeader('Location', '/404?t=' + time());
+        return $response->withHeader('Location', '/404?t=' . time());
     }
 
     $view = Twig::fromRequest($request);
@@ -284,6 +284,7 @@ $app->get("/express-checkout", function ($request, $response, $args) use ($app, 
     }
 
     $payment_methods = PaymentCtl::GetPaymentMethods();
+    $delivery_countries = OrderCtl::GetDeliveryCountries();
 
     $view = Twig::fromRequest($request);
     return $view->render($response, 'express.twig', [
@@ -293,7 +294,8 @@ $app->get("/express-checkout", function ($request, $response, $args) use ($app, 
         "cart" => $cart,
         "request_uri" => $request_uri,
         "language" => $language,
-        "payment_methods" => $payment_methods
+        "payment_methods" => $payment_methods,
+        "delivery_countries" => $delivery_countries
     ]);
 
 });
@@ -314,7 +316,7 @@ $app->post("/add_to_cart", function ($request, $response, $args) use ($app, $req
     );
 
     $response = $response->withStatus(302);
-    return $response->withHeader('Location', '/cart?t=' + time());
+    return $response->withHeader('Location', '/cart?t=' . time());
 
 });
 
@@ -330,6 +332,7 @@ $app->post("/login", function ($request, $response, $args) use ($app, $request_u
         setcookie("username", $username);
         $res = UserCtl::GetUserData(SessionCtl::GetSession());
         $profile = $_POST['profile'];
+        $delivery_countries = OrderCtl::GetDeliveryCountries();
         if ($profile != 1) {
 
             $view = Twig::fromRequest($request);
@@ -340,6 +343,7 @@ $app->post("/login", function ($request, $response, $args) use ($app, $request_u
                 "cart" => $cart,
                 "request_uri" => $request_uri,
                 "language" => $language,
+                "delivery_countries" => $delivery_countries
             ]);
 
         } else {
@@ -354,6 +358,7 @@ $app->post("/login", function ($request, $response, $args) use ($app, $request_u
                 "cart" => $cart,
                 "request_uri" => $request_uri,
                 "language" => $language,
+                "delivery_countries" => $delivery_countries
             ]);
 
         }
@@ -388,6 +393,8 @@ $app->post("/express-login", function ($request, $response, $args) use ($app, $r
         $res = UserCtl::GetUserData(SessionCtl::GetSession());
         $profile = $_POST['profile'];
 
+        $delivery_countries = OrderCtl::GetDeliveryCountries();
+
         $view = Twig::fromRequest($request);
         return $view->render($response, 'express.twig', [
             "userdata" => $res,
@@ -396,9 +403,12 @@ $app->post("/express-login", function ($request, $response, $args) use ($app, $r
             "cart" => $cart,
             "request_uri" => $request_uri,
             "language" => $language,
+            "delivery_countries" => $delivery_countries
         ]);
 
     } else {
+
+        $delivery_countries = OrderCtl::GetDeliveryCountries();
 
         $view = Twig::fromRequest($request);
         return $view->render($response, 'express.twig', [
@@ -409,6 +419,7 @@ $app->post("/express-login", function ($request, $response, $args) use ($app, $r
             "cart" => $cart,
             "request_uri" => $request_uri,
             "language" => $language,
+            "delivery_countries" => $delivery_countries
         ]);
 
     }
@@ -561,6 +572,7 @@ $app->post("/userdata", function ($request, $response, $args) use ($app, $reques
 
     if (count($error) != 0) {
         $error_count++;
+        $delivery_countries = OrderCtl::GetDeliveryCountries();
 
         $view = Twig::fromRequest($request);
         return $view->render($response, 'userdata.twig', [
@@ -568,6 +580,7 @@ $app->post("/userdata", function ($request, $response, $args) use ($app, $reques
             "error" => $error,
             "error_count" => $error_count,
             "language" => $language,
+            "delivery_countries" => $delivery_countries,
         ]);
 
     } else {
@@ -750,12 +763,15 @@ $app->post("/express-checkout", function ($request, $response, $args) use ($app,
     if (count($error) != 0) {
         $error_count++;
 
+        $delivery_countries = OrderCtl::GetDeliveryCountries();
+
         $view = Twig::fromRequest($request);
         return $view->render($response, 'express.twig', [
             "userdata" => $userdata,
             "error" => $error,
             "error_count" => $error_count,
             "language" => $language,
+            "delivery_countries" => $delivery_countries,
         ]);
 
     } else {
@@ -883,12 +899,14 @@ $app->post("/profile-userdata", function ($request, $response, $args) use ($app,
 
     if (count($error) != 0) {
         $error_count++;
+        $delivery_countries = OrderCtl::GetDeliveryCountries();
 
         $view = Twig::fromRequest($request);
         return $view->render($response, 'profile_userdata.twig', [
             "userdata" => $userdata,
             "error" => $error,
             "error_count" => $error_count,
+            "delivery_countries" => $delivery_countries,
         ]);
 
     } else {
@@ -909,6 +927,7 @@ $app->post("/profile-userdata", function ($request, $response, $args) use ($app,
         $res = UserCtl::SetUserData(SessionCtl::GetSession(), $args);
 
         //$payment_methods=PaymentCtl::GetPaymentMethods();
+        $delivery_countries = OrderCtl::GetDeliveryCountries();
 
         $view = Twig::fromRequest($request);
         return $view->render($response, 'profile_userdata.twig', [
@@ -919,7 +938,8 @@ $app->post("/profile-userdata", function ($request, $response, $args) use ($app,
             "username" => $username,
             "cart" => $cart,
             "language" => $language,
-            "success" => true
+            "success" => true,
+            "delivery_countries" => $delivery_countries,
         ]);
 
     }
@@ -1108,6 +1128,7 @@ $app->post("/express-register", function ($request, $response, $args) use ($app,
         if ($res["status"] == "SUCCESS") {
 
             UserCtl::VerifyUser($res["id_user"], $res["session_id"]);
+            $delivery_countries = OrderCtl::GetDeliveryCountries();
 
             $view = Twig::fromRequest($request);
             return $view->render($response, 'express.twig', [
@@ -1117,12 +1138,14 @@ $app->post("/express-register", function ($request, $response, $args) use ($app,
                 "cart" => $cart,
                 "language" => $language,
                 "menu" => $menu,
+                "delivery_countries" => $delivery_countries,
             ]);
 
         } else {
 
             $error++;
             $error_msg = $res["status"];
+            $delivery_countries = OrderCtl::GetDeliveryCountries();
 
             $view = Twig::fromRequest($request);
             return $view->render($response, 'express.twig', [
@@ -1133,6 +1156,7 @@ $app->post("/express-register", function ($request, $response, $args) use ($app,
                 "cart" => $cart,
                 "language" => $language,
                 "menu" => $menu,
+                "delivery_countries" => $delivery_countries,
             ]);
 
         }
@@ -1318,12 +1342,13 @@ $app->get("/{obj}", function ($request, $response, $args) use ($app, $request_ur
         }
 
         $response = $response->withStatus(302);
-        return $response->withHeader('Location', '/cart?t=' + time());
+        return $response->withHeader('Location', '/cart?t=' . time());
 
     } elseif ($obj == "your-data") {
 
         if ($username != "") {
             $res = UserCtl::GetUserData(SessionCtl::GetSession());
+            $delivery_countries = OrderCtl::GetDeliveryCountries();
 
             $view = Twig::fromRequest($request);
             return $view->render($response, 'userdata.twig', [
@@ -1333,6 +1358,7 @@ $app->get("/{obj}", function ($request, $response, $args) use ($app, $request_ur
                 "cart" => $cart,
                 "request_uri" => $request_uri,
                 "language" => $language,
+                "delivery_countries" => $delivery_countries,
             ]);
 
         } else {
@@ -1417,12 +1443,14 @@ $app->get("/{obj}", function ($request, $response, $args) use ($app, $request_ur
 
     } elseif ($obj == "userdata") {
 
+        $delivery_countries = OrderCtl::GetDeliveryCountries();
         $view = Twig::fromRequest($request);
         return $view->render($response, 'userdata.twig', [
             "menu" => $menu,
             "cart" => $cart,
             "username" => $username,
             "language" => $language,
+            "delivery_countries" => $delivery_countries,
         ]);
 
     } elseif ($obj == "order_summary") {
@@ -1461,6 +1489,7 @@ $app->get("/{obj}", function ($request, $response, $args) use ($app, $request_ur
         } else {
 
             $res = UserCtl::GetUserData(SessionCtl::GetSession());
+            $delivery_countries = OrderCtl::GetDeliveryCountries();
 
             $view = Twig::fromRequest($request);
             return $view->render($response, 'profile_userdata.twig', [
@@ -1470,6 +1499,7 @@ $app->get("/{obj}", function ($request, $response, $args) use ($app, $request_ur
                 "cart" => $cart,
                 "request_uri" => $request_uri,
                 "language" => $language,
+                "delivery_countries" => $delivery_countries,
             ]);
 
         }
