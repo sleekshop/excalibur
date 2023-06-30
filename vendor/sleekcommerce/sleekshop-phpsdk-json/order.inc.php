@@ -78,7 +78,7 @@ public static function SetOrderDetails($session="",$args=array())
 public static function GetDeliveryCountries()
  {
  	$sr=new SleekShopRequest();
- 	$json=$sr->get_delivery_countries($session,$args);
+ 	$json=$sr->get_delivery_countries();
  	$json=json_decode($json);
  	return $json;
  }

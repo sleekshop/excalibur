@@ -1,22 +1,22 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '3.x-dev',
-        'version' => '3.9999999.9999999.9999999-dev',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '88e3b6d54726dbe4f1211001e0748198e3f42aa9',
+        'reference' => '43cdcebfdf407d73d2b744f471d4bce3ffe582f0',
         'name' => '__root__',
         'dev' => true,
     ),
     'versions' => array(
         '__root__' => array(
-            'pretty_version' => '3.x-dev',
-            'version' => '3.9999999.9999999.9999999-dev',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '88e3b6d54726dbe4f1211001e0748198e3f42aa9',
+            'reference' => '43cdcebfdf407d73d2b744f471d4bce3ffe582f0',
             'dev_requirement' => false,
         ),
         'fig/http-message-util' => array(
@@ -110,6 +110,15 @@
             'install_path' => __DIR__ . '/../ralouphie/getallheaders',
             'aliases' => array(),
             'reference' => '120b605dfeb996808c31b6477290a714d356e822',
+            'dev_requirement' => false,
+        ),
+        'sleekcommerce/sleekshop-phpsdk-json' => array(
+            'pretty_version' => 'v1.7.1',
+            'version' => '1.7.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../sleekcommerce/sleekshop-phpsdk-json',
+            'aliases' => array(),
+            'reference' => 'db25aad06fbd80c5b83e48f995bf31187e2d2ed5',
             'dev_requirement' => false,
         ),
         'slim/psr7' => array(

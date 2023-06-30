@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d050a906213e0d11dd49cccbc22c33cd",
+    "content-hash": "5e662897526bea672654df4f7198754b",
     "packages": [
         {
             "name": "fig/http-message-util",
@@ -480,6 +480,48 @@
                 "source": "https://github.com/ralouphie/getallheaders/tree/develop"
             },
             "time": "2019-03-08T08:55:37+00:00"
+        },
+        {
+            "name": "sleekcommerce/sleekshop-phpsdk-json",
+            "version": "v1.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sleekshop/phpsdk-json.git",
+                "reference": "db25aad06fbd80c5b83e48f995bf31187e2d2ed5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sleekshop/phpsdk-json/zipball/db25aad06fbd80c5b83e48f995bf31187e2d2ed5",
+                "reference": "db25aad06fbd80c5b83e48f995bf31187e2d2ed5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kaveh Raji",
+                    "email": "info@sleekshop.io",
+                    "homepage": "https://www.sleekshop.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Controllers for connecting to sleekshop",
+            "homepage": "https://www.sleekshop.io",
+            "keywords": [
+                "sdk",
+                "sleekshop"
+            ],
+            "support": {
+                "issues": "https://github.com/sleekshop/phpsdk-json/issues",
+                "source": "https://github.com/sleekshop/phpsdk-json/tree/v1.7.1"
+            },
+            "time": "2023-06-30T15:24:45+00:00"
         },
         {
             "name": "slim/psr7",
@@ -1448,5 +1490,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }

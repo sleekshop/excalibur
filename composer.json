@@ -4,6 +4,7 @@
         "slim/psr7": "^1.5",
         "slim/twig-view": "^3.3",
         "symfony/translation": "^6.0",
-        "symfony/twig-bridge": "^6.0"
+        "symfony/twig-bridge": "^6.0",
+        "sleekcommerce/sleekshop-phpsdk-json": "^1.7"
     }
 }
