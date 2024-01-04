@@ -37,7 +37,7 @@
           
           {% set sum_tax=0 %}
           {% for value in cart.contents %}
-          {% set sum_tax=sum_tax+value.sum_price*value.attributes.sys_tax %}
+          {% set sum_tax=sum_tax+(value.sum_price*value.attributes.sys_tax/(value.attributes.sys_tax+1)) %}
         <div class="product-main d-flex flex-wrap justify-content-between border-btm py-3">
           <div class="left">
             <div class="d-md-flex d-block align-items-center">
