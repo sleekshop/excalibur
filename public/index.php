@@ -796,7 +796,7 @@ $app->post("/express-checkout", function ($request, $response, $args) use ($app,
             "id_payment_method" => $id_payment,
             "id_delivery_method" => 1,
         ]);
-
+        $cart=CartCtl::Get(SessionCtl::GetSession());
         $view = Twig::fromRequest($request);
         return $view->render($response, 'order_summary.twig', [
             "order" => $order,
