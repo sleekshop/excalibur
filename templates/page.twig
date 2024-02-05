@@ -8,7 +8,7 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="preload" href="/css/bootstrap/bootstrap.min.css" as="style"
           onload="this.onload=null;this.rel='stylesheet'">
-    {% include "part_favicon.twig" %}
+    {% include "part_favicon.twig" ignore missing %}
     <noscript>
         <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
     </noscript>
@@ -18,8 +18,8 @@
     </noscript>
     {%if canonical!=''%}<link rel="canonical" href="{{canonical}}" />{%endif%}
     <base href="/">
-    {% include "part_theming.twig" %}
-    {% include "part_header_snippets.twig" %}
+    {% include "part_theming.twig" ignore missing %}
+    {% include "part_header_snippets.twig" ignore missing %}
 </head>
 <body>
 {% for value in res.contents.byclass.shop_banner %}
@@ -142,7 +142,7 @@
         <div class="row">
 
             <div class="col-md-4 mt-2">
-                <a href="/">{% include 'part_logo.twig' %}</a>
+                <a href="/">{% include 'part_logo.twig' ignore missing %}</a>
             </div>
 
             <div class="col-md-8">
@@ -172,7 +172,7 @@
         <hr>
         <div class="row">
             <div class="col-md-3">
-                {% include 'part_about_us_footer_'~language|slice(0,2) ~ '.twig' %}
+                {% include 'part_about_us_footer_'~language|slice(0,2) ~ '.twig' ignore missing %}
             </div>
             <div class="col-md-3">
                 <h4>Infos</h4>
@@ -194,7 +194,7 @@
             </div>
             <div class="col-md-3">
                 <h4>Netzwerke</h4>
-                {% include 'part_social_links.twig' %}
+                {% include 'part_social_links.twig' ignore missing  %}
             </div>
             <div class="col-md-12">
                 <p align="right">Powered by <a href="https://www.sleekshop.io">sleekshop</a></p>
@@ -210,5 +210,5 @@
 <script src="/js/jquery/jquery.imageLens.js" defer></script>
 <script src="/js/mayalist/mayalist.js" defer></script>
 <script src="/js/main.js" defer></script>
-{% include "part_bottom_snippets.twig" %}
+{% include "part_bottom_snippets.twig" ignore missing%}
 </html>
