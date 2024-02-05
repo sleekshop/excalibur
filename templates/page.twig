@@ -18,10 +18,10 @@
     </noscript>
     {%if canonical!=''%}<link rel="canonical" href="{{canonical}}" />{%endif%}
     <base href="/">
+    {% include "part_theming.twig" %}
     {% include "part_header_snippets.twig" %}
 </head>
 <body>
-
 {% for value in res.contents.byclass.shop_banner %}
     <div class="alert alert-{{ value.attributes.color.value }} text-center" role="alert" style="top: 56px;">
         {{ value.attributes.text.value }}
