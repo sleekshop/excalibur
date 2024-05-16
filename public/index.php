@@ -1130,9 +1130,15 @@ $app->post("/express-register", function ($request, $response, $args) use ($app,
             UserCtl::VerifyUser($res["id_user"], $res["session_id"]);
             $delivery_countries = OrderCtl::GetDeliveryCountries();
 
+            UserCtl::Login(SessionCtl::GetSession(), $user, $passwd1);
+            setcookie("username", $email);
+            $res = UserCtl::GetUserData(SessionCtl::GetSession());
+
             $view = Twig::fromRequest($request);
             return $view->render($response, 'express.twig', [
                 "error" => 0,
+                "userdata" => $res,
+                "username" => $user,
                 "user" => $user,
                 "email" => $email,
                 "cart" => $cart,
@@ -1582,5 +1588,3 @@ $app->get("/{obj}", function ($request, $response, $args) use ($app, $request_ur
 
 // Run app
 $app->run();
-
-?>
