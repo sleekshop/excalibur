@@ -999,8 +999,8 @@ $app->post("/checkout", function ($request, $response, $args) use ($app, $reques
         $msg = OrderCtl::GetOrderConfirmation($res["id_order"], [
             "invoice_link" => $invoice_link,
         ]);
-        send_html_mail($order["email"], utf8_decode($subject), utf8_decode($msg), ORDER_SENDER);
-        send_html_mail(ORDER_SENDER, utf8_decode($subject), utf8_decode($msg), ORDER_SENDER);
+        send_html_mail($order["email"], $subject, $msg, ORDER_SENDER);
+        send_html_mail(ORDER_SENDER, $subject, $msg, ORDER_SENDER);
 
         $id_order = $res["id_order"];
         $session = $res["session"];
