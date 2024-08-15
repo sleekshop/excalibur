@@ -6,53 +6,44 @@
 */
 function is_valid_email($email)
 {
-   if(eregi("^[a-zA-Z0-9_]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$]", $email))
-   {
-      return(0);
-   }
-    return(1);
-   list($Username, $Domain) = split("@",$email);
+    if (eregi("^[a-zA-Z0-9_]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$]", $email)) {
+        return (0);
+    }
+    return (1);
+    list($Username, $Domain) = split("@", $email);
 
-   if(getmxrr($Domain, $MXHost))
-   {
-      return(1);
-   }
-   else
-   {
-      if(@fsockopen($Domain, 25, $errno, $errstr, 30))
-      {
-         return(1);
-      }
-      else
-      {
-         return(0);
-      }
-   }
+    if (getmxrr($Domain, $MXHost)) {
+        return (1);
+    } else {
+        if (@fsockopen($Domain, 25, $errno, $errstr, 30)) {
+            return (1);
+        } else {
+            return (0);
+        }
+    }
 }
 
 
 /**
  * Sends a simple plain - mail
  */
-function send_plain_mail($receiver,$subject,$message,$from)
+function send_plain_mail($receiver, $subject, $message, $from)
 {
 
-$header_ = 'MIME-Version: 1.0' . "\r\n" . 'Content-type: text/plain; charset=UTF-8' . "\r\n";
-$header .= "From: $from";
-  mail($receiver, $subject, $message, $header);
+    $header_ = 'MIME-Version: 1.0' . "\r\n" . 'Content-type: text/plain; charset=UTF-8' . "\r\n";
+    $header .= "From: $from";
+    mail($receiver, $subject, $message, $header);
 
 }
+
 /*
 * For sending html - emails
 */
-function send_html_mail($receiver,$subject,$message,$from)
- {
-$headers = "From: " . strip_tags($from) . "\r\n";
-$headers .= "Reply-To: ". strip_tags($from) . "\r\n";
-$headers .= "MIME-Version: 1.0\r\n";
-$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-mail($receiver, $subject, $message, $headers);
- }
-
-
-?>
+function send_html_mail($receiver, $subject, $message, $from)
+{
+    $headers = "From: " . strip_tags($from) . "\r\n";
+    $headers .= "Reply-To: " . strip_tags($from) . "\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+    mail($receiver, $subject, $message, $headers);
+}

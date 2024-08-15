@@ -999,8 +999,8 @@ $app->post("/checkout", function ($request, $response, $args) use ($app, $reques
         $msg = OrderCtl::GetOrderConfirmation($res["id_order"], [
             "invoice_link" => $invoice_link,
         ]);
-        send_html_mail($order["email"], utf8_decode($subject), utf8_decode($msg), ORDER_SENDER);
-        send_html_mail(ORDER_SENDER, utf8_decode($subject), utf8_decode($msg), ORDER_SENDER);
+        send_html_mail($order["email"], $subject, $msg, ORDER_SENDER);
+        send_html_mail(ORDER_SENDER, $subject, $msg, ORDER_SENDER);
 
         $id_order = $res["id_order"];
         $session = $res["session"];
@@ -1130,9 +1130,15 @@ $app->post("/express-register", function ($request, $response, $args) use ($app,
             UserCtl::VerifyUser($res["id_user"], $res["session_id"]);
             $delivery_countries = OrderCtl::GetDeliveryCountries();
 
+            UserCtl::Login(SessionCtl::GetSession(), $user, $passwd1);
+            setcookie("username", $user);
+            $res = UserCtl::GetUserData(SessionCtl::GetSession());
+
             $view = Twig::fromRequest($request);
             return $view->render($response, 'express.twig', [
                 "error" => 0,
+                "userdata" => $res,
+                "username" => $user,
                 "user" => $user,
                 "email" => $email,
                 "cart" => $cart,
@@ -1582,5 +1588,3 @@ $app->get("/{obj}", function ($request, $response, $args) use ($app, $request_ur
 
 // Run app
 $app->run();
-
-?>
