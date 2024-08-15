@@ -1131,7 +1131,7 @@ $app->post("/express-register", function ($request, $response, $args) use ($app,
             $delivery_countries = OrderCtl::GetDeliveryCountries();
 
             UserCtl::Login(SessionCtl::GetSession(), $user, $passwd1);
-            setcookie("username", $email);
+            setcookie("username", $user);
             $res = UserCtl::GetUserData(SessionCtl::GetSession());
 
             $view = Twig::fromRequest($request);
