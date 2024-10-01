@@ -27,7 +27,7 @@ require "../vendor/sleekcommerce/init.inc.php";
 $app = AppFactory::create();
 
 // Create Twig
-$twig = Twig::create('../templates', ['cache' => TEMPLATE_PATH . '/cache']);
+$twig = Twig::create('../templates', ['cache' => TEMPLATE_PATH . '/cache', 'auto_reload' => true]);
 
 // Create Translator
 $translator = new Translator($language, new MessageFormatter(new IdentityTranslator()));
